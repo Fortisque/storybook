@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="JFE-87-4Kt" kind="relationship" relationship="rootViewController" id="HTq-KB-paU"/>
+                        <segue destination="MMJ-lj-5vy" kind="relationship" relationship="rootViewController" id="OYu-fF-Cme"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,26 +107,30 @@
                         <outlet property="emailField" destination="sY9-51-Tvm" id="bV4-hx-gQz"/>
                         <outlet property="errorLabel" destination="JLp-tu-0dV" id="2KR-eq-Ucq"/>
                         <outlet property="passwordField" destination="Vn0-vG-3Gd" id="cXf-Qb-lNd"/>
-                        <segue destination="JFE-87-4Kt" kind="show" identifier="success" id="3n4-9B-IfT"/>
+                        <segue destination="MMJ-lj-5vy" kind="show" identifier="success" id="1aE-85-aGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-417" y="228.75"/>
+            <point key="canvasLocation" x="-369" y="228.75"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Themes View Controller-->
         <scene sceneID="haK-uE-RnB">
             <objects>
-                <tableViewController id="MMJ-lj-5vy" sceneMemberID="viewController">
+                <tableViewController id="MMJ-lj-5vy" customClass="ThemesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="g8f-FV-Pag">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="igB-2K-PVd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="temp" id="igB-2K-PVd">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="igB-2K-PVd" id="aMA-Yn-SGv">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JFE-87-4Kt" kind="show" identifier="selected_theme" id="aAy-yx-VOW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -134,10 +138,11 @@
                             <outlet property="delegate" destination="MMJ-lj-5vy" id="E5L-JK-xVM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="HwU-6b-Yxh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1D-r8-dN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287.25" y="228.75"/>
+            <point key="canvasLocation" x="344.25" y="228.75"/>
         </scene>
         <!--Book Collection View Controller-->
         <scene sceneID="8CP-tD-b7S">
@@ -165,7 +170,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbc-LA-0DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1017.75" y="276.75"/>
+            <point key="canvasLocation" x="1007.25" y="228.75"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="Yp9-n5-wOl">
@@ -225,6 +230,17 @@
                                     <rect key="frame" x="742" y="580" width="33" height="21"/>
                                 </variation>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0tt-vJ-o6N">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="288" y="577" width="225" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="Tep-7x-zAA" id="cun-vk-aCy"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -235,6 +251,7 @@
                                 <exclude reference="6DD-SJ-4i0"/>
                                 <exclude reference="vGz-KB-slj"/>
                                 <exclude reference="60x-Gh-va6"/>
+                                <exclude reference="0tt-vJ-o6N"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -244,12 +261,14 @@
                                 <include reference="6DD-SJ-4i0"/>
                                 <include reference="vGz-KB-slj"/>
                                 <include reference="60x-Gh-va6"/>
+                                <include reference="0tt-vJ-o6N"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="currentLabel" destination="6DD-SJ-4i0" id="gho-gK-eyD"/>
                         <outlet property="numberOfPagesLabel" destination="60x-Gh-va6" id="A6S-VZ-0vX"/>
+                        <outlet property="sampleTextField" destination="0tt-vJ-o6N" id="ulC-YY-cnZ"/>
                         <outlet property="textLabel" destination="9Dc-XS-k8A" id="poV-n5-zk7"/>
                         <outlet property="titleLabel" destination="HIj-Z3-ofW" id="KD6-dP-oT6"/>
                     </connections>
@@ -260,6 +279,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3n4-9B-IfT"/>
+        <segue reference="OYu-fF-Cme"/>
     </inferredMetricsTieBreakers>
 </document>

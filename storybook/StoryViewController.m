@@ -8,6 +8,7 @@
 
 #import "StoryViewController.h"
 #import <BuiltIO/BuiltIO.h>
+#import "GRMustache.h"
 
 @interface StoryViewController ()
 @property (strong, nonatomic) NSDictionary *storyData;
@@ -55,12 +56,47 @@
 
 - (void)updateStory
 {
-    NSString *text = [_pages objectAtIndex:_currentPageIndex];
     [_titleLabel setText:[_storyData objectForKey:@"title"]];
-    [_textLabel setText:text];
-    [_currentLabel setText:[NSString stringWithFormat:@"%d", _currentPageIndex + 1]];
     [_numberOfPagesLabel setText:[NSString stringWithFormat:@"%d", _numberOfPages]];
+    [_currentLabel setText:[NSString stringWithFormat:@"%d", _currentPageIndex + 1]];
+    [self updateText];
+}
+
+- (void)updateText
+{
+    NSString *text = [_pages objectAtIndex:_currentPageIndex];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(<% .* %>)" options:NSRegularExpressionCaseInsensitive error:NULL];
+    NSTextCheckingResult *newSearchString = [regex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
+    NSString *match = [text substringWithRange:newSearchString.range];
     
+    if ([match length] != 0) {
+        text = [text stringByReplacingCharactersInRange:newSearchString.range withString:@""];
+        NSString *data = [match substringWithRange:NSMakeRange(3, [match length] - 6)];
+        NSArray *tmp = [data componentsSeparatedByString:@", "];
+        [[NSUserDefaults standardUserDefaults] setObject:[tmp objectAtIndex:1] forKey:@"current_question"];
+        [_sampleTextField setHidden:NO];
+    } else {
+        [_sampleTextField setHidden:YES];
+    }
+    
+//    regex = [NSRegularExpression regularExpressionWithPattern:@"(<%= .* %>)" options:NSRegularExpressionCaseInsensitive error:NULL];
+//    newSearchString = [regex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
+//    match = [text substringWithRange:newSearchString.range];
+//    
+//    if ([match length] != 0) {
+//        // ugh this is hard.
+//    } else {
+//        [_sampleTextField setHidden:YES];
+//    }
+    
+    NSDictionary *retrievedDictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_values"];
+    
+    NSLog(@"%@", retrievedDictionary);
+    
+    NSString *rendering = [GRMustacheTemplate renderObject:retrievedDictionary fromString:text error:NULL];
+    
+    
+    [_textLabel setText:rendering];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +113,33 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"end");
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSMutableDictionary *retrievedDictionary = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_values"] mutableCopy];
+    
+    if (!retrievedDictionary) {
+        retrievedDictionary = [[NSMutableDictionary alloc] init];
+    }
+    NSString *question = [[NSUserDefaults standardUserDefaults] objectForKey:@"current_question"];
+    NSString *answer = textField.text;
+    
+    [retrievedDictionary setObject:answer forKey:question];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:retrievedDictionary forKey:@"user_values"];
+    [self swipeLeft];
+    return YES;
+}
 
 - (void)swipeRight {
     if (_currentPageIndex == 0) {
@@ -100,12 +163,10 @@
 
 -(void)PerformAction:(UISwipeGestureRecognizer *)sender {
     if(sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        NSLog(@"RIGHT GESTURE");
         [self swipeRight];
     }
     
     if(sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        NSLog(@"LEFT GESTURE");
         [self swipeLeft];
     }
 }

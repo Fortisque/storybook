@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StoryViewController : UIViewController
+@interface StoryViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
 @property (strong, nonatomic) IBOutlet UILabel *currentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *numberOfPagesLabel;
+@property (strong, nonatomic) IBOutlet UITextField *sampleTextField;
 
 @end
