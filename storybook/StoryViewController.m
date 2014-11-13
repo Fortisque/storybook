@@ -69,29 +69,21 @@
     NSTextCheckingResult *newSearchString = [regex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
     NSString *match = [text substringWithRange:newSearchString.range];
     
+    NSDictionary *retrievedDictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_values"];
+    [_sampleTextField setHidden:YES];
     if ([match length] != 0) {
         text = [text stringByReplacingCharactersInRange:newSearchString.range withString:@""];
         NSString *data = [match substringWithRange:NSMakeRange(3, [match length] - 6)];
         NSArray *tmp = [data componentsSeparatedByString:@", "];
-        [[NSUserDefaults standardUserDefaults] setObject:[tmp objectAtIndex:1] forKey:@"current_question"];
-        [_sampleTextField setHidden:NO];
-    } else {
-        [_sampleTextField setHidden:YES];
+        NSString *action = [tmp objectAtIndex:0];
+        NSString *value = [tmp objectAtIndex:1];
+        if ([action isEqual: @"set_color"]) {
+            [self.view setBackgroundColor:[self giveColorfromStringColor:[retrievedDictionary objectForKey:value]]];
+        } else if ([action isEqual: @"text_field"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:value forKey:@"current_question"];
+            [_sampleTextField setHidden:NO];
+        }
     }
-    
-//    regex = [NSRegularExpression regularExpressionWithPattern:@"(<%= .* %>)" options:NSRegularExpressionCaseInsensitive error:NULL];
-//    newSearchString = [regex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
-//    match = [text substringWithRange:newSearchString.range];
-//    
-//    if ([match length] != 0) {
-//        // ugh this is hard.
-//    } else {
-//        [_sampleTextField setHidden:YES];
-//    }
-    
-    NSDictionary *retrievedDictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"user_values"];
-    
-    NSLog(@"%@", retrievedDictionary);
     
     NSString *rendering = [GRMustacheTemplate renderObject:retrievedDictionary fromString:text error:NULL];
     
@@ -138,7 +130,16 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:retrievedDictionary forKey:@"user_values"];
     [self swipeLeft];
+    textField.text = @"";
     return YES;
+}
+
+-(UIColor *)giveColorfromStringColor:(NSString *)colorname
+{
+    NSString *result = [NSString stringWithFormat:@"%@Color", colorname];
+    SEL labelColor = NSSelectorFromString(result);
+    UIColor *color = [UIColor performSelector:labelColor];
+    return color;
 }
 
 - (void)swipeRight {
