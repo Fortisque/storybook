@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="MMJ-lj-5vy" kind="relationship" relationship="rootViewController" id="OYu-fF-Cme"/>
+                        <segue destination="QQt-of-2VF" kind="relationship" relationship="rootViewController" id="3uc-Sr-AtT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,8 +277,15 @@
             </objects>
             <point key="canvasLocation" x="1697.25" y="280.5"/>
         </scene>
+        <!--Pages View Controller-->
+        <scene sceneID="XY9-xc-voz">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="QQt-of-2VF" customClass="PagesViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="e8w-TC-sX9"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4N-Ui-ilJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="989"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="OYu-fF-Cme"/>
-    </inferredMetricsTieBreakers>
 </document>
