@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SampleViewController : UIViewController
+@interface NormalPageViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *text;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end

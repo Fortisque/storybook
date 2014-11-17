@@ -7,7 +7,7 @@
 //
 
 #import "PagesViewController.h"
-#import "SampleViewController.h"
+#import "NormalPageViewController.h"
 #import "SampleTwoViewController.h"
 
 @interface PagesViewController ()
@@ -22,7 +22,7 @@
     
     NSLog(@"load");
     
-    SampleViewController *dataViewController = [[SampleViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
+    NormalPageViewController *dataViewController = [[NormalPageViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
     
     SampleTwoViewController *s2vc = [[SampleTwoViewController alloc] initWithNibName:@"SampleTwoViewController" bundle:nil];
     

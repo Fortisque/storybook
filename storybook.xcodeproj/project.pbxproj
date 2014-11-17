@@ -32,8 +32,8 @@
 		990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */; };
 		9935465E1A13C77D00A41513 /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935465D1A13C77D00A41513 /* StoryViewController.m */; };
 		995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AE71A19E43400E4F28F /* PagesViewController.m */; };
-		995E7AEC1A19E58A00E4F28F /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* SampleViewController.m */; };
-		995E7AED1A19E58A00E4F28F /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995E7AEB1A19E58A00E4F28F /* SampleViewController.xib */; };
+		995E7AEC1A19E58A00E4F28F /* NormalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */; };
+		995E7AED1A19E58A00E4F28F /* NormalPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */; };
 		995E7AF11A19E62D00E4F28F /* SampleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEF1A19E62D00E4F28F /* SampleTwoViewController.m */; };
 		995E7AF21A19E62D00E4F28F /* SampleTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995E7AF01A19E62D00E4F28F /* SampleTwoViewController.xib */; };
 		99656F901A14955400663C0F /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99656F8F1A14955400663C0F /* ThemesViewController.m */; };
@@ -86,9 +86,9 @@
 		9935465D1A13C77D00A41513 /* StoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryViewController.m; sourceTree = "<group>"; };
 		995E7AE61A19E43400E4F28F /* PagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesViewController.h; sourceTree = "<group>"; };
 		995E7AE71A19E43400E4F28F /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; };
-		995E7AE91A19E58A00E4F28F /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
-		995E7AEA1A19E58A00E4F28F /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
-		995E7AEB1A19E58A00E4F28F /* SampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleViewController.xib; sourceTree = "<group>"; };
+		995E7AE91A19E58A00E4F28F /* NormalPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalPageViewController.h; sourceTree = "<group>"; };
+		995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalPageViewController.m; sourceTree = "<group>"; };
+		995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalPageViewController.xib; sourceTree = "<group>"; };
 		995E7AEE1A19E62D00E4F28F /* SampleTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTwoViewController.h; sourceTree = "<group>"; };
 		995E7AEF1A19E62D00E4F28F /* SampleTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTwoViewController.m; sourceTree = "<group>"; };
 		995E7AF01A19E62D00E4F28F /* SampleTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTwoViewController.xib; sourceTree = "<group>"; };
@@ -169,9 +169,9 @@
 				990BABFA1A12D3C00014EDD3 /* Main.storyboard */,
 				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
 				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
-				995E7AE91A19E58A00E4F28F /* SampleViewController.h */,
-				995E7AEA1A19E58A00E4F28F /* SampleViewController.m */,
-				995E7AEB1A19E58A00E4F28F /* SampleViewController.xib */,
+				995E7AE91A19E58A00E4F28F /* NormalPageViewController.h */,
+				995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */,
+				995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */,
 				995E7AEE1A19E62D00E4F28F /* SampleTwoViewController.h */,
 				995E7AEF1A19E62D00E4F28F /* SampleTwoViewController.m */,
 				995E7AF01A19E62D00E4F28F /* SampleTwoViewController.xib */,
@@ -320,7 +320,7 @@
 				990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
-				995E7AED1A19E58A00E4F28F /* SampleViewController.xib in Resources */,
+				995E7AED1A19E58A00E4F28F /* NormalPageViewController.xib in Resources */,
 				990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */,
 				995E7AF21A19E62D00E4F28F /* SampleTwoViewController.xib in Resources */,
 			);
@@ -382,7 +382,7 @@
 				990BAC301A12DC7D0014EDD3 /* BookCollectionViewController.m in Sources */,
 				995E7AF11A19E62D00E4F28F /* SampleTwoViewController.m in Sources */,
 				995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */,
-				995E7AEC1A19E58A00E4F28F /* SampleViewController.m in Sources */,
+				995E7AEC1A19E58A00E4F28F /* NormalPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +512,7 @@
 					"$(PROJECT_DIR)/storybook",
 				);
 				INFOPLIST_FILE = storybook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -531,6 +532,7 @@
 					"$(PROJECT_DIR)/storybook",
 				);
 				INFOPLIST_FILE = storybook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
