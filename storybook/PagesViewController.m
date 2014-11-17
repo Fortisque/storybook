@@ -8,9 +8,10 @@
 
 #import "PagesViewController.h"
 #import "SampleViewController.h"
+#import "SampleTwoViewController.h"
 
 @interface PagesViewController ()
-
+@property (nonatomic, strong) NSArray *vcs;
 @end
 
 @implementation PagesViewController
@@ -22,6 +23,10 @@
     NSLog(@"load");
     
     SampleViewController *dataViewController = [[SampleViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
+    
+    SampleTwoViewController *s2vc = [[SampleTwoViewController alloc] initWithNibName:@"SampleTwoViewController" bundle:nil];
+    
+    _vcs = [NSArray arrayWithObjects:dataViewController, s2vc, nil];
     
     NSArray *viewControllers = [NSArray arrayWithObjects:dataViewController, nil];
     
@@ -44,7 +49,14 @@
     
     NSLog(@"before");
     
-    return [[SampleViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
+    NSUInteger index = [_vcs indexOfObject:viewController];
+    
+    if (index == 0) {
+        return nil;
+    }
+    
+    
+    return [_vcs objectAtIndex:index - 1];
     
 }
 
@@ -52,7 +64,16 @@
     
     NSLog(@"after");
     
-    return [[SampleViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
+    NSUInteger index = [_vcs indexOfObject:viewController];
+    
+    NSUInteger newIndex = index + 1;
+    
+    if (newIndex == [_vcs count]) {
+        return nil;
+    }
+    
+    
+    return [_vcs objectAtIndex:newIndex];
     
 }
 
