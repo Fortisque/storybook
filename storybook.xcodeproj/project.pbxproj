@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
+		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
+		70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */; };
 		86D9C7C91A1B10E5002C759D /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7C81A1B10E5002C759D /* TileView.m */; };
 		86D9C7CB1A1B115E002C759D /* TileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7CA1A1B115E002C759D /* TileView.xib */; };
 		86D9C7CF1A1B14A7002C759D /* UnscrambleWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscrambleWordsViewController.m */; };
 		86D9C7D01A1B14A7002C759D /* UnscrambleWordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7CE1A1B14A7002C759D /* UnscrambleWordsViewController.xib */; };
-		86D9C7D31A1B2794002C759D /* DragAndDropUIGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7D21A1B2794002C759D /* DragAndDropUIGestureRecognizer.m */; };
-		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
-		70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */; };
+		86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7D51A1B3D4C002C759D /* TileContainerView.m */; };
+		86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */; };
 		990BABF31A12D3C00014EDD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF21A12D3C00014EDD3 /* main.m */; };
 		990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF51A12D3C00014EDD3 /* AppDelegate.m */; };
 		990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF81A12D3C00014EDD3 /* LoginViewController.m */; };
@@ -58,17 +59,18 @@
 /* Begin PBXFileReference section */
 		0E946FC2E97AA18D8E788BF3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4A811D5045D024A42E2CB7B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
+		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
+		70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoicePageViewController.xib; sourceTree = "<group>"; };
 		86D9C7C71A1B10E5002C759D /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
 		86D9C7C81A1B10E5002C759D /* TileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileView.m; sourceTree = "<group>"; };
 		86D9C7CA1A1B115E002C759D /* TileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileView.xib; sourceTree = "<group>"; };
 		86D9C7CC1A1B14A7002C759D /* UnscrambleWordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnscrambleWordsViewController.h; sourceTree = "<group>"; };
 		86D9C7CD1A1B14A7002C759D /* UnscrambleWordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnscrambleWordsViewController.m; sourceTree = "<group>"; };
 		86D9C7CE1A1B14A7002C759D /* UnscrambleWordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnscrambleWordsViewController.xib; sourceTree = "<group>"; };
-		86D9C7D11A1B2794002C759D /* DragAndDropUIGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDropUIGestureRecognizer.h; sourceTree = "<group>"; };
-		86D9C7D21A1B2794002C759D /* DragAndDropUIGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragAndDropUIGestureRecognizer.m; sourceTree = "<group>"; };
-		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
-		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
-		70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoicePageViewController.xib; sourceTree = "<group>"; };
+		86D9C7D41A1B3D4C002C759D /* TileContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileContainerView.h; sourceTree = "<group>"; };
+		86D9C7D51A1B3D4C002C759D /* TileContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileContainerView.m; sourceTree = "<group>"; };
+		86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileContainerView.xib; sourceTree = "<group>"; };
 		990BABED1A12D3C00014EDD3 /* storybook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storybook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BABF11A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BABF21A12D3C00014EDD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -211,8 +213,9 @@
 				86D9C7CC1A1B14A7002C759D /* UnscrambleWordsViewController.h */,
 				86D9C7CD1A1B14A7002C759D /* UnscrambleWordsViewController.m */,
 				86D9C7CE1A1B14A7002C759D /* UnscrambleWordsViewController.xib */,
-				86D9C7D11A1B2794002C759D /* DragAndDropUIGestureRecognizer.h */,
-				86D9C7D21A1B2794002C759D /* DragAndDropUIGestureRecognizer.m */,
+				86D9C7D41A1B3D4C002C759D /* TileContainerView.h */,
+				86D9C7D51A1B3D4C002C759D /* TileContainerView.m */,
+				86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */,
 			);
 			path = storybook;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */,
 				86D9C7D01A1B14A7002C759D /* UnscrambleWordsViewController.xib in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
+				86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
 				990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */,
 				70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */,
@@ -408,8 +412,8 @@
 				990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */,
 				9935465E1A13C77D00A41513 /* StoryViewController.m in Sources */,
 				990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */,
+				86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */,
 				990BABF31A12D3C00014EDD3 /* main.m in Sources */,
-				86D9C7D31A1B2794002C759D /* DragAndDropUIGestureRecognizer.m in Sources */,
 				86D9C7C91A1B10E5002C759D /* TileView.m in Sources */,
 				990BAC301A12DC7D0014EDD3 /* BookCollectionViewController.m in Sources */,
 				995E7AF11A19E62D00E4F28F /* SampleTwoViewController.m in Sources */,

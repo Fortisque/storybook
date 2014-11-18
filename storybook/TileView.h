@@ -16,7 +16,8 @@
 
 - (instancetype) initWithLetter: (NSString *) letter;
 
-//@property CGPoint originalPosition;
+@property BOOL matched;
+@property CGPoint originalPosition;
 //@property CGPoint touchOffset;
 
 @end

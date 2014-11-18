@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TileView.h"
 
 @interface UnscrambleWordsViewController : UIViewController
 
