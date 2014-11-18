@@ -6,21 +6,18 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "NormalPageViewController.h"
+#import "BasePageViewController.h"
 @import AVFoundation;
 
-@interface NormalPageViewController ()
+@interface BasePageViewController ()
 @property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 
 @end
 
-@implementation NormalPageViewController
-
-NSString * _text;
-NSString * _imageName;
+@implementation BasePageViewController
 
 - (id)init {
-    self = [super initWithNibName:@"NormalPageViewController" bundle:nil];
+    self = [super initWithNibName:@"BasePageViewController" bundle:nil];
     if (self != nil)
     {
         // Further initialization if needed
@@ -29,11 +26,17 @@ NSString * _imageName;
 }
 
 - (id)initWithText:(NSString *)text andImageName:(NSString *) imageName {
-    self = [super initWithNibName:@"NormalPageViewController" bundle:nil];
+    //self = [super initWithNibName:@"NormalPageViewController" bundle:nil];
+    
+    
     if (self != nil)
     {
-        _text = text;
-        _imageName = imageName;
+        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 240, 300, 30)];
+        _textLabel.text = text;
+        
+        
+        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        _imageView.frame = CGRectMake(100, 340, 300, 300);
     }
     return self;
 }
@@ -42,9 +45,9 @@ NSString * _imageName;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [_textLabel setText:_text];
-    UIImage *image = [UIImage imageNamed: _imageName];
-    [_imageView setImage:image];
+    [self.view addSubview:_textLabel];
+    [self.view addSubview:_imageView];
+    
     [self startSpeaking];
 }
 

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NormalPageViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@interface BasePageViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *textLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 - (id)initWithText:(NSString *)text andImageName:(NSString *) imageName;
 

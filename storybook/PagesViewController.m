@@ -7,7 +7,7 @@
 //
 
 #import "PagesViewController.h"
-#import "NormalPageViewController.h"
+#import "BasePageViewController.h"
 #import "VoicePageViewController.h"
 #import "SampleTwoViewController.h"
 
@@ -23,13 +23,11 @@
     
     NSLog(@"load");
     
-    NormalPageViewController *normalPageViewController = [[NormalPageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
+    BasePageViewController *normalPageViewController = [[BasePageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
     
-    VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithNibName:@"VoicePageViewController" bundle:nil];
+    VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
     
-    SampleTwoViewController *s2vc = [[SampleTwoViewController alloc] initWithNibName:@"SampleTwoViewController" bundle:nil];
-    
-    _vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, s2vc, nil];
+    _vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, nil];
     
     NSArray *viewControllers = [NSArray arrayWithObjects:normalPageViewController, nil];
     

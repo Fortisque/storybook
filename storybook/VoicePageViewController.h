@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "BasePageViewController.h"
 
-@interface VoicePageViewController : UIViewController
+@interface VoicePageViewController : BasePageViewController
 <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (strong, nonatomic) AVAudioRecorder *audioRecorder;
