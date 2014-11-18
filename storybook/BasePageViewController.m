@@ -17,6 +17,8 @@
 @implementation BasePageViewController
 
 - (id)init {
+    self = [super init];
+    
     if (self != nil)
     {
         // Further initialization if needed
@@ -30,12 +32,12 @@
     
     if (self != nil)
     {
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 240, 300, 30)];
+        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, 300, 30)];
         _textLabel.text = text;
         
         
         _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-        _imageView.frame = CGRectMake(100, 340, 300, 300);
+        _imageView.frame = CGRectMake(500, 240, 200, 150);
     }
     return self;
 }

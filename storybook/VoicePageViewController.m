@@ -17,7 +17,7 @@
 @implementation VoicePageViewController
 
 - (id)init {
-    self = [super initWithNibName:@"VoicePageViewController" bundle:nil];
+    self = [super init];
     if (self != nil)
     {
         // Further initialization if needed
@@ -29,7 +29,22 @@
 {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view from its nib.
+    _recordButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_recordButton addTarget:self
+               action:@selector(recordAudio:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [_recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    _recordButton.frame = CGRectMake(80.0, 310.0, 160.0, 40.0);
+    [self.view addSubview:_recordButton];
+    
+    _playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_playButton addTarget:self
+                      action:@selector(playAudio:)
+            forControlEvents:UIControlEventTouchUpInside];
+    [_playButton setTitle:@"Play" forState:UIControlStateNormal];
+    _playButton.frame = CGRectMake(80.0, 410.0, 160.0, 40.0);
+    [self.view addSubview:_playButton];
+    
     _playButton.hidden = YES;
     
     NSArray *dirPaths;
