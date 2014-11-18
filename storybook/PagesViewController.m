@@ -23,7 +23,7 @@
     
     NSLog(@"load");
     
-    NormalPageViewController *normalPageViewController = [[NormalPageViewController alloc] initWithNibName:@"NormalPageViewController" bundle:nil];
+    NormalPageViewController *normalPageViewController = [[NormalPageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
     
     VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithNibName:@"VoicePageViewController" bundle:nil];
     

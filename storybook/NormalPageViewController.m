@@ -16,13 +16,35 @@
 
 @implementation NormalPageViewController
 
+NSString * _text;
+NSString * _imageName;
+
+- (id)init {
+    self = [super initWithNibName:@"NormalPageViewController" bundle:nil];
+    if (self != nil)
+    {
+        // Further initialization if needed
+    }
+    return self;
+}
+
+- (id)initWithText:(NSString *)text andImageName:(NSString *) imageName {
+    self = [super initWithNibName:@"NormalPageViewController" bundle:nil];
+    if (self != nil)
+    {
+        _text = text;
+        _imageName = imageName;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [_text setText:@"Once upon a time"];
-     UIImage *image = [UIImage imageNamed: @"character"];
-    [_image setImage:image];
+    [_textLabel setText:_text];
+    UIImage *image = [UIImage imageNamed: _imageName];
+    [_imageView setImage:image];
     [self startSpeaking];
 }
 
@@ -46,7 +68,7 @@
 - (void)speakNextUtterance
 {
     AVSpeechUtterance *nextUtterance = [[AVSpeechUtterance alloc]
-                                        initWithString:[_text text]];
+                                        initWithString:[_textLabel text]];
     [self.synthesizer speakUtterance:nextUtterance];
 }
 

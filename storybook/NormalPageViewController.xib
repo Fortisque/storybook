@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NormalPageViewController">
             <connections>
-                <outlet property="image" destination="ofT-dt-9nC" id="5oV-Er-ip7"/>
-                <outlet property="text" destination="dOz-Mi-Gp8" id="wnV-4a-IIv"/>
+                <outlet property="imageView" destination="ofT-dt-9nC" id="mjX-bF-ca7"/>
+                <outlet property="textLabel" destination="dOz-Mi-Gp8" id="PhV-vB-W0N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
