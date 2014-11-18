@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
+		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
+		70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */; };
 		990BABF31A12D3C00014EDD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF21A12D3C00014EDD3 /* main.m */; };
 		990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF51A12D3C00014EDD3 /* AppDelegate.m */; };
 		990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF81A12D3C00014EDD3 /* LoginViewController.m */; };
@@ -52,6 +54,9 @@
 /* Begin PBXFileReference section */
 		0E946FC2E97AA18D8E788BF3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4A811D5045D024A42E2CB7B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
+		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
+		70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoicePageViewController.xib; sourceTree = "<group>"; };
 		990BABED1A12D3C00014EDD3 /* storybook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storybook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BABF11A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BABF21A12D3C00014EDD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -170,6 +175,9 @@
 				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
 				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
 				995E7AE91A19E58A00E4F28F /* NormalPageViewController.h */,
+				70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */,
+				70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */,
+				70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */,
 				995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */,
 				995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */,
 				995E7AEE1A19E62D00E4F28F /* SampleTwoViewController.h */,
@@ -322,6 +330,7 @@
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
 				995E7AED1A19E58A00E4F28F /* NormalPageViewController.xib in Resources */,
 				990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */,
+				70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */,
 				995E7AF21A19E62D00E4F28F /* SampleTwoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
 				99656F901A14955400663C0F /* ThemesViewController.m in Sources */,
 				990BAC361A12ED210014EDD3 /* BookCollectionViewCell.m in Sources */,
 				990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */,

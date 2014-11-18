@@ -8,6 +8,7 @@
 
 #import "PagesViewController.h"
 #import "NormalPageViewController.h"
+#import "VoicePageViewController.h"
 #import "SampleTwoViewController.h"
 
 @interface PagesViewController ()
@@ -22,13 +23,15 @@
     
     NSLog(@"load");
     
-    NormalPageViewController *dataViewController = [[NormalPageViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
+    NormalPageViewController *normalPageViewController = [[NormalPageViewController alloc] initWithNibName:@"NormalPageViewController" bundle:nil];
+    
+    VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithNibName:@"VoicePageViewController" bundle:nil];
     
     SampleTwoViewController *s2vc = [[SampleTwoViewController alloc] initWithNibName:@"SampleTwoViewController" bundle:nil];
     
-    _vcs = [NSArray arrayWithObjects:dataViewController, s2vc, nil];
+    _vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, s2vc, nil];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:dataViewController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageViewController, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward
