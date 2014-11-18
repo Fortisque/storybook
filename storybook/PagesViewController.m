@@ -9,6 +9,7 @@
 #import "PagesViewController.h"
 #import "NormalPageViewController.h"
 #import "SampleTwoViewController.h"
+#import "UnscrambleWordsViewController.h"
 
 @interface PagesViewController ()
 @property (nonatomic, strong) NSArray *vcs;
@@ -22,11 +23,13 @@
     
     NSLog(@"load");
     
-    NormalPageViewController *dataViewController = [[NormalPageViewController alloc] initWithNibName:@"SampleViewController" bundle:nil];
+    NormalPageViewController *dataViewController = [[NormalPageViewController alloc] initWithNibName:@"NormalPageViewController" bundle:nil];
     
     SampleTwoViewController *s2vc = [[SampleTwoViewController alloc] initWithNibName:@"SampleTwoViewController" bundle:nil];
     
-    _vcs = [NSArray arrayWithObjects:dataViewController, s2vc, nil];
+    UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithNibName:@"UnscrambleWordsViewController" bundle:nil];
+    
+    _vcs = [NSArray arrayWithObjects:dataViewController, s2vc, unscrambleWordsVC, nil];
     
     NSArray *viewControllers = [NSArray arrayWithObjects:dataViewController, nil];
     
