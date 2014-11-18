@@ -23,6 +23,14 @@ const int TILE_CONTAINER_TAG = 2;
 
 const int TILE_TAG_2 = 3;
 
+- (id)init {
+    self = [super initWithNibName:@"UnscrambleWordsViewController" bundle:nil];
+    if (self != nil)
+    {
+        // Further initialization if needed
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

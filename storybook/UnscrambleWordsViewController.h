@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BasePageViewController.h"
 
-@interface UnscrambleWordsViewController : UIViewController
+@interface UnscrambleWordsViewController : BasePageViewController
 
 @end

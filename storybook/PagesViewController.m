@@ -28,7 +28,7 @@
     
     VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
 
-    UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithNibName:@"UnscrambleWordsViewController" bundle:nil];
+    UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
     
     self.vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, unscrambleWordsVC, nil];
     

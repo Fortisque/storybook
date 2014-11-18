@@ -17,7 +17,6 @@
 @implementation BasePageViewController
 
 - (id)init {
-    self = [super initWithNibName:@"BasePageViewController" bundle:nil];
     if (self != nil)
     {
         // Further initialization if needed
