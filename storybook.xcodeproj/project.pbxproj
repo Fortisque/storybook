@@ -13,6 +13,8 @@
 		86D9C7CF1A1B14A7002C759D /* UnscrambleWordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscrambleWordsViewController.m */; };
 		86D9C7D01A1B14A7002C759D /* UnscrambleWordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7CE1A1B14A7002C759D /* UnscrambleWordsViewController.xib */; };
 		86D9C7D31A1B2794002C759D /* DragAndDropUIGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7D21A1B2794002C759D /* DragAndDropUIGestureRecognizer.m */; };
+		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
+		70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */; };
 		990BABF31A12D3C00014EDD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF21A12D3C00014EDD3 /* main.m */; };
 		990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF51A12D3C00014EDD3 /* AppDelegate.m */; };
 		990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF81A12D3C00014EDD3 /* LoginViewController.m */; };
@@ -37,8 +39,7 @@
 		990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */; };
 		9935465E1A13C77D00A41513 /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935465D1A13C77D00A41513 /* StoryViewController.m */; };
 		995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AE71A19E43400E4F28F /* PagesViewController.m */; };
-		995E7AEC1A19E58A00E4F28F /* NormalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */; };
-		995E7AED1A19E58A00E4F28F /* NormalPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */; };
+		995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */; };
 		995E7AF11A19E62D00E4F28F /* SampleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEF1A19E62D00E4F28F /* SampleTwoViewController.m */; };
 		995E7AF21A19E62D00E4F28F /* SampleTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995E7AF01A19E62D00E4F28F /* SampleTwoViewController.xib */; };
 		99656F901A14955400663C0F /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99656F8F1A14955400663C0F /* ThemesViewController.m */; };
@@ -65,6 +66,9 @@
 		86D9C7CE1A1B14A7002C759D /* UnscrambleWordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnscrambleWordsViewController.xib; sourceTree = "<group>"; };
 		86D9C7D11A1B2794002C759D /* DragAndDropUIGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDropUIGestureRecognizer.h; sourceTree = "<group>"; };
 		86D9C7D21A1B2794002C759D /* DragAndDropUIGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragAndDropUIGestureRecognizer.m; sourceTree = "<group>"; };
+		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
+		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
+		70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoicePageViewController.xib; sourceTree = "<group>"; };
 		990BABED1A12D3C00014EDD3 /* storybook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storybook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BABF11A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BABF21A12D3C00014EDD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,9 +103,8 @@
 		9935465D1A13C77D00A41513 /* StoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryViewController.m; sourceTree = "<group>"; };
 		995E7AE61A19E43400E4F28F /* PagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesViewController.h; sourceTree = "<group>"; };
 		995E7AE71A19E43400E4F28F /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; };
-		995E7AE91A19E58A00E4F28F /* NormalPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalPageViewController.h; sourceTree = "<group>"; };
-		995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalPageViewController.m; sourceTree = "<group>"; };
-		995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalPageViewController.xib; sourceTree = "<group>"; };
+		995E7AE91A19E58A00E4F28F /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
+		995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageViewController.m; sourceTree = "<group>"; };
 		995E7AEE1A19E62D00E4F28F /* SampleTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTwoViewController.h; sourceTree = "<group>"; };
 		995E7AEF1A19E62D00E4F28F /* SampleTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTwoViewController.m; sourceTree = "<group>"; };
 		995E7AF01A19E62D00E4F28F /* SampleTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTwoViewController.xib; sourceTree = "<group>"; };
@@ -182,9 +185,11 @@
 				990BABFA1A12D3C00014EDD3 /* Main.storyboard */,
 				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
 				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
-				995E7AE91A19E58A00E4F28F /* NormalPageViewController.h */,
-				995E7AEA1A19E58A00E4F28F /* NormalPageViewController.m */,
-				995E7AEB1A19E58A00E4F28F /* NormalPageViewController.xib */,
+				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
+				70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */,
+				70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */,
+				70F708A51A1AC5F4006CEDB3 /* VoicePageViewController.xib */,
+				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 				995E7AEE1A19E62D00E4F28F /* SampleTwoViewController.h */,
 				995E7AEF1A19E62D00E4F28F /* SampleTwoViewController.m */,
 				995E7AF01A19E62D00E4F28F /* SampleTwoViewController.xib */,
@@ -342,8 +347,8 @@
 				86D9C7D01A1B14A7002C759D /* UnscrambleWordsViewController.xib in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
-				995E7AED1A19E58A00E4F28F /* NormalPageViewController.xib in Resources */,
 				990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */,
+				70F708A71A1AC5F4006CEDB3 /* VoicePageViewController.xib in Resources */,
 				995E7AF21A19E62D00E4F28F /* SampleTwoViewController.xib in Resources */,
 				86D9C7CB1A1B115E002C759D /* TileView.xib in Resources */,
 			);
@@ -397,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86D9C7CF1A1B14A7002C759D /* UnscrambleWordsViewController.m in Sources */,
+				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
 				99656F901A14955400663C0F /* ThemesViewController.m in Sources */,
 				990BAC361A12ED210014EDD3 /* BookCollectionViewCell.m in Sources */,
 				990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */,
@@ -408,7 +414,7 @@
 				990BAC301A12DC7D0014EDD3 /* BookCollectionViewController.m in Sources */,
 				995E7AF11A19E62D00E4F28F /* SampleTwoViewController.m in Sources */,
 				995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */,
-				995E7AEC1A19E58A00E4F28F /* NormalPageViewController.m in Sources */,
+				995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

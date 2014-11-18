@@ -1,0 +1,17 @@
+//
+//  SampleViewController.h
+//  storybook
+//
+//  Created by Kevin Casey on 11/17/14.
+//  Copyright (c) 2014 ieor190. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface BasePageViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *textLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+- (id)initWithText:(NSString *)text andImageName:(NSString *) imageName;
+
+@end

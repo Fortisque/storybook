@@ -7,7 +7,8 @@
 //
 
 #import "PagesViewController.h"
-#import "NormalPageViewController.h"
+#import "BasePageViewController.h"
+#import "VoicePageViewController.h"
 #import "SampleTwoViewController.h"
 #import "UnscrambleWordsViewController.h"
 
@@ -23,15 +24,15 @@
     
     NSLog(@"load");
     
-    NormalPageViewController *dataViewController = [[NormalPageViewController alloc] initWithNibName:@"NormalPageViewController" bundle:nil];
+    BasePageViewController *normalPageViewController = [[BasePageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
     
-    SampleTwoViewController *s2vc = [[SampleTwoViewController alloc] initWithNibName:@"SampleTwoViewController" bundle:nil];
-    
+    VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
+
     UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithNibName:@"UnscrambleWordsViewController" bundle:nil];
     
-    _vcs = [NSArray arrayWithObjects:dataViewController, s2vc, unscrambleWordsVC, nil];
+    self.vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, unscrambleWordsVC, nil];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:dataViewController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageViewController, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward
@@ -57,10 +58,7 @@
     if (index == 0) {
         return nil;
     }
-    
-    
     return [_vcs objectAtIndex:index - 1];
-    
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
@@ -75,9 +73,7 @@
         return nil;
     }
     
-    
     return [_vcs objectAtIndex:newIndex];
-    
 }
 
 /*
