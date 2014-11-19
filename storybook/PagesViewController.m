@@ -11,6 +11,7 @@
 #import "VoicePageViewController.h"
 #import "DrawingPageViewController.h"
 #import "UnscrambleWordsPageViewController.h"
+#import "DrawingPrompterViewController.h"
 
 @interface PagesViewController ()
 @property (nonatomic, strong) NSArray *vcs;
@@ -59,11 +60,11 @@
 
     UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image2]];
     
-    DrawingPageViewController *drawingPageVC = [[DrawingPageViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
+    DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
     
     self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, drawingPageVC, nil];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:drawingPageVC, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward
