@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface BasePageViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *textLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
-- (id)initWithText:(NSString *)text andImageName:(NSString *) imageName;
+- (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews;
+- (void)labelTapped:(UILabel *) label;
+
+extern NSString * kFrame;
+extern NSString * kText;
+extern NSString * kImageName;
 
 @end

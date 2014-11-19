@@ -22,15 +22,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"load");
+    NSDictionary *image1 = @{
+                             kImageName: @"character",
+                             kFrame: @[@200,@100,@100,@100]
+                             };
+    NSDictionary *image2 = @{
+                             kImageName: @"character",
+                             kFrame: @[@500,@300,@100,@100]
+                             };
+    NSDictionary *text1 = @{
+                            kText: @"hello!",
+                            kFrame:@[@100,@100,@100,@100]
+                            };
+    NSDictionary *text2 = @{
+                            kText: @"welcome to the best story youngster",
+                            kFrame:@[@100,@300,@300,@100]
+                            };
+    NSDictionary *text3 = @{
+                            kText: @"what happens next",
+                            };
     
-    BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
+    NSDictionary *text4 = @{
+                            kText: @"how do you spell this",
+                            };
     
-    VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
+    NSDictionary *text5 = @{
+                            kText: @"draw a cat",
+                            };
+    
+    NSArray *images = @[image1, image2];
+    NSArray *texts = @[text1, text2];
+    
+    BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithTextLabels:texts andImageViews:images];
+                                                        
+    VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithTextLabels:@[text3] andImageViews:@[image2]];
 
-    UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
+    UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image2]];
     
-    DrawingPageViewController *drawingPageVC = [[DrawingPageViewController alloc] initWithText:@"draw a cat" andImageName:@""];
+    DrawingPageViewController *drawingPageVC = [[DrawingPageViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
     
     self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, drawingPageVC, nil];
     
