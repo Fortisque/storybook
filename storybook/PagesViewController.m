@@ -9,8 +9,8 @@
 #import "PagesViewController.h"
 #import "BasePageViewController.h"
 #import "VoicePageViewController.h"
-#import "SampleTwoViewController.h"
-#import "UnscrambleWordsViewController.h"
+#import "DrawingPageViewController.h"
+#import "UnscrambleWordsPageViewController.h"
 
 @interface PagesViewController ()
 @property (nonatomic, strong) NSArray *vcs;
@@ -21,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"load");
     
     NSDictionary *image1 = @{
                              kImageName: @"character",
@@ -45,15 +43,17 @@
     NSArray *images = @[image1, image2];
     NSArray *texts = @[text1, text2];
     
-    BasePageViewController *normalPageViewController = [[BasePageViewController alloc] initWithTextLabels:texts andImageViews:images];
+    BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithTextLabels:texts andImageViews:images];
                                                         
-    VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
+    VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
 
-    UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
+    UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
     
-    self.vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, unscrambleWordsVC, nil];
+    DrawingPageViewController *drawingPageVC = [[DrawingPageViewController alloc] initWithText:@"draw a cat" andImageName:@""];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageViewController, nil];
+    self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, drawingPageVC, nil];
+    
+    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward
