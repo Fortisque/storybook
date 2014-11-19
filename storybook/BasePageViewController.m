@@ -150,7 +150,6 @@ NSString *kImageName = @"imageName";
         AVSpeechUtterance *utterance = [_utterances objectAtIndex:self.nextSpeechIndex];
         self.nextSpeechIndex += 1;
         
-        NSLog(@"Y");
         [self.synthesizer speakUtterance:utterance];
     }
 }

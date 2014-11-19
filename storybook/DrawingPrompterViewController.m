@@ -24,7 +24,7 @@ bool firstLoad = true;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"character"]];
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     
     [imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [imageView.layer setBorderWidth: 2.0];
@@ -67,8 +67,6 @@ bool firstLoad = true;
 }
 
 - (void)updateCustomImage:(UIImage *)image {
-    NSLog(@"image");
-    NSLog(@"%@", image);
     [imageView setImage:image];
 }
 
