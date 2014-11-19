@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) NSMutableArray *textLabels;
 @property (strong, nonatomic) NSMutableArray *imageViews;
+@property (strong, nonatomic) NSMutableArray *utterances;
+@property (nonatomic, assign) NSUInteger nextSpeechIndex;
 
 @end
 
@@ -23,7 +25,6 @@
 NSString *kFrame = @"frame";
 NSString *kText = @"text";
 NSString *kImageName = @"imageName";
-
 
 - (id)init {
     self = [super init];
@@ -38,6 +39,7 @@ NSString *kImageName = @"imageName";
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews {
     _textLabels = [[NSMutableArray alloc] init];
     _imageViews = [[NSMutableArray alloc] init];
+    _utterances = [[NSMutableArray alloc] init];
 
     if (self != nil)
     {
@@ -62,10 +64,12 @@ NSString *kImageName = @"imageName";
             tapGestureRecognizer.numberOfTapsRequired = 1;
             [textLabel addGestureRecognizer:tapGestureRecognizer];
             textLabel.userInteractionEnabled = YES;
-
             [_textLabels addObject:textLabel];
             
-            
+            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:textLabel.text];
+            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
+            //[utterance setValuesForKeysWithDictionary:utteranceProperties];
+            [_utterances addObject:utterance];
         }
         
         for (int i = 0; i < [imageViews count]; i++) {
@@ -86,20 +90,10 @@ NSString *kImageName = @"imageName";
 
             [_imageViews addObject:imageView];
         }
-    }
-    return self;
-}
-
-- (id)initWithText:(NSString *)text andImageName:(NSString *) imageName {
-    if (self != nil)
-    {
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, 300, 30)];
-        _textLabel.text = text;
         
-        
-        _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-        _imageView.frame = CGRectMake(500, 240, 200, 150);
+        self.nextSpeechIndex = 0;
     }
+    
     return self;
 }
 
@@ -119,7 +113,6 @@ NSString *kImageName = @"imageName";
     for (int i = 0; i < [_imageViews count]; i++) {
         [self.view addSubview:[_imageViews objectAtIndex:i]];
     }
-
     
     [self startSpeaking];
 }
@@ -153,9 +146,12 @@ NSString *kImageName = @"imageName";
 
 - (void)speakNextUtterance
 {
-    AVSpeechUtterance *nextUtterance = [[AVSpeechUtterance alloc]
-                                        initWithString:[_textLabel text]];
-    [self.synthesizer speakUtterance:nextUtterance];
+    if (self.nextSpeechIndex < [_utterances count]) {
+        AVSpeechUtterance *utterance = [_utterances objectAtIndex:self.nextSpeechIndex];
+        self.nextSpeechIndex += 1;
+        
+        [self.synthesizer speakUtterance:utterance];
+    }
 }
 
 
@@ -163,6 +159,17 @@ NSString *kImageName = @"imageName";
 {
     if (!self.synthesizer) {
         self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+        self.synthesizer.delegate = self;
+    }
+    
+    [self speakNextUtterance];
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance
+{
+    NSUInteger indexOfUtterance = [_utterances indexOfObject:utterance];
+    if (indexOfUtterance == NSNotFound) {
+        return;
     }
     
     [self speakNextUtterance];
