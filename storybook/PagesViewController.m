@@ -34,7 +34,7 @@
     
     self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, drawingPageVC, nil];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:drawingPageVC, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward

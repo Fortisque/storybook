@@ -1,8 +1,8 @@
 //
-//  SampleTwoViewController.m
+//  DrawingPageViewController.m
 //  storybook
 //
-//  Created by Kevin Casey on 11/17/14.
+//  Created by Kevin Casey on 11/18/14.
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
@@ -13,6 +13,16 @@
 @end
 
 @implementation DrawingPageViewController
+
+- (id)init {
+    self = [super initWithNibName:@"DrawingPageViewController" bundle:nil];
+    
+    if (self != nil)
+    {
+        // Further initialization if needed
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,4 +44,9 @@
 }
 */
 
+- (IBAction)colorPressed:(id)sender {
+}
+
+- (IBAction)eraserPressed:(id)sender {
+}
 @end
