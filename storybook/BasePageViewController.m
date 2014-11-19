@@ -56,13 +56,12 @@ NSString *kImageName = @"imageName";
             } else {
                 textLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
             }
+            
             textLabel.text = [textDict objectForKey:kText];
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
             tapGestureRecognizer.numberOfTapsRequired = 1;
             [textLabel addGestureRecognizer:tapGestureRecognizer];
             textLabel.userInteractionEnabled = YES;
-            
-            NSLog(@"%@", textLabel);
 
             [_textLabels addObject:textLabel];
             
@@ -71,7 +70,6 @@ NSString *kImageName = @"imageName";
         
         for (int i = 0; i < [imageViews count]; i++) {
             NSDictionary *imageDict = [imageViews objectAtIndex:i];
-            NSLog(@"%@", imageDict);
 
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
             NSArray *frameValue = [imageDict objectForKey:kFrame];
@@ -85,7 +83,7 @@ NSString *kImageName = @"imageName";
             } else {
                 imageView.frame = CGRectMake(300, 100, 400, 100);
             }
-            NSLog(@"%@", imageView);
+
             [_imageViews addObject:imageView];
         }
     }
@@ -139,16 +137,6 @@ NSString *kImageName = @"imageName";
     
     AVSpeechSynthesizer *speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
     [speechSynthesizer speakUtterance:utterance];
-    
-    /*if (!self.synthesizer) {
-        self.synthesizer = [[AVSpeechSynthesizer alloc] init];
-    }
-    
-    UILabel *tappedLabel = (UILabel*) [gestureRecognizer.view hitTest:[gestureRecognizer locationInView:gestureRecognizer.view] withEvent:nil];
-    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]
-                                        initWithString:[tappedLabel text]];
-    NSLog(@"%@", utterance);
-    [self.synthesizer speakUtterance:utterance];*/
 }
 
 /*
