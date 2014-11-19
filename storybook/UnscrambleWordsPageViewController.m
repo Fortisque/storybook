@@ -12,21 +12,34 @@
 
 @interface UnscrambleWordsPageViewController ()
 
+@property (strong, nonatomic) NSString *word;
 @property (strong, nonatomic) NSMutableArray *containers; //array of TileContainerView
+@property (strong, nonatomic) NSMutableArray *tiles;
 
 @end
 
 @implementation UnscrambleWordsPageViewController
 
-const int TILE_TAG_1 = 1;
+const int TILE_TAG= 1;
 const int TILE_CONTAINER_TAG = 2;
 
-const int TILE_TAG_2 = 3;
+const int SCREEN_WIDTH = 1024;
+const int MAX_SPACING = 80;
+const int PADDING = 50;
+const int CONTAINER_SIZE = 110;
+const int TILE_SIZE = 100;
+
+- (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andWord:(NSString *)word {
+    self = [super initWithTextLabels:textLabels andImageViews:imageViews];
+    if(self){
+        self.word = word;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Frame: %@", NSStringFromCGRect(self.view.bounds));
-    [self addTileContainersWithSize:3];
+    [self addTileContainersWithSize:(int)self.word.length];
     [self addTiles];
     [self applyGesureRecognizer];
 }
@@ -51,44 +64,79 @@ const int TILE_TAG_2 = 3;
 - (void) addTileContainersWithSize:(int)size {
     self.containers = [[NSMutableArray alloc] init];
     
-    //TODO: get size of full width and distribute evenly
-    //hard-coded location for now
+    int maxContainerSpace = CONTAINER_SIZE + MAX_SPACING;
+    
+    int spaceContainersCanOccupy = SCREEN_WIDTH - 2 * PADDING;
+    int spaceForEachContainer = spaceContainersCanOccupy/size; //container plus padding space
+    
+    int startingPostion;
+    
+    if(spaceForEachContainer > maxContainerSpace){
+        //NSLog(@"need to reudce spacing from %d to %d", spaceForEachContainer, maxContainerSpace);
+        spaceForEachContainer = maxContainerSpace;
+        
+        int totalContainerSpace = size * CONTAINER_SIZE + (size - 1) * MAX_SPACING; //n-1 spacing
+        int padding = (SCREEN_WIDTH - totalContainerSpace)/2; //left and right padding outside containers
+        startingPostion = padding + CONTAINER_SIZE/2; //recalculate padding and add container center offset
+        
+    }else{
+        int paddingForEachContainer = (spaceForEachContainer - CONTAINER_SIZE)/2; //left or right padding
+        startingPostion = PADDING + paddingForEachContainer + CONTAINER_SIZE/2; //add half of container size for center offset
+    }
     
     for(int i = 0; i < size; i++){
         TileContainerView *tileContainer = [[TileContainerView alloc] init];
-        tileContainer.center = CGPointMake(140 + i*135, 250);
-        NSLog(@"tileContainer frame: %@", NSStringFromCGPoint(tileContainer.center));
+        
+        tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 450);
+        //NSLog(@"tileContainer frame: %@", NSStringFromCGPoint(tileContainer.center));
+        
         tileContainer.tag = TILE_CONTAINER_TAG;
-        [self.view addSubview:tileContainer];
         [self.containers addObject:tileContainer];
+        [self.view addSubview:tileContainer];
     }
 }
 
 - (void) addTiles {
-    TileView *tile1View = [[TileView alloc] initWithLetter:@"A"];
-    TileView *tile2View = [[TileView alloc] initWithLetter:@"T"];
-    TileView *tile3View = [[TileView alloc] initWithLetter:@"C"];
+    self.tiles = [[NSMutableArray alloc] init];
     
-    tile1View.center = CGPointMake(150, 500);
-    tile2View.center = CGPointMake(275, 500);
-    tile3View.center = CGPointMake(400, 500);
+    //get all characters
+    NSMutableArray *characters = [[NSMutableArray alloc] init];
+    for(int i = 0; i < [self.word length]; i++){
+        NSString *character = [self.word substringWithRange:NSMakeRange(i, 1)];
+        [characters addObject:character];
+    }
     
-    tile1View.originalPosition = tile1View.center;
-    tile2View.originalPosition = tile2View.center;
-    tile3View.originalPosition = tile3View.center;
+    //keep shuffling characters/tiles until the word is no longer the same
+    while([self.word isEqualToString:[self getScrambledTileWordFromCharacters:characters]]){
+        for(int i = 0; i < characters.count*2; i++) { //shuffle many times
+            int randomInt1 = arc4random() % [characters count];
+            int randomInt2 = arc4random() % [characters count];
+            [characters exchangeObjectAtIndex:randomInt1 withObjectAtIndex:randomInt2];
+        }
+    }
     
-    tile1View.tag = TILE_TAG_1;
-    tile2View.tag = TILE_TAG_1;
-    tile3View.tag = TILE_TAG_1;
+    //always evenly split tiles regardless of spacing
+    int size = (int) self.word.length;
+    int spaceTilesCanOccupy = SCREEN_WIDTH - 2 * PADDING;
+    int spaceForEachTile = spaceTilesCanOccupy/size; //tile plus padding space
+    int paddingForEachTile = (spaceForEachTile - TILE_SIZE)/2; //left or right padding
+    int startingPostion = PADDING + paddingForEachTile + TILE_SIZE/2; //add half of tile size for center offset
     
-    [self.view addSubview:tile1View];
-    [self.view addSubview:tile2View];
-    [self.view addSubview:tile3View];
+    //display the tiles
+    for(int i = 0; i < [characters count]; i++){
+        NSString *character = [characters objectAtIndex:i];
+        TileView *tileView = [[TileView alloc] initWithLetter:character];
+        tileView.center = CGPointMake(startingPostion + i*spaceForEachTile, 600);
+        tileView.originalPosition = tileView.center;
+        tileView.tag = TILE_TAG;
+        [self.tiles addObject:tileView];
+        [self.view addSubview:tileView];
+    }
 }
 
 - (void) applyGesureRecognizer {
     for (UIView * view in self.view.subviews) {
-        if(view.tag == TILE_TAG_1){
+        if(view.tag == TILE_TAG){
             //simple drag
             UIPanGestureRecognizer * recognizer1 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
             recognizer1.delegate = self;
@@ -195,6 +243,14 @@ const int TILE_TAG_2 = 3;
         result = [result stringByAppendingString:containerView.containedLetter];
     }
     NSLog(@"result: %@", result);
+    return result;
+}
+
+- (NSString *)getScrambledTileWordFromCharacters:(NSMutableArray *)characters {
+    NSString *result = [[NSString alloc]init];
+    for(NSString *character in characters){
+        result = [result stringByAppendingString:character];
+    }
     return result;
 }
 

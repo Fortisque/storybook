@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UILabel *letterLabel;
-@property (weak, nonatomic) NSString *letter;
+@property (strong, nonatomic) NSString *letter;
 
 - (instancetype) initWithLetter: (NSString *) letter;
 

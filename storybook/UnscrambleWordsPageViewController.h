@@ -11,4 +11,6 @@
 
 @interface UnscrambleWordsPageViewController : BasePageViewController
 
+- (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andWord:(NSString *)word;
+
 @end

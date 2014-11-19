@@ -15,6 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <accessibility key="accessibilityConfiguration" label="Container">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

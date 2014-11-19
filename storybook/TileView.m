@@ -46,7 +46,6 @@
         //load xib
         [[NSBundle mainBundle] loadNibNamed:@"TileView" owner:self options:nil];
         //set bound
-        NSLog(@"Frame: %@", NSStringFromCGRect(self.view.bounds));
         self.bounds = self.view.bounds;
         //add view
         [self addSubview:self.view];
