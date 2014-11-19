@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BasePageViewController.h"
 
-@interface SampleTwoViewController : UIViewController
+@interface DrawingPageViewController : BasePageViewController
 
 @end

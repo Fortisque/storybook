@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "SampleTwoViewController.h"
+#import "DrawingPageViewController.h"
 
-@interface SampleTwoViewController ()
+@interface DrawingPageViewController ()
 
 @end
 
-@implementation SampleTwoViewController
+@implementation DrawingPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

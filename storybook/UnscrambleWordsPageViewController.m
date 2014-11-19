@@ -6,31 +6,22 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "UnscrambleWordsViewController.h"
+#import "UnscrambleWordsPageViewController.h"
 #import "TileView.h"
 #import "TileContainerView.h"
 
-@interface UnscrambleWordsViewController ()
+@interface UnscrambleWordsPageViewController ()
 
 @property (strong, nonatomic) NSMutableArray *containers; //array of TileContainerView
 
 @end
 
-@implementation UnscrambleWordsViewController
+@implementation UnscrambleWordsPageViewController
 
 const int TILE_TAG_1 = 1;
 const int TILE_CONTAINER_TAG = 2;
 
 const int TILE_TAG_2 = 3;
-
-- (id)init {
-    self = [super initWithNibName:@"UnscrambleWordsViewController" bundle:nil];
-    if (self != nil)
-    {
-        // Further initialization if needed
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

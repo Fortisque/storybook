@@ -9,8 +9,8 @@
 #import "PagesViewController.h"
 #import "BasePageViewController.h"
 #import "VoicePageViewController.h"
-#import "SampleTwoViewController.h"
-#import "UnscrambleWordsViewController.h"
+#import "DrawingPageViewController.h"
+#import "UnscrambleWordsPageViewController.h"
 
 @interface PagesViewController ()
 @property (nonatomic, strong) NSArray *vcs;
@@ -24,15 +24,17 @@
     
     NSLog(@"load");
     
-    BasePageViewController *normalPageViewController = [[BasePageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
+    BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
     
-    VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
+    VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
 
-    UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
+    UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
     
-    self.vcs = [NSArray arrayWithObjects:normalPageViewController, voicePageViewController, unscrambleWordsVC, nil];
+    DrawingPageViewController *drawingPageVC = [[DrawingPageViewController alloc] initWithText:@"draw a cat" andImageName:@""];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageViewController, nil];
+    self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, drawingPageVC, nil];
+    
+    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward

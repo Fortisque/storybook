@@ -7,7 +7,6 @@
 //
 
 #import "VoicePageViewController.h"
-#import "BasePageViewController.h"
 @import AVFoundation;
 
 @interface VoicePageViewController ()
@@ -15,15 +14,6 @@
 @end
 
 @implementation VoicePageViewController
-
-- (id)init {
-    self = [super init];
-    if (self != nil)
-    {
-        // Further initialization if needed
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {

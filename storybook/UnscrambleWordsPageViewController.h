@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
 
-@interface UnscrambleWordsViewController : BasePageViewController
+@interface UnscrambleWordsPageViewController : BasePageViewController
 
 @end

@@ -27,9 +27,6 @@
 }
 
 - (id)initWithText:(NSString *)text andImageName:(NSString *) imageName {
-    //self = [super initWithNibName:@"NormalPageViewController" bundle:nil];
-    
-    
     if (self != nil)
     {
         _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, 300, 30)];
@@ -45,6 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     [self.view addSubview:_textLabel];
     [self.view addSubview:_imageView];
