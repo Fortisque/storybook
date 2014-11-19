@@ -24,8 +24,29 @@
     
     NSLog(@"load");
     
-    BasePageViewController *normalPageViewController = [[BasePageViewController alloc] initWithText:@"Hello there" andImageName:@"character"];
+    NSDictionary *image1 = @{
+                             kImageName: @"character",
+                             kFrame: @[@200,@100,@100,@100]
+                             };
+    NSDictionary *image2 = @{
+                             kImageName: @"character",
+                             kFrame: @[@500,@300,@100,@100]
+                             };
+    NSDictionary *text1 = @{
+                            kText: @"hello!",
+                            kFrame:@[@100,@100,@100,@100]
+                            };
+    NSDictionary *text2 = @{
+                            kText: @"welcome to the best story eva",
+                            kFrame:@[@100,@300,@300,@100]
+                            };
+
     
+    NSArray *images = @[image1, image2];
+    NSArray *texts = @[text1, text2];
+    
+    BasePageViewController *normalPageViewController = [[BasePageViewController alloc] initWithTextLabels:texts andImageViews:images];
+                                                        
     VoicePageViewController *voicePageViewController = [[VoicePageViewController alloc] initWithText:@"What happens next" andImageName:@""];
 
     UnscrambleWordsViewController *unscrambleWordsVC = [[UnscrambleWordsViewController alloc] initWithText:@"how do you spell this" andImageName:@"character"];
