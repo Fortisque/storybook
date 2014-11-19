@@ -12,6 +12,7 @@
 
 - (id)initWithText:(NSString *)text andImageName:(NSString *) imageName;
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews;
+- (void)labelTapped:(UILabel *) label;
 
 extern NSString * kFrame;
 extern NSString * kText;

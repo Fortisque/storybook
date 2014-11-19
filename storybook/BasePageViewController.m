@@ -57,7 +57,15 @@ NSString *kImageName = @"imageName";
                 textLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
             }
             textLabel.text = [textDict objectForKey:kText];
+            UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
+            tapGestureRecognizer.numberOfTapsRequired = 1;
+            [textLabel addGestureRecognizer:tapGestureRecognizer];
+            textLabel.userInteractionEnabled = YES;
+            
+            NSLog(@"%@", textLabel);
+
             [_textLabels addObject:textLabel];
+            
             
         }
         
@@ -119,6 +127,26 @@ NSString *kImageName = @"imageName";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)labelTapped:(UIGestureRecognizer *) gestureRecognizer {
+     UILabel *tappedLabel = (UILabel*) [gestureRecognizer.view hitTest:[gestureRecognizer locationInView:gestureRecognizer.view] withEvent:nil];
+    
+    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:[tappedLabel text]];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
+    
+    AVSpeechSynthesizer *speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    [speechSynthesizer speakUtterance:utterance];
+    
+    /*if (!self.synthesizer) {
+        self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+    }
+    
+    UILabel *tappedLabel = (UILabel*) [gestureRecognizer.view hitTest:[gestureRecognizer locationInView:gestureRecognizer.view] withEvent:nil];
+    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]
+                                        initWithString:[tappedLabel text]];
+    NSLog(@"%@", utterance);
+    [self.synthesizer speakUtterance:utterance];*/
 }
 
 /*

@@ -37,7 +37,7 @@
                             kFrame:@[@100,@100,@100,@100]
                             };
     NSDictionary *text2 = @{
-                            kText: @"welcome to the best story eva",
+                            kText: @"welcome to the best story youngster",
                             kFrame:@[@100,@300,@300,@100]
                             };
 
