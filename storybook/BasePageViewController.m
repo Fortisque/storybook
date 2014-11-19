@@ -54,7 +54,7 @@ NSString *kImageName = @"imageName";
 
                 textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, width, height)];
             } else {
-                textLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+                textLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
             }
             textLabel.text = [textDict objectForKey:kText];
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
