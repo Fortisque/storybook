@@ -21,13 +21,14 @@
     BOOL mouseSwiped;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *mainImage;
-@property (strong, nonatomic) IBOutlet UIImageView *tempDrawImage;
+@property (strong, nonatomic) UIImageView *mainImage;
+@property (strong, nonatomic) UIImageView *tempDrawImage;
 @property (weak, nonatomic) DrawingPrompterViewController *presenter;
 
 - (IBAction)colorPressed:(id)sender;
 
-- (IBAction)eraserPressed:(id)sender;
 - (IBAction)donePressed:(id)sender;
+
+- (id)initWithImage:(UIImage *)image;
 
 @end

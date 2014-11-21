@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cnv-Yw-bQp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cnv-Yw-bQp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -14,12 +14,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="QQt-of-2VF" kind="relationship" relationship="rootViewController" id="3uc-Sr-AtT"/>
+                        <segue destination="QQt-of-2VF" kind="relationship" relationship="rootViewController" id="4Wt-9o-aQK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1037.25" y="228.75"/>
+            <point key="canvasLocation" x="-438" y="416"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -92,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-369" y="228.75"/>
+            <point key="canvasLocation" x="-396" y="-133"/>
         </scene>
         <!--Themes View Controller-->
         <scene sceneID="haK-uE-RnB">
@@ -124,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1D-r8-dN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="344.25" y="228.75"/>
+            <point key="canvasLocation" x="199" y="203"/>
         </scene>
         <!--Book Collection View Controller-->
         <scene sceneID="8CP-tD-b7S">
@@ -147,12 +147,12 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="dja-gt-2v8"/>
                     <connections>
-                        <segue destination="Tep-7x-zAA" kind="push" identifier="story" id="Hi8-v1-bUX"/>
+                        <segue destination="QQt-of-2VF" kind="push" identifier="story" id="1n0-ur-XET"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbc-LA-0DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007.25" y="228.75"/>
+            <point key="canvasLocation" x="897" y="195"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="Yp9-n5-wOl">
@@ -209,6 +209,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
+                    <navigationItem key="navigationItem" id="Bhr-1b-7nv"/>
                     <connections>
                         <outlet property="currentLabel" destination="6DD-SJ-4i0" id="gho-gK-eyD"/>
                         <outlet property="numberOfPagesLabel" destination="60x-Gh-va6" id="A6S-VZ-0vX"/>
@@ -219,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIK-2J-9ZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697.25" y="280.5"/>
+            <point key="canvasLocation" x="1676" y="-149"/>
         </scene>
         <!--Pages View Controller-->
         <scene sceneID="XY9-xc-voz">
@@ -229,7 +230,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4N-Ui-ilJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706" y="989"/>
+            <point key="canvasLocation" x="1354" y="416"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -237,4 +238,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="4Wt-9o-aQK"/>
+    </inferredMetricsTieBreakers>
 </document>

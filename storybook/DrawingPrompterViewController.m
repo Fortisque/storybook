@@ -43,16 +43,11 @@ bool firstLoad = true;
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (firstLoad == true) {
-        firstLoad = false;
-        [self promptDrawing];
-    }
-    
 }
 
 - (void)promptDrawing
 {
-    DrawingPageViewController *dpvc = [[DrawingPageViewController alloc] initWithNibName:@"DrawingPageViewController" bundle:nil];
+    DrawingPageViewController *dpvc = [[DrawingPageViewController alloc] initWithImage:imageView.image];
     
     dpvc.presenter = self;
     

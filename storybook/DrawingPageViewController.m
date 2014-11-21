@@ -16,11 +16,25 @@
 
 CGRect workingFrame;
 
-- (id)init {
-    self = [super initWithNibName:@"DrawingPageViewController" bundle:nil];
+- (id)initWithImage:(UIImage *)image {
+    self = [super init];
     
     if (self != nil)
     {
+        workingFrame = CGRectMake(0, 0, 600, 600);
+        self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
+        
+        UIGraphicsBeginImageContext(self.mainImage.frame.size);
+        [image drawInRect:workingFrame];
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        CGContextFlush(UIGraphicsGetCurrentContext());
+        self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         
         // Further initialization if needed
     }
@@ -35,6 +49,11 @@ CGRect workingFrame;
     opacity = 1.0;
     
     workingFrame = CGRectMake(0, 0, 600, 600);
+    
+    self.tempDrawImage = [[UIImageView alloc] initWithFrame:workingFrame];
+    
+    [self.view addSubview:self.mainImage];
+    [self.view addSubview:self.tempDrawImage];
     
     
 
@@ -51,6 +70,29 @@ CGRect workingFrame;
     [self.mainImage.layer setBorderWidth: 2.0];
     self.mainImage.frame = workingFrame;
     self.tempDrawImage.frame = workingFrame;
+    
+    NSArray *colors = [[NSArray alloc] initWithObjects:@"Black", @"Grey", @"Red", @"Orange", @"Yellow", @"Green", @"Blue", @"Indigo", @"Violet", @"Erase", nil];
+    
+    int i;
+    for (i = 0; i < [colors count]; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button addTarget:self
+                   action:@selector(colorPressed:)
+         forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:[colors objectAtIndex:i] forState:UIControlStateNormal];
+        button.frame = CGRectMake(i * 60 + 10.0, 600.0, 60.0, 40.0);
+        button.tag = i;
+        [self.view addSubview:button];
+    }
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(donePressed:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"Done" forState:UIControlStateNormal];
+    button.frame = CGRectMake(500.0, 50.0, 60.0, 40.0);
+    button.tag = i;
+    [self.view addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,63 +116,67 @@ CGRect workingFrame;
     switch(PressedButton.tag)
     {
         case 0:
+            // Black
             red = 0.0/255.0;
             green = 0.0/255.0;
             blue = 0.0/255.0;
             break;
         case 1:
+            // Grey
             red = 105.0/255.0;
             green = 105.0/255.0;
             blue = 105.0/255.0;
             break;
         case 2:
-            red = 255.0/255.0;
+            // Red
+            red = 209.0/255.0;
             green = 0.0/255.0;
             blue = 0.0/255.0;
             break;
         case 3:
-            red = 0.0/255.0;
-            green = 0.0/255.0;
-            blue = 255.0/255.0;
-            break;
-        case 4:
-            red = 102.0/255.0;
-            green = 204.0/255.0;
-            blue = 0.0/255.0;
-            break;
-        case 5:
-            red = 102.0/255.0;
-            green = 255.0/255.0;
-            blue = 0.0/255.0;
-            break;
-        case 6:
-            red = 51.0/255.0;
-            green = 204.0/255.0;
-            blue = 255.0/255.0;
-            break;
-        case 7:
-            red = 160.0/255.0;
-            green = 82.0/255.0;
-            blue = 45.0/255.0;
-            break;
-        case 8:
+            // Orange
             red = 255.0/255.0;
             green = 102.0/255.0;
-            blue = 0.0/255.0;
+            blue = 34.0/255.0;
+            break;
+        case 4:
+            // Yellow
+            red = 255.0/255.0;
+            green = 218.0/255.0;
+            blue = 33.0/255.0;
+            break;
+        case 5:
+            // Green
+            red = 51.0/255.0;
+            green = 221.0/255.0;
+            blue = 0/255.0;
+            break;
+        case 6:
+            // Blue
+            red = 17.0/255.0;
+            green = 51.0/255.0;
+            blue = 204.0/255.0;
+            break;
+        case 7:
+            // Indigo
+            red = 75.0/255.0;
+            green = 0.0/255.0;
+            blue = 130.0/255.0;
+            break;
+        case 8:
+            // Violet
+            red = 34.0/255.0;
+            green = 0.0/255.0;
+            blue = 102.0/255.0;
             break;
         case 9:
+            // Erase
             red = 255.0/255.0;
             green = 255.0/255.0;
-            blue = 0.0/255.0;
+            blue = 255.0/255.0;
+            opacity = 1.0;
             break;
     }
-}
-
-- (IBAction)eraserPressed:(id)sender {
-    red = 255.0/255.0;
-    green = 255.0/255.0;
-    blue = 255.0/255.0;
-    opacity = 1.0;
 }
 
 - (IBAction)donePressed:(id)sender {    

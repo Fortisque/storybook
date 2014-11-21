@@ -65,19 +65,21 @@
 
     UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"CAT"];
     
-    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"FROG"];
-    
-    UnscrambleWordsPageViewController *unscrambleWordsVC3 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"HORSE"];
-    
-    UnscrambleWordsPageViewController *unscrambleWordsVC4 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"JUNGLE"];
-    
-    UnscrambleWordsPageViewController *unscrambleWordsVC5 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"ELEPHANT"];
+//    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"FROG"];
+//    
+//    UnscrambleWordsPageViewController *unscrambleWordsVC3 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"HORSE"];
+//    
+//    UnscrambleWordsPageViewController *unscrambleWordsVC4 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"JUNGLE"];
+//    
+//    UnscrambleWordsPageViewController *unscrambleWordsVC5 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"ELEPHANT"];
     
     DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
     
-    self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, unscrambleWordsVC2, unscrambleWordsVC3, unscrambleWordsVC4, unscrambleWordsVC5, drawingPageVC, nil];
+//    self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, unscrambleWordsVC2, unscrambleWordsVC3, unscrambleWordsVC4, unscrambleWordsVC5, drawingPageVC, nil];
     
-    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
+    self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, voicePageVC, unscrambleWordsVC, nil];
+
+    NSArray *viewControllers = [NSArray arrayWithObjects:drawingPageVC, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward
