@@ -114,6 +114,10 @@ NSString *kImageName = @"imageName";
         [self.view addSubview:[_imageViews objectAtIndex:i]];
     }
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.nextSpeechIndex = 0;
     [self startSpeaking];
 }
 
