@@ -33,26 +33,17 @@ static NSString * const reuseIdentifier = @"BookCell";
     
     // Do any additional setup after loading the view.
     
-    [self updateBuiltQuery];
-}
-
-- (void)updateBuiltQuery
-{
-    BuiltQuery *query = [BuiltQuery queryWithClassUID:@"book"];
+    NSDictionary *image1 = @{
+                             @"title": @"Starter"
+                             };
+    NSDictionary *image2 = @{
+                             @"title": @"Test"
+                             };
     
-    [query exec:^(QueryResult *result, ResponseType type) {
-        // the query has executed successfully.
-        // [result getResult] will contain a list of objects that satisfy the conditions
-        // here's the object we just created
-        _tableData = [result getResult];
-        
-        [self.collectionView reloadData];
-        
-    } onError:^(NSError *error, ResponseType type) {
-        // query execution failed.
-        // error.userinfo contains more details regarding the same
-        NSLog(@"%@", error.userInfo);
-    }];
+    NSArray *images = @[image1, image2];
+    
+    _tableData = images;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,11 +86,6 @@ static NSString * const reuseIdentifier = @"BookCell";
     
     cell.titleLabel.text = [data objectForKey:@"title"];
     
-//    [cell.layer setBorderWidth:2.0];
-//    [cell.layer setBorderColor:[UIColor whiteColor].CGColor];
-//    
-//    [cell setBackgroundColor:[UIColor redColor]];
-    
     return cell;
 }
 
@@ -120,9 +106,7 @@ static NSString * const reuseIdentifier = @"BookCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *data = [_tableData objectAtIndex:indexPath.row];
-    NSString *book_uid = [data objectForKey:@"uid"];
-    [[NSUserDefaults standardUserDefaults] setObject:book_uid forKey:@"book_uid"];
+    // TODO pass book information
     [self performSegueWithIdentifier:@"story" sender:self];
 }
 

@@ -175,8 +175,7 @@
 				990BABF51A12D3C00014EDD3 /* AppDelegate.m */,
 				99FC4B891A20416200528191 /* Main.storyboard */,
 				992FBF0B1A2046E400CDFAE3 /* Story */,
-				99656F8E1A14955400663C0F /* ThemesViewController.h */,
-				99656F8F1A14955400663C0F /* ThemesViewController.m */,
+				992FBF0F1A2048C700CDFAE3 /* Themes */,
 				990BAC331A12ED210014EDD3 /* BookCollectionViewCell.h */,
 				990BAC341A12ED210014EDD3 /* BookCollectionViewCell.m */,
 				990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */,
@@ -270,6 +269,15 @@
 				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 			);
 			name = Templates;
+			sourceTree = "<group>";
+		};
+		992FBF0F1A2048C700CDFAE3 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				99656F8E1A14955400663C0F /* ThemesViewController.h */,
+				99656F8F1A14955400663C0F /* ThemesViewController.m */,
+			);
+			name = Themes;
 			sourceTree = "<group>";
 		};
 		9F979CDF5E48A7E2CA2FE9B3 /* Pods */ = {
