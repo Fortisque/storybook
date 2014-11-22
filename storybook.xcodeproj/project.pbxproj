@@ -16,8 +16,6 @@
 		86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */; };
 		990BABF31A12D3C00014EDD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF21A12D3C00014EDD3 /* main.m */; };
 		990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF51A12D3C00014EDD3 /* AppDelegate.m */; };
-		990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF81A12D3C00014EDD3 /* LoginViewController.m */; };
-		990BABFC1A12D3C00014EDD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 990BABFA1A12D3C00014EDD3 /* Main.storyboard */; };
 		990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 990BABFD1A12D3C00014EDD3 /* Images.xcassets */; };
 		990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */; };
 		990BAC0D1A12D3C00014EDD3 /* storybookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC0C1A12D3C00014EDD3 /* storybookTests.m */; };
@@ -37,12 +35,11 @@
 		990BAC361A12ED210014EDD3 /* BookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC341A12ED210014EDD3 /* BookCollectionViewCell.m */; };
 		990BAC371A12ED210014EDD3 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */; };
 		9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */; };
-		9935465E1A13C77D00A41513 /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9935465D1A13C77D00A41513 /* StoryViewController.m */; };
 		995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AE71A19E43400E4F28F /* PagesViewController.m */; };
 		995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */; };
 		99656F901A14955400663C0F /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99656F8F1A14955400663C0F /* ThemesViewController.m */; };
 		99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B908791A1C45C4001B07AB /* DrawingPageViewController.m */; };
-		99FC4B8B1A20416200528191 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC4B891A20416200528191 /* MainStoryboard_iPad.storyboard */; };
+		99FC4B8B1A20416200528191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC4B891A20416200528191 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,9 +70,6 @@
 		990BABF21A12D3C00014EDD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		990BABF41A12D3C00014EDD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		990BABF51A12D3C00014EDD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		990BABF71A12D3C00014EDD3 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		990BABF81A12D3C00014EDD3 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		990BABFB1A12D3C00014EDD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		990BABFD1A12D3C00014EDD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		990BAC001A12D3C00014EDD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		990BAC061A12D3C00014EDD3 /* storybookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = storybookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,8 +94,6 @@
 		990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookCollectionViewCell.xib; path = storybook/BookCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		9929F6FE1A1C6FBD00DC92B1 /* DrawingPrompterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPrompterViewController.h; sourceTree = "<group>"; };
 		9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPrompterViewController.m; sourceTree = "<group>"; };
-		9935465C1A13C77D00A41513 /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryViewController.h; sourceTree = "<group>"; };
-		9935465D1A13C77D00A41513 /* StoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryViewController.m; sourceTree = "<group>"; };
 		995E7AE61A19E43400E4F28F /* PagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesViewController.h; sourceTree = "<group>"; };
 		995E7AE71A19E43400E4F28F /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		995E7AE91A19E58A00E4F28F /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
@@ -110,7 +102,7 @@
 		99656F8F1A14955400663C0F /* ThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
 		99B908781A1C45C4001B07AB /* DrawingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPageViewController.h; sourceTree = "<group>"; };
 		99B908791A1C45C4001B07AB /* DrawingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPageViewController.m; sourceTree = "<group>"; };
-		99FC4B8A1A20416200528191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		99FC4B8A1A20416200528191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B538F193E82512F959D9BF8F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,10 +173,7 @@
 				990BAC171A12D49C0014EDD3 /* BuiltIO.framework */,
 				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
 				990BABF51A12D3C00014EDD3 /* AppDelegate.m */,
-				990BABF71A12D3C00014EDD3 /* LoginViewController.h */,
-				990BABF81A12D3C00014EDD3 /* LoginViewController.m */,
-				990BABFA1A12D3C00014EDD3 /* Main.storyboard */,
-				99FC4B891A20416200528191 /* MainStoryboard_iPad.storyboard */,
+				99FC4B891A20416200528191 /* Main.storyboard */,
 				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
 				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
 				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
@@ -202,8 +191,6 @@
 				990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */,
 				990BAC2E1A12DC7D0014EDD3 /* BookCollectionViewController.h */,
 				990BAC2F1A12DC7D0014EDD3 /* BookCollectionViewController.m */,
-				9935465C1A13C77D00A41513 /* StoryViewController.h */,
-				9935465D1A13C77D00A41513 /* StoryViewController.m */,
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
@@ -344,8 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99FC4B8B1A20416200528191 /* MainStoryboard_iPad.storyboard in Resources */,
-				990BABFC1A12D3C00014EDD3 /* Main.storyboard in Resources */,
+				99FC4B8B1A20416200528191 /* Main.storyboard in Resources */,
 				990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
 				86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */,
@@ -407,8 +393,6 @@
 				99656F901A14955400663C0F /* ThemesViewController.m in Sources */,
 				990BAC361A12ED210014EDD3 /* BookCollectionViewCell.m in Sources */,
 				99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */,
-				990BABF91A12D3C00014EDD3 /* LoginViewController.m in Sources */,
-				9935465E1A13C77D00A41513 /* StoryViewController.m in Sources */,
 				990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */,
 				86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */,
 				9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */,
@@ -439,14 +423,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		990BABFA1A12D3C00014EDD3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				990BABFB1A12D3C00014EDD3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -455,12 +431,12 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		99FC4B891A20416200528191 /* MainStoryboard_iPad.storyboard */ = {
+		99FC4B891A20416200528191 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				99FC4B8A1A20416200528191 /* Base */,
 			);
-			name = MainStoryboard_iPad.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
