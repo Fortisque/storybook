@@ -33,16 +33,16 @@ static NSString * const reuseIdentifier = @"BookCell";
     
     // Do any additional setup after loading the view.
     
-    NSDictionary *image1 = @{
+    NSDictionary *theme1 = @{
                              @"title": @"Starter"
                              };
-    NSDictionary *image2 = @{
+    NSDictionary *theme2 = @{
                              @"title": @"Test"
                              };
     
-    NSArray *images = @[image1, image2];
+    NSArray *themes = @[theme1, theme2];
     
-    _tableData = images;
+    _tableData = themes;
     
 }
 
@@ -78,7 +78,6 @@ static NSString * const reuseIdentifier = @"BookCell";
     if (cell == NULL) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BookCollectionViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
-        NSLog(@"hi");
     }
         
     // Configure the cell

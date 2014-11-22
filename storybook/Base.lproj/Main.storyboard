@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -14,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="MMJ-lj-5vy" kind="relationship" relationship="rootViewController" id="TMQ-jB-cbM"/>
+                        <segue destination="Vxx-yR-hg7" kind="relationship" relationship="rootViewController" id="gEV-6P-XCn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,9 +38,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="JFE-87-4Kt" kind="push" identifier="selected_theme" id="aAy-yx-VOW"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,14 +49,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1D-r8-dN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455" y="-587"/>
+            <point key="canvasLocation" x="-635" y="-923"/>
         </scene>
         <!--Book Collection View Controller-->
         <scene sceneID="8CP-tD-b7S">
             <objects>
                 <collectionViewController id="JFE-87-4Kt" customClass="BookCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="grg-LY-mXb">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="50" id="kox-tb-e2f">
                             <size key="itemSize" width="300" height="300"/>
@@ -81,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="661" y="-829"/>
         </scene>
-        <!--View Controller-->
+        <!--Bubble Themes View Controller-->
         <scene sceneID="yiZ-Ga-hVG">
             <objects>
-                <viewController id="Vxx-yR-hg7" sceneMemberID="viewController">
+                <viewController id="Vxx-yR-hg7" customClass="BubbleThemesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="btA-Gn-weT"/>
                         <viewControllerLayoutGuide type="bottom" id="4CL-aG-ghj"/>
@@ -93,20 +91,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
-                                <rect key="frame" x="0.0" y="317" width="768" height="389"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
+                                <rect key="frame" x="0.0" y="181" width="768" height="500"/>
                                 <connections>
                                     <segue destination="OXo-mP-GzL" kind="embed" id="hWR-Q4-hXZ"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NDJ-Xo-HKk" secondAttribute="trailing" constant="-16" id="UZa-4R-XAJ"/>
+                            <constraint firstItem="NDJ-Xo-HKk" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="-16" id="X7S-0h-7Nw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J1x-Sd-oAA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB3-Fm-fTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-440" y="692"/>
+            <point key="canvasLocation" x="-434" y="756"/>
         </scene>
         <!--Pages View Controller-->
         <scene sceneID="XY9-xc-voz">
@@ -116,41 +118,34 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4N-Ui-ilJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="420"/>
+            <point key="canvasLocation" x="1546" y="-829"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Bubble Themes Collection View Controller-->
         <scene sceneID="0iF-1n-q2H">
             <objects>
-                <collectionViewController id="OXo-mP-GzL" sceneMemberID="viewController">
+                <collectionViewController id="OXo-mP-GzL" customClass="BubbleThemesCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sT8-c5-B8b">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="389"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5SR-ta-Ege">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="50" minimumInteritemSpacing="50" id="5SR-ta-Ege">
+                            <size key="itemSize" width="300" height="300"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fwN-I0-a8B">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="OXo-mP-GzL" id="Rvq-mM-ZUh"/>
                             <outlet property="delegate" destination="OXo-mP-GzL" id="kwj-RP-hwI"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="JFE-87-4Kt" kind="push" identifier="selected_theme" id="OlC-K0-Gmc"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjd-xy-jbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-440" y="1533.5"/>
+            <point key="canvasLocation" x="-440" y="1669"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
