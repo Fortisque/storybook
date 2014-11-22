@@ -22,41 +22,12 @@
             </objects>
             <point key="canvasLocation" x="-1518" y="184"/>
         </scene>
-        <!--Themes View Controller-->
-        <scene sceneID="haK-uE-RnB">
-            <objects>
-                <tableViewController id="MMJ-lj-5vy" customClass="ThemesViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="g8f-FV-Pag">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="temp" id="igB-2K-PVd">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="igB-2K-PVd" id="aMA-Yn-SGv">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="MMJ-lj-5vy" id="Day-mW-3nO"/>
-                            <outlet property="delegate" destination="MMJ-lj-5vy" id="E5L-JK-xVM"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="HwU-6b-Yxh"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l1D-r8-dN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-635" y="-923"/>
-        </scene>
         <!--Book Collection View Controller-->
         <scene sceneID="8CP-tD-b7S">
             <objects>
                 <collectionViewController id="JFE-87-4Kt" customClass="BookCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="grg-LY-mXb">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="50" id="kox-tb-e2f">
                             <size key="itemSize" width="300" height="300"/>
@@ -77,7 +48,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbc-LA-0DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="-829"/>
+            <point key="canvasLocation" x="549" y="537"/>
         </scene>
         <!--Bubble Themes View Controller-->
         <scene sceneID="yiZ-Ga-hVG">
@@ -91,8 +62,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
-                                <rect key="frame" x="0.0" y="181" width="768" height="500"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
+                                <rect key="frame" x="4" y="181" width="760" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="tGa-DE-FHK"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="OXo-mP-GzL" kind="embed" id="hWR-Q4-hXZ"/>
                                 </connections>
@@ -100,15 +74,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NDJ-Xo-HKk" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="117" id="OGA-gS-8j1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NDJ-Xo-HKk" secondAttribute="trailing" constant="-16" id="UZa-4R-XAJ"/>
                             <constraint firstItem="NDJ-Xo-HKk" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="-16" id="X7S-0h-7Nw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J1x-Sd-oAA"/>
+                    <connections>
+                        <segue destination="JFE-87-4Kt" kind="push" identifier="selected_theme" id="Gte-Pq-YaK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB3-Fm-fTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434" y="756"/>
+            <point key="canvasLocation" x="-458" y="184"/>
         </scene>
         <!--Pages View Controller-->
         <scene sceneID="XY9-xc-voz">
@@ -118,14 +96,14 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4N-Ui-ilJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-829"/>
+            <point key="canvasLocation" x="1506" y="537"/>
         </scene>
         <!--Bubble Themes Collection View Controller-->
         <scene sceneID="0iF-1n-q2H">
             <objects>
                 <collectionViewController id="OXo-mP-GzL" customClass="BubbleThemesCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sT8-c5-B8b">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="760" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="50" minimumInteritemSpacing="50" id="5SR-ta-Ege">
                             <size key="itemSize" width="300" height="300"/>
@@ -145,7 +123,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjd-xy-jbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-440" y="1669"/>
+            <point key="canvasLocation" x="-454" y="1121"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -153,4 +131,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Gte-Pq-YaK"/>
+    </inferredMetricsTieBreakers>
 </document>

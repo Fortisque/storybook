@@ -41,7 +41,6 @@
 		992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992FBF181A204F4100CDFAE3 /* BubblesCollectionViewCell.xib */; };
 		995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AE71A19E43400E4F28F /* PagesViewController.m */; };
 		995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */; };
-		99656F901A14955400663C0F /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99656F8F1A14955400663C0F /* ThemesViewController.m */; };
 		99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B908791A1C45C4001B07AB /* DrawingPageViewController.m */; };
 		99FC4B8B1A20416200528191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC4B891A20416200528191 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -109,8 +108,6 @@
 		995E7AE71A19E43400E4F28F /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		995E7AE91A19E58A00E4F28F /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
 		995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageViewController.m; sourceTree = "<group>"; };
-		99656F8E1A14955400663C0F /* ThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
-		99656F8F1A14955400663C0F /* ThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
 		99B908781A1C45C4001B07AB /* DrawingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPageViewController.h; sourceTree = "<group>"; };
 		99B908791A1C45C4001B07AB /* DrawingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPageViewController.m; sourceTree = "<group>"; };
 		99FC4B8A1A20416200528191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -285,8 +282,6 @@
 		992FBF0F1A2048C700CDFAE3 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				99656F8E1A14955400663C0F /* ThemesViewController.h */,
-				99656F8F1A14955400663C0F /* ThemesViewController.m */,
 				992FBF131A204B1E00CDFAE3 /* BubbleThemesViewController.h */,
 				992FBF141A204B1E00CDFAE3 /* BubbleThemesViewController.m */,
 				992FBF101A204AC300CDFAE3 /* BubbleThemesCollectionViewController.h */,
@@ -458,7 +453,6 @@
 				992FBF121A204AC300CDFAE3 /* BubbleThemesCollectionViewController.m in Sources */,
 				86D9C7CF1A1B14A7002C759D /* UnscrambleWordsPageViewController.m in Sources */,
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
-				99656F901A14955400663C0F /* ThemesViewController.m in Sources */,
 				992FBF151A204B1E00CDFAE3 /* BubbleThemesViewController.m in Sources */,
 				990BAC361A12ED210014EDD3 /* BookCollectionViewCell.m in Sources */,
 				99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */,
