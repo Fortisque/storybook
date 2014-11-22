@@ -48,8 +48,6 @@ CGRect workingFrame;
     brush = 10.0;
     opacity = 1.0;
     
-    workingFrame = CGRectMake(0, 0, 600, 600);
-    
     self.tempDrawImage = [[UIImageView alloc] initWithFrame:workingFrame];
     
     [self.view addSubview:self.mainImage];
@@ -68,8 +66,6 @@ CGRect workingFrame;
     
     [self.mainImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.mainImage.layer setBorderWidth: 2.0];
-    self.mainImage.frame = workingFrame;
-    self.tempDrawImage.frame = workingFrame;
     
     NSArray *colors = [[NSArray alloc] initWithObjects:@"Black", @"Grey", @"Red", @"Orange", @"Yellow", @"Green", @"Blue", @"Indigo", @"Violet", @"Erase", nil];
     
@@ -85,14 +81,23 @@ CGRect workingFrame;
         [self.view addSubview:button];
     }
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
+    UIButton *buttonDone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [buttonDone addTarget:self
                action:@selector(donePressed:)
      forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"Done" forState:UIControlStateNormal];
-    button.frame = CGRectMake(500.0, 50.0, 60.0, 40.0);
-    button.tag = i;
-    [self.view addSubview:button];
+    [buttonDone setTitle:@"Done" forState:UIControlStateNormal];
+    buttonDone.frame = CGRectMake(500.0, 50.0, 60.0, 40.0);
+    
+    UIButton *buttonClear = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [buttonClear addTarget:self
+                   action:@selector(clearPressed:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [buttonClear setTitle:@"Clear" forState:UIControlStateNormal];
+    buttonClear.frame = CGRectMake(50.0, 50.0, 60.0, 40.0);
+
+    
+    [self.view addSubview:buttonDone];
+    [self.view addSubview:buttonClear];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,6 +188,11 @@ CGRect workingFrame;
     [_presenter updateCustomImage:self.mainImage.image];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)clearPressed:(id)sender {
+    NSLog(@"clear");
+    self.mainImage.image = nil;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
