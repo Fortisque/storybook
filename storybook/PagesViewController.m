@@ -58,6 +58,7 @@
     
     NSDictionary *text5 = @{
                             kText: @"draw a cat",
+                            kFrame:@[@100,@60,@300,@100]
                             };
     
     NSArray *images = @[image1, image2];
@@ -101,24 +102,17 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    
-    NSLog(@"before");
-    
+        
     NSUInteger index = [_vcs indexOfObject:viewController];
-    
-    NSLog(@"%i", index);
     
     if (index == 0) {
         return nil;
     }
     
-    NSLog(@"%@",[_vcs objectAtIndex:index - 1] );
     return [_vcs objectAtIndex:index - 1];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    NSLog(@"after");
     
     NSUInteger index = [_vcs indexOfObject:viewController];
     

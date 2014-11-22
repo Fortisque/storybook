@@ -10,6 +10,8 @@
 
 @interface DrawingPageViewController ()
 
+@property (nonatomic, strong) UIImage *initializationImage;
+
 @end
 
 @implementation DrawingPageViewController
@@ -21,48 +23,47 @@ CGRect workingFrame;
     
     if (self != nil)
     {
-        workingFrame = CGRectMake(0, 0, 600, 600);
-        self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
-        
-        UIGraphicsBeginImageContext(self.mainImage.frame.size);
-        [image drawInRect:workingFrame];
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-        CGContextStrokePath(UIGraphicsGetCurrentContext());
-        CGContextFlush(UIGraphicsGetCurrentContext());
-        self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
+        self.initializationImage = image;
         // Further initialization if needed
     }
     return self;
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Do any additional setup after loading the view from its nib.
+
     red = 0.0/255.0;
     green = 0.0/255.0;
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
     
+    CGFloat height = self.view.frame.size.height;
+    CGFloat width = self.view.frame.size.width;
+    
+    NSLog(@"%f", height);
+    
+    workingFrame = CGRectMake(0, 0, width, height);
+    self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
+    
+    UIGraphicsBeginImageContext(workingFrame.size);
+    [self.initializationImage drawInRect:workingFrame];
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    CGContextFlush(UIGraphicsGetCurrentContext());
+    self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     self.tempDrawImage = [[UIImageView alloc] initWithFrame:workingFrame];
     
     [self.view addSubview:self.mainImage];
     [self.view addSubview:self.tempDrawImage];
-    
-    
-
-    [super viewDidLoad];
-    
-    // Do any additional setup after loading the view from its nib.
-    
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
     
     [self.mainImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.mainImage.layer setBorderWidth: 2.0];
@@ -76,28 +77,33 @@ CGRect workingFrame;
                    action:@selector(colorPressed:)
          forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:[colors objectAtIndex:i] forState:UIControlStateNormal];
-        button.frame = CGRectMake(i * 60 + 10.0, 600.0, 60.0, 40.0);
+        button.frame = CGRectMake(i * 60 + 10.0, height - 60, 60.0, 40.0);
         button.tag = i;
         [self.view addSubview:button];
     }
     
     UIButton *buttonDone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [buttonDone addTarget:self
-               action:@selector(donePressed:)
-     forControlEvents:UIControlEventTouchUpInside];
+                   action:@selector(donePressed:)
+         forControlEvents:UIControlEventTouchUpInside];
     [buttonDone setTitle:@"Done" forState:UIControlStateNormal];
-    buttonDone.frame = CGRectMake(500.0, 50.0, 60.0, 40.0);
+    buttonDone.frame = CGRectMake(width - 100, 50.0, 60.0, 40.0);
     
     UIButton *buttonClear = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [buttonClear addTarget:self
-                   action:@selector(clearPressed:)
-         forControlEvents:UIControlEventTouchUpInside];
+                    action:@selector(clearPressed:)
+          forControlEvents:UIControlEventTouchUpInside];
     [buttonClear setTitle:@"Clear" forState:UIControlStateNormal];
     buttonClear.frame = CGRectMake(50.0, 50.0, 60.0, 40.0);
-
+    
     
     [self.view addSubview:buttonDone];
     [self.view addSubview:buttonClear];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
 }
 
 - (void)didReceiveMemoryWarning {

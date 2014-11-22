@@ -16,27 +16,25 @@
 @end
 
 @implementation DrawingPrompterViewController
-@synthesize imageView;
-
-bool firstLoad = true;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+    // TODO load any images the user has drawn for this before
+    self.imageView = [[UIImageView alloc] init];
     
-    [imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
-    [imageView.layer setBorderWidth: 2.0];
+    [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [self.imageView.layer setBorderWidth: 2.0];
     
-    imageView.frame = CGRectMake(300, 100, 400, 400);
+    self.imageView.frame = CGRectMake(300, 100, 400, 400);
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(promptDrawing)];
     
-    imageView.userInteractionEnabled = YES; // allow taps on image.
-    [imageView addGestureRecognizer:singleTap];
+    self.imageView.userInteractionEnabled = YES; // allow taps on image.
+    [self.imageView addGestureRecognizer:singleTap];
     
-    [self.view addSubview:imageView];
+    [self.view addSubview:self.imageView];
 }
 
 
@@ -47,13 +45,11 @@ bool firstLoad = true;
 
 - (void)promptDrawing
 {
-    DrawingPageViewController *dpvc = [[DrawingPageViewController alloc] initWithImage:imageView.image];
+    DrawingPageViewController *dpvc = [[DrawingPageViewController alloc] initWithImage:self.imageView.image];
     
     dpvc.presenter = self;
     
-    [self presentViewController:dpvc animated:YES completion:^{
-        NSLog(@"Complete");
-    }];
+    [self presentViewController:dpvc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +58,7 @@ bool firstLoad = true;
 }
 
 - (void)updateCustomImage:(UIImage *)image {
-    [imageView setImage:image];
+    [self.imageView setImage:image];
 }
 
 /*

@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
-                                <rect key="frame" x="4" y="181" width="760" height="500"/>
+                                <rect key="frame" x="4" y="234" width="760" height="500"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="tGa-DE-FHK"/>
                                 </constraints>
@@ -71,12 +71,24 @@
                                     <segue destination="OXo-mP-GzL" kind="embed" id="hWR-Q4-hXZ"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Bubbles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNY-1Y-Flh">
+                                <rect key="frame" x="265" y="115" width="239" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="MBv-4X-lqX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NDJ-Xo-HKk" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="117" id="OGA-gS-8j1"/>
+                            <constraint firstItem="NDJ-Xo-HKk" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="170" id="A1c-OG-cTI"/>
+                            <constraint firstItem="DNY-1Y-Flh" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="51" id="AUc-y1-2kL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DNY-1Y-Flh" secondAttribute="trailing" constant="244" id="Fro-tQ-RIV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NDJ-Xo-HKk" secondAttribute="trailing" constant="-16" id="UZa-4R-XAJ"/>
                             <constraint firstItem="NDJ-Xo-HKk" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="-16" id="X7S-0h-7Nw"/>
+                            <constraint firstItem="DNY-1Y-Flh" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="245" id="jMg-Nk-3Mu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J1x-Sd-oAA"/>
