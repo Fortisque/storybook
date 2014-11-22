@@ -174,13 +174,7 @@
 				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
 				990BABF51A12D3C00014EDD3 /* AppDelegate.m */,
 				99FC4B891A20416200528191 /* Main.storyboard */,
-				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
-				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
-				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
-				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
-				70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */,
-				70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */,
-				992FBF0A1A2045B200CDFAE3 /* Drawing */,
+				992FBF0B1A2046E400CDFAE3 /* Story */,
 				99656F8E1A14955400663C0F /* ThemesViewController.h */,
 				99656F8F1A14955400663C0F /* ThemesViewController.m */,
 				990BAC331A12ED210014EDD3 /* BookCollectionViewCell.h */,
@@ -191,14 +185,6 @@
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
-				86D9C7C71A1B10E5002C759D /* TileView.h */,
-				86D9C7C81A1B10E5002C759D /* TileView.m */,
-				86D9C7CA1A1B115E002C759D /* TileView.xib */,
-				86D9C7CC1A1B14A7002C759D /* UnscrambleWordsPageViewController.h */,
-				86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */,
-				86D9C7D41A1B3D4C002C759D /* TileContainerView.h */,
-				86D9C7D51A1B3D4C002C759D /* TileContainerView.m */,
-				86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */,
 			);
 			path = storybook;
 			sourceTree = "<group>";
@@ -238,6 +224,52 @@
 				99B908791A1C45C4001B07AB /* DrawingPageViewController.m */,
 			);
 			name = Drawing;
+			sourceTree = "<group>";
+		};
+		992FBF0B1A2046E400CDFAE3 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
+				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
+				992FBF0E1A20474000CDFAE3 /* Templates */,
+			);
+			name = Story;
+			sourceTree = "<group>";
+		};
+		992FBF0C1A2046FD00CDFAE3 /* Word_Unscramble */ = {
+			isa = PBXGroup;
+			children = (
+				86D9C7C71A1B10E5002C759D /* TileView.h */,
+				86D9C7C81A1B10E5002C759D /* TileView.m */,
+				86D9C7CA1A1B115E002C759D /* TileView.xib */,
+				86D9C7CC1A1B14A7002C759D /* UnscrambleWordsPageViewController.h */,
+				86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */,
+				86D9C7D41A1B3D4C002C759D /* TileContainerView.h */,
+				86D9C7D51A1B3D4C002C759D /* TileContainerView.m */,
+				86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */,
+			);
+			name = Word_Unscramble;
+			sourceTree = "<group>";
+		};
+		992FBF0D1A20471B00CDFAE3 /* Audio_Record */ = {
+			isa = PBXGroup;
+			children = (
+				70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */,
+				70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */,
+			);
+			name = Audio_Record;
+			sourceTree = "<group>";
+		};
+		992FBF0E1A20474000CDFAE3 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				992FBF0D1A20471B00CDFAE3 /* Audio_Record */,
+				992FBF0A1A2045B200CDFAE3 /* Drawing */,
+				992FBF0C1A2046FD00CDFAE3 /* Word_Unscramble */,
+				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
+				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
+			);
+			name = Templates;
 			sourceTree = "<group>";
 		};
 		9F979CDF5E48A7E2CA2FE9B3 /* Pods */ = {
