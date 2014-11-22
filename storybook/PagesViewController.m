@@ -23,6 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    
     NSDictionary *image1 = @{
                              kImageName: @"character",
                              kFrame: @[@200,@100,@100,@100]
@@ -102,9 +106,13 @@
     
     NSUInteger index = [_vcs indexOfObject:viewController];
     
+    NSLog(@"%i", index);
+    
     if (index == 0) {
         return nil;
     }
+    
+    NSLog(@"%@",[_vcs objectAtIndex:index - 1] );
     return [_vcs objectAtIndex:index - 1];
 }
 
