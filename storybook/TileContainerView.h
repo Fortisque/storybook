@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) TileView *containedTile;
-@property (strong, nonatomic) NSString *containedLetter;
+@property (strong, nonatomic) NSString *containedText;
 
 @end

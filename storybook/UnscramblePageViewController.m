@@ -184,7 +184,8 @@ const int TILE_SIZE = 100;
         NSDictionary *scene = [copy objectAtIndex:i];
         NSDictionary *properties = @{
                                      @"frame":frame,
-                                     @"imageName":[scene objectForKey:@"imageName"]
+                                     @"imageName":[scene objectForKey:@"imageName"],
+                                     @"sentence":[scene objectForKey:@"sentence"]
                                      };
         TileView *tileView = [[TileView alloc] initWithProperties:properties];
         tileView.center = CGPointMake(startingPostion + i*spaceForEachTile, 600);
@@ -209,14 +210,14 @@ const int TILE_SIZE = 100;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
     if(recognizer.state == UIGestureRecognizerStateBegan){
-        NSLog(@"dragging tile %@", ((TileView *)recognizer.view).letter);
+        NSLog(@"dragging tile %@", ((TileView *)recognizer.view).text);
         
         //reset tile and container if moved out of container
         for(TileContainerView *containerView in self.containers){
             if(containerView.containedTile == recognizer.view){
                 ((TileView *)recognizer.view).matched = NO;
                 containerView.containedTile = nil;
-                containerView.containedLetter = @"";
+                containerView.containedText = @"";
             }
         }
     }
@@ -260,7 +261,7 @@ const int TILE_SIZE = 100;
                 
                 //assign new tile to container
                 containerView.containedTile = currentTileView;
-                containerView.containedLetter = currentTileView.letter;
+                containerView.containedText = currentTileView.text;
                 
             }else{  //else set the containedTile to the currently dragged tile
                 
@@ -269,7 +270,7 @@ const int TILE_SIZE = 100;
                 
                 //assign new tile to container
                 containerView.containedTile = currentTileView;
-                containerView.containedLetter = currentTileView.letter;
+                containerView.containedText = currentTileView.text;
             }
             
             //animate to center of container
@@ -301,7 +302,7 @@ const int TILE_SIZE = 100;
 - (NSString *)getUnscrambledWord {
     NSString *result = [[NSString alloc]init];
     for(TileContainerView *containerView in self.containers){
-        result = [result stringByAppendingString:containerView.containedLetter];
+        result = [result stringByAppendingString:containerView.containedText];
     }
     NSLog(@"result: %@", result);
     return result;

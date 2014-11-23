@@ -13,7 +13,7 @@
 @property (strong, nonatomic) UIView *view;
 @property (strong, nonatomic) UILabel *letterLabel;
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) NSString *letter;
+@property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) NSString *imageName;
 @property (strong, nonatomic) NSDictionary *properties;
 
