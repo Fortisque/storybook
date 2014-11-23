@@ -210,26 +210,20 @@ const int TILE_SIZE = 100;
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
+    TileView *tv = (TileView *) recognizer.view;
+    
     if(recognizer.state == UIGestureRecognizerStateBegan){
-        NSLog(@"dragging tile %@", ((TileView *)recognizer.view).text);
+        NSLog(@"dragging tile %@", tv.text);
         
-        TileView *tv = (TileView *) recognizer.view;
-        
-        
-        
-//        POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
-//        scaleDown.toValue = [NSValue valueWithCGRect:CGRectMake(0.0, 0.0, 200.0, 200.0)];
-//        scaleDown.springBounciness = 20.0f;
-//        scaleDown.springSpeed = 20.0f;
-//        
-//        [recognizer.view pop_addAnimation:scaleDown forKey:@"first"];
-//        [tv.imageView pop_addAnimation:scaleDown forKey:@"first"];
-        
-        [UIView animateWithDuration:0.5 animations:^{
-            tv.transform = CGAffineTransformMakeScale(0.1, 0.1);
-            //tv.view.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
-            //tv.imageView.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
-        }];
+        if (tv.imageName) {
+            // is our picture view.
+            POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+            scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(0.5, 0.5)];
+            scaleDown.springBounciness = 20.0f;
+            scaleDown.springSpeed = 20.0f;
+            
+            [tv pop_addAnimation:scaleDown forKey:@"down"];
+        }
         
         
         
@@ -258,6 +252,12 @@ const int TILE_SIZE = 100;
         }else{
             //animate tile back to original position
             [self animateView:recognizer.view ToPosition:((TileView *)recognizer.view).originalPosition];
+            POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+            scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
+            scaleUp.springBounciness = 20.0f;
+            scaleUp.springSpeed = 20.0f;
+            
+            [tv pop_addAnimation:scaleUp forKey:@"original"];
         }
         
         [self getUnscrambledWord];
