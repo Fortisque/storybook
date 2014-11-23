@@ -30,23 +30,36 @@ static NSString * const reuseIdentifier = @"Bubbles";
     UINib *cellNib = [UINib nibWithNibName:@"BubblesCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
     
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
     // Do any additional setup after loading the view.
-    
-    NSDictionary *theme1 = @{
-                             @"title": @"Space"
-                             };
-    NSDictionary *theme2 = @{
-                             @"title": @"Jungle"
-                             };
-    
-    NSArray *themes = @[theme1, theme2, theme1, theme2];
-    
-    _finalData = themes;
     
     _tableData = [[NSMutableArray alloc] init];
     
+    NSDictionary *theme1 = @{
+                             @"title": @"Space",
+                             @"picture": @"spacecircle"
+                             };
+    NSDictionary *theme2 = @{
+                             @"title": @"Forest",
+                             @"picture": @"forestcircle"
+                             };
+    NSDictionary *theme3 = @{
+                             @"title": @"Desert",
+                             @"picture": @"desertcircle"
+                             };
+    
+    NSArray *themes = @[theme1, theme2, theme3, theme1, theme2, theme3];
+    
+    _finalData = themes;
+    
     _myTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self
-                                                      selector: @selector(addCell) userInfo: nil repeats: YES];
+                                              selector: @selector(addCell) userInfo: nil repeats: YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void) addCell {
@@ -107,6 +120,7 @@ static NSString * const reuseIdentifier = @"Bubbles";
     NSDictionary *data = [_tableData objectAtIndex:indexPath.row];
     
     cell.titleLabel.text = [data objectForKey:@"title"];
+    cell.backgroundImage.image = [UIImage imageNamed:[data objectForKey:@"picture"]];
     
     return cell;
 }
@@ -123,26 +137,26 @@ static NSString * const reuseIdentifier = @"Bubbles";
     [self performSegueWithIdentifier:@"selected_theme" sender:self.parentViewController];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor greenColor];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = [[UIColor alloc] initWithRed:(102.0/255.0) green:(204.0/255.0) blue:(255.0/255.0) alpha:1.0];
-}
+//- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    cell.contentView.backgroundColor = [UIColor greenColor];
+//}
+//
+//- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    cell.contentView.backgroundColor = [[UIColor alloc] initWithRed:(102.0/255.0) green:(204.0/255.0) blue:(255.0/255.0) alpha:1.0];
+//}
 
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 70, 80, 70);
+    return UIEdgeInsetsMake(0, 30, 80, 30);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 70;
+    return 30;
 }
 
 @end
