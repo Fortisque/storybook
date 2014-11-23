@@ -9,6 +9,7 @@
 #import "UnscramblePageViewController.h"
 #import "TileView.h"
 #import "TileContainerView.h"
+#import <pop/POP.h>
 
 @interface UnscramblePageViewController ()
 
@@ -210,6 +211,26 @@ const int TILE_SIZE = 100;
     
     if(recognizer.state == UIGestureRecognizerStateBegan){
         NSLog(@"dragging tile %@", ((TileView *)recognizer.view).letter);
+        
+        TileView *tv = (TileView *) recognizer.view;
+        
+        
+        
+//        POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
+//        scaleDown.toValue = [NSValue valueWithCGRect:CGRectMake(0.0, 0.0, 200.0, 200.0)];
+//        scaleDown.springBounciness = 20.0f;
+//        scaleDown.springSpeed = 20.0f;
+//        
+//        [recognizer.view pop_addAnimation:scaleDown forKey:@"first"];
+//        [tv.imageView pop_addAnimation:scaleDown forKey:@"first"];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            tv.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            //tv.view.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
+            //tv.imageView.frame = CGRectMake(0.0, 0.0, 100.0, 100.0);
+        }];
+        
+        
         
         //reset tile and container if moved out of container
         for(TileContainerView *containerView in self.containers){

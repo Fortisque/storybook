@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
 
-@interface UnscramblePageViewController : BasePageViewController
+@interface UnscramblePageViewController : BasePageViewController <UIGestureRecognizerDelegate>
 
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andWord:(NSString *)word;
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andScenes:(NSArray *)scenes;
