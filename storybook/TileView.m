@@ -30,16 +30,22 @@
         // initilize all your UIView components
         NSString *letter = [properties objectForKey:@"letter"];
         NSString *imageName = [properties objectForKey:@"imageName"];
+        NSString *sentence = [properties objectForKey:@"sentence"];
+
         
         if (letter) {
-            _letter = letter;
+            _text = letter;
             _letterLabel = [[UILabel alloc]initWithFrame:CGRectMake(20,30, 200, 44)];
-            _letterLabel.text = _letter;
+            _letterLabel.text = letter;
             [self addSubview:_letterLabel];
         }
         if (imageName) {
             _imageView = [[UIImageView alloc]initWithFrame:frame];
             _imageView.image = [UIImage imageNamed:imageName];
+        }
+        
+        if (sentence) {
+            _text = sentence;
         }
         
         [self addSubview:_imageView];

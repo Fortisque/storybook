@@ -26,7 +26,7 @@
         [self addSubview:self.view];
         
         self.containedTile = nil;
-        self.containedLetter = @"";
+        self.containedText = @"";
     }
     return self;
 }
