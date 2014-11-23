@@ -11,7 +11,6 @@
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
 		86D9C7C91A1B10E5002C759D /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7C81A1B10E5002C759D /* TileView.m */; };
-		86D9C7CB1A1B115E002C759D /* TileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7CA1A1B115E002C759D /* TileView.xib */; };
 		86D9C7CF1A1B14A7002C759D /* UnscrambleWordsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */; };
 		86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7D51A1B3D4C002C759D /* TileContainerView.m */; };
 		86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */; };
@@ -65,7 +64,6 @@
 		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
 		86D9C7C71A1B10E5002C759D /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
 		86D9C7C81A1B10E5002C759D /* TileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileView.m; sourceTree = "<group>"; };
-		86D9C7CA1A1B115E002C759D /* TileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileView.xib; sourceTree = "<group>"; };
 		86D9C7CC1A1B14A7002C759D /* UnscrambleWordsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnscrambleWordsPageViewController.h; sourceTree = "<group>"; };
 		86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnscrambleWordsPageViewController.m; sourceTree = "<group>"; };
 		86D9C7D41A1B3D4C002C759D /* TileContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileContainerView.h; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 			children = (
 				86D9C7C71A1B10E5002C759D /* TileView.h */,
 				86D9C7C81A1B10E5002C759D /* TileView.m */,
-				86D9C7CA1A1B115E002C759D /* TileView.xib */,
 				86D9C7CC1A1B14A7002C759D /* UnscrambleWordsPageViewController.h */,
 				86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */,
 				86D9C7D41A1B3D4C002C759D /* TileContainerView.h */,
@@ -405,7 +402,6 @@
 				992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
 				990BAC371A12ED210014EDD3 /* StoryCollectionViewCell.xib in Resources */,
-				86D9C7CB1A1B115E002C759D /* TileView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
