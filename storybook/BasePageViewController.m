@@ -134,6 +134,7 @@ NSString *kImageName = @"imageName";
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
     
     AVSpeechSynthesizer *speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    speechSynthesizer.delegate = self;
     [speechSynthesizer speakUtterance:utterance];
 }
 
@@ -154,9 +155,7 @@ NSString *kImageName = @"imageName";
     if (self.nextSpeechIndex < [_utterances count]) {
         AVSpeechUtterance *utterance = [_utterances objectAtIndex:self.nextSpeechIndex];
         self.nextSpeechIndex += 1;
-        
-        utterance.rate = AVSpeechUtteranceMinimumSpeechRate;
-        
+                
         [self.synthesizer speakUtterance:utterance];
     }
 }
@@ -174,6 +173,7 @@ NSString *kImageName = @"imageName";
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
 {
+    NSLog(@"START");
     NSString *s = utterance.speechString;
     
     [self expandTextFor:s];
