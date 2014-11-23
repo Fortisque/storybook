@@ -8,10 +8,9 @@
 
 #import "BookCollectionViewController.h"
 #import "BookCollectionViewCell.h"
-#import <BuiltIO/BuiltIO.h>
 
 @interface BookCollectionViewController ()
-@property (strong, nonatomic) NSArray* tableData;
+@property (strong, nonatomic) NSArray* books;
 @end
 
 @implementation BookCollectionViewController
@@ -33,16 +32,16 @@ static NSString * const reuseIdentifier = @"BookCell";
     
     // Do any additional setup after loading the view.
     
-    NSDictionary *theme1 = @{
-                             @"title": @"Starter"
-                             };
-    NSDictionary *theme2 = @{
-                             @"title": @"Test"
-                             };
+    NSDictionary *book1 = @{
+                            @"title": @"Starter"
+                            };
+    NSDictionary *book2 = @{
+                            @"title": @"Test"
+                            };
     
-    NSArray *themes = @[theme1, theme2];
+    NSArray *books = @[book1, book2];
     
-    _tableData = themes;
+    _books = books;
     
 }
 
@@ -69,7 +68,7 @@ static NSString * const reuseIdentifier = @"BookCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_tableData count];
+    return [_books count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,7 +80,7 @@ static NSString * const reuseIdentifier = @"BookCell";
     }
         
     // Configure the cell
-    NSDictionary *data = [_tableData objectAtIndex:indexPath.row];
+    NSDictionary *data = [_books objectAtIndex:indexPath.row];
     
     cell.titleLabel.text = [data objectForKey:@"title"];
     

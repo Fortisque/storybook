@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
+		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
 		86D9C7C91A1B10E5002C759D /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7C81A1B10E5002C759D /* TileView.m */; };
 		86D9C7CB1A1B115E002C759D /* TileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7CA1A1B115E002C759D /* TileView.xib */; };
@@ -61,6 +62,8 @@
 /* Begin PBXFileReference section */
 		0E946FC2E97AA18D8E788BF3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4A811D5045D024A42E2CB7B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryShopCollectionViewController.h; sourceTree = "<group>"; };
+		7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryShopCollectionViewController.m; sourceTree = "<group>"; };
 		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
 		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
 		86D9C7C71A1B10E5002C759D /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				990BAC331A12ED210014EDD3 /* BookCollectionViewCell.h */,
 				990BAC341A12ED210014EDD3 /* BookCollectionViewCell.m */,
 				990BAC351A12ED210014EDD3 /* BookCollectionViewCell.xib */,
+				7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */,
+				7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */,
 				990BAC2E1A12DC7D0014EDD3 /* BookCollectionViewController.h */,
 				990BAC2F1A12DC7D0014EDD3 /* BookCollectionViewController.m */,
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
@@ -477,6 +482,7 @@
 				86D9C7CF1A1B14A7002C759D /* UnscrambleWordsPageViewController.m in Sources */,
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
 				992FBF151A204B1E00CDFAE3 /* BubbleThemesViewController.m in Sources */,
+				7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */,
 				990BAC361A12ED210014EDD3 /* BookCollectionViewCell.m in Sources */,
 				99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */,
 				990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */,
