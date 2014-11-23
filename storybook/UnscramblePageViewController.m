@@ -215,15 +215,18 @@ const int TILE_SIZE = 100;
     if(recognizer.state == UIGestureRecognizerStateBegan){
         NSLog(@"dragging tile %@", tv.text);
         
-        if (tv.imageName) {
-            // is our picture view.
-            POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
-            scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(0.5, 0.5)];
-            scaleDown.springBounciness = 20.0f;
-            scaleDown.springSpeed = 20.0f;
+        TileContainerView *container = [_containers firstObject];
+        
+        // Scale image to the container, 5 px padding on all sides
+        NSUInteger width = container.frame.size.width - 10;
+        NSUInteger height = container.frame.size.height - 10;
+        
+        POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(width / tv.frame.size.width, height / tv.frame.size.height)];
+        scaleDown.springBounciness = 10.0f;
+        scaleDown.springSpeed = 20.0f;
             
-            [tv pop_addAnimation:scaleDown forKey:@"down"];
-        }
+        [tv pop_addAnimation:scaleDown forKey:@"down"];
         
         
         
