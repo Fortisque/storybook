@@ -7,7 +7,7 @@
 //
 
 #import "StoryShopCollectionViewController.h"
-#import "BookCollectionViewCell.h"
+#import "StoryCollectionViewCell.h"
 
 @interface StoryShopCollectionViewController ()
 @property (strong, nonatomic) NSArray* books;
@@ -70,7 +70,7 @@ static NSString * const reuseIdentifier = @"BookCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    BookCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     if (cell == NULL) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BookCollectionViewCell" owner:self options:nil];

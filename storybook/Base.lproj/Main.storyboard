@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cnv-Yw-bQp">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -57,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="532" y="-625"/>
         </scene>
-        <!--Book Collection View Controller-->
+        <!--My Stories Collection View Controller-->
         <scene sceneID="8CP-tD-b7S">
             <objects>
-                <collectionViewController id="JFE-87-4Kt" customClass="BookCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController id="JFE-87-4Kt" customClass="MyStoriesCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="grg-LY-mXb">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="549" y="537"/>
         </scene>
-        <!--Bubble Themes View Controller-->
+        <!--Themes View Controller-->
         <scene sceneID="yiZ-Ga-hVG">
             <objects>
-                <viewController id="Vxx-yR-hg7" customClass="BubbleThemesViewController" sceneMemberID="viewController">
+                <viewController id="Vxx-yR-hg7" customClass="ThemesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="btA-Gn-weT"/>
                         <viewControllerLayoutGuide type="bottom" id="4CL-aG-ghj"/>
@@ -145,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="1506" y="537"/>
         </scene>
-        <!--Bubble Themes Collection View Controller-->
+        <!--Themes Collection View Controller-->
         <scene sceneID="0iF-1n-q2H">
             <objects>
-                <collectionViewController id="OXo-mP-GzL" customClass="BubbleThemesCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController id="OXo-mP-GzL" customClass="ThemesCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sT8-c5-B8b">
                         <rect key="frame" x="0.0" y="0.0" width="760" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,5 +1,5 @@
 //
-//  BookCollectionViewController.h
+//  BookCollectionViewCell.h
 //  storybook
 //
 //  Created by Kevin Casey on 11/11/14.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookCollectionViewController : UICollectionViewController
+@interface StoryCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
