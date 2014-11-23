@@ -20,11 +20,29 @@
 //    UIRectFrame(mFrame);
 //}
 
-- (instancetype) initWithLetter: (NSString *) letter{
-    self = [super init];
+- (instancetype) initWithProperties:(NSDictionary *)properties {
+    CGRect frame = [[properties objectForKey:@"frame"] CGRectValue];
+    self = [super initWithFrame:frame];
     if(self){
-        self.letter = letter;
-        self.letterLabel.text = letter;
+        _properties = properties;
+        self.backgroundColor = [UIColor yellowColor];
+        
+        // initilize all your UIView components
+        NSString *letter = [properties objectForKey:@"letter"];
+        NSString *imageName = [properties objectForKey:@"imageName"];
+        
+        if (letter) {
+            _letter = letter;
+            _letterLabel = [[UILabel alloc]initWithFrame:CGRectMake(20,30, 200, 44)];
+            _letterLabel.text = _letter;
+            [self addSubview:_letterLabel];
+        }
+        if (imageName) {
+            _imageView = [[UIImageView alloc]initWithFrame:frame];
+            _imageView.image = [UIImage imageNamed:imageName];
+        }
+        
+        [self addSubview:_imageView];
     }
     return self;
 }
@@ -40,7 +58,7 @@
     return self;
 }
 
-- (id) initWithFrame:(CGRect)frame {
+/*- (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self){
         //load xib
@@ -52,5 +70,5 @@
     }
     return self;
 }
-
+*/
 @end

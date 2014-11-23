@@ -10,11 +10,14 @@
 
 @interface TileView : UIView
 
-@property (strong, nonatomic) IBOutlet UIView *view;
-@property (weak, nonatomic) IBOutlet UILabel *letterLabel;
+@property (strong, nonatomic) UIView *view;
+@property (strong, nonatomic) UILabel *letterLabel;
+@property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) NSString *letter;
+@property (strong, nonatomic) NSString *imageName;
+@property (strong, nonatomic) NSDictionary *properties;
 
-- (instancetype) initWithLetter: (NSString *) letter;
+- (instancetype) initWithProperties:(NSDictionary *)properties;
 
 @property BOOL matched;
 @property CGPoint originalPosition;

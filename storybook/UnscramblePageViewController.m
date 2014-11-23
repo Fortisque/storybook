@@ -6,19 +6,20 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "UnscrambleWordsPageViewController.h"
+#import "UnscramblePageViewController.h"
 #import "TileView.h"
 #import "TileContainerView.h"
 
-@interface UnscrambleWordsPageViewController ()
+@interface UnscramblePageViewController ()
 
 @property (strong, nonatomic) NSString *word;
+@property (strong, nonatomic) NSArray *scenes;
 @property (strong, nonatomic) NSMutableArray *containers; //array of TileContainerView
 @property (strong, nonatomic) NSMutableArray *tiles;
 
 @end
 
-@implementation UnscrambleWordsPageViewController
+@implementation UnscramblePageViewController
 
 const int TILE_TAG= 1;
 const int TILE_CONTAINER_TAG = 2;
@@ -37,10 +38,24 @@ const int TILE_SIZE = 100;
     return self;
 }
 
+- (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andScenes:(NSArray *)scenes {
+    self = [super initWithTextLabels:textLabels andImageViews:imageViews];
+    if(self){
+        self.scenes = scenes;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addTileContainersWithSize:(int)self.word.length];
-    [self addTiles];
+    if (self.word) {
+        [self addTileContainersWithSize:(int)self.word.length];
+        [self addLetterTiles];
+    }
+    if (self.scenes) {
+        [self addTileContainersWithSize:5];
+        [self addSceneTiles];
+    }
     [self applyGesureRecognizer];
 }
 
@@ -96,7 +111,7 @@ const int TILE_SIZE = 100;
     }
 }
 
-- (void) addTiles {
+- (void) addLetterTiles {
     self.tiles = [[NSMutableArray alloc] init];
     
     //get all characters
@@ -122,10 +137,56 @@ const int TILE_SIZE = 100;
     int paddingForEachTile = (spaceForEachTile - TILE_SIZE)/2; //left or right padding
     int startingPostion = PADDING + paddingForEachTile + TILE_SIZE/2; //add half of tile size for center offset
     
+    NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,100,100)];
+    
     //display the tiles
     for(int i = 0; i < [characters count]; i++){
         NSString *character = [characters objectAtIndex:i];
-        TileView *tileView = [[TileView alloc] initWithLetter:character];
+        NSDictionary *properties = @{
+                                     @"frame":frame,
+                                     @"letter":character
+                                         };
+        TileView *tileView = [[TileView alloc] initWithProperties:properties];
+        tileView.center = CGPointMake(startingPostion + i*spaceForEachTile, 600);
+        tileView.originalPosition = tileView.center;
+        tileView.tag = TILE_TAG;
+        [self.tiles addObject:tileView];
+        [self.view addSubview:tileView];
+    }
+}
+
+- (void) addSceneTiles {
+    self.tiles = [[NSMutableArray alloc] init];
+    
+    NSMutableArray *copy = [_scenes mutableCopy];
+    
+    NSLog(@"%@", copy);
+    
+    while([_scenes isEqualToArray:copy]){
+        for(int i = 0; i < copy.count*2; i++) { //shuffle many times
+            int randomInt1 = arc4random() % [copy count];
+            int randomInt2 = arc4random() % [copy count];
+            [copy exchangeObjectAtIndex:randomInt1 withObjectAtIndex:randomInt2];
+        }
+    }
+    
+    //always evenly split tiles regardless of spacing
+    int size = 5;
+    int spaceTilesCanOccupy = SCREEN_WIDTH - 2 * PADDING;
+    int spaceForEachTile = spaceTilesCanOccupy/size; //tile plus padding space
+    int paddingForEachTile = (spaceForEachTile - TILE_SIZE)/2; //left or right padding
+    int startingPostion = PADDING + paddingForEachTile + TILE_SIZE/2; //add half of tile size for center offset
+    
+    NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,300,200)];
+    
+    //display the tiles
+    for(int i = 0; i < [copy count]; i++){
+        NSDictionary *scene = [copy objectAtIndex:i];
+        NSDictionary *properties = @{
+                                     @"frame":frame,
+                                     @"imageName":[scene objectForKey:@"imageName"]
+                                     };
+        TileView *tileView = [[TileView alloc] initWithProperties:properties];
         tileView.center = CGPointMake(startingPostion + i*spaceForEachTile, 600);
         tileView.originalPosition = tileView.center;
         tileView.tag = TILE_TAG;

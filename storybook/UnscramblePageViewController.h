@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
 
-@interface UnscrambleWordsPageViewController : BasePageViewController
+@interface UnscramblePageViewController : BasePageViewController
 
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andWord:(NSString *)word;
+- (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andScenes:(NSArray *)scenes;
 
 @end
