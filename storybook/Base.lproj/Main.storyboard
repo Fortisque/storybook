@@ -106,28 +106,26 @@
                                     <segue destination="OXo-mP-GzL" kind="embed" id="hWR-Q4-hXZ"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Bubbles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNY-1Y-Flh">
-                                <rect key="frame" x="265" y="115" width="239" height="78"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mWW-kx-kWA">
+                                <rect key="frame" x="252" y="85" width="264" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="MBv-4X-lqX"/>
+                                    <constraint firstAttribute="height" constant="128" id="mqL-cz-kAe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NDJ-Xo-HKk" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="170" id="A1c-OG-cTI"/>
-                            <constraint firstItem="DNY-1Y-Flh" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="51" id="AUc-y1-2kL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DNY-1Y-Flh" secondAttribute="trailing" constant="244" id="Fro-tQ-RIV"/>
+                            <constraint firstItem="mWW-kx-kWA" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="232" id="C1b-E4-UwS"/>
+                            <constraint firstItem="mWW-kx-kWA" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="21" id="K80-wk-Hps"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NDJ-Xo-HKk" secondAttribute="trailing" constant="-16" id="UZa-4R-XAJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mWW-kx-kWA" secondAttribute="trailing" constant="232" id="Uxf-D4-c7L"/>
                             <constraint firstItem="NDJ-Xo-HKk" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="-16" id="X7S-0h-7Nw"/>
-                            <constraint firstItem="DNY-1Y-Flh" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="245" id="jMg-Nk-3Mu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J1x-Sd-oAA"/>
                     <connections>
+                        <outlet property="logoImage" destination="mWW-kx-kWA" id="cFc-OE-dcc"/>
                         <segue destination="JFE-87-4Kt" kind="push" identifier="selected_theme" id="Gte-Pq-YaK"/>
                     </connections>
                 </viewController>

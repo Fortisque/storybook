@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ThemesViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIImageView *logoImage;
 
 @end

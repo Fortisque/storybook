@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _logoImage.image = [UIImage imageNamed:@"storybubblesF"];
 }
 
 - (void)didReceiveMemoryWarning {
