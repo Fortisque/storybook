@@ -10,7 +10,7 @@
 #import "BasePageViewController.h"
 #import "VoicePageViewController.h"
 #import "DrawingPageViewController.h"
-#import "UnscrambleWordsPageViewController.h"
+#import "UnscramblePageViewController.h"
 #import "DrawingPrompterViewController.h"
 
 @interface PagesViewController ()
@@ -73,7 +73,7 @@
                                                         
     VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithTextLabels:@[text3] andImageViews:@[image2]];
 
-    UnscrambleWordsPageViewController *unscrambleWordsVC = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"CAT"];
+    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"CAT"];
     
     NSDictionary *scene1 = @{@"imageName":@"character",
                              @"sentence":@"first this"};
@@ -92,7 +92,7 @@
     
     NSArray *scenes = @[scene1, scene2, scene3, scene4, scene5];
     
-    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text6] andImageViews:@[image3] andScenes:scenes];
+    UnscramblePageViewController *unscrambleWordsVC2 = [[UnscramblePageViewController alloc] initWithTextLabels:@[text6] andImageViews:@[image3] andScenes:scenes];
     
 //    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"FROG"];
 //    

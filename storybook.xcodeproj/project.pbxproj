@@ -11,7 +11,7 @@
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
 		86D9C7C91A1B10E5002C759D /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7C81A1B10E5002C759D /* TileView.m */; };
-		86D9C7CF1A1B14A7002C759D /* UnscrambleWordsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */; };
+		86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */; };
 		86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7D51A1B3D4C002C759D /* TileContainerView.m */; };
 		86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */; };
 		990BABF31A12D3C00014EDD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF21A12D3C00014EDD3 /* main.m */; };
@@ -64,8 +64,8 @@
 		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
 		86D9C7C71A1B10E5002C759D /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
 		86D9C7C81A1B10E5002C759D /* TileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileView.m; sourceTree = "<group>"; };
-		86D9C7CC1A1B14A7002C759D /* UnscrambleWordsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnscrambleWordsPageViewController.h; sourceTree = "<group>"; };
-		86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnscrambleWordsPageViewController.m; sourceTree = "<group>"; };
+		86D9C7CC1A1B14A7002C759D /* UnscramblePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnscramblePageViewController.h; sourceTree = "<group>"; };
+		86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnscramblePageViewController.m; sourceTree = "<group>"; };
 		86D9C7D41A1B3D4C002C759D /* TileContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileContainerView.h; sourceTree = "<group>"; };
 		86D9C7D51A1B3D4C002C759D /* TileContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileContainerView.m; sourceTree = "<group>"; };
 		86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileContainerView.xib; sourceTree = "<group>"; };
@@ -246,18 +246,18 @@
 			name = Story;
 			sourceTree = "<group>";
 		};
-		992FBF0C1A2046FD00CDFAE3 /* Word_Unscramble */ = {
+		992FBF0C1A2046FD00CDFAE3 /* Unscramble */ = {
 			isa = PBXGroup;
 			children = (
 				86D9C7C71A1B10E5002C759D /* TileView.h */,
 				86D9C7C81A1B10E5002C759D /* TileView.m */,
-				86D9C7CC1A1B14A7002C759D /* UnscrambleWordsPageViewController.h */,
-				86D9C7CD1A1B14A7002C759D /* UnscrambleWordsPageViewController.m */,
+				86D9C7CC1A1B14A7002C759D /* UnscramblePageViewController.h */,
+				86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */,
 				86D9C7D41A1B3D4C002C759D /* TileContainerView.h */,
 				86D9C7D51A1B3D4C002C759D /* TileContainerView.m */,
 				86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */,
 			);
-			name = Word_Unscramble;
+			name = Unscramble;
 			sourceTree = "<group>";
 		};
 		992FBF0D1A20471B00CDFAE3 /* Audio_Record */ = {
@@ -274,7 +274,7 @@
 			children = (
 				992FBF0D1A20471B00CDFAE3 /* Audio_Record */,
 				992FBF0A1A2045B200CDFAE3 /* Drawing */,
-				992FBF0C1A2046FD00CDFAE3 /* Word_Unscramble */,
+				992FBF0C1A2046FD00CDFAE3 /* Unscramble */,
 				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
 				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 			);
@@ -453,7 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				992FBF121A204AC300CDFAE3 /* ThemesCollectionViewController.m in Sources */,
-				86D9C7CF1A1B14A7002C759D /* UnscrambleWordsPageViewController.m in Sources */,
+				86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */,
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
 				992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */,
 				7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */,

@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "UnscrambleWordsPageViewController.h"
+#import "UnscramblePageViewController.h"
 #import "TileView.h"
 #import "TileContainerView.h"
 
-@interface UnscrambleWordsPageViewController ()
+@interface UnscramblePageViewController ()
 
 @property (strong, nonatomic) NSString *word;
 @property (strong, nonatomic) NSArray *scenes;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation UnscrambleWordsPageViewController
+@implementation UnscramblePageViewController
 
 const int TILE_TAG= 1;
 const int TILE_CONTAINER_TAG = 2;
