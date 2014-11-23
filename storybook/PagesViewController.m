@@ -61,6 +61,11 @@
                             kFrame:@[@100,@60,@300,@100]
                             };
     
+    NSDictionary *text6 = @{
+                            kText: @"summarize the story",
+                            kFrame:@[@100,@60,@300,@100]
+                            };
+    
     NSArray *images = @[image1, image2];
     NSArray *texts = @[text1, text2];
     
@@ -87,7 +92,7 @@
     
     NSArray *scenes = @[scene1, scene2, scene3, scene4, scene5];
     
-    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andScenes:scenes];
+    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text6] andImageViews:@[image3] andScenes:scenes];
     
 //    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"FROG"];
 //    
@@ -103,7 +108,7 @@
     
     self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, unscrambleWordsVC2, drawingPageVC, nil];
 
-    NSArray *viewControllers = [NSArray arrayWithObjects:unscrambleWordsVC, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward

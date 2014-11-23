@@ -8,9 +8,12 @@
 
 #import "ThemesCollectionViewController.h"
 #import "BubblesCollectionViewCell.h"
+#import <pop/POP.h>
 
 @interface ThemesCollectionViewController ()
-@property (strong, nonatomic) NSArray* tableData;
+@property (strong, nonatomic) NSMutableArray *tableData;
+@property (strong, nonatomic) NSTimer *myTimer;
+@property (strong, nonatomic) NSArray *finalData;
 @end
 
 @implementation ThemesCollectionViewController
@@ -38,7 +41,25 @@ static NSString * const reuseIdentifier = @"Bubbles";
     
     NSArray *themes = @[theme1, theme2, theme1, theme2];
     
-    _tableData = themes;
+    _finalData = themes;
+    
+    _tableData = [[NSMutableArray alloc] init];
+    
+    _myTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self
+                                                      selector: @selector(addCell) userInfo: nil repeats: YES];
+}
+
+- (void) addCell {
+    NSUInteger index = [_tableData count];
+    if (index == [_finalData count]) {
+        [_myTimer invalidate];
+        return;
+    }
+    [self.collectionView performBatchUpdates:^{
+        [_tableData addObject:[_finalData objectAtIndex:index]];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil]];
+    } completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +74,7 @@ static NSString * const reuseIdentifier = @"Bubbles";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
+}x
 */
 
 #pragma mark <UICollectionViewDataSource>
@@ -73,6 +94,14 @@ static NSString * const reuseIdentifier = @"Bubbles";
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BubblesCollectionViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)];
+    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
+    scaleUp.springBounciness = 20.0f;
+    scaleUp.springSpeed = 20.0f;
+    
+    [cell.layer pop_addAnimation:scaleUp forKey:@"first"];
     
     // Configure the cell
     NSDictionary *data = [_tableData objectAtIndex:indexPath.row];

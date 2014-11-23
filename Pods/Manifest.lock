@@ -2,12 +2,15 @@ PODS:
   - GRMustache (7.3.0):
     - JRSwizzle (~> 1.0)
   - JRSwizzle (1.0)
+  - pop (1.0.7)
 
 DEPENDENCIES:
   - GRMustache (~> 7.3.0)
+  - pop (~> 1.0)
 
 SPEC CHECKSUMS:
   GRMustache: efecd3b603f0a7a99cf6bdf3998782ee0c465726
   JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
 
 COCOAPODS: 0.34.1
