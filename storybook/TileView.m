@@ -23,7 +23,7 @@
 - (instancetype) initWithProperties:(NSDictionary *)properties {
     CGRect frame = [[properties objectForKey:@"frame"] CGRectValue];
     self = [super initWithFrame:frame];
-    if(self){
+    if (self) {
         _properties = properties;
         self.backgroundColor = [UIColor yellowColor];
         

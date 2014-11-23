@@ -13,7 +13,6 @@
 		86D9C7C91A1B10E5002C759D /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7C81A1B10E5002C759D /* TileView.m */; };
 		86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */; };
 		86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7D51A1B3D4C002C759D /* TileContainerView.m */; };
-		86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */; };
 		990BABF31A12D3C00014EDD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF21A12D3C00014EDD3 /* main.m */; };
 		990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BABF51A12D3C00014EDD3 /* AppDelegate.m */; };
 		990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 990BABFD1A12D3C00014EDD3 /* Images.xcassets */; };
@@ -68,7 +67,6 @@
 		86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnscramblePageViewController.m; sourceTree = "<group>"; };
 		86D9C7D41A1B3D4C002C759D /* TileContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileContainerView.h; sourceTree = "<group>"; };
 		86D9C7D51A1B3D4C002C759D /* TileContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileContainerView.m; sourceTree = "<group>"; };
-		86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileContainerView.xib; sourceTree = "<group>"; };
 		990BABED1A12D3C00014EDD3 /* storybook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storybook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BABF11A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BABF21A12D3C00014EDD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 				86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */,
 				86D9C7D41A1B3D4C002C759D /* TileContainerView.h */,
 				86D9C7D51A1B3D4C002C759D /* TileContainerView.m */,
-				86D9C7D71A1B3D5E002C759D /* TileContainerView.xib */,
 			);
 			name = Unscramble;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 				99FC4B8B1A20416200528191 /* Main.storyboard in Resources */,
 				990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
-				86D9C7D81A1B3D5E002C759D /* TileContainerView.xib in Resources */,
 				992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
 				990BAC371A12ED210014EDD3 /* StoryCollectionViewCell.xib in Resources */,

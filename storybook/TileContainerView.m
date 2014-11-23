@@ -21,10 +21,10 @@
 - (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self){
-        [[NSBundle mainBundle] loadNibNamed:@"TileContainerView" owner:self options:nil];
-        self.bounds = self.view.bounds;
-        [self addSubview:self.view];
-        
+        //[[NSBundle mainBundle] loadNibNamed:@"TileContainerView" owner:self options:nil];
+        //self.bounds = self.view.bounds;
+        //[self addSubview:self.view];
+        self.backgroundColor = [UIColor grayColor];
         self.containedTile = nil;
         self.containedText = @"";
     }

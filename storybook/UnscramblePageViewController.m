@@ -101,8 +101,17 @@ const int TILE_SIZE = 100;
     }
     
     for(int i = 0; i < size; i++){
-        TileContainerView *tileContainer = [[TileContainerView alloc] init];
+        TileContainerView *tileContainer;
         
+        if (_word) {
+            tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        }
+        
+        if (_scenes) {
+            tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
+
+        }
+    
         tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 450);
         //NSLog(@"tileContainer frame: %@", NSStringFromCGPoint(tileContainer.center));
         
