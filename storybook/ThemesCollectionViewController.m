@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "BubbleThemesCollectionViewController.h"
+#import "ThemesCollectionViewController.h"
 #import "BubblesCollectionViewCell.h"
 
-@interface BubbleThemesCollectionViewController ()
+@interface ThemesCollectionViewController ()
 @property (strong, nonatomic) NSArray* tableData;
 @end
 
-@implementation BubbleThemesCollectionViewController
+@implementation ThemesCollectionViewController
 
 static NSString * const reuseIdentifier = @"Bubbles";
 

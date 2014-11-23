@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "BookCollectionViewController.h"
-#import "BookCollectionViewCell.h"
+#import "MyStoriesCollectionViewController.h"
+#import "StoryCollectionViewCell.h"
 
-@interface BookCollectionViewController ()
+@interface MyStoriesCollectionViewController ()
 @property (strong, nonatomic) NSArray* books;
 @end
 
-@implementation BookCollectionViewController
+@implementation MyStoriesCollectionViewController
 
 static NSString * const reuseIdentifier = @"BookCell";
 
@@ -23,7 +23,7 @@ static NSString * const reuseIdentifier = @"BookCell";
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    self.navigationItem.title = @"Your Stories";
+    self.navigationItem.title = @"My Stories";
     
     self.collectionView.backgroundColor = [self colorWithHexString:@"D1EEFC"];
     
@@ -72,7 +72,7 @@ static NSString * const reuseIdentifier = @"BookCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    BookCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     if (cell == NULL) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BookCollectionViewCell" owner:self options:nil];

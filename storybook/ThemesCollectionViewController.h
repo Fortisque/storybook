@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BubbleThemesCollectionViewController : UICollectionViewController
+@interface ThemesCollectionViewController : UICollectionViewController
 
 @end

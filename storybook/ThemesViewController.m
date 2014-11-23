@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "BubbleThemesViewController.h"
+#import "ThemesViewController.h"
 
-@interface BubbleThemesViewController ()
+@interface ThemesViewController ()
 
 @end
 
-@implementation BubbleThemesViewController
+@implementation ThemesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
