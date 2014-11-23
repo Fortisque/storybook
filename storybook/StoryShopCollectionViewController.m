@@ -16,7 +16,7 @@
 
 @implementation StoryShopCollectionViewController
 
-static NSString * const reuseIdentifier = @"BookCell";
+static NSString * const reuseIdentifier = @"StoryCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +27,7 @@ static NSString * const reuseIdentifier = @"BookCell";
     self.navigationItem.title = @"Story Shop";
     
     // Register cell classes
-    UINib *cellNib = [UINib nibWithNibName:@"BookCollectionViewCell" bundle:nil];
+    UINib *cellNib = [UINib nibWithNibName:@"StoryCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
@@ -73,7 +73,7 @@ static NSString * const reuseIdentifier = @"BookCell";
     StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     if (cell == NULL) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BookCollectionViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StoryCollectionViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     
