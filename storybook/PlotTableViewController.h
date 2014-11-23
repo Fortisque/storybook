@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlotTableViewController : UITableViewController
+@interface PlotTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
