@@ -74,7 +74,7 @@ static NSString * const reuseIdentifier = @"Bubbles";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
+}x
 */
 
 #pragma mark <UICollectionViewDataSource>
@@ -96,7 +96,6 @@ static NSString * const reuseIdentifier = @"Bubbles";
     }
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    //scaleUp.velocity = @(2.0); // having this makes the next line throw an exception
     scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)];
     scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
     scaleUp.springBounciness = 20.0f;

@@ -7,9 +7,10 @@
 //
 
 #import "BasePageViewController.h"
+#import <pop/POP.h>
 @import AVFoundation;
 
-@interface BasePageViewController ()
+@interface BasePageViewController ()  <AVSpeechSynthesizerDelegate>
 @property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
 @property (strong, nonatomic) UILabel *textLabel;
 @property (strong, nonatomic) UIImageView *imageView;
@@ -154,6 +155,8 @@ NSString *kImageName = @"imageName";
         AVSpeechUtterance *utterance = [_utterances objectAtIndex:self.nextSpeechIndex];
         self.nextSpeechIndex += 1;
         
+        utterance.rate = AVSpeechUtteranceMinimumSpeechRate;
+        
         [self.synthesizer speakUtterance:utterance];
     }
 }
@@ -169,9 +172,54 @@ NSString *kImageName = @"imageName";
     [self speakNextUtterance];
 }
 
+- (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
+{
+    NSString *s = utterance.speechString;
+    
+    [self expandTextFor:s];
+}
+
+- (void)expandTextFor:(NSString *)s
+{
+    UILabel *l = [self labelForString:s];
+    
+    POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
+    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5f, 1.5f)];
+    scaleUp.springBounciness = 1.0f;
+    scaleUp.springSpeed = 20.0f;
+    
+    [l.layer pop_addAnimation:scaleUp forKey:@"first"];
+}
+
+- (void)unexpandTextFor:(NSString *)s
+{
+    UILabel *l = [self labelForString:s];
+    
+    POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.5f, 1.5f)];
+    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
+    scaleUp.springBounciness = 1.0f;
+    scaleUp.springSpeed = 20.0f;
+    
+    [l.layer pop_addAnimation:scaleUp forKey:@"second"];
+}
+
+- (UILabel *)labelForString:(NSString *)s
+{
+    for (int i = 0; i < [_textLabels count]; i++) {
+        UILabel *l = [_textLabels objectAtIndex:i];
+        if (l.text == s) {
+            return l;
+        }
+    }
+    return nil;
+}
+
 - (void)speechSynthesizer:(AVSpeechSynthesizer*)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance*)utterance
 {
     NSUInteger indexOfUtterance = [_utterances indexOfObject:utterance];
+    [self unexpandTextFor:utterance.speechString];
     if (indexOfUtterance == NSNotFound) {
         return;
     }
