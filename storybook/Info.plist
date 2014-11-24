@@ -30,6 +30,16 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Quicksand-Regular.otf</string>
+		<string>Quicksand-LightItalic.otf</string>
+		<string>Quicksand-Light.otf</string>
+		<string>Quicksand-Italic.otf</string>
+		<string>Quicksand-BoldItalic.otf</string>
+		<string>Quicksand-Bold.otf</string>
+		<string>Quicksand_Dash.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

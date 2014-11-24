@@ -34,6 +34,13 @@
 		990BAC301A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC2F1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m */; };
 		990BAC361A12ED210014EDD3 /* StoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC341A12ED210014EDD3 /* StoryCollectionViewCell.m */; };
 		990BAC371A12ED210014EDD3 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* StoryCollectionViewCell.xib */; };
+		99208D951A239FBD0044AB4D /* Quicksand_Dash.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */; };
+		99208D961A239FBD0044AB4D /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */; };
+		99208D971A239FBD0044AB4D /* Quicksand-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */; };
+		99208D981A239FBD0044AB4D /* Quicksand-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D911A239FBD0044AB4D /* Quicksand-Italic.otf */; };
+		99208D991A239FBD0044AB4D /* Quicksand-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D921A239FBD0044AB4D /* Quicksand-Light.otf */; };
+		99208D9A1A239FBD0044AB4D /* Quicksand-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D931A239FBD0044AB4D /* Quicksand-LightItalic.otf */; };
+		99208D9B1A239FBD0044AB4D /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D941A239FBD0044AB4D /* Quicksand-Regular.otf */; };
 		9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */; };
 		992FBF121A204AC300CDFAE3 /* ThemesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FBF111A204AC300CDFAE3 /* ThemesCollectionViewController.m */; };
 		992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FBF141A204B1E00CDFAE3 /* ThemesViewController.m */; };
@@ -97,6 +104,13 @@
 		990BAC331A12ED210014EDD3 /* StoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryCollectionViewCell.h; path = storybook/StoryCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
 		990BAC341A12ED210014EDD3 /* StoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryCollectionViewCell.m; path = storybook/StoryCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		990BAC351A12ED210014EDD3 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCollectionViewCell.xib; path = storybook/StoryCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quicksand_Dash.otf; sourceTree = "<group>"; };
+		99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
+		99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-BoldItalic.otf"; sourceTree = "<group>"; };
+		99208D911A239FBD0044AB4D /* Quicksand-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Italic.otf"; sourceTree = "<group>"; };
+		99208D921A239FBD0044AB4D /* Quicksand-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.otf"; sourceTree = "<group>"; };
+		99208D931A239FBD0044AB4D /* Quicksand-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-LightItalic.otf"; sourceTree = "<group>"; };
+		99208D941A239FBD0044AB4D /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
 		9929F6FE1A1C6FBD00DC92B1 /* DrawingPrompterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPrompterViewController.h; sourceTree = "<group>"; };
 		9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPrompterViewController.m; sourceTree = "<group>"; };
 		992FBF101A204AC300CDFAE3 /* ThemesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesCollectionViewController.h; sourceTree = "<group>"; };
@@ -197,6 +211,7 @@
 				990BAC2E1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.h */,
 				990BAC2F1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m */,
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
+				99208D8D1A239FA10044AB4D /* Resources */,
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
 			);
@@ -227,6 +242,20 @@
 				990BAC0B1A12D3C00014EDD3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		99208D8D1A239FA10044AB4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */,
+				99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */,
+				99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */,
+				99208D911A239FBD0044AB4D /* Quicksand-Italic.otf */,
+				99208D921A239FBD0044AB4D /* Quicksand-Light.otf */,
+				99208D931A239FBD0044AB4D /* Quicksand-LightItalic.otf */,
+				99208D941A239FBD0044AB4D /* Quicksand-Regular.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		992FBF0A1A2045B200CDFAE3 /* Drawing */ = {
@@ -397,11 +426,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99208D951A239FBD0044AB4D /* Quicksand_Dash.otf in Resources */,
 				99FC4B8B1A20416200528191 /* Main.storyboard in Resources */,
+				99208D961A239FBD0044AB4D /* Quicksand-Bold.otf in Resources */,
+				99208D981A239FBD0044AB4D /* Quicksand-Italic.otf in Resources */,
 				990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */,
+				99208D991A239FBD0044AB4D /* Quicksand-Light.otf in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
+				99208D971A239FBD0044AB4D /* Quicksand-BoldItalic.otf in Resources */,
 				992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
+				99208D9B1A239FBD0044AB4D /* Quicksand-Regular.otf in Resources */,
+				99208D9A1A239FBD0044AB4D /* Quicksand-LightItalic.otf in Resources */,
 				990BAC371A12ED210014EDD3 /* StoryCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/storybook",
@@ -607,6 +644,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -616,6 +654,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/storybook",
@@ -628,6 +667,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
