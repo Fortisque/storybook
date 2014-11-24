@@ -23,10 +23,6 @@
 
 @implementation BasePageViewController
 
-NSString *kFrame = @"frame";
-NSString *kText = @"text";
-NSString *kImageName = @"imageName";
-
 - (id)init {
     self = [super init];
     

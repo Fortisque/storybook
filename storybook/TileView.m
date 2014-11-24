@@ -21,7 +21,7 @@
 //}
 
 - (instancetype) initWithProperties:(NSDictionary *)properties {
-    CGRect frame = [[properties objectForKey:@"frame"] CGRectValue];
+    CGRect frame = [[properties objectForKey:kFrame] CGRectValue];
     self = [super initWithFrame:frame];
     if (self) {
         _properties = properties;
@@ -29,52 +29,36 @@
         
         // initilize all your UIView components
         NSString *letter = [properties objectForKey:@"letter"];
-        NSString *imageName = [properties objectForKey:@"imageName"];
+        NSString *imageName = [properties objectForKey:kImageName];
         NSString *sentence = [properties objectForKey:@"sentence"];
 
         
         if (letter) {
             _text = letter;
-            _letterLabel = [[UILabel alloc]initWithFrame:CGRectMake(20,30, 200, 44)];
+            _letterLabel = [[UILabel alloc]initWithFrame:frame];
             _letterLabel.text = letter;
+            _letterLabel.textAlignment = NSTextAlignmentCenter;
             [self addSubview:_letterLabel];
         }
+        
         if (imageName) {
             _imageView = [[UIImageView alloc]initWithFrame:frame];
             _imageView.image = [UIImage imageNamed:imageName];
+            [self addSubview:_imageView];
+
         }
         
         if (sentence) {
             _text = sentence;
+            _letterLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 150, frame.size.width, 50)];
+            _letterLabel.backgroundColor = [UIColor whiteColor];
+            _letterLabel.text = sentence;
+            _letterLabel.textAlignment = NSTextAlignmentCenter;
+            [self addSubview:_letterLabel];
         }
         
-        [self addSubview:_imageView];
     }
     return self;
 }
 
-- (id) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if(self){
-        //load xib
-        [[NSBundle mainBundle] loadNibNamed:@"TileView" owner:self options:nil];
-        //add view
-        [self addSubview:self.view];
-    }
-    return self;
-}
-
-/*- (id) initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if(self){
-        //load xib
-        [[NSBundle mainBundle] loadNibNamed:@"TileView" owner:self options:nil];
-        //set bound
-        self.bounds = self.view.bounds;
-        //add view
-        [self addSubview:self.view];
-    }
-    return self;
-}
-*/
 @end
