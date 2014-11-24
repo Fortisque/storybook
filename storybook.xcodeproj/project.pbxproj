@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
+		70224B941A23D7AB00789247 /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 70224B931A23D7AB00789247 /* Animations.m */; };
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
@@ -65,6 +66,8 @@
 /* Begin PBXFileReference section */
 		0E946FC2E97AA18D8E788BF3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4A811D5045D024A42E2CB7B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		70224B921A23D7AB00789247 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
+		70224B931A23D7AB00789247 /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
 		7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryShopCollectionViewController.h; sourceTree = "<group>"; };
 		7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryShopCollectionViewController.m; sourceTree = "<group>"; };
 		707B20BE1A22B335006E82C4 /* DictionaryKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryKeys.h; sourceTree = "<group>"; };
@@ -160,6 +163,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70224B911A23D76C00789247 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				70224B921A23D7AB00789247 /* Animations.h */,
+				70224B931A23D7AB00789247 /* Animations.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 		990BABE41A12D3C00014EDD3 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +205,8 @@
 		990BABEF1A12D3C00014EDD3 /* storybook */ = {
 			isa = PBXGroup;
 			children = (
+				70224B911A23D76C00789247 /* Animations */,
+				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
 				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
 				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
 				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
@@ -307,7 +321,6 @@
 				992FBF0D1A20471B00CDFAE3 /* Audio_Record */,
 				992FBF0A1A2045B200CDFAE3 /* Drawing */,
 				992FBF0C1A2046FD00CDFAE3 /* Unscramble */,
-				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -495,6 +508,7 @@
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
 				992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */,
 				7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */,
+				70224B941A23D7AB00789247 /* Animations.m in Sources */,
 				990BAC361A12ED210014EDD3 /* StoryCollectionViewCell.m in Sources */,
 				99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */,
 				990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */,
