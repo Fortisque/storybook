@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
+		707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
 		86D9C7C91A1B10E5002C759D /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7C81A1B10E5002C759D /* TileView.m */; };
 		86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */; };
@@ -59,6 +60,8 @@
 		4A811D5045D024A42E2CB7B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryShopCollectionViewController.h; sourceTree = "<group>"; };
 		7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryShopCollectionViewController.m; sourceTree = "<group>"; };
+		707B20BE1A22B335006E82C4 /* DictionaryKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryKeys.h; sourceTree = "<group>"; };
+		707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryKeys.m; sourceTree = "<group>"; };
 		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
 		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
 		86D9C7C71A1B10E5002C759D /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
@@ -176,6 +179,9 @@
 		990BABEF1A12D3C00014EDD3 /* storybook */ = {
 			isa = PBXGroup;
 			children = (
+				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
+				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
+				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 				990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */,
 				990BAC171A12D49C0014EDD3 /* BuiltIO.framework */,
 				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
@@ -273,7 +279,6 @@
 				992FBF0A1A2045B200CDFAE3 /* Drawing */,
 				992FBF0C1A2046FD00CDFAE3 /* Unscramble */,
 				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
-				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				992FBF121A204AC300CDFAE3 /* ThemesCollectionViewController.m in Sources */,
+				707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */,
 				86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */,
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
 				992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */,

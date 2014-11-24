@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DictionaryKeys.h"
 
 @interface TileView : UIView
 
@@ -21,6 +22,5 @@
 
 @property BOOL matched;
 @property CGPoint originalPosition;
-//@property CGPoint touchOffset;
 
 @end

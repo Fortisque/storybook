@@ -37,16 +37,16 @@ static NSString * const reuseIdentifier = @"Bubbles";
     _tableData = [[NSMutableArray alloc] init];
     
     NSDictionary *theme1 = @{
-                             @"title": @"Space",
-                             @"picture": @"spacecircle"
+                             kText: @"Space",
+                             kImageName: @"spacecircle"
                              };
     NSDictionary *theme2 = @{
-                             @"title": @"Forest",
-                             @"picture": @"forestcircle"
+                             kText: @"Forest",
+                             kImageName: @"forestcircle"
                              };
     NSDictionary *theme3 = @{
-                             @"title": @"Desert",
-                             @"picture": @"desertcircle"
+                             kText: @"Desert",
+                             kImageName: @"desertcircle"
                              };
     
     NSArray *themes = @[theme1, theme2, theme3, theme1, theme2, theme3];
@@ -119,8 +119,8 @@ static NSString * const reuseIdentifier = @"Bubbles";
     // Configure the cell
     NSDictionary *data = [_tableData objectAtIndex:indexPath.row];
     
-    cell.titleLabel.text = [data objectForKey:@"title"];
-    cell.backgroundImage.image = [UIImage imageNamed:[data objectForKey:@"picture"]];
+    cell.titleLabel.text = [data objectForKey:kText];
+    cell.backgroundImage.image = [UIImage imageNamed:[data objectForKey:kImageName]];
     
     return cell;
 }

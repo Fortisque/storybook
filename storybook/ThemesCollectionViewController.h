@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DictionaryKeys.h"
 
 @interface ThemesCollectionViewController : UICollectionViewController
 

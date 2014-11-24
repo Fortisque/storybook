@@ -73,7 +73,7 @@
                                                         
     VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithTextLabels:@[text3] andImageViews:@[image2]];
 
-    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"CAT"];
+    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:nil andWord:@"CAT"];
     
     NSDictionary *scene1 = @{@"imageName":@"character",
                              @"sentence":@"first this"};
@@ -92,7 +92,7 @@
     
     NSArray *scenes = @[scene1, scene2, scene3, scene4, scene5];
     
-    UnscramblePageViewController *unscrambleWordsVC2 = [[UnscramblePageViewController alloc] initWithTextLabels:@[text6] andImageViews:@[image3] andScenes:scenes];
+    UnscramblePageViewController *unscrambleWordsVC2 = [[UnscramblePageViewController alloc] initWithTextLabels:@[text6] andImageViews:nil andScenes:scenes];
     
 //    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"FROG"];
 //    

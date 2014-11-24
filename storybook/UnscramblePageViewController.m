@@ -112,7 +112,7 @@ const int TILE_SIZE = 100;
 
         }
     
-        tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 450);
+        tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 250);
         //NSLog(@"tileContainer frame: %@", NSStringFromCGPoint(tileContainer.center));
         
         tileContainer.tag = TILE_CONTAINER_TAG;
@@ -153,7 +153,7 @@ const int TILE_SIZE = 100;
     for(int i = 0; i < [characters count]; i++){
         NSString *character = [characters objectAtIndex:i];
         NSDictionary *properties = @{
-                                     @"frame":frame,
+                                     kFrame:frame,
                                      @"letter":character
                                          };
         TileView *tileView = [[TileView alloc] initWithProperties:properties];
@@ -169,8 +169,6 @@ const int TILE_SIZE = 100;
     self.tiles = [[NSMutableArray alloc] init];
     
     NSMutableArray *copy = [_scenes mutableCopy];
-    
-    NSLog(@"%@", copy);
     
     while([_scenes isEqualToArray:copy]){
         for(int i = 0; i < copy.count*2; i++) { //shuffle many times
@@ -193,8 +191,8 @@ const int TILE_SIZE = 100;
     for(int i = 0; i < [copy count]; i++){
         NSDictionary *scene = [copy objectAtIndex:i];
         NSDictionary *properties = @{
-                                     @"frame":frame,
-                                     @"imageName":[scene objectForKey:@"imageName"],
+                                     kFrame:frame,
+                                     kImageName:[scene objectForKey:kImageName],
                                      @"sentence":[scene objectForKey:@"sentence"]
                                      };
         TileView *tileView = [[TileView alloc] initWithProperties:properties];
@@ -236,8 +234,6 @@ const int TILE_SIZE = 100;
         scaleDown.springSpeed = 20.0f;
             
         [tv pop_addAnimation:scaleDown forKey:@"down"];
-        
-        
         
         //reset tile and container if moved out of container
         for(TileContainerView *containerView in self.containers){
