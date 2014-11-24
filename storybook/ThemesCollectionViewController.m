@@ -22,7 +22,7 @@ static NSString * const reuseIdentifier = @"Bubbles";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -30,7 +30,7 @@ static NSString * const reuseIdentifier = @"Bubbles";
     UINib *cellNib = [UINib nibWithNibName:@"BubblesCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
     
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor clearColor];
     
     // Do any additional setup after loading the view.
     
