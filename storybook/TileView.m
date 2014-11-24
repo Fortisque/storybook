@@ -50,7 +50,7 @@
         
         if (sentence) {
             _text = sentence;
-            _letterLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 150, frame.size.width, 50)];
+            _letterLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, frame.size.height - 50, frame.size.width, 50)];
             _letterLabel.backgroundColor = [UIColor whiteColor];
             _letterLabel.text = sentence;
             _letterLabel.textAlignment = NSTextAlignmentCenter;

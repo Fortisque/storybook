@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSMutableArray *containers; //array of TileContainerView
 @property (strong, nonatomic) NSMutableArray *tiles;
 
+@property (strong, nonatomic) UIScrollView *scrollView;
+
 @end
 
 @implementation UnscramblePageViewController
@@ -54,6 +56,9 @@ const int TILE_SIZE = 100;
         [self addLetterTiles];
     }
     if (self.scenes) {
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, self.view.frame.size.height / 2)];
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2.3, self.view.frame.size.height / 2);
+        [self.view addSubview:self.scrollView];
         [self addTileContainersWithSize:5];
         [self addSceneTiles];
     }
@@ -185,7 +190,7 @@ const int TILE_SIZE = 100;
     int paddingForEachTile = (spaceForEachTile - TILE_SIZE)/2; //left or right padding
     int startingPostion = PADDING + paddingForEachTile + TILE_SIZE/2; //add half of tile size for center offset
     
-    NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,300,200)];
+    NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,400,266)];
     
     //display the tiles
     for(int i = 0; i < [copy count]; i++){
@@ -196,16 +201,26 @@ const int TILE_SIZE = 100;
                                      @"sentence":[scene objectForKey:@"sentence"]
                                      };
         TileView *tileView = [[TileView alloc] initWithProperties:properties];
-        tileView.center = CGPointMake(startingPostion + i*spaceForEachTile, 600);
+        tileView.center = CGPointMake(startingPostion + 100 + i*(spaceForEachTile + 250), 200);
         tileView.originalPosition = tileView.center;
         tileView.tag = TILE_TAG;
         [self.tiles addObject:tileView];
-        [self.view addSubview:tileView];
+        [self.scrollView addSubview:tileView];
     }
+    
+    self.scrollView.contentSize = CGSizeMake([copy count] * (spaceForEachTile + 250) + 100, self.view.frame.size.height / 2);
 }
 
 - (void) applyGesureRecognizer {
-    for (UIView * view in self.view.subviews) {
+    
+    NSArray *arrToSearchForTiles;
+    if(self.scrollView) {
+        arrToSearchForTiles = self.scrollView.subviews;
+    } else {
+        arrToSearchForTiles = self.view.subviews;
+    }
+    
+    for (UIView * view in arrToSearchForTiles) {
         if(view.tag == TILE_TAG){
             //simple drag
             UIPanGestureRecognizer * recognizer1 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
@@ -216,11 +231,16 @@ const int TILE_SIZE = 100;
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
-    
     TileView *tv = (TileView *) recognizer.view;
-    
+
     if(recognizer.state == UIGestureRecognizerStateBegan){
         NSLog(@"dragging tile %@", tv.text);
+        
+        if (self.scrollView) {
+            // swap views if it's in a scroll view
+            [tv setCenter:[recognizer locationInView:self.view]];
+            [self.view addSubview:tv];
+        }
         
         TileContainerView *container = [_containers firstObject];
         
@@ -259,6 +279,12 @@ const int TILE_SIZE = 100;
             
         }else{
             //animate tile back to original position
+            if (self.scrollView) {
+                // get back into the scroll view
+                [tv setCenter:[recognizer locationInView:self.scrollView]];
+                [self.scrollView addSubview:tv];
+            }
+            
             [self animateView:recognizer.view ToPosition:((TileView *)recognizer.view).originalPosition];
             POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
             scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
