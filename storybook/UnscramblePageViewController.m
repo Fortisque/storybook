@@ -236,17 +236,20 @@ const int TILE_SIZE = 100;
     if(recognizer.state == UIGestureRecognizerStateBegan){
         NSLog(@"dragging tile %@", tv.text);
         
-        if (self.scrollView) {
-            // swap views if it's in a scroll view
-            [tv setCenter:[recognizer locationInView:self.view]];
-            [self.view addSubview:tv];
-        }
-        
         TileContainerView *container = [_containers firstObject];
         
         // Scale image to the container, 5 px padding on all sides
         NSUInteger width = container.frame.size.width - 10;
-        NSUInteger height = container.frame.size.height - 50;
+        NSUInteger height = container.frame.size.height - 10;
+        
+        if (self.scrollView) {
+            // swap views if it's in a scroll view
+            [tv setCenter:[recognizer locationInView:self.view]];
+            [self.view addSubview:tv];
+            
+            // compress more for scroll view so it fits in film image
+            height = container.frame.size.height - 50;
+        }
         
         POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
         scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(width / tv.frame.size.width, height / tv.frame.size.height)];
