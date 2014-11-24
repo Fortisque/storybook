@@ -28,8 +28,9 @@
             self.backgroundColor = [UIColor grayColor];
 
         } else {
-            UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"film"]];
-            [self.view addSubview:backgroundView];
+            UIImageView *backgroundimageView = [[UIImageView alloc]initWithFrame:frame];
+            backgroundimageView.image = [UIImage imageNamed:@"film"];
+            [self addSubview:backgroundimageView];
         }
         self.containedTile = nil;
         self.containedText = @"";

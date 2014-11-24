@@ -113,7 +113,7 @@ const int TILE_SIZE = 100;
         }
         
         if (_scenes) {
-            tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
+            tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 180, 150)];
 
         }
     
@@ -246,7 +246,7 @@ const int TILE_SIZE = 100;
         
         // Scale image to the container, 5 px padding on all sides
         NSUInteger width = container.frame.size.width - 10;
-        NSUInteger height = container.frame.size.height - 10;
+        NSUInteger height = container.frame.size.height - 50;
         
         POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
         scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(width / tv.frame.size.width, height / tv.frame.size.height)];
