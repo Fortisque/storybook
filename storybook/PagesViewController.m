@@ -54,7 +54,7 @@
     
     NSDictionary *text4 = @{
                             kText: @"how do you spell this",
-                            kFrame:@[@0.1,@0.1,@0.2,@0.1]
+                            kFrame:@[@0,@0.1,@1,@0.1]
                             };
     
     NSDictionary *text5 = @{
@@ -64,7 +64,7 @@
     
     NSDictionary *text6 = @{
                             kText: @"summarize the story",
-                            kFrame:@[@0.1,@0.1,@0.2,@0.1]
+                            kFrame:@[@0,@0.1,@1,@0.1]
                             };
     
     NSArray *images = @[image1, image2];

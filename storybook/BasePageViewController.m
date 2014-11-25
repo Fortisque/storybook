@@ -72,9 +72,8 @@
             } else if (fontSize) {
                 textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
             }
-            
             textLabel.text = [textDict objectForKey:kText];
-            
+            textLabel.textAlignment = NSTextAlignmentCenter;
             
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
             tapGestureRecognizer.numberOfTapsRequired = 1;
