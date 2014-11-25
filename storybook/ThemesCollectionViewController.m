@@ -8,7 +8,6 @@
 
 #import "ThemesCollectionViewController.h"
 #import "BubblesCollectionViewCell.h"
-#import <pop/POP.h>
 
 @interface ThemesCollectionViewController ()
 @property (strong, nonatomic) NSMutableArray *tableData;

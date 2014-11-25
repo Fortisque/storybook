@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DictionaryKeys.h"
+#import <pop/POP.h>
 
 @interface ThemesCollectionViewController : UICollectionViewController
 
