@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSString *word;
 @property (strong, nonatomic) NSArray *scenes;
+@property (strong, nonatomic) NSMutableArray *plot;
 @property (strong, nonatomic) NSMutableArray *containers; //array of TileContainerView
 @property (strong, nonatomic) NSMutableArray *tiles;
 
@@ -186,6 +187,13 @@ const int TILE_SIZE = 100;
 - (NSMutableArray *) createPropertiesArrayForScenes:(NSArray *)scenes {
     NSMutableArray *propertiesArray = [NSMutableArray array];
     
+    //get the plot.
+    _plot = [NSMutableArray array];
+    for(int i = 0; i < [_scenes count]; i++){
+        NSDictionary *scene = [_scenes objectAtIndex:i];
+        [_plot addObject:[scene objectForKey:@"sentence"]];
+    }
+
     NSMutableArray *copy = [_scenes mutableCopy];
     
     //keep shuffling tiles until order of the scenes is no longer the same
@@ -309,7 +317,20 @@ const int TILE_SIZE = 100;
             [tv pop_addAnimation:scaleUp forKey:@"original"];
         }
         
-        [self getUnscrambledWord];
+        if (_word) {
+            NSString *word = [self getUnscrambledWord];
+            if ([word isEqualToString:_word]) {
+                [Animations congratulateInView:self.view];
+            }
+        }
+        if (_scenes) {
+            NSMutableArray *plot = [self getUnscrambledPlot];
+            NSLog(@"actual%@", _plot);
+            if ([plot isEqualToArray:_plot]) {
+                [self.scrollView removeFromSuperview];
+                [Animations congratulateInView:self.view];
+            }
+        }
     }
 }
 
@@ -375,6 +396,15 @@ const int TILE_SIZE = 100;
         result = [result stringByAppendingString:containerView.containedText];
     }
     NSLog(@"result: %@", result);
+    return result;
+}
+
+- (NSMutableArray *)getUnscrambledPlot {
+    NSMutableArray *result = [NSMutableArray array];
+    for(TileContainerView *containerView in self.containers){
+        [result addObject:containerView.containedText];
+    }
+    NSLog(@"result scene: %@", result);
     return result;
 }
 

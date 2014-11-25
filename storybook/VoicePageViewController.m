@@ -108,7 +108,8 @@
             [_audioPlayer play];
             _playButton.enabled = NO;
         }
-    }}
+    }
+}
 
 -(void)audioPlayerDidFinishPlaying:
 (AVAudioPlayer *)player successfully:(BOOL)flag
@@ -143,3 +144,4 @@
 }
 
 @end
+

@@ -55,6 +55,13 @@
     [view.layer insertSublayer:bubbleEmitter atIndex:0];
 }
 
++ (void)congratulateInView:(UIView *)view {
+    UILabel *congrats = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height)];
+    congrats.text = @"HOORAY!!";
+    congrats.textAlignment = NSTextAlignmentCenter;
+    [view addSubview:congrats];
+}
+
 + (void)throwFireworksInView:(UIView *)view
 {
     /*

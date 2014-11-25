@@ -12,6 +12,7 @@
 @interface Animations : NSObject
 
 + (void)spawnBubblesInView:(UIView *)view;
++ (void)congratulateInView:(UIView *)view;
 + (void)throwFireworksInView:(UIView *)view;
 
 @end
