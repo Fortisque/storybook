@@ -184,7 +184,7 @@ const int TILE_SIZE = 100;
     return propertiesArray;
 }
 
-- (NSMutableArray *) createPropertiesArrayForScenes:(NSArray *)scenes {
+- (NSMutableArray *)createPropertiesArrayForScenes:(NSArray *)scenes {
     NSMutableArray *propertiesArray = [NSMutableArray array];
     
     //get the plot.
