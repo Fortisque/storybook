@@ -271,11 +271,14 @@ const int TILE_SIZE = 100;
             height = container.frame.size.height - 50;
         }
         
+        // make sure object is at original size before attempting transformation
+        tv.transform = CGAffineTransformIdentity;
+        
         POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+
         scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(width / tv.frame.size.width, height / tv.frame.size.height)];
         scaleDown.springBounciness = 10.0f;
         scaleDown.springSpeed = 20.0f;
-            
         [tv pop_addAnimation:scaleDown forKey:@"down"];
         
         //reset tile and container if moved out of container
