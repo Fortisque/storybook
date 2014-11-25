@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) NSString *word;
 @property (strong, nonatomic) NSArray *scenes;
-@property (strong, nonatomic) NSMutableArray *plot;
+@property (strong, nonatomic) NSMutableArray *answer;
 @property (strong, nonatomic) NSMutableArray *containers; //array of TileContainerView
 @property (strong, nonatomic) NSMutableArray *tiles;
 
@@ -92,10 +92,8 @@ const int TILE_SIZE = 100;
     _containers = [[NSMutableArray alloc] init];
     
     int maxContainerSpace = CONTAINER_SIZE + MAX_SPACING;
-    
     int spaceContainersCanOccupy = SCREEN_WIDTH - 2 * PADDING;
     int spaceForEachContainer = spaceContainersCanOccupy/size; //container plus padding space
-    
     int startingPostion;
     
     if (spaceForEachContainer > maxContainerSpace) {
@@ -147,10 +145,12 @@ const int TILE_SIZE = 100;
     NSMutableArray *propertiesArray = [NSMutableArray array];
     
     //get all characters
+    _answer = [NSMutableArray array];
     NSMutableArray *characters = [[NSMutableArray alloc] init];
     for (int i = 0; i < [_word length]; i++) {
         NSString *character = [_word substringWithRange:NSMakeRange(i, 1)];
         [characters addObject:character];
+        [_answer addObject:character];
     }
     
     //keep shuffling characters until the word is no longer the same
@@ -188,10 +188,10 @@ const int TILE_SIZE = 100;
     NSMutableArray *propertiesArray = [NSMutableArray array];
     
     //get the plot.
-    _plot = [NSMutableArray array];
+    _answer = [NSMutableArray array];
     for (int i = 0; i < [_scenes count]; i++) {
         NSDictionary *scene = [_scenes objectAtIndex:i];
-        [_plot addObject:[scene objectForKey:@"sentence"]];
+        [_answer addObject:[scene objectForKey:@"sentence"]];
     }
 
     NSMutableArray *copy = [_scenes mutableCopy];
@@ -317,19 +317,12 @@ const int TILE_SIZE = 100;
             [tv pop_addAnimation:scaleUp forKey:@"original"];
         }
         
-        if (_word) {
-            NSString *word = [self getUnscrambledWord];
-            if ([word isEqualToString:_word]) {
-                [Animations congratulateInView:self.view];
-            }
-        }
-        if (_scenes) {
-            NSMutableArray *plot = [self getUnscrambledPlot];
-            NSLog(@"actual%@", _plot);
-            if ([plot isEqualToArray:_plot]) {
-                [_scrollView removeFromSuperview];
-                [Animations congratulateInView:self.view];
-            }
+        
+        NSMutableArray *result = [self getResult];
+        NSLog(@"actual%@", _answer);
+        if ([result isEqualToArray:_answer]) {
+            [_scrollView removeFromSuperview];
+            [Animations congratulateInView:self.view];
         }
     }
 }
@@ -390,16 +383,7 @@ const int TILE_SIZE = 100;
                      completion:^(BOOL finished) {}];
 }
 
-- (NSString *)getUnscrambledWord {
-    NSString *result = [[NSString alloc]init];
-    for (TileContainerView *containerView in _containers) {
-        result = [result stringByAppendingString:containerView.containedText];
-    }
-    NSLog(@"result: %@", result);
-    return result;
-}
-
-- (NSMutableArray *)getUnscrambledPlot {
+- (NSMutableArray *)getResult {
     NSMutableArray *result = [NSMutableArray array];
     for (TileContainerView *containerView in _containers) {
         [result addObject:containerView.containedText];
