@@ -32,19 +32,19 @@
         CAEmitterCell *bubble = [CAEmitterCell emitterCell];
         
         bubble.birthRate		= 0.1;
-        bubble.lifetime		= 30.0;
+        bubble.lifetime         = 30.0;
         
-        bubble.velocity		= 25;				// inital speed going up
-        bubble.velocityRange = 10;
-        bubble.yAcceleration = -5;              // quickly accelerating up
-        bubble.emissionRange = 5.0 * M_PI;		// some variation in angle
+        bubble.velocity         = 25;				// inital speed going up
+        bubble.velocityRange    = 5;
+        bubble.yAcceleration    = -5;              // quickly accelerating up
+        bubble.emissionRange    = 5.0 * M_PI;		// some variation in angle
         bubble.spinRange		= 1.0 * M_PI;		// medium spin
         
-        bubble.contents		= (id) [[UIImage imageNamed:@"bubble_preview"] CGImage];
-        bubble.color			= [[UIColor colorWithRed:0.100 green:0.758 blue:0.743 alpha:(arc4random()%100)/150.0] CGColor];
+        bubble.scale            = 0.1;
+        bubble.scaleRange       = 3;
         
-        bubble.scale = 1;
-        bubble.scaleRange = 2;
+        bubble.contents	= (id) [[UIImage imageNamed:@"bubble_preview"] CGImage];
+        bubble.color = [[UIColor colorWithRed:0.100 green:0.758 blue:0.743 alpha:(arc4random()%100)/150.0] CGColor];
         
         [bubbles addObject:bubble];
         
@@ -57,6 +57,7 @@
 
 + (void)throwFireworksInView:(UIView *)view
 {
+    /*
     // Cells spawn in the bottom, moving up
     CAEmitterLayer *fireworksEmitter = [CAEmitterLayer layer];
     CGRect viewBounds = view.layer.bounds;
@@ -122,6 +123,7 @@
     rocket.emitterCells				= [NSArray arrayWithObject:burst];
     burst.emitterCells				= [NSArray arrayWithObject:spark];
     [view.layer addSublayer:fireworksEmitter];
+     */
 }
 
 @end

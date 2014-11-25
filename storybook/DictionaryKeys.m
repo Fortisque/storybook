@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DictionaryKeys.h"
 
+NSString *kCenter = @"center";
 NSString *kFrame = @"frame";
-NSString *kText = @"text";
 NSString *kImageName = @"imageName";
+NSString *kTag = @"taga";
+NSString *kText = @"text";

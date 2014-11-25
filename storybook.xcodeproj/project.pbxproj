@@ -185,7 +185,7 @@
 				990BAC1E1A12D4C90014EDD3 /* Security.framework */,
 				990BAC1C1A12D4C10014EDD3 /* CoreGraphics.framework */,
 				990BAC1A1A12D4BD0014EDD3 /* QuartzCore.framework */,
-				990BABEF1A12D3C00014EDD3 /* storybook */,
+				990BABEF1A12D3C00014EDD3 /* storybubbles */,
 				990BAC091A12D3C00014EDD3 /* storybookTests */,
 				990BABEE1A12D3C00014EDD3 /* Products */,
 				9F979CDF5E48A7E2CA2FE9B3 /* Pods */,
@@ -202,7 +202,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		990BABEF1A12D3C00014EDD3 /* storybook */ = {
+		990BABEF1A12D3C00014EDD3 /* storybubbles */ = {
 			isa = PBXGroup;
 			children = (
 				70224B911A23D76C00789247 /* Animations */,
@@ -229,6 +229,7 @@
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
 			);
+			name = storybubbles;
 			path = storybook;
 			sourceTree = "<group>";
 		};

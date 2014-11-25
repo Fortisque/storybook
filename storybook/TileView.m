@@ -57,6 +57,10 @@
             [self addSubview:_letterLabel];
         }
         
+        self.center = [[properties objectForKey:kCenter] CGPointValue];
+        self.originalPosition = self.center;
+        self.tag = [[properties objectForKey:kTag] integerValue];
+        
     }
     return self;
 }

@@ -53,14 +53,19 @@ const int TILE_SIZE = 100;
     [super viewDidLoad];
     if (self.word) {
         [self addTileContainersWithSize:(int)self.word.length];
-        [self addLetterTiles];
+        //[self addLetterTiles];
+        NSArray *propertiesArray = [self createPropertiesArrayForWord:self.word];
+        [self addTilesWithPropertiesArray:propertiesArray toView:self.view];
+        
     }
     if (self.scenes) {
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, self.view.frame.size.height / 2)];
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2.3, self.view.frame.size.height / 2);
         [self.view addSubview:self.scrollView];
+        
         [self addTileContainersWithSize:5];
-        [self addSceneTiles];
+        NSArray *propertiesArray = [self createPropertiesArrayForScenes:self.scenes];
+        [self addTilesWithPropertiesArray:propertiesArray toView:self.scrollView];
     }
     [self applyGesureRecognizer];
 }
@@ -126,8 +131,19 @@ const int TILE_SIZE = 100;
     }
 }
 
-- (void) addLetterTiles {
+- (void) addTilesWithPropertiesArray:(NSArray *)propertiesArray toView:(UIView *)view {
     self.tiles = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i < [propertiesArray count]; i++) {
+        NSDictionary *properties = [propertiesArray objectAtIndex:i];
+        TileView *tileView = [[TileView alloc] initWithProperties:properties];
+        [self.tiles addObject:tileView];
+        [view addSubview:tileView];
+    }
+}
+
+- (NSMutableArray *) createPropertiesArrayForWord:(NSString *)word {
+    NSMutableArray *propertiesArray = [NSMutableArray array];
     
     //get all characters
     NSMutableArray *characters = [[NSMutableArray alloc] init];
@@ -136,7 +152,7 @@ const int TILE_SIZE = 100;
         [characters addObject:character];
     }
     
-    //keep shuffling characters/tiles until the word is no longer the same
+    //keep shuffling characters until the word is no longer the same
     while([self.word isEqualToString:[self getScrambledTileWordFromCharacters:characters]]){
         for(int i = 0; i < characters.count*2; i++) { //shuffle many times
             int randomInt1 = arc4random() % [characters count];
@@ -154,27 +170,25 @@ const int TILE_SIZE = 100;
     
     NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,100,100)];
     
-    //display the tiles
     for(int i = 0; i < [characters count]; i++){
         NSString *character = [characters objectAtIndex:i];
         NSDictionary *properties = @{
                                      kFrame:frame,
-                                     @"letter":character
-                                         };
-        TileView *tileView = [[TileView alloc] initWithProperties:properties];
-        tileView.center = CGPointMake(startingPostion + i*spaceForEachTile, 600);
-        tileView.originalPosition = tileView.center;
-        tileView.tag = TILE_TAG;
-        [self.tiles addObject:tileView];
-        [self.view addSubview:tileView];
+                                     @"letter":character,
+                                     kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPostion + i*spaceForEachTile, 600)],
+                                     kTag:[NSNumber numberWithInt:TILE_TAG]
+                                     };
+        [propertiesArray addObject:properties];
     }
+    return propertiesArray;
 }
 
-- (void) addSceneTiles {
-    self.tiles = [[NSMutableArray alloc] init];
+- (NSMutableArray *) createPropertiesArrayForScenes:(NSArray *)scenes {
+    NSMutableArray *propertiesArray = [NSMutableArray array];
     
     NSMutableArray *copy = [_scenes mutableCopy];
     
+    //keep shuffling tiles until order of the scenes is no longer the same
     while([_scenes isEqualToArray:copy]){
         for(int i = 0; i < copy.count*2; i++) { //shuffle many times
             int randomInt1 = arc4random() % [copy count];
@@ -191,24 +205,22 @@ const int TILE_SIZE = 100;
     int startingPostion = PADDING + paddingForEachTile + TILE_SIZE/2; //add half of tile size for center offset
     
     NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,400,266)];
-    
-    //display the tiles
+
     for(int i = 0; i < [copy count]; i++){
         NSDictionary *scene = [copy objectAtIndex:i];
         NSDictionary *properties = @{
                                      kFrame:frame,
                                      kImageName:[scene objectForKey:kImageName],
-                                     @"sentence":[scene objectForKey:@"sentence"]
+                                     @"sentence":[scene objectForKey:@"sentence"],
+                                     kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPostion + 100 + i*(spaceForEachTile + 250), 200)],
+                                     kTag:[NSNumber numberWithInt:TILE_TAG]
                                      };
         TileView *tileView = [[TileView alloc] initWithProperties:properties];
-        tileView.center = CGPointMake(startingPostion + 100 + i*(spaceForEachTile + 250), 200);
-        tileView.originalPosition = tileView.center;
-        tileView.tag = TILE_TAG;
         [self.tiles addObject:tileView];
         [self.scrollView addSubview:tileView];
     }
     
-    self.scrollView.contentSize = CGSizeMake([copy count] * (spaceForEachTile + 250) + 100, self.view.frame.size.height / 2);
+    return propertiesArray;
 }
 
 - (void) applyGesureRecognizer {
