@@ -62,11 +62,11 @@ static NSString * const reuseIdentifier = @"Bubbles";
     [super viewDidAppear:animated];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [super viewDidDisappear:animated];
-}
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+//    [super viewDidDisappear:animated];
+//}
 
 - (void) addCell {
     NSUInteger index = [_tableData count];

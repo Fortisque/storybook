@@ -107,15 +107,29 @@
                                     <segue destination="OXo-mP-GzL" kind="embed" id="hWR-Q4-hXZ"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="storybubbles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFa-vg-xdV">
+                                <rect key="frame" x="462" y="100" width="100" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NDJ-Xo-HKk" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="266" id="A1c-OG-cTI"/>
+                            <constraint firstItem="HFa-vg-xdV" firstAttribute="top" secondItem="btA-Gn-weT" secondAttribute="bottom" constant="100" id="L96-ae-Aaw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NDJ-Xo-HKk" secondAttribute="trailing" constant="-16" id="UZa-4R-XAJ"/>
                             <constraint firstItem="NDJ-Xo-HKk" firstAttribute="leading" secondItem="ePs-RE-63G" secondAttribute="leadingMargin" constant="-16" id="X7S-0h-7Nw"/>
+                            <constraint firstAttribute="centerX" secondItem="HFa-vg-xdV" secondAttribute="centerX" id="zif-Gv-Azk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J1x-Sd-oAA"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="HFa-vg-xdV" id="bch-MZ-RHD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB3-Fm-fTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,5 +12,6 @@
 
 @interface ThemesViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *logoImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
