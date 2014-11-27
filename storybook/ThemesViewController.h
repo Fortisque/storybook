@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Animations.h"
 #import "Helper.h"
+#import "iCarousel.h"
+#import "DictionaryKeys.h"
 
-@interface ThemesViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *logoImage;
+@interface ThemesViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet iCarousel *carousel;
 
 @end

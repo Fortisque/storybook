@@ -37,7 +37,6 @@
 		990BAC291A12D4E40014EDD3 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC281A12D4E40014EDD3 /* Twitter.framework */; };
 		990BAC2B1A12D4E90014EDD3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC2A1A12D4E90014EDD3 /* Social.framework */; };
 		990BAC2D1A12D4EF0014EDD3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */; };
-		990BAC301A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC2F1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m */; };
 		990BAC361A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */; };
 		990BAC371A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */; };
 		99208D951A239FBD0044AB4D /* Quicksand_Dash.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */; };
@@ -116,8 +115,6 @@
 		990BAC281A12D4E40014EDD3 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		990BAC2A1A12D4E90014EDD3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		990BAC2E1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStoriesCollectionViewController.h; sourceTree = "<group>"; };
-		990BAC2F1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStoriesCollectionViewController.m; sourceTree = "<group>"; };
 		990BAC331A12ED210014EDD3 /* StoryCollectionViewCellOriginal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryCollectionViewCellOriginal.h; path = storybook/StoryCollectionViewCellOriginal.h; sourceTree = SOURCE_ROOT; };
 		990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryCollectionViewCellOriginal.m; path = storybook/StoryCollectionViewCellOriginal.m; sourceTree = SOURCE_ROOT; };
 		990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCollectionViewCellOriginal.xib; path = storybook/StoryCollectionViewCellOriginal.xib; sourceTree = SOURCE_ROOT; };
@@ -222,8 +219,6 @@
 				70224B911A23D76C00789247 /* Animations */,
 				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
 				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
-				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
-				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 				990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */,
 				990BAC171A12D49C0014EDD3 /* BuiltIO.framework */,
 				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
@@ -231,13 +226,6 @@
 				99FC4B891A20416200528191 /* Main.storyboard */,
 				992FBF0B1A2046E400CDFAE3 /* Story */,
 				992FBF0F1A2048C700CDFAE3 /* Themes */,
-				990BAC331A12ED210014EDD3 /* StoryCollectionViewCellOriginal.h */,
-				990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */,
-				990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */,
-				7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */,
-				7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */,
-				990BAC2E1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.h */,
-				990BAC2F1A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m */,
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
 				99208D8D1A239FA10044AB4D /* Resources */,
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
@@ -304,6 +292,8 @@
 		992FBF0B1A2046E400CDFAE3 /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				995E7AE91A19E58A00E4F28F /* BasePageViewController.h */,
+				995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */,
 				995E7AE61A19E43400E4F28F /* PagesViewController.h */,
 				995E7AE71A19E43400E4F28F /* PagesViewController.m */,
 				992FBF0E1A20474000CDFAE3 /* Templates */,
@@ -346,6 +336,28 @@
 		992FBF0F1A2048C700CDFAE3 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				99A6866F1A279FBF007AD671 /* Homepage */,
+				99A6866E1A279F78007AD671 /* Shop */,
+				99A686701A279FF2007AD671 /* Theme */,
+			);
+			name = Themes;
+			sourceTree = "<group>";
+		};
+		99A6866E1A279F78007AD671 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				990BAC331A12ED210014EDD3 /* StoryCollectionViewCellOriginal.h */,
+				990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */,
+				990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */,
+				7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */,
+				7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */,
+			);
+			name = Shop;
+			sourceTree = "<group>";
+		};
+		99A6866F1A279FBF007AD671 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
 				992FBF131A204B1E00CDFAE3 /* ThemesViewController.h */,
 				992FBF141A204B1E00CDFAE3 /* ThemesViewController.m */,
 				992FBF101A204AC300CDFAE3 /* ThemesCollectionViewController.h */,
@@ -353,6 +365,13 @@
 				992FBF161A204F4100CDFAE3 /* BubblesCollectionViewCell.h */,
 				992FBF171A204F4100CDFAE3 /* BubblesCollectionViewCell.m */,
 				992FBF181A204F4100CDFAE3 /* BubblesCollectionViewCell.xib */,
+			);
+			name = Homepage;
+			sourceTree = "<group>";
+		};
+		99A686701A279FF2007AD671 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
 				86ACEC551A2522F1000163F2 /* ThemeDetailViewController.h */,
 				86ACEC561A2522F1000163F2 /* ThemeDetailViewController.m */,
 				86D1FEE41A254526008EB673 /* ThemeStoriesCollectionViewController.h */,
@@ -360,7 +379,7 @@
 				86D1FEEA1A254F56008EB673 /* StoryCollectionViewCell.h */,
 				86D1FEEB1A254F56008EB673 /* StoryCollectionViewCell.m */,
 			);
-			name = Themes;
+			name = Theme;
 			sourceTree = "<group>";
 		};
 		9F979CDF5E48A7E2CA2FE9B3 /* Pods */ = {
@@ -546,7 +565,6 @@
 				990BABF31A12D3C00014EDD3 /* main.m in Sources */,
 				86D9C7C91A1B10E5002C759D /* TileView.m in Sources */,
 				992FBF191A204F4100CDFAE3 /* BubblesCollectionViewCell.m in Sources */,
-				990BAC301A12DC7D0014EDD3 /* MyStoriesCollectionViewController.m in Sources */,
 				995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */,
 				995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */,
 			);

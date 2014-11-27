@@ -7,7 +7,6 @@
 //
 
 #import "ThemeDetailViewController.h"
-#import "MyStoriesCollectionViewController.h"
 
 @interface ThemeDetailViewController ()
 
