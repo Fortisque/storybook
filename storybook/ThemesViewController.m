@@ -21,12 +21,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    CGRect screenRect = [[UIScreen mainScreen] bounds];
-//    CGFloat SCREEN_WIDTH = screenRect.size.width;
-//    CGFloat SCREEN_HEIGHT = screenRect.size.height;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat SCREEN_WIDTH = screenRect.size.width;
+    CGFloat SCREEN_HEIGHT = screenRect.size.height;
     
     self.titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
     self.titleLabel.textColor = [UIColor whiteColor];
+    
+    CGFloat radius = SCREEN_WIDTH/6.0;
+    CGFloat x = SCREEN_WIDTH/2.0 - radius;
+    CGFloat y = SCREEN_HEIGHT - radius + 50;
+    
+    
+    UIImageView *circle = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
+    circle.backgroundColor = [UIColor whiteColor];
+    circle.layer.cornerRadius = radius;
+    
+    radius = SCREEN_WIDTH/1.9;
+    x = SCREEN_WIDTH/2.0 - radius;
+    y = SCREEN_HEIGHT - radius;
+    
+    UIImageView *bigCircle = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
+    bigCircle.backgroundColor = [UIColor whiteColor];
+    bigCircle.alpha = 0.6;
+    bigCircle.layer.cornerRadius = radius;
+    
+    
+    [self.view addSubview:circle];
+    [self.view addSubview:bigCircle];
+    [self.view sendSubviewToBack:bigCircle];
     
     self.view.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
     //[Animations spawnBubblesInView:self.view];
@@ -34,6 +57,7 @@
     
     //configure carousel
     _carousel.type = iCarouselTypeWheel;
+    _carousel.backgroundColor = [UIColor clearColor];
 }
 
 - (void)awakeFromNib
@@ -92,23 +116,75 @@
         NSDictionary *data = [_items objectAtIndex:index];
         
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300.0f, 300.0f)];
-        NSLog(@"%@", [data objectForKey:kImageName]);
         ((UIImageView *)view).image = [UIImage imageNamed:[data objectForKey:kImageName]];
         [view.layer setBorderColor: [[UIColor whiteColor] CGColor]];
         [view.layer setBorderWidth: 15.0];
         view.layer.cornerRadius = 150.0;
+        
+        if (index == self.carousel.currentItemIndex) {
+        
+        POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+        scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
+        scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.2f, 1.2f)];
+        scaleUp.springBounciness = 20.0f;
+        scaleUp.springSpeed = 20.0f;
+        
+        [view.layer pop_addAnimation:scaleUp forKey:@"first"];
+        }
 
+    } else {
+        NSLog(@"reload");
     }
     return view;
 }
 
-- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+- (void)carousel:(__unused iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    if (option == iCarouselOptionSpacing)
+    [self performSegueWithIdentifier:@"selected_theme" sender:self.parentViewController];
+}
+
+- (void)carouselCurrentItemIndexDidChange:(__unused iCarousel *)carousel
+{
+    [_items objectAtIndex:self.carousel.currentItemIndex];
+    [self.carousel reloadData];
+}
+
+
+- (CGFloat)carousel:(__unused iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+{
+    //customize carousel display
+    switch (option)
     {
-        return value * 1.1;
+        case iCarouselOptionWrap:
+        {
+            return YES;
+        }
+        case iCarouselOptionSpacing:
+        {
+            //add a bit of spacing between the item views
+            return value * 1.0f;
+        }
+        case iCarouselOptionFadeMax:
+        {
+            return value;
+        }
+        case iCarouselOptionShowBackfaces:
+        case iCarouselOptionRadius:
+        {
+            return value * 1.2f;
+        }
+        case iCarouselOptionAngle:
+        case iCarouselOptionArc:
+        case iCarouselOptionTilt:
+        case iCarouselOptionCount:
+        case iCarouselOptionFadeMin:
+        case iCarouselOptionFadeRange:
+        case iCarouselOptionOffsetMultiplier:
+        case iCarouselOptionVisibleItems:
+        {
+            return value;
+        }
     }
-    return value;
 }
 
 @end
