@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="QQt-of-2VF" kind="relationship" relationship="rootViewController" id="KFU-I8-6jn"/>
+                        <segue destination="Vxx-yR-hg7" kind="relationship" relationship="rootViewController" id="yUd-LZ-Elm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,7 +97,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Xo-HKk">
                                 <rect key="frame" x="4" y="234" width="760" height="500"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="tGa-DE-FHK"/>
@@ -106,7 +106,7 @@
                                     <segue destination="OXo-mP-GzL" kind="embed" id="hWR-Q4-hXZ"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mWW-kx-kWA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWW-kx-kWA">
                                 <rect key="frame" x="252" y="85" width="264" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="mqL-cz-kAe"/>
@@ -178,6 +178,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="OlC-K0-Gmc"/>
-        <segue reference="KFU-I8-6jn"/>
     </inferredMetricsTieBreakers>
 </document>

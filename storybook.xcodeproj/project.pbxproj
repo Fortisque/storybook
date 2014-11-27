@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
 		70224B941A23D7AB00789247 /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 70224B931A23D7AB00789247 /* Animations.m */; };
+		704FC2E61A26EAC7005EF9F3 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 704FC2E51A26EAC7005EF9F3 /* Helper.m */; };
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
@@ -68,6 +69,8 @@
 		4A811D5045D024A42E2CB7B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		70224B921A23D7AB00789247 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
 		70224B931A23D7AB00789247 /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
+		704FC2E41A26EAC7005EF9F3 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		704FC2E51A26EAC7005EF9F3 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryShopCollectionViewController.h; sourceTree = "<group>"; };
 		7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryShopCollectionViewController.m; sourceTree = "<group>"; };
 		707B20BE1A22B335006E82C4 /* DictionaryKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryKeys.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				99208D8D1A239FA10044AB4D /* Resources */,
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
+				704FC2E41A26EAC7005EF9F3 /* Helper.h */,
+				704FC2E51A26EAC7005EF9F3 /* Helper.m */,
 			);
 			name = storybubbles;
 			path = storybook;
@@ -512,6 +517,7 @@
 				70224B941A23D7AB00789247 /* Animations.m in Sources */,
 				990BAC361A12ED210014EDD3 /* StoryCollectionViewCell.m in Sources */,
 				99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */,
+				704FC2E61A26EAC7005EF9F3 /* Helper.m in Sources */,
 				990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */,
 				86D9C7D61A1B3D4C002C759D /* TileContainerView.m in Sources */,
 				9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */,
