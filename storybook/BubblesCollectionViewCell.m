@@ -11,8 +11,6 @@
 @implementation BubblesCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    self.titleLabel.font = [UIFont fontWithName:@"Quicksand-BoldItalic" size:20];
 }
 
 @end

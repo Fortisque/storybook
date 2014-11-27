@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Animations.h"
+#import "Helper.h"
 
 @interface ThemesViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *logoImage;

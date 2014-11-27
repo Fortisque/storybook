@@ -9,11 +9,13 @@
 #ifndef storybook_DictionaryKeys_h
 #define storybook_DictionaryKeys_h
 
-extern NSString * kCenter;
-extern NSString * kFrame;
-extern NSString * kImageName;
-extern NSString * kTag;
-extern NSString * kText;
+extern NSString *kCenter;
+extern NSString *kFontName;
+extern NSString *kFontSize;
+extern NSString *kFrame;
+extern NSString *kImageName;
+extern NSString *kTag;
+extern NSString *kText;
 
 
 

@@ -10,6 +10,5 @@
 
 @interface BubblesCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

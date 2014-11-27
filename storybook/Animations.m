@@ -41,10 +41,10 @@
         bubble.spinRange		= 1.0 * M_PI;		// medium spin
         
         bubble.scale            = 0.1;
-        bubble.scaleRange       = 3;
+        bubble.scaleRange       = 1;
         
-        bubble.contents	= (id) [[UIImage imageNamed:@"bubble_preview"] CGImage];
-        bubble.color = [[UIColor colorWithRed:0.100 green:0.758 blue:0.743 alpha:(arc4random()%100)/150.0] CGColor];
+        bubble.contents	= (id) [[UIImage imageNamed:@"bubble"] CGImage];
+        //bubble.color = [[UIColor colorWithRed:1 green:1 blue:1 alpha:(arc4random()%100)/150.0] CGColor];
         
         [bubbles addObject:bubble];
         

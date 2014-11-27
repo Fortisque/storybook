@@ -28,24 +28,25 @@
     }
     
     NSDictionary *image1 = @{
-                             kImageName: @"character",
-                             kFrame: @[@200,@100,@100,@100]
+                             kImageName: @"chipmunk",
+                             kFrame: @[@0.5,@0.1,@0.2,@0.2]
                              };
     NSDictionary *image2 = @{
                              kImageName: @"character",
-                             kFrame: @[@500,@300,@100,@100]
+                             kFrame: @[@0.5,@0.4,@0.2,@0.2]
                              };
     NSDictionary *image3 = @{
                              kImageName: @"character",
-                             kFrame: @[@200,@150,@100,@100]
+                             kFrame: @[@0.5,@0.4,@0.2,@0.2]
                              };
     NSDictionary *text1 = @{
                             kText: @"hello!",
-                            kFrame:@[@100,@100,@100,@100]
+                            kFontSize: @36.0f,
+                            kFrame:@[@0.1,@0.1,@0.2,@0.1]
                             };
     NSDictionary *text2 = @{
                             kText: @"welcome to the best story youngster",
-                            kFrame:@[@100,@300,@300,@100]
+                            kFrame:@[@0.1,@0.4,@0.5,@0.1]
                             };
     NSDictionary *text3 = @{
                             kText: @"what happens next",
@@ -53,25 +54,24 @@
     
     NSDictionary *text4 = @{
                             kText: @"how do you spell this",
-                            kFrame:@[@100,@60,@300,@100]
+                            kFrame:@[@0,@0.1,@1,@0.1]
                             };
     
     NSDictionary *text5 = @{
                             kText: @"draw a cat",
-                            kFrame:@[@100,@60,@300,@100]
+                            kFrame:@[@0.1,@0.1,@0.2,@0.1]
                             };
     
     NSDictionary *text6 = @{
                             kText: @"summarize the story",
-                            kFrame:@[@100,@60,@300,@100]
+                            kFrame:@[@0,@0.1,@1,@0.1]
                             };
     
     NSArray *images = @[image1, image2];
     NSArray *texts = @[text1, text2];
     
     BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithTextLabels:texts andImageViews:images];
-                                                        
-    VoicePageViewController *voicePageVC = [[VoicePageViewController alloc] initWithTextLabels:@[text3] andImageViews:@[image2]];
+    
 
     UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:nil andWord:@"CAT"];
     
@@ -94,19 +94,9 @@
     
     UnscramblePageViewController *unscrambleWordsVC2 = [[UnscramblePageViewController alloc] initWithTextLabels:@[text6] andImageViews:nil andScenes:scenes];
     
-//    UnscrambleWordsPageViewController *unscrambleWordsVC2 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"FROG"];
-//    
-//    UnscrambleWordsPageViewController *unscrambleWordsVC3 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"HORSE"];
-//    
-//    UnscrambleWordsPageViewController *unscrambleWordsVC4 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"JUNGLE"];
-//    
-//    UnscrambleWordsPageViewController *unscrambleWordsVC5 = [[UnscrambleWordsPageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image3] andWord:@"ELEPHANT"];
-    
     DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
     
-//    self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, unscrambleWordsVC2, unscrambleWordsVC3, unscrambleWordsVC4, unscrambleWordsVC5, drawingPageVC, nil];
-    
-    self.vcs = [NSArray arrayWithObjects:normalPageVC, voicePageVC, unscrambleWordsVC, unscrambleWordsVC2, drawingPageVC, nil];
+    self.vcs = [NSArray arrayWithObjects:normalPageVC, unscrambleWordsVC, unscrambleWordsVC2, drawingPageVC, nil];
 
     NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
     

@@ -25,7 +25,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
     
     self.navigationItem.title = @"My Stories";
     
-    //self.collectionView.backgroundColor = [self colorWithHexString:@"D1EEFC"];
+    self.collectionView.backgroundColor = [Helper colorWithHexString:@"D1EEFC"];
     
     UINib *cellNib = [UINib nibWithNibName:@"StoryCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
@@ -42,7 +42,6 @@ static NSString * const reuseIdentifier = @"StoryCell";
     NSArray *books = @[book1, book2];
     
     _books = books;
-    
     
 }
 
@@ -103,56 +102,23 @@ static NSString * const reuseIdentifier = @"StoryCell";
     return YES;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     // TODO pass book information
     [self performSegueWithIdentifier:@"story" sender:self];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
     UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor greenColor];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = [self colorWithHexString:@"52EDC7"];
+    cell.contentView.backgroundColor = [Helper colorWithHexString:@"52EDC7"];
 }
-
--(UIColor*)colorWithHexString:(NSString*)hex {
-    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) return [UIColor grayColor];
-    
-    // strip 0X if it appears
-    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
-    
-    if ([cString length] != 6) return  [UIColor grayColor];
-    
-    // Separate into r, g, b substrings
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    NSString *rString = [cString substringWithRange:range];
-    
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f)
-                           green:((float) g / 255.0f)
-                            blue:((float) b / 255.0f)
-                           alpha:1.0f];
-}
-
 
 
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -168,11 +134,12 @@ static NSString * const reuseIdentifier = @"StoryCell";
 //	
 //}
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(50, 50, 50, 50);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
     return 50;
 }
 

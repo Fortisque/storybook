@@ -34,29 +34,47 @@
 }
 
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews {
-    _textLabels = [[NSMutableArray alloc] init];
-    _imageViews = [[NSMutableArray alloc] init];
-    _utterances = [[NSMutableArray alloc] init];
+    self = [super init];
 
     if (self != nil)
     {
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat SCREEN_WIDTH = screenRect.size.width;
+        CGFloat SCREEN_HEIGHT = screenRect.size.height;
+        
+        _textLabels = [[NSMutableArray alloc] init];
+        _imageViews = [[NSMutableArray alloc] init];
+        _utterances = [[NSMutableArray alloc] init];
+        
         for (int i = 0; i < [textLabels count]; i++) {
             
             NSDictionary *textDict = [textLabels objectAtIndex:i];
             UILabel *textLabel;
             NSArray *frameValue = [textDict objectForKey:kFrame];
             if (frameValue) {
-                CGFloat x = [[frameValue objectAtIndex:0] floatValue];
-                CGFloat y = [[frameValue objectAtIndex:1] floatValue];
-                CGFloat width = [[frameValue objectAtIndex:2] floatValue];
-                CGFloat height = [[frameValue objectAtIndex:3] floatValue];
+                CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
+                CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
+                CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
+                CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
 
                 textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, width, height)];
             } else {
                 textLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
             }
             
+            NSString *fontName = [textDict objectForKey:kFontName];
+            NSNumber *fontSize = [textDict objectForKey:kFontSize];
+            
+            if (fontName && fontSize) {
+                textLabel.font = [UIFont fontWithName:fontName size:[fontSize floatValue]];
+            } else if (fontName) {
+                textLabel.font = [UIFont fontWithName:fontName size:16.0f];
+            } else if (fontSize) {
+                textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
+            }
             textLabel.text = [textDict objectForKey:kText];
+            textLabel.textAlignment = NSTextAlignmentCenter;
+            
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
             tapGestureRecognizer.numberOfTapsRequired = 1;
             [textLabel addGestureRecognizer:tapGestureRecognizer];
@@ -75,10 +93,10 @@
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
             NSArray *frameValue = [imageDict objectForKey:kFrame];
             if (frameValue) {
-                CGFloat x = [[frameValue objectAtIndex:0] floatValue];
-                CGFloat y = [[frameValue objectAtIndex:1] floatValue];
-                CGFloat width = [[frameValue objectAtIndex:2] floatValue];
-                CGFloat height = [[frameValue objectAtIndex:3] floatValue];
+                CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
+                CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
+                CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
+                CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
                 
                 imageView.frame = CGRectMake(x, y, width, height);
             } else {

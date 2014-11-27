@@ -10,6 +10,8 @@
 #import "DictionaryKeys.h"
 
 NSString *kCenter = @"center";
+NSString *kFontName = @"fontName";
+NSString *kFontSize = @"fontSize";
 NSString *kFrame = @"frame";
 NSString *kImageName = @"imageName";
 NSString *kTag = @"taga";
