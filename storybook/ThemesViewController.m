@@ -23,9 +23,9 @@
     CGFloat SCREEN_HEIGHT = screenRect.size.height;
     
     
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 150)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT*0.1, SCREEN_WIDTH, 150)];
     title.text = @"storybubbles";
-    title.font = [UIFont fontWithName:@"Quicksand-BoldItalic" size:100];
+    title.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
     title.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:title];

@@ -10,6 +10,7 @@
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
 		70224B941A23D7AB00789247 /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 70224B931A23D7AB00789247 /* Animations.m */; };
 		704FC2E61A26EAC7005EF9F3 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 704FC2E51A26EAC7005EF9F3 /* Helper.m */; };
+		704FC2E81A26F619005EF9F3 /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 704FC2E71A26F619005EF9F3 /* FredokaOne-Regular.ttf */; };
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
@@ -71,6 +72,7 @@
 		70224B931A23D7AB00789247 /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
 		704FC2E41A26EAC7005EF9F3 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		704FC2E51A26EAC7005EF9F3 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		704FC2E71A26F619005EF9F3 /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FredokaOne-Regular.ttf"; path = "../../../../Downloads/fredoka_one/FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
 		7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryShopCollectionViewController.h; sourceTree = "<group>"; };
 		7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryShopCollectionViewController.m; sourceTree = "<group>"; };
 		707B20BE1A22B335006E82C4 /* DictionaryKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryKeys.h; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		99208D8D1A239FA10044AB4D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				704FC2E71A26F619005EF9F3 /* FredokaOne-Regular.ttf */,
 				99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */,
 				99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */,
 				99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */,
@@ -456,6 +459,7 @@
 				992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
 				99208D9B1A239FBD0044AB4D /* Quicksand-Regular.otf in Resources */,
+				704FC2E81A26F619005EF9F3 /* FredokaOne-Regular.ttf in Resources */,
 				99208D9A1A239FBD0044AB4D /* Quicksand-LightItalic.otf in Resources */,
 				990BAC371A12ED210014EDD3 /* StoryCollectionViewCell.xib in Resources */,
 			);

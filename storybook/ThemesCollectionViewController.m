@@ -58,7 +58,14 @@ static NSString * const reuseIdentifier = @"Bubbles";
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
     [super viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [super viewDidDisappear:animated];
 }
 
 - (void) addCell {
@@ -117,9 +124,11 @@ static NSString * const reuseIdentifier = @"Bubbles";
     
     // Configure the cell
     NSDictionary *data = [_tableData objectAtIndex:indexPath.row];
-    
-    cell.titleLabel.text = [data objectForKey:kText];
+
     cell.backgroundImage.image = [UIImage imageNamed:[data objectForKey:kImageName]];
+    [cell.backgroundImage.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [cell.backgroundImage.layer setBorderWidth: 15.0];
+    cell.backgroundImage.layer.cornerRadius = 150.0;
     
     return cell;
 }
