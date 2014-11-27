@@ -7,7 +7,7 @@
 //
 
 #import "MyStoriesCollectionViewController.h"
-#import "StoryCollectionViewCell.h"
+#import "StoryCollectionViewCellOriginal.h"
 
 @interface MyStoriesCollectionViewController ()
 @property (strong, nonatomic) NSArray* books;
@@ -25,7 +25,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
     
     self.navigationItem.title = @"My Stories";
     
-    self.collectionView.backgroundColor = [self colorWithHexString:@"D1EEFC"];
+    //self.collectionView.backgroundColor = [self colorWithHexString:@"D1EEFC"];
     
     UINib *cellNib = [UINib nibWithNibName:@"StoryCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
@@ -42,6 +42,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
     NSArray *books = @[book1, book2];
     
     _books = books;
+    
     
 }
 
@@ -72,7 +73,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    StoryCollectionViewCellOriginal *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     if (cell == NULL) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StoryCollectionViewCell" owner:self options:nil];
@@ -102,26 +103,22 @@ static NSString * const reuseIdentifier = @"StoryCell";
     return YES;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // TODO pass book information
     [self performSegueWithIdentifier:@"story" sender:self];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor greenColor];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.contentView.backgroundColor = [self colorWithHexString:@"52EDC7"];
 }
 
--(UIColor*)colorWithHexString:(NSString*)hex
-{
+-(UIColor*)colorWithHexString:(NSString*)hex {
     NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
@@ -171,12 +168,11 @@ static NSString * const reuseIdentifier = @"StoryCell";
 //	
 //}
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(50, 50, 50, 50);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 50;
 }
 

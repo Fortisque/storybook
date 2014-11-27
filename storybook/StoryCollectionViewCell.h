@@ -1,14 +1,15 @@
 //
-//  BookCollectionViewCell.h
+//  StoryCollectionViewCell.h
 //  storybook
 //
-//  Created by Kevin Casey on 11/11/14.
+//  Created by Gavin Chu on 11/25/14.
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface StoryCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (strong, nonatomic) IBOutlet UIImageView *bookImage;
 
 @end
