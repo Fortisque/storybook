@@ -16,12 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)populateThemeView {
@@ -32,14 +30,19 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"embedStoriesCollectionView"]) {
+        self.collectionView = (ThemeStoriesCollectionViewController *) [segue destinationViewController];
+    }
 }
-*/
 
+- (IBAction)upArrowClicked:(UIButton *)sender {
+    [self.collectionView decrementIndex];
+    [self.collectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.collectionView.currentIndex inSection:0] atScrollPosition:(UICollectionViewScrollPositionTop) animated:YES];
+}
+
+- (IBAction)downArrowClicked:(UIButton *)sender {
+    [self.collectionView incrementIndex];
+    [self.collectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.collectionView.currentIndex inSection:0] atScrollPosition:(UICollectionViewScrollPositionTop) animated:YES];
+}
 @end

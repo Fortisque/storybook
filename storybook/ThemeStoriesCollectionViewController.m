@@ -11,7 +11,6 @@
 
 @interface ThemeStoriesCollectionViewController ()
 
-@property (strong, nonatomic) NSMutableArray* books;
 @property (strong, nonatomic) NSArray* bookImages;
 
 @end
@@ -30,27 +29,25 @@ static NSString * const reuseIdentifier = @"StoryCell";
     
     // Do any additional setup after loading the view.
     self.books = [[NSMutableArray alloc]init];
-    NSDictionary *book1 = @{
-                            @"title": @"Starter"
-                            };
-    NSDictionary *book2 = @{
-                            @"title": @"Test"
-                            };
-    NSDictionary *book3 = @{
-                            @"title": @"Test"
-                            };
-    NSDictionary *book4 = @{
-                            @"title": @"Test"
-                            };
-    NSDictionary *book5 = @{
-                            @"title": @"Test"
-                            };
+    NSDictionary *book1 = @{@"title": @"Starter"};
+    NSDictionary *book2 = @{@"title": @"Test"};
+    NSDictionary *book3 = @{@"title": @"Test"};
+    NSDictionary *book4 = @{@"title": @"Test"};
+    NSDictionary *book5 = @{@"title": @"Test"};
+    NSDictionary *book6 = @{@"title": @"Test"};
+    NSDictionary *book7 = @{@"title": @"Test"};
+    NSDictionary *book8 = @{@"title": @"Test"};
+    NSDictionary *book9 = @{@"title": @"Test"};
     
     [self.books addObject:book1];
     [self.books addObject:book2];
     [self.books addObject:book3];
     [self.books addObject:book4];
     [self.books addObject:book5];
+    [self.books addObject:book6];
+    [self.books addObject:book7];
+    [self.books addObject:book8];
+    [self.books addObject:book9];
     
     //fake book images for now
     self.bookImages = @[@"bookpurple", @"bookgreen", @"bookblue", @"bookorange"];
@@ -109,6 +106,18 @@ static NSString * const reuseIdentifier = @"StoryCell";
     }
 }
 
+- (void)incrementIndex{
+    if (self.currentIndex < [self.books count] - 3) {
+        self.currentIndex++;
+    }
+}
+
+- (void)decrementIndex{
+    if (self.currentIndex > 0) {
+        self.currentIndex--;
+    }
+}
+
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -121,6 +130,17 @@ static NSString * const reuseIdentifier = @"StoryCell";
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     // Close book detail view
     NSLog(@"book %ld deselected", (long)indexPath.row);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    int minIndex = 100;
+    for (UICollectionViewCell *cell in [self.collectionView visibleCells]) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        if ((int)indexPath.row < minIndex) {
+            minIndex = (int)indexPath.row;
+        }
+    }
+    self.currentIndex = minIndex;
 }
 
 /*
@@ -168,7 +188,7 @@ const int BOOK_SPACING = 50; //space between books
 
 //setting section border size
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(50, BOOK_PADDING, 50, BOOK_PADDING);
+    return UIEdgeInsetsMake(10, BOOK_PADDING, 10, BOOK_PADDING);
 }
 
 //setting spacing between books

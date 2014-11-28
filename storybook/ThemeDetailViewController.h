@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ThemeStoriesCollectionViewController.h"
 
 @interface ThemeDetailViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *themeView;
-@property (weak, nonatomic) IBOutlet UIView *storiesCollectionView;
+@property (strong, nonatomic) UIView *themeView;
+@property (strong, nonatomic) ThemeStoriesCollectionViewController *collectionView;
+
+@property (weak, nonatomic) IBOutlet UIButton *upArrow;
+@property (weak, nonatomic) IBOutlet UIButton *downArrow;
+
+- (IBAction)upArrowClicked:(UIButton *)sender;
+- (IBAction)downArrowClicked:(UIButton *)sender;
 
 @end
