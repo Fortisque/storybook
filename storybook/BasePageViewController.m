@@ -50,6 +50,7 @@
             
             NSDictionary *textDict = [textLabels objectAtIndex:i];
             UILabel *textLabel;
+            
             NSArray *frameValue = [textDict objectForKey:kFrame];
             if (frameValue) {
                 CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
@@ -64,6 +65,8 @@
             
             NSString *fontName = [textDict objectForKey:kFontName];
             NSNumber *fontSize = [textDict objectForKey:kFontSize];
+            NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
+            textLabel.text = [textDict objectForKey:kText];
             
             if (fontName && fontSize) {
                 textLabel.font = [UIFont fontWithName:fontName size:[fontSize floatValue]];
@@ -72,8 +75,28 @@
             } else if (fontSize) {
                 textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
             }
-            textLabel.text = [textDict objectForKey:kText];
-            textLabel.textAlignment = NSTextAlignmentCenter;
+            
+            CGSize size = [textLabel.text sizeWithAttributes:
+                           @{NSFontAttributeName:
+                                 [textLabel.font fontWithSize:textLabel.font.pointSize]}];
+            
+            CGRect newFrame = textLabel.frame;
+            newFrame.size.height = size.height;
+            newFrame.size.width = size.width;
+            textLabel.frame = newFrame;
+        
+            if (textAlignment != NULL) {
+                textLabel.textAlignment = [textAlignment intValue];
+            } else {
+                textLabel.textAlignment = NSTextAlignmentLeft;
+            }
+           
+            textLabel.numberOfLines = 0;
+            //CGSize labelSize = [textLabel.text sizeWithAttributes:@{NSFontAttributeName:textLabel.font}];
+            
+            //textLabel.frame = CGRectMake(
+            //                         textLabel.frame.origin.x, textLabel.frame.origin.y,
+            //                         textLabel.frame.size.width, labelSize.height);
             
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
             tapGestureRecognizer.numberOfTapsRequired = 1;
@@ -146,6 +169,7 @@
     
     AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:[tappedLabel text]];
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
+    utterance.rate = (AVSpeechUtteranceMinimumSpeechRate + AVSpeechUtteranceDefaultSpeechRate)*0.4;
     
     AVSpeechSynthesizer *speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
     speechSynthesizer.delegate = self;
@@ -168,6 +192,7 @@
 {
     if (self.nextSpeechIndex < [_utterances count]) {
         AVSpeechUtterance *utterance = [_utterances objectAtIndex:self.nextSpeechIndex];
+        utterance.rate = (AVSpeechUtteranceMinimumSpeechRate + AVSpeechUtteranceDefaultSpeechRate)*0.4;
         self.nextSpeechIndex += 1;
         
         [self.synthesizer speakUtterance:utterance];
@@ -198,7 +223,7 @@
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
-    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5f, 1.5f)];
+    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.1f, 1.1f)];
     scaleUp.springBounciness = 1.0f;
     scaleUp.springSpeed = 20.0f;
     
@@ -210,7 +235,7 @@
     UILabel *l = [self labelForString:s];
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.5f, 1.5f)];
+    scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.1f, 1.1f)];
     scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
     scaleUp.springBounciness = 1.0f;
     scaleUp.springSpeed = 20.0f;

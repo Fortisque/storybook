@@ -29,51 +29,87 @@
     
     NSDictionary *image1 = @{
                              kImageName: @"chipmunk",
-                             kFrame: @[@0.5,@0.1,@0.2,@0.2]
+                             kFrame: @[@0.6,@0.1,@0.4,@0.5]
                              };
     NSDictionary *image2 = @{
-                             kImageName: @"character",
-                             kFrame: @[@0.5,@0.4,@0.2,@0.2]
+                             kImageName: @"chipmunk",
+                             kFrame: @[@0.4,@0.4,@0.3,@0.4]
                              };
     NSDictionary *image3 = @{
                              kImageName: @"character",
-                             kFrame: @[@0.5,@0.4,@0.2,@0.2]
+                             kFrame: @[@0.5,@0.4,@0.4,@0.4]
                              };
-    NSDictionary *text1 = @{
-                            kText: @"hello!",
-                            kFontSize: @36.0f,
-                            kFrame:@[@0.1,@0.1,@0.2,@0.1]
+    NSDictionary *page1text1 = @{
+                            kText: @"Down in the meadow where animals flocked.\r"
+                            @"Were four flanky mammals, on two legs they walked!\r"
+                            @"Creatures that young Tom had not seen before.\r"
+                            @"The curious chipmunk just had to know more.",
+                            kFontSize: @25.0f,
+                            kFrame:@[@0.05,@0.1,@0.5,@0.4],
                             };
-    NSDictionary *text2 = @{
-                            kText: @"welcome to the best story youngster",
-                            kFrame:@[@0.1,@0.4,@0.5,@0.1]
+    NSDictionary *page1text2 = @{
+                            kText: @"He slid down the tree right down to the ground.\r"
+                            @"Coughed up his nine acorns and bursted with sound.\r"
+                            @"“I saw somethin’ weird, hurry up follow me!”\r"
+                            @"The curious crew craved something to see.",
+                            kFrame:@[@0.05,@0.5,@1,@0.4],
+                            kFontSize: @25.0f,
                             };
-    NSDictionary *text3 = @{
-                            kText: @"what happens next",
+    NSDictionary *page2text1 = @{
+                            kText: @"They walked in a line, mostly following tracks,\r"
+                            @"And carried strange things on these bags on their backs.\r"
+                            @"The animals passed, and continued on through,\r"
+                            @"And Tommy the chipmunk consulted his crew.",
+                            kFrame:@[@0.05,@0.3,@1,@0.4],
+                            kFontSize: @25.0f,
+                            };
+    NSDictionary *page3text1 = @{
+                            kText: @"They rustled through brush as if in a rush,\r"
+                            @"Popped out of the woods when Tom signaled shush!\r"
+                            @"The beasts were right there, within a tree’s reach,\r"
+                            @"They froze with amazement, were left without speech.\r",
+                            kFrame:@[@0.05,@0.3,@1,@0.4],
+                            kFontSize: @25.0f,
+                            };
+    
+    NSDictionary *page4text1 = @{
+                            kText: @"They rustled through brush as if in a rush,\r"
+                            @"Popped out of the woods when Tom signaled shush!\r"
+                            @"The beasts were right there, within a tree’s reach,\r"
+                            @"They froze with amazement, were left without speech.\r",
+                            kFrame:@[@0.05,@0.3,@1,@0.4],
+                            kFontSize: @25.0f,
                             };
     
     NSDictionary *text4 = @{
-                            kText: @"how do you spell this",
-                            kFrame:@[@0,@0.1,@1,@0.1]
+                            kText: @"What kind of animal is Tom?",
+                            kFrame:@[@0.3,@0.1,@1,@0.1],
+                            kFontSize: @25.0f,
                             };
     
     NSDictionary *text5 = @{
-                            kText: @"draw a cat",
-                            kFrame:@[@0.1,@0.1,@0.2,@0.1]
+                            kText: @"What do you think the mammals look like?",
+                            kFrame:@[@0.2,@0.1,@0.2,@0.1],
+                            kFontSize: @30.0f,
                             };
     
     NSDictionary *text6 = @{
                             kText: @"summarize the story",
-                            kFrame:@[@0,@0.1,@1,@0.1]
+                            kFrame:@[@0.4,@0.1,@1,@0.1],
+                            kFontSize: @25.0f,
                             };
     
-    NSArray *images = @[image1, image2];
-    NSArray *texts = @[text1, text2];
+    NSArray *images = @[image1];
+    NSArray *texts = @[page1text1, page1text2];
+    NSArray *texts2 = @[page2text1];
+
     
     BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithTextLabels:texts andImageViews:images];
     
+    BasePageViewController *normalPageVC2 = [[BasePageViewController alloc] initWithTextLabels:texts2 andImageViews:images];
+    
 
-    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:nil andWord:@"CAT"];
+    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image2] andWord:@"CHIPMUNK"];
     
     NSDictionary *scene1 = @{@"imageName":@"character",
                              @"sentence":@"first this"};
@@ -96,7 +132,7 @@
     
     DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
     
-    self.vcs = [NSArray arrayWithObjects:normalPageVC, unscrambleWordsVC, unscrambleWordsVC2, drawingPageVC, nil];
+    self.vcs = [NSArray arrayWithObjects:normalPageVC, drawingPageVC, normalPageVC2, unscrambleWordsVC, unscrambleWordsVC2, nil];
 
     NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
     

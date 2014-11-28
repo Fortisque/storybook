@@ -16,6 +16,7 @@ extern NSString *kFrame;
 extern NSString *kImageName;
 extern NSString *kTag;
 extern NSString *kText;
+extern NSString *kTextAlignment;
 
 
 

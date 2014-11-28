@@ -26,6 +26,8 @@
     CGFloat SCREEN_HEIGHT = screenRect.size.height;
     
     self.titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
+    //self.titleLabel.font = [UIFont fontWithName:@"Quicksand-Regular" size:100];
+
     self.titleLabel.textColor = [UIColor whiteColor];
     
     CGFloat radius = SCREEN_WIDTH/6.0;
@@ -98,7 +100,6 @@
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-    NSLog(@"%@", _items);
     return [_items count];
 }
 
@@ -123,17 +124,15 @@
         
         if (index == self.carousel.currentItemIndex) {
         
-        POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-        scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
-        scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.2f, 1.2f)];
-        scaleUp.springBounciness = 20.0f;
-        scaleUp.springSpeed = 20.0f;
+            POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+            scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
+            scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.2f, 1.2f)];
+            scaleUp.springBounciness = 20.0f;
+            scaleUp.springSpeed = 20.0f;
         
-        [view.layer pop_addAnimation:scaleUp forKey:@"first"];
+            [view.layer pop_addAnimation:scaleUp forKey:@"first"];
         }
 
-    } else {
-        NSLog(@"reload");
     }
     return view;
 }
@@ -148,7 +147,6 @@
     [_items objectAtIndex:self.carousel.currentItemIndex];
     [self.carousel reloadData];
 }
-
 
 - (CGFloat)carousel:(__unused iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {

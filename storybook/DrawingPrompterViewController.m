@@ -27,7 +27,7 @@
     [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.imageView.layer setBorderWidth: 2.0];
     
-    self.imageView.frame = CGRectMake(300, 100, 400, 400);
+    self.imageView.frame = CGRectMake(300, 200, 400, 400);
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(promptDrawing)];
     

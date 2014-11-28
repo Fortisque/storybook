@@ -16,7 +16,7 @@
     NSMutableArray *bubbles = [NSMutableArray array];
     
     CAEmitterLayer *bubbleEmitter = [CAEmitterLayer layer];
-    bubbleEmitter.emitterPosition = CGPointMake(view.bounds.size.width / 2.0, view.bounds.size.height + 50);
+    bubbleEmitter.emitterPosition = CGPointMake(view.bounds.size.width / 2.0, view.bounds.size.height + 100);
     bubbleEmitter.emitterSize		= CGSizeMake(view.bounds.size.width * 2.0, 0.0);
     
     
@@ -31,17 +31,17 @@
         // Configure the bubble emitter cell
         CAEmitterCell *bubble = [CAEmitterCell emitterCell];
         
-        bubble.birthRate		= 0.1;
+        bubble.birthRate		= 0.3;
         bubble.lifetime         = 30.0;
         
-        bubble.velocity         = 25;				// inital speed going up
+        bubble.velocity         = 10;				// inital speed going up
         bubble.velocityRange    = 5;
         bubble.yAcceleration    = -5;              // quickly accelerating up
         bubble.emissionRange    = 5.0 * M_PI;		// some variation in angle
         bubble.spinRange		= 1.0 * M_PI;		// medium spin
         
         bubble.scale            = 0.1;
-        bubble.scaleRange       = 1;
+        bubble.scaleRange       = 0.5;
         
         bubble.contents	= (id) [[UIImage imageNamed:@"bubble"] CGImage];
         //bubble.color = [[UIColor colorWithRed:1 green:1 blue:1 alpha:(arc4random()%100)/150.0] CGColor];
