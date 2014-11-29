@@ -13,7 +13,6 @@
 #import "DictionaryKeys.h"
 
 @interface ThemesViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet iCarousel *carousel;
 
 @end

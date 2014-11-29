@@ -82,7 +82,7 @@
                             };
     
     NSDictionary *text4 = @{
-                            kText: @"What kind of animal is Tom?",
+                            kText: @"What color is tom?",
                             kFrame:@[@0.3,@0.1,@1,@0.1],
                             kFontSize: @25.0f,
                             };
@@ -109,7 +109,7 @@
     BasePageViewController *normalPageVC2 = [[BasePageViewController alloc] initWithTextLabels:texts2 andImageViews:images];
     
 
-    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image2] andWord:@"CHIPMUNK"];
+    UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image2] andWord:@"BROWN"];
     
     NSDictionary *scene1 = @{@"imageName":@"character",
                              @"sentence":@"first this"};

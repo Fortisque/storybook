@@ -216,6 +216,7 @@
 		990BABEF1A12D3C00014EDD3 /* storybubbles */ = {
 			isa = PBXGroup;
 			children = (
+				99A6866F1A279FBF007AD671 /* Homepage */,
 				70224B911A23D76C00789247 /* Animations */,
 				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
 				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
@@ -336,7 +337,6 @@
 		992FBF0F1A2048C700CDFAE3 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				99A6866F1A279FBF007AD671 /* Homepage */,
 				99A6866E1A279F78007AD671 /* Shop */,
 				99A686701A279FF2007AD671 /* Theme */,
 			);

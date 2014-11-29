@@ -17,6 +17,8 @@
 
 @implementation DrawingPrompterViewController
 
+bool firstLoad = TRUE;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -35,12 +37,16 @@
     [self.imageView addGestureRecognizer:singleTap];
     
     [self.view addSubview:self.imageView];
+    firstLoad = TRUE;
 }
 
 
 - (void) viewDidAppear:(BOOL)animated {
+    if (!firstLoad) {
+        return;
+    }
+    firstLoad = TRUE;
     [super viewDidAppear:animated];
-    
 }
 
 - (void)promptDrawing

@@ -25,10 +25,14 @@
     CGFloat SCREEN_WIDTH = screenRect.size.width;
     CGFloat SCREEN_HEIGHT = screenRect.size.height;
     
-    self.titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
-    //self.titleLabel.font = [UIFont fontWithName:@"Quicksand-Regular" size:100];
-
-    self.titleLabel.textColor = [UIColor whiteColor];
+    
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * .15, 75, SCREEN_WIDTH*0.7, SCREEN_HEIGHT*0.2)];
+    titleLabel.text = @"storybubbles";
+    titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    //self.titleLabel.textColor = [UIColor whiteColor];
     
     CGFloat radius = SCREEN_WIDTH/6.0;
     CGFloat x = SCREEN_WIDTH/2.0 - radius;
@@ -49,9 +53,18 @@
     bigCircle.layer.cornerRadius = radius;
     
     
-    [self.view addSubview:circle];
+    radius = SCREEN_WIDTH/8;
+    x = SCREEN_WIDTH/2.0 - radius;
+    y = SCREEN_HEIGHT - radius;
+    UIImageView *profile = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
+    profile.image = [UIImage imageNamed:@"profile ken"];
+
+    [self.view addSubview:titleLabel];
+    //[self.view addSubview:circle];
     [self.view addSubview:bigCircle];
     [self.view sendSubviewToBack:bigCircle];
+    [self.view addSubview:profile];
+
     
     self.view.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
     //[Animations spawnBubblesInView:self.view];
