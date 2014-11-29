@@ -10,4 +10,10 @@
 
 @interface ThemeStoriesCollectionViewController : UICollectionViewController
 
+@property (strong, nonatomic) NSMutableArray* books;
+@property int currentIndex;
+
+- (void)incrementIndex;
+- (void)decrementIndex;
+
 @end
