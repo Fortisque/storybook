@@ -11,6 +11,7 @@
 @interface DrawingPageViewController ()
 
 @property (nonatomic, strong) UIImage *initializationImage;
+@property (nonatomic, strong) NSMutableDictionary *colorToTag;
 
 @end
 
@@ -24,6 +25,7 @@ CGRect workingFrame;
     if (self != nil)
     {
         self.initializationImage = image;
+        _colorToTag = [[NSMutableDictionary alloc] init];
         // Further initialization if needed
     }
     return self;
@@ -33,19 +35,11 @@ CGRect workingFrame;
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-
-    red = 0.0/255.0;
-    green = 0.0/255.0;
-    blue = 0.0/255.0;
-    brush = 10.0;
-    opacity = 1.0;
     
     CGFloat height = self.view.frame.size.height;
     CGFloat width = self.view.frame.size.width;
-    
-    NSLog(@"%f", height);
-    
-    workingFrame = CGRectMake(0, 0, width, height);
+
+    workingFrame = CGRectMake(0, 0, width, height - 150);
     self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
     
     UIGraphicsBeginImageContext(workingFrame.size);
@@ -68,18 +62,49 @@ CGRect workingFrame;
     [self.mainImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.mainImage.layer setBorderWidth: 2.0];
     
-    NSArray *colors = [[NSArray alloc] initWithObjects:@"Black", @"Grey", @"Red", @"Orange", @"Yellow", @"Green", @"Blue", @"Indigo", @"Violet", @"Erase", nil];
+    NSArray *colors = [[NSArray alloc] initWithObjects:@"Black", @"Gray", @"Red", @"Orange", @"Yellow", @"Green", @"Blue", @"Indigo", @"Violet", @"Erase", nil];
     
     int i;
+    NSString *colorName;
+    UIColor *color;
+    UIButton *circleView;
+    NSNumber *tagNumber;
     for (i = 0; i < [colors count]; i++) {
+        colorName = [colors objectAtIndex:i];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button addTarget:self
                    action:@selector(colorPressed:)
          forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:[colors objectAtIndex:i] forState:UIControlStateNormal];
-        button.frame = CGRectMake(i * 60 + 10.0, height - 60, 60.0, 40.0);
+        [button setTitle:colorName forState:UIControlStateNormal];
+        button.frame = CGRectMake(i * 90 + 40.0, height - 140, 60, 40);
         button.tag = i;
+        tagNumber = [NSNumber numberWithInt:i];
+        [_colorToTag setValue:tagNumber forKey:colorName];
+        
+        color = [self getColorFromTag:tagNumber];
+        
+        [button setTitleColor:color forState:UIControlStateNormal];
         [self.view addSubview:button];
+        
+        if ([colorName  isEqual: @"Erase"]) {
+            // Use the erase picture
+            circleView = [[UIButton alloc] initWithFrame:CGRectMake(i * 90 + 35.0, height - 100, 120, 70)];
+            [circleView setBackgroundImage:[UIImage imageNamed:@"eraser"]
+                                forState:UIControlStateNormal];
+        } else {
+            // use a circle color
+            circleView = [[UIButton alloc] initWithFrame:CGRectMake(i * 90 + 35.0, height - 100, 70, 70)];
+            [circleView setBackgroundImage:[Helper imageWithColor:color] forState:UIControlStateNormal];
+            circleView.layer.cornerRadius = 35;
+            circleView.clipsToBounds = YES;
+        }
+        
+        circleView.tag = i;
+        [circleView addTarget:self
+                       action:@selector(colorPressed:)
+             forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:circleView];
+        
     }
     
     UIButton *buttonDone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -99,6 +124,12 @@ CGRect workingFrame;
     
     [self.view addSubview:buttonDone];
     [self.view addSubview:buttonClear];
+    
+    red = 0.0/255.0;
+    green = 0.0/255.0;
+    blue = 0.0/255.0;
+    brush = 10.0;
+    opacity = 1.0;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -121,10 +152,12 @@ CGRect workingFrame;
 }
 */
 
-- (IBAction)colorPressed:(id)sender {
-    UIButton * PressedButton = (UIButton*)sender;
+- (UIColor *)getColorFromTag:(NSNumber *)tag {
+    UIColor *color;
     
-    switch(PressedButton.tag)
+    int i = [tag intValue];
+    
+    switch(i)
     {
         case 0:
             // Black
@@ -133,7 +166,7 @@ CGRect workingFrame;
             blue = 0.0/255.0;
             break;
         case 1:
-            // Grey
+            // Gray
             red = 105.0/255.0;
             green = 105.0/255.0;
             blue = 105.0/255.0;
@@ -188,6 +221,15 @@ CGRect workingFrame;
             opacity = 1.0;
             break;
     }
+    
+    color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    return color;
+}
+
+- (IBAction)colorPressed:(id)sender {
+    UIButton *pressedButton = (UIButton*)sender;
+    UIColor *color = [self getColorFromTag:[NSNumber numberWithInt:pressedButton.tag]];
 }
 
 - (IBAction)donePressed:(id)sender {    
@@ -197,7 +239,6 @@ CGRect workingFrame;
 }
 
 - (IBAction)clearPressed:(id)sender {
-    NSLog(@"clear");
     self.mainImage.image = nil;
 }
 

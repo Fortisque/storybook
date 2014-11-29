@@ -103,8 +103,8 @@
 		990BAC061A12D3C00014EDD3 /* storybookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = storybookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BAC0B1A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BAC0C1A12D3C00014EDD3 /* storybookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = storybookTests.m; sourceTree = "<group>"; };
-		990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BuiltIO.bundle; sourceTree = "<group>"; };
-		990BAC171A12D49C0014EDD3 /* BuiltIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuiltIO.framework; sourceTree = "<group>"; };
+		990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BuiltIO.bundle; path = storybook/BuiltIO.bundle; sourceTree = "<group>"; };
+		990BAC171A12D49C0014EDD3 /* BuiltIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuiltIO.framework; path = storybook/BuiltIO.framework; sourceTree = "<group>"; };
 		990BAC1A1A12D4BD0014EDD3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		990BAC1C1A12D4C10014EDD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		990BAC1E1A12D4C90014EDD3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -220,8 +220,6 @@
 				70224B911A23D76C00789247 /* Animations */,
 				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
 				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
-				990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */,
-				990BAC171A12D49C0014EDD3 /* BuiltIO.framework */,
 				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
 				990BABF51A12D3C00014EDD3 /* AppDelegate.m */,
 				99FC4B891A20416200528191 /* Main.storyboard */,
@@ -394,6 +392,8 @@
 		CD5882868ED5E800A71E3985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */,
+				990BAC171A12D49C0014EDD3 /* BuiltIO.framework */,
 				B538F193E82512F959D9BF8F /* libPods.a */,
 			);
 			name = Frameworks;

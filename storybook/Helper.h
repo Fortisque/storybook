@@ -12,5 +12,6 @@
 @interface Helper : NSObject
 
 + (UIColor *)colorWithHexString:(NSString *)hex;
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 @end

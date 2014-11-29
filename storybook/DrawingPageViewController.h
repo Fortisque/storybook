@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BasePageViewController.h"
 #import "DrawingPrompterViewController.h"
+#import "Helper.h"
 
 @interface DrawingPageViewController : BasePageViewController <UIGestureRecognizerDelegate> {
     
@@ -28,6 +29,7 @@
 - (IBAction)colorPressed:(id)sender;
 
 - (IBAction)donePressed:(id)sender;
+- (UIColor *)getColorFromTag:(NSNumber *)tag;
 
 - (id)initWithImage:(UIImage *)image;
 

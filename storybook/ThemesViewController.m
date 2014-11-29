@@ -99,7 +99,6 @@
     NSArray *themes = @[theme1, theme2, theme3, theme1, theme2, theme3];
     
     _items = [[NSMutableArray alloc] initWithArray:themes];
-    NSLog(@"%@", _items);
 }
 
 - (void)didReceiveMemoryWarning {
