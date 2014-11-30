@@ -229,12 +229,13 @@
 
 - (void)animateToStrokeEnd:(CGFloat)strokeEnd
 {
-    POPSpringAnimation *strokeAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPShapeLayerStrokeEnd];
+    POPBasicAnimation *strokeAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerStrokeEnd];
     strokeAnimation.fromValue = @(0.0);
     strokeAnimation.toValue = @(strokeEnd);
     strokeAnimation.removedOnCompletion = NO;
-    strokeAnimation.springBounciness = 20.0f;
-    strokeAnimation.springSpeed = 20.0f;
+    strokeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    strokeAnimation.duration = 1.0;
+    
     [self.circleLayer pop_addAnimation:strokeAnimation forKey:@"layerStrokeAnimation"];
 }
 
