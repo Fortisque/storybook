@@ -10,7 +10,6 @@
 		304EAC9CFA1A3905055D7412 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B538F193E82512F959D9BF8F /* libPods.a */; };
 		70224B941A23D7AB00789247 /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 70224B931A23D7AB00789247 /* Animations.m */; };
 		704FC2E61A26EAC7005EF9F3 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 704FC2E51A26EAC7005EF9F3 /* Helper.m */; };
-		704FC2EA1A26FDBD005EF9F3 /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 704FC2E91A26FDBD005EF9F3 /* FredokaOne-Regular.ttf */; };
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
@@ -39,18 +38,16 @@
 		990BAC2D1A12D4EF0014EDD3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */; };
 		990BAC361A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */; };
 		990BAC371A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */; };
-		99208D951A239FBD0044AB4D /* Quicksand_Dash.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */; };
-		99208D961A239FBD0044AB4D /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */; };
-		99208D971A239FBD0044AB4D /* Quicksand-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */; };
-		99208D981A239FBD0044AB4D /* Quicksand-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D911A239FBD0044AB4D /* Quicksand-Italic.otf */; };
-		99208D991A239FBD0044AB4D /* Quicksand-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D921A239FBD0044AB4D /* Quicksand-Light.otf */; };
-		99208D9A1A239FBD0044AB4D /* Quicksand-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D931A239FBD0044AB4D /* Quicksand-LightItalic.otf */; };
-		99208D9B1A239FBD0044AB4D /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99208D941A239FBD0044AB4D /* Quicksand-Regular.otf */; };
 		9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */; };
-		992FBF121A204AC300CDFAE3 /* ThemesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FBF111A204AC300CDFAE3 /* ThemesCollectionViewController.m */; };
 		992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FBF141A204B1E00CDFAE3 /* ThemesViewController.m */; };
-		992FBF191A204F4100CDFAE3 /* BubblesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FBF171A204F4100CDFAE3 /* BubblesCollectionViewCell.m */; };
-		992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992FBF181A204F4100CDFAE3 /* BubblesCollectionViewCell.xib */; };
+		994B9EBE1A2AC1690053056E /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EB61A2AC1690053056E /* FredokaOne-Regular.ttf */; };
+		994B9EBF1A2AC1690053056E /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EB71A2AC1690053056E /* Quicksand-Bold.otf */; };
+		994B9EC01A2AC1690053056E /* Quicksand-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EB81A2AC1690053056E /* Quicksand-BoldItalic.otf */; };
+		994B9EC11A2AC1690053056E /* Quicksand-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EB91A2AC1690053056E /* Quicksand-Italic.otf */; };
+		994B9EC21A2AC1690053056E /* Quicksand-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EBA1A2AC1690053056E /* Quicksand-Light.otf */; };
+		994B9EC31A2AC1690053056E /* Quicksand-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EBB1A2AC1690053056E /* Quicksand-LightItalic.otf */; };
+		994B9EC41A2AC1690053056E /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EBC1A2AC1690053056E /* Quicksand-Regular.otf */; };
+		994B9EC51A2AC1690053056E /* Quicksand_Dash.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EBD1A2AC1690053056E /* Quicksand_Dash.otf */; };
 		995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AE71A19E43400E4F28F /* PagesViewController.m */; };
 		995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */; };
 		99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B908791A1C45C4001B07AB /* DrawingPageViewController.m */; };
@@ -74,7 +71,6 @@
 		70224B931A23D7AB00789247 /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
 		704FC2E41A26EAC7005EF9F3 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		704FC2E51A26EAC7005EF9F3 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
-		704FC2E91A26FDBD005EF9F3 /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
 		7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryShopCollectionViewController.h; sourceTree = "<group>"; };
 		7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryShopCollectionViewController.m; sourceTree = "<group>"; };
 		707B20BE1A22B335006E82C4 /* DictionaryKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryKeys.h; sourceTree = "<group>"; };
@@ -118,22 +114,18 @@
 		990BAC331A12ED210014EDD3 /* StoryCollectionViewCellOriginal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryCollectionViewCellOriginal.h; path = storybook/StoryCollectionViewCellOriginal.h; sourceTree = SOURCE_ROOT; };
 		990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryCollectionViewCellOriginal.m; path = storybook/StoryCollectionViewCellOriginal.m; sourceTree = SOURCE_ROOT; };
 		990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCollectionViewCellOriginal.xib; path = storybook/StoryCollectionViewCellOriginal.xib; sourceTree = SOURCE_ROOT; };
-		99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quicksand_Dash.otf; sourceTree = "<group>"; };
-		99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
-		99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-BoldItalic.otf"; sourceTree = "<group>"; };
-		99208D911A239FBD0044AB4D /* Quicksand-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Italic.otf"; sourceTree = "<group>"; };
-		99208D921A239FBD0044AB4D /* Quicksand-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.otf"; sourceTree = "<group>"; };
-		99208D931A239FBD0044AB4D /* Quicksand-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-LightItalic.otf"; sourceTree = "<group>"; };
-		99208D941A239FBD0044AB4D /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
 		9929F6FE1A1C6FBD00DC92B1 /* DrawingPrompterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPrompterViewController.h; sourceTree = "<group>"; };
 		9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPrompterViewController.m; sourceTree = "<group>"; };
-		992FBF101A204AC300CDFAE3 /* ThemesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesCollectionViewController.h; sourceTree = "<group>"; };
-		992FBF111A204AC300CDFAE3 /* ThemesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesCollectionViewController.m; sourceTree = "<group>"; };
 		992FBF131A204B1E00CDFAE3 /* ThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
 		992FBF141A204B1E00CDFAE3 /* ThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
-		992FBF161A204F4100CDFAE3 /* BubblesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubblesCollectionViewCell.h; sourceTree = "<group>"; };
-		992FBF171A204F4100CDFAE3 /* BubblesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubblesCollectionViewCell.m; sourceTree = "<group>"; };
-		992FBF181A204F4100CDFAE3 /* BubblesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BubblesCollectionViewCell.xib; sourceTree = "<group>"; };
+		994B9EB61A2AC1690053056E /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
+		994B9EB71A2AC1690053056E /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
+		994B9EB81A2AC1690053056E /* Quicksand-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-BoldItalic.otf"; sourceTree = "<group>"; };
+		994B9EB91A2AC1690053056E /* Quicksand-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Italic.otf"; sourceTree = "<group>"; };
+		994B9EBA1A2AC1690053056E /* Quicksand-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.otf"; sourceTree = "<group>"; };
+		994B9EBB1A2AC1690053056E /* Quicksand-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-LightItalic.otf"; sourceTree = "<group>"; };
+		994B9EBC1A2AC1690053056E /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
+		994B9EBD1A2AC1690053056E /* Quicksand_Dash.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quicksand_Dash.otf; sourceTree = "<group>"; };
 		995E7AE61A19E43400E4F28F /* PagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesViewController.h; sourceTree = "<group>"; };
 		995E7AE71A19E43400E4F28F /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		995E7AE91A19E58A00E4F28F /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
@@ -174,28 +166,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		70224B911A23D76C00789247 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				70224B921A23D7AB00789247 /* Animations.h */,
-				70224B931A23D7AB00789247 /* Animations.m */,
-			);
-			name = Animations;
-			sourceTree = "<group>";
-		};
 		990BABE41A12D3C00014EDD3 = {
 			isa = PBXGroup;
 			children = (
-				990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */,
-				990BAC2A1A12D4E90014EDD3 /* Social.framework */,
-				990BAC281A12D4E40014EDD3 /* Twitter.framework */,
-				990BAC261A12D4DD0014EDD3 /* CoreLocation.framework */,
-				990BAC241A12D4D80014EDD3 /* CoreTelephony.framework */,
-				990BAC221A12D4D20014EDD3 /* CFNetwork.framework */,
-				990BAC201A12D4CE0014EDD3 /* SystemConfiguration.framework */,
-				990BAC1E1A12D4C90014EDD3 /* Security.framework */,
-				990BAC1C1A12D4C10014EDD3 /* CoreGraphics.framework */,
-				990BAC1A1A12D4BD0014EDD3 /* QuartzCore.framework */,
 				990BABEF1A12D3C00014EDD3 /* storybubbles */,
 				990BAC091A12D3C00014EDD3 /* storybookTests */,
 				990BABEE1A12D3C00014EDD3 /* Products */,
@@ -217,20 +190,14 @@
 			isa = PBXGroup;
 			children = (
 				99A6866F1A279FBF007AD671 /* Homepage */,
-				70224B911A23D76C00789247 /* Animations */,
-				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
-				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
-				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
-				990BABF51A12D3C00014EDD3 /* AppDelegate.m */,
+				994B9EC61A2AC2E60053056E /* Helper */,
 				99FC4B891A20416200528191 /* Main.storyboard */,
 				992FBF0B1A2046E400CDFAE3 /* Story */,
 				992FBF0F1A2048C700CDFAE3 /* Themes */,
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
-				99208D8D1A239FA10044AB4D /* Resources */,
+				994B9EB51A2AC1690053056E /* Resources */,
 				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
-				704FC2E41A26EAC7005EF9F3 /* Helper.h */,
-				704FC2E51A26EAC7005EF9F3 /* Helper.m */,
 			);
 			name = storybubbles;
 			path = storybook;
@@ -260,21 +227,6 @@
 				990BAC0B1A12D3C00014EDD3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		99208D8D1A239FA10044AB4D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				704FC2E91A26FDBD005EF9F3 /* FredokaOne-Regular.ttf */,
-				99208D8E1A239FBD0044AB4D /* Quicksand_Dash.otf */,
-				99208D8F1A239FBD0044AB4D /* Quicksand-Bold.otf */,
-				99208D901A239FBD0044AB4D /* Quicksand-BoldItalic.otf */,
-				99208D911A239FBD0044AB4D /* Quicksand-Italic.otf */,
-				99208D921A239FBD0044AB4D /* Quicksand-Light.otf */,
-				99208D931A239FBD0044AB4D /* Quicksand-LightItalic.otf */,
-				99208D941A239FBD0044AB4D /* Quicksand-Regular.otf */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		992FBF0A1A2045B200CDFAE3 /* Drawing */ = {
@@ -341,6 +293,35 @@
 			name = Themes;
 			sourceTree = "<group>";
 		};
+		994B9EB51A2AC1690053056E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				994B9EB61A2AC1690053056E /* FredokaOne-Regular.ttf */,
+				994B9EB71A2AC1690053056E /* Quicksand-Bold.otf */,
+				994B9EB81A2AC1690053056E /* Quicksand-BoldItalic.otf */,
+				994B9EB91A2AC1690053056E /* Quicksand-Italic.otf */,
+				994B9EBA1A2AC1690053056E /* Quicksand-Light.otf */,
+				994B9EBB1A2AC1690053056E /* Quicksand-LightItalic.otf */,
+				994B9EBC1A2AC1690053056E /* Quicksand-Regular.otf */,
+				994B9EBD1A2AC1690053056E /* Quicksand_Dash.otf */,
+			);
+			name = Resources;
+			path = resources;
+			sourceTree = "<group>";
+		};
+		994B9EC61A2AC2E60053056E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				70224B921A23D7AB00789247 /* Animations.h */,
+				70224B931A23D7AB00789247 /* Animations.m */,
+				707B20BE1A22B335006E82C4 /* DictionaryKeys.h */,
+				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
+				704FC2E41A26EAC7005EF9F3 /* Helper.h */,
+				704FC2E51A26EAC7005EF9F3 /* Helper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		99A6866E1A279F78007AD671 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,13 +337,10 @@
 		99A6866F1A279FBF007AD671 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				990BABF41A12D3C00014EDD3 /* AppDelegate.h */,
+				990BABF51A12D3C00014EDD3 /* AppDelegate.m */,
 				992FBF131A204B1E00CDFAE3 /* ThemesViewController.h */,
 				992FBF141A204B1E00CDFAE3 /* ThemesViewController.m */,
-				992FBF101A204AC300CDFAE3 /* ThemesCollectionViewController.h */,
-				992FBF111A204AC300CDFAE3 /* ThemesCollectionViewController.m */,
-				992FBF161A204F4100CDFAE3 /* BubblesCollectionViewCell.h */,
-				992FBF171A204F4100CDFAE3 /* BubblesCollectionViewCell.m */,
-				992FBF181A204F4100CDFAE3 /* BubblesCollectionViewCell.xib */,
 			);
 			name = Homepage;
 			sourceTree = "<group>";
@@ -392,6 +370,16 @@
 		CD5882868ED5E800A71E3985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */,
+				990BAC2A1A12D4E90014EDD3 /* Social.framework */,
+				990BAC281A12D4E40014EDD3 /* Twitter.framework */,
+				990BAC261A12D4DD0014EDD3 /* CoreLocation.framework */,
+				990BAC241A12D4D80014EDD3 /* CoreTelephony.framework */,
+				990BAC221A12D4D20014EDD3 /* CFNetwork.framework */,
+				990BAC201A12D4CE0014EDD3 /* SystemConfiguration.framework */,
+				990BAC1E1A12D4C90014EDD3 /* Security.framework */,
+				990BAC1C1A12D4C10014EDD3 /* CoreGraphics.framework */,
+				990BAC1A1A12D4BD0014EDD3 /* QuartzCore.framework */,
 				990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */,
 				990BAC171A12D49C0014EDD3 /* BuiltIO.framework */,
 				B538F193E82512F959D9BF8F /* libPods.a */,
@@ -482,20 +470,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99208D951A239FBD0044AB4D /* Quicksand_Dash.otf in Resources */,
+				994B9EC51A2AC1690053056E /* Quicksand_Dash.otf in Resources */,
 				99FC4B8B1A20416200528191 /* Main.storyboard in Resources */,
-				99208D961A239FBD0044AB4D /* Quicksand-Bold.otf in Resources */,
-				99208D981A239FBD0044AB4D /* Quicksand-Italic.otf in Resources */,
+				994B9EC41A2AC1690053056E /* Quicksand-Regular.otf in Resources */,
 				990BAC011A12D3C00014EDD3 /* LaunchScreen.xib in Resources */,
-				99208D991A239FBD0044AB4D /* Quicksand-Light.otf in Resources */,
 				990BAC181A12D49C0014EDD3 /* BuiltIO.bundle in Resources */,
-				99208D971A239FBD0044AB4D /* Quicksand-BoldItalic.otf in Resources */,
-				992FBF1A1A204F4100CDFAE3 /* BubblesCollectionViewCell.xib in Resources */,
 				990BABFE1A12D3C00014EDD3 /* Images.xcassets in Resources */,
-				99208D9B1A239FBD0044AB4D /* Quicksand-Regular.otf in Resources */,
-				704FC2EA1A26FDBD005EF9F3 /* FredokaOne-Regular.ttf in Resources */,
-				99208D9A1A239FBD0044AB4D /* Quicksand-LightItalic.otf in Resources */,
+				994B9EBF1A2AC1690053056E /* Quicksand-Bold.otf in Resources */,
+				994B9EC21A2AC1690053056E /* Quicksand-Light.otf in Resources */,
+				994B9EC31A2AC1690053056E /* Quicksand-LightItalic.otf in Resources */,
+				994B9EC01A2AC1690053056E /* Quicksand-BoldItalic.otf in Resources */,
 				990BAC371A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib in Resources */,
+				994B9EBE1A2AC1690053056E /* FredokaOne-Regular.ttf in Resources */,
+				994B9EC11A2AC1690053056E /* Quicksand-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +533,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				992FBF121A204AC300CDFAE3 /* ThemesCollectionViewController.m in Sources */,
 				707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */,
 				86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */,
 				86D1FEED1A254F56008EB673 /* StoryCollectionViewCell.m in Sources */,
@@ -564,7 +550,6 @@
 				9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */,
 				990BABF31A12D3C00014EDD3 /* main.m in Sources */,
 				86D9C7C91A1B10E5002C759D /* TileView.m in Sources */,
-				992FBF191A204F4100CDFAE3 /* BubblesCollectionViewCell.m in Sources */,
 				995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */,
 				995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */,
 			);

@@ -25,7 +25,8 @@
     CGFloat SCREEN_WIDTH = screenRect.size.width;
     CGFloat SCREEN_HEIGHT = screenRect.size.height;
     
-    
+    /*UIImageView *title = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * .15, 50, SCREEN_WIDTH*0.7, SCREEN_HEIGHT*0.2)];
+    title.image = [UIImage imageNamed:@"homebanner"];*/
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * .15, 75, SCREEN_WIDTH*0.7, SCREEN_HEIGHT*0.2)];
     titleLabel.text = @"storybubbles";
@@ -54,14 +55,15 @@
     bigCircle.layer.cornerRadius = radius;
     
     
-    radius = SCREEN_WIDTH/8;
-    x = SCREEN_WIDTH/2.0 - radius;
-    y = SCREEN_HEIGHT - radius;
+    radius = SCREEN_WIDTH/20;
+    x = SCREEN_WIDTH - radius*2 - 30;
+    y = 30;
     UIImageView *profile = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
     profile.image = [UIImage imageNamed:@"profile ken"];
 
     [self.view addSubview:titleLabel];
-    //[self.view addSubview:circle];
+    //[self.view addSubview:title];
+    [self.view addSubview:circle];
     [self.view addSubview:bigCircle];
     [self.view sendSubviewToBack:bigCircle];
     [self.view addSubview:profile];
