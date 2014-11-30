@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSTimer *myTimer;
 @property (strong, nonatomic) NSMutableArray *items;
+@property (strong, nonatomic) UICountingLabel *progressLabel;
 
 @end
 
@@ -33,17 +34,25 @@
     titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor whiteColor];
-    
-    //self.titleLabel.textColor = [UIColor whiteColor];
-    
+
     CGFloat radius = SCREEN_WIDTH/6.0;
     CGFloat x = SCREEN_WIDTH/2.0 - radius;
     CGFloat y = SCREEN_HEIGHT - radius + 50;
     
-    
     UIImageView *circle = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
     circle.backgroundColor = [UIColor whiteColor];
     circle.layer.cornerRadius = radius;
+    
+    _progressLabel = [[UICountingLabel alloc] init];
+    
+    [_progressLabel setFont:[UIFont fontWithName:@"FredokaOne-Regular" size:60]];
+    
+    _progressLabel.frame = CGRectMake(SCREEN_WIDTH/2.0 - radius, SCREEN_HEIGHT - 130, radius*2, radius);
+    _progressLabel.attributedFormatBlock = ^NSAttributedString* (float value)
+    {
+        return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.0f%%", value]];
+    };
+    _progressLabel.textAlignment = NSTextAlignmentCenter;
     
     radius = SCREEN_WIDTH/1.9;
     x = SCREEN_WIDTH/2.0 - radius;
@@ -67,6 +76,7 @@
     [self.view addSubview:bigCircle];
     [self.view sendSubviewToBack:bigCircle];
     [self.view addSubview:profile];
+    [self.view addSubview:_progressLabel];
 
     
     self.view.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
@@ -76,6 +86,9 @@
     //configure carousel
     _carousel.type = iCarouselTypeWheel;
     _carousel.backgroundColor = [UIColor clearColor];
+    
+    // Trigger the effect on load, so progress label starts up
+    [self carouselCurrentItemIndexDidChange:_carousel];
 }
 
 - (void)awakeFromNib
@@ -88,15 +101,18 @@
     
     NSDictionary *theme1 = @{
                              kText: @"Space",
-                             kImageName: @"spacecircle"
+                             kImageName: @"spacecircle",
+                             kStoryProgress: @75
                              };
     NSDictionary *theme2 = @{
                              kText: @"Forest",
-                             kImageName: @"forestcircle"
+                             kImageName: @"forestcircle",
+                             kStoryProgress: @50
                              };
     NSDictionary *theme3 = @{
                              kText: @"Desert",
-                             kImageName: @"desertcircle"
+                             kImageName: @"desertcircle",
+                             kStoryProgress: @30
                              };
     
     NSArray *themes = @[theme1, theme2, theme3, theme1, theme2, theme3];
@@ -159,7 +175,9 @@
 
 - (void)carouselCurrentItemIndexDidChange:(__unused iCarousel *)carousel
 {
-    [_items objectAtIndex:self.carousel.currentItemIndex];
+    NSDictionary *data = [_items objectAtIndex:self.carousel.currentItemIndex];
+    NSNumber *countTo = [data objectForKey:kStoryProgress];
+    [_progressLabel countFromZeroTo:[countTo floatValue]];
     [self.carousel reloadData];
 }
 

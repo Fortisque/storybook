@@ -18,8 +18,6 @@
 @implementation DrawingPageViewController
 
 CGRect workingFrame;
-CGFloat height;
-CGFloat width;
 
 - (id)initWithImage:(UIImage *)image {
     self = [super init];
@@ -38,10 +36,10 @@ CGFloat width;
     
     // Do any additional setup after loading the view from its nib.
     
-    height = self.view.frame.size.height;
-    width = self.view.frame.size.width;
+    CGFloat SCREEN_HEIGHT = self.view.frame.size.height;
+    CGFloat SCREEN_WIDTH = self.view.frame.size.width;
 
-    workingFrame = CGRectMake(0, 0, width, height - 150);
+    workingFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 150);
     self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
     
     UIGraphicsBeginImageContext(workingFrame.size);
@@ -78,7 +76,7 @@ CGFloat width;
                    action:@selector(colorPressed:)
          forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:colorName forState:UIControlStateNormal];
-        button.frame = CGRectMake(i * 90 + 40.0, height - 140, 60, 40);
+        button.frame = CGRectMake(i * 90 + 40.0, SCREEN_HEIGHT - 140, 60, 40);
         button.tag = i;
         tagNumber = [NSNumber numberWithInt:i];
         [_colorToTag setValue:tagNumber forKey:colorName];
@@ -90,12 +88,12 @@ CGFloat width;
         
         if ([colorName  isEqual: @"Erase"]) {
             // Use the erase picture
-            circleView = [[UIButton alloc] initWithFrame:CGRectMake(i * 90 + 35.0, height - 100, 120, 70)];
+            circleView = [[UIButton alloc] initWithFrame:CGRectMake(i * 90 + 35.0, SCREEN_HEIGHT - 100, 120, 70)];
             [circleView setBackgroundImage:[UIImage imageNamed:@"eraser"]
                                 forState:UIControlStateNormal];
         } else {
             // use a circle color
-            circleView = [[UIButton alloc] initWithFrame:CGRectMake(i * 90 + 35.0, height - 100, 70, 70)];
+            circleView = [[UIButton alloc] initWithFrame:CGRectMake(i * 90 + 35.0, SCREEN_HEIGHT - 100, 70, 70)];
             [circleView setBackgroundImage:[Helper imageWithColor:color] forState:UIControlStateNormal];
             circleView.layer.cornerRadius = 35;
             circleView.clipsToBounds = YES;
@@ -109,7 +107,7 @@ CGFloat width;
         
     }
     
-    [self addButtonWithFrame:CGRectMake(width - 20, 30.0, 0, 0) specifingRightCorner:YES title:@"DONE" selector:@selector(donePressed:)];
+    [self addButtonWithFrame:CGRectMake(SCREEN_WIDTH - 20, 30.0, 0, 0) specifingRightCorner:YES title:@"DONE" selector:@selector(donePressed:)];
     
     [self addButtonWithFrame:CGRectMake(20, 30.0, 0, 0) specifingRightCorner:NO title:@"CLEAR" selector:@selector(clearPressed:)];
     

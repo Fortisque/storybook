@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UICountingLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iCarousel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>67E5ACE058849AC3870C3420</key>
+		<key>46D45818E980F82ADAD43AF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D5D1F91292EA17F1A885CB2</key>
+		<key>BBF65D9B0C45A775CEA3946A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>796ABF33E4B6559B72E28FD9</key>
+		<key>C43943B76E65A2524A50D6BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>867AD4A64DE30BC0BF85C8A0</key>
+		<key>C8122D1373E84609E0E308B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7A78EA3DE8442C333773AF8</key>
+		<key>D7094DCE8DD799DFADD49126</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0C2E021C053F8B07976C9A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

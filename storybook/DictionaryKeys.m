@@ -17,3 +17,4 @@ NSString *kImageName = @"imageName";
 NSString *kTag = @"taga";
 NSString *kText = @"text";
 NSString *kTextAlignment = @"textAlignment";
+NSString *kStoryProgress = @"storyProgress";

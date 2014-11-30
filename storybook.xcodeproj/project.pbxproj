@@ -192,11 +192,11 @@
 				99A6866F1A279FBF007AD671 /* Homepage */,
 				994B9EC61A2AC2E60053056E /* Helper */,
 				99FC4B891A20416200528191 /* Main.storyboard */,
+				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				992FBF0B1A2046E400CDFAE3 /* Story */,
 				992FBF0F1A2048C700CDFAE3 /* Themes */,
 				990BABFD1A12D3C00014EDD3 /* Images.xcassets */,
 				994B9EB51A2AC1690053056E /* Resources */,
-				990BABFF1A12D3C00014EDD3 /* LaunchScreen.xib */,
 				990BABF01A12D3C00014EDD3 /* Supporting Files */,
 			);
 			name = storybubbles;

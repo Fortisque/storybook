@@ -11,6 +11,7 @@
 #import "Helper.h"
 #import "iCarousel.h"
 #import "DictionaryKeys.h"
+#import <UICountingLabel.h>
 
 @interface ThemesViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 @property (strong, nonatomic) IBOutlet iCarousel *carousel;

@@ -4,16 +4,19 @@ PODS:
   - iCarousel (1.7.6)
   - JRSwizzle (1.0)
   - pop (1.0.7)
+  - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
   - GRMustache (~> 7.3.0)
   - iCarousel (~> 1.7.6)
   - pop (~> 1.0)
+  - UICountingLabel
 
 SPEC CHECKSUMS:
   GRMustache: efecd3b603f0a7a99cf6bdf3998782ee0c465726
   iCarousel: c35a4e26b3c657847e523012b593e70ddbd84992
   JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  UICountingLabel: a55223a9357af71f833af76665164d2e3f3654b5
 
 COCOAPODS: 0.35.0
