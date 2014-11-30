@@ -67,7 +67,7 @@
 
     
     self.view.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
-    //[Animations spawnBubblesInView:self.view];
+    [Animations spawnBubblesInView:self.view];
     
     
     //configure carousel

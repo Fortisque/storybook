@@ -18,6 +18,8 @@
 @implementation DrawingPageViewController
 
 CGRect workingFrame;
+CGFloat height;
+CGFloat width;
 
 - (id)initWithImage:(UIImage *)image {
     self = [super init];
@@ -36,8 +38,8 @@ CGRect workingFrame;
     
     // Do any additional setup after loading the view from its nib.
     
-    CGFloat height = self.view.frame.size.height;
-    CGFloat width = self.view.frame.size.width;
+    height = self.view.frame.size.height;
+    width = self.view.frame.size.width;
 
     workingFrame = CGRectMake(0, 0, width, height - 150);
     self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
@@ -107,29 +109,46 @@ CGRect workingFrame;
         
     }
     
-    UIButton *buttonDone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [buttonDone addTarget:self
-                   action:@selector(donePressed:)
-         forControlEvents:UIControlEventTouchUpInside];
-    [buttonDone setTitle:@"Done" forState:UIControlStateNormal];
-    buttonDone.frame = CGRectMake(width - 100, 50.0, 60.0, 40.0);
+    [self addButtonWithFrame:CGRectMake(width - 20, 30.0, 0, 0) specifingRightCorner:YES title:@"DONE" selector:@selector(donePressed:)];
     
-    UIButton *buttonClear = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [buttonClear addTarget:self
-                    action:@selector(clearPressed:)
-          forControlEvents:UIControlEventTouchUpInside];
-    [buttonClear setTitle:@"Clear" forState:UIControlStateNormal];
-    buttonClear.frame = CGRectMake(50.0, 50.0, 60.0, 40.0);
-    
-    
-    [self.view addSubview:buttonDone];
-    [self.view addSubview:buttonClear];
+    [self addButtonWithFrame:CGRectMake(20, 30.0, 0, 0) specifingRightCorner:NO title:@"CLEAR" selector:@selector(clearPressed:)];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
+}
+
+- (void)addButtonWithFrame:(CGRect)rect specifingRightCorner:(BOOL)right title:(NSString *)title selector:(SEL)sel {
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+                   action:sel
+         forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:title forState:UIControlStateNormal];
+    button.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"FredokaOne-Regular" size:30]];
+    CGSize size = [button.titleLabel.text sizeWithAttributes:
+                   @{NSFontAttributeName:
+                         [button.titleLabel.font fontWithSize:button.titleLabel.font.pointSize]}];
+    
+    CGFloat x;
+    
+    if (right) {
+        x = rect.origin.x - size.width - 20.0;
+    } else {
+        x = rect.origin.x;
+    }
+    button.frame = CGRectMake(x, rect.origin.y, size.width + 20, size.height + 20);
+    
+    button.layer.shadowColor = [UIColor blackColor].CGColor;
+    button.layer.shadowOpacity = 0.5;
+    button.layer.shadowRadius = 2;
+    button.layer.shadowOffset = CGSizeMake(3.0f,3.0f);
+    
+    [self.view addSubview:button];
 }
 
 - (void)viewDidLayoutSubviews {

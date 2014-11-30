@@ -43,7 +43,7 @@
         bubble.scale            = 0.1;
         bubble.scaleRange       = 0.5;
         
-        bubble.contents	= (id) [[UIImage imageNamed:@"bubble"] CGImage];
+        bubble.contents	= (id) [[UIImage imageNamed:@"bubble_large"] CGImage];
         //bubble.color = [[UIColor colorWithRed:1 green:1 blue:1 alpha:(arc4random()%100)/150.0] CGColor];
         
         [bubbles addObject:bubble];
