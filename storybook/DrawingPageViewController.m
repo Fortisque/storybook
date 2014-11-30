@@ -136,12 +136,15 @@ CGFloat width;
     
     CGFloat x;
     
+    CGFloat buttonWidth = size.width + 20.0;
+    CGFloat buttonHeight = size.height + 20.0;
+    
     if (right) {
-        x = rect.origin.x - size.width - 20.0;
+        x = rect.origin.x - buttonWidth;
     } else {
         x = rect.origin.x;
     }
-    button.frame = CGRectMake(x, rect.origin.y, size.width + 20, size.height + 20);
+    button.frame = CGRectMake(x, rect.origin.y, buttonWidth, buttonHeight);
     
     button.layer.shadowColor = [UIColor blackColor].CGColor;
     button.layer.shadowOpacity = 0.5;

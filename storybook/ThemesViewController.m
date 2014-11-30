@@ -31,6 +31,7 @@
     titleLabel.text = @"storybubbles";
     titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
     titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textColor = [UIColor whiteColor];
     
     //self.titleLabel.textColor = [UIColor whiteColor];
     
