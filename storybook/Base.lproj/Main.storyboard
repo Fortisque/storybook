@@ -75,7 +75,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5e-1m-fS4" customClass="iCarousel">
                                 <rect key="frame" x="0.0" y="252" width="1024" height="400"/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Vxx-yR-hg7" id="fNK-54-FIL"/>
                                     <outlet property="delegate" destination="Vxx-yR-hg7" id="pmt-Do-YI6"/>

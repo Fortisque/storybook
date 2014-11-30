@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSTimer *myTimer;
 @property (strong, nonatomic) NSMutableArray *items;
 @property (strong, nonatomic) UICountingLabel *progressLabel;
+@property(nonatomic) CAShapeLayer *circleLayer;
 
 @end
 
@@ -38,6 +39,19 @@
     UIImageView *circle = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
     circle.backgroundColor = [UIColor whiteColor];
     circle.layer.cornerRadius = radius;
+    
+    self.circleLayer = [CAShapeLayer layer];
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius) radius:radius startAngle:M_PI endAngle:M_PI * 2 clockwise:YES];
+    self.circleLayer.path = path.CGPath;
+    
+    
+    self.circleLayer.fillColor = nil;
+    self.circleLayer.lineWidth = 15.f;
+    self.circleLayer.lineCap = kCALineCapRound;
+    self.circleLayer.lineJoin = kCALineJoinRound;
+    self.circleLayer.strokeColor = [Helper colorWithHexString:@"00C7FF"].CGColor;
+
+    [circle.layer addSublayer:self.circleLayer];
     
     _progressLabel = [[UICountingLabel alloc] init];
     [_progressLabel setFont:[UIFont fontWithName:@"FredokaOne-Regular" size:60]];
@@ -137,11 +151,13 @@
         // Configure the cell
         NSDictionary *data = [_items objectAtIndex:index];
         
+        CGFloat radius = 150.0;
+        
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300.0f, 300.0f)];
         ((UIImageView *)view).image = [UIImage imageNamed:[data objectForKey:kImageName]];
         [view.layer setBorderColor: [[UIColor whiteColor] CGColor]];
         [view.layer setBorderWidth: 15.0];
-        view.layer.cornerRadius = 150.0;
+        view.layer.cornerRadius = radius;
         
         if (index == self.carousel.currentItemIndex) {
         
@@ -168,6 +184,9 @@
     NSDictionary *data = [_items objectAtIndex:self.carousel.currentItemIndex];
     NSNumber *countTo = [data objectForKey:kStoryProgress];
     [_progressLabel countFromZeroTo:[countTo floatValue]];
+    
+    [self animateToStrokeEnd:[countTo floatValue] / 100.0];
+    
     [self.carousel reloadData];
 }
 
@@ -206,6 +225,17 @@
             return value;
         }
     }
+}
+
+- (void)animateToStrokeEnd:(CGFloat)strokeEnd
+{
+    POPSpringAnimation *strokeAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPShapeLayerStrokeEnd];
+    strokeAnimation.fromValue = @(0.0);
+    strokeAnimation.toValue = @(strokeEnd);
+    strokeAnimation.removedOnCompletion = NO;
+    strokeAnimation.springBounciness = 20.0f;
+    strokeAnimation.springSpeed = 20.0f;
+    [self.circleLayer pop_addAnimation:strokeAnimation forKey:@"layerStrokeAnimation"];
 }
 
 @end
