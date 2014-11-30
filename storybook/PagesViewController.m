@@ -82,21 +82,24 @@
                             };
     
     NSDictionary *text4 = @{
-                            kText: @"What color is tom?",
-                            kFrame:@[@0.3,@0.1,@1,@0.1],
+                            kText: @"What color is Tom?",
+                            kFrame:@[@0.4,@0.1,@1,@0.1],
                             kFontSize: @25.0f,
+                            kFontName: @"Fredoka One"
                             };
     
     NSDictionary *text5 = @{
                             kText: @"What do you think the mammals look like?",
                             kFrame:@[@0.2,@0.1,@0.2,@0.1],
                             kFontSize: @30.0f,
+                            kFontName: @"Fredoka One"
                             };
     
     NSDictionary *text6 = @{
                             kText: @"summarize the story",
                             kFrame:@[@0.4,@0.1,@1,@0.1],
                             kFontSize: @25.0f,
+                            kFontName: @"Fredoka One"
                             };
     
     NSArray *images = @[image1];

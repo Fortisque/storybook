@@ -39,7 +39,7 @@ CGRect workingFrame;
     CGFloat SCREEN_HEIGHT = self.view.frame.size.height;
     CGFloat SCREEN_WIDTH = self.view.frame.size.width;
 
-    workingFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 150);
+    workingFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 110);
     self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
     
     UIGraphicsBeginImageContext(workingFrame.size);
@@ -76,7 +76,7 @@ CGRect workingFrame;
                    action:@selector(colorPressed:)
          forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:colorName forState:UIControlStateNormal];
-        button.frame = CGRectMake(i * 90 + 40.0, SCREEN_HEIGHT - 140, 60, 40);
+        button.frame = CGRectMake(i * 90 + 40.0, SCREEN_HEIGHT - 40, 60, 40);
         button.tag = i;
         tagNumber = [NSNumber numberWithInt:i];
         [_colorToTag setValue:tagNumber forKey:colorName];
@@ -249,7 +249,7 @@ CGRect workingFrame;
 
 - (IBAction)colorPressed:(id)sender {
     UIButton *pressedButton = (UIButton*)sender;
-    UIColor *color = [self getColorFromTag:[NSNumber numberWithInt:pressedButton.tag]];
+    [self getColorFromTag:[NSNumber numberWithInt:pressedButton.tag]];
 }
 
 - (IBAction)donePressed:(id)sender {    

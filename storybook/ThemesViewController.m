@@ -26,9 +26,6 @@
     CGFloat SCREEN_WIDTH = screenRect.size.width;
     CGFloat SCREEN_HEIGHT = screenRect.size.height;
     
-    /*UIImageView *title = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * .15, 50, SCREEN_WIDTH*0.7, SCREEN_HEIGHT*0.2)];
-    title.image = [UIImage imageNamed:@"homebanner"];*/
-    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * .15, 75, SCREEN_WIDTH*0.7, SCREEN_HEIGHT*0.2)];
     titleLabel.text = @"storybubbles";
     titleLabel.font = [UIFont fontWithName:@"FredokaOne-Regular" size:100];
@@ -38,16 +35,14 @@
     CGFloat radius = SCREEN_WIDTH/6.0;
     CGFloat x = SCREEN_WIDTH/2.0 - radius;
     CGFloat y = SCREEN_HEIGHT - radius + 50;
-    
     UIImageView *circle = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
     circle.backgroundColor = [UIColor whiteColor];
     circle.layer.cornerRadius = radius;
     
     _progressLabel = [[UICountingLabel alloc] init];
-    
     [_progressLabel setFont:[UIFont fontWithName:@"FredokaOne-Regular" size:60]];
-    
     _progressLabel.frame = CGRectMake(SCREEN_WIDTH/2.0 - radius, SCREEN_HEIGHT - 130, radius*2, radius);
+    _progressLabel.animationDuration = 1.0;
     _progressLabel.attributedFormatBlock = ^NSAttributedString* (float value)
     {
         return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.0f%%", value]];
@@ -57,12 +52,10 @@
     radius = SCREEN_WIDTH/1.9;
     x = SCREEN_WIDTH/2.0 - radius;
     y = SCREEN_HEIGHT - radius;
-    
     UIImageView *bigCircle = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
     bigCircle.backgroundColor = [UIColor whiteColor];
     bigCircle.alpha = 0.6;
     bigCircle.layer.cornerRadius = radius;
-    
     
     radius = SCREEN_WIDTH/20;
     x = SCREEN_WIDTH - radius*2 - 30;
@@ -71,17 +64,14 @@
     profile.image = [UIImage imageNamed:@"profile ken"];
 
     [self.view addSubview:titleLabel];
-    //[self.view addSubview:title];
     [self.view addSubview:circle];
     [self.view addSubview:bigCircle];
     [self.view sendSubviewToBack:bigCircle];
     [self.view addSubview:profile];
     [self.view addSubview:_progressLabel];
 
-    
     self.view.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
     [Animations spawnBubblesInView:self.view];
-    
     
     //configure carousel
     _carousel.type = iCarouselTypeWheel;
