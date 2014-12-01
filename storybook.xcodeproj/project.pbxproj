@@ -50,6 +50,7 @@
 		994B9EC51A2AC1690053056E /* Quicksand_Dash.otf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EBD1A2AC1690053056E /* Quicksand_Dash.otf */; };
 		995E7AE81A19E43400E4F28F /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AE71A19E43400E4F28F /* PagesViewController.m */; };
 		995E7AEC1A19E58A00E4F28F /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */; };
+		998F79281A2C00750088B03D /* UIBorderedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 998F79271A2C00750088B03D /* UIBorderedLabel.m */; };
 		99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B908791A1C45C4001B07AB /* DrawingPageViewController.m */; };
 		99FC4B8B1A20416200528191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC4B891A20416200528191 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -130,6 +131,8 @@
 		995E7AE71A19E43400E4F28F /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		995E7AE91A19E58A00E4F28F /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
 		995E7AEA1A19E58A00E4F28F /* BasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageViewController.m; sourceTree = "<group>"; };
+		998F79261A2C00750088B03D /* UIBorderedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBorderedLabel.h; sourceTree = "<group>"; };
+		998F79271A2C00750088B03D /* UIBorderedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBorderedLabel.m; sourceTree = "<group>"; };
 		99B908781A1C45C4001B07AB /* DrawingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPageViewController.h; sourceTree = "<group>"; };
 		99B908791A1C45C4001B07AB /* DrawingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPageViewController.m; sourceTree = "<group>"; };
 		99FC4B8A1A20416200528191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */,
 				704FC2E41A26EAC7005EF9F3 /* Helper.h */,
 				704FC2E51A26EAC7005EF9F3 /* Helper.m */,
+				998F79261A2C00750088B03D /* UIBorderedLabel.h */,
+				998F79271A2C00750088B03D /* UIBorderedLabel.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */,
+				998F79281A2C00750088B03D /* UIBorderedLabel.m in Sources */,
 				86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */,
 				86D1FEED1A254F56008EB673 /* StoryCollectionViewCell.m in Sources */,
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,

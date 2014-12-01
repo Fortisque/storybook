@@ -17,7 +17,9 @@ extern NSString *kImageName;
 extern NSString *kTag;
 extern NSString *kText;
 extern NSString *kTextAlignment;
+extern NSString *kTextBackgroundColor;
 extern NSString *kStoryProgress;
+extern NSString *kBorder;
 
 
 

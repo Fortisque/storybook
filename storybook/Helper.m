@@ -12,6 +12,11 @@
 
 + (UIColor *)colorWithHexString:(NSString *)hex
 {
+    return [self colorWithHexString:hex andAlpha:1.0];
+}
+
++ (UIColor *)colorWithHexString:(NSString *)hex andAlpha:(float)alpha
+{
     NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
@@ -43,7 +48,7 @@
     return [UIColor colorWithRed:((float) r / 255.0f)
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
-                           alpha:1.0f];
+                           alpha:alpha];
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color

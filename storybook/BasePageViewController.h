@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DictionaryKeys.h"
 #import "Animations.h"
+#import "DictionaryKeys.h"
+#import "Helper.h"
+#import "UIBorderedLabel.h"
 
 @interface BasePageViewController : UIViewController
 

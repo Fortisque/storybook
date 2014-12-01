@@ -7,13 +7,10 @@
 //
 
 #import "BasePageViewController.h"
-#import <pop/POP.h>
 @import AVFoundation;
 
 @interface BasePageViewController ()  <AVSpeechSynthesizerDelegate>
 @property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
-@property (strong, nonatomic) UILabel *textLabel;
-@property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) NSMutableArray *textLabels;
 @property (strong, nonatomic) NSMutableArray *imageViews;
 @property (strong, nonatomic) NSMutableArray *utterances;
@@ -46,10 +43,29 @@
         _imageViews = [[NSMutableArray alloc] init];
         _utterances = [[NSMutableArray alloc] init];
         
+        for (int i = 0; i < [imageViews count]; i++) {
+            NSDictionary *imageDict = [imageViews objectAtIndex:i];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
+            NSArray *frameValue = [imageDict objectForKey:kFrame];
+            if (frameValue) {
+                CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
+                CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
+                CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
+                CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
+                
+                imageView.frame = CGRectMake(x, y, width, height);
+            } else {
+                imageView.frame = CGRectMake(300, 100, 400, 100);
+            }
+            
+            [_imageViews addObject:imageView];
+        }
+        
         for (int i = 0; i < [textLabels count]; i++) {
             
             NSDictionary *textDict = [textLabels objectAtIndex:i];
-            UILabel *textLabel;
+            UIBorderLabel *textLabel;
             
             NSArray *frameValue = [textDict objectForKey:kFrame];
             if (frameValue) {
@@ -58,14 +74,17 @@
                 CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
                 CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
 
-                textLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, width, height)];
+                textLabel = [[UIBorderLabel alloc] initWithFrame:CGRectMake(x, y, width, height)];
             } else {
-                textLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
+                textLabel = [[UIBorderLabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
             }
             
             NSString *fontName = [textDict objectForKey:kFontName];
             NSNumber *fontSize = [textDict objectForKey:kFontSize];
             NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
+            UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
+            NSNumber *border = [textDict objectForKey:kBorder];
+            
             textLabel.text = [textDict objectForKey:kText];
             
             if (fontName && fontSize) {
@@ -90,14 +109,18 @@
             } else {
                 textLabel.textAlignment = NSTextAlignmentLeft;
             }
-           
+            
+            if (border) {
+                float borderValue = [border floatValue];
+                textLabel.frame = CGRectInset(textLabel.frame, -borderValue, -borderValue);
+                textLabel.leftInset = borderValue;
+            }
+            
+            if (textBackgroundColor != NULL) {
+                textLabel.backgroundColor = textBackgroundColor;
+            }
+
             textLabel.numberOfLines = 0;
-            //CGSize labelSize = [textLabel.text sizeWithAttributes:@{NSFontAttributeName:textLabel.font}];
-            
-            //textLabel.frame = CGRectMake(
-            //                         textLabel.frame.origin.x, textLabel.frame.origin.y,
-            //                         textLabel.frame.size.width, labelSize.height);
-            
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
             tapGestureRecognizer.numberOfTapsRequired = 1;
             [textLabel addGestureRecognizer:tapGestureRecognizer];
@@ -110,26 +133,8 @@
             [_utterances addObject:utterance];
         }
         
-        for (int i = 0; i < [imageViews count]; i++) {
-            NSDictionary *imageDict = [imageViews objectAtIndex:i];
-
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
-            NSArray *frameValue = [imageDict objectForKey:kFrame];
-            if (frameValue) {
-                CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
-                CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
-                CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
-                CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
-                
-                imageView.frame = CGRectMake(x, y, width, height);
-            } else {
-                imageView.frame = CGRectMake(300, 100, 400, 100);
-            }
-
-            [_imageViews addObject:imageView];
-        }
-        
         self.nextSpeechIndex = 0;
+        
     }
     
     return self;
@@ -141,17 +146,13 @@
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    [self.view addSubview:_textLabel];
-    [self.view addSubview:_imageView];
-    
-    for (int i = 0; i < [_textLabels count]; i++) {
-        [self.view addSubview:[_textLabels objectAtIndex:i]];
-    }
-    
     for (int i = 0; i < [_imageViews count]; i++) {
         [self.view addSubview:[_imageViews objectAtIndex:i]];
     }
     
+    for (int i = 0; i < [_textLabels count]; i++) {
+        [self.view addSubview:[_textLabels objectAtIndex:i]];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

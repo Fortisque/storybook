@@ -28,8 +28,8 @@
     }
     
     NSDictionary *image1 = @{
-                             kImageName: @"chipmunk",
-                             kFrame: @[@0.6,@0.1,@0.4,@0.5]
+                             kImageName: @"first_page",
+                             kFrame: @[@0,@0,@1,@1],
                              };
     NSDictionary *image2 = @{
                              kImageName: @"chipmunk",
@@ -44,17 +44,19 @@
                             @"Were four flanky mammals, on two legs they walked!\r"
                             @"Creatures that young Tom had not seen before.\r"
                             @"The curious chipmunk just had to know more.",
-                            kFontSize: @25.0f,
-                            kFrame:@[@0.05,@0.1,@0.5,@0.4],
+                            kFontSize: @36.0f,
+                            kFrame:@[@0.2,@0.65,@0,@0],
+                            kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
+                            kBorder: @20,
                             };
-    NSDictionary *page1text2 = @{
+    /*NSDictionary *page1text2 = @{
                             kText: @"He slid down the tree right down to the ground.\r"
                             @"Coughed up his nine acorns and bursted with sound.\r"
                             @"“I saw somethin’ weird, hurry up follow me!”\r"
                             @"The curious crew craved something to see.",
                             kFrame:@[@0.05,@0.5,@1,@0.4],
                             kFontSize: @25.0f,
-                            };
+                            };*/
     NSDictionary *page2text1 = @{
                             kText: @"They walked in a line, mostly following tracks,\r"
                             @"And carried strange things on these bags on their backs.\r"
@@ -103,7 +105,7 @@
                             };
     
     NSArray *images = @[image1];
-    NSArray *texts = @[page1text1, page1text2];
+    NSArray *texts = @[page1text1];
     NSArray *texts2 = @[page2text1];
 
     

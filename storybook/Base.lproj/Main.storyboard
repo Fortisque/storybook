@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Vxx-yR-hg7" kind="relationship" relationship="rootViewController" id="YCO-p6-iVa"/>
+                        <segue destination="QQt-of-2VF" kind="relationship" relationship="rootViewController" id="3CB-BA-bEU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -375,6 +375,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="3CB-BA-bEU"/>
         <segue reference="l8c-9s-Hd6"/>
     </inferredMetricsTieBreakers>
 </document>

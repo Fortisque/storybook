@@ -12,6 +12,7 @@
 @interface Helper : NSObject
 
 + (UIColor *)colorWithHexString:(NSString *)hex;
++ (UIColor *)colorWithHexString:(NSString *)hex andAlpha:(float)alpha;
 + (UIImage *)imageWithColor:(UIColor *)color;
 
 @end
