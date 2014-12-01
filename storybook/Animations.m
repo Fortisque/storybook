@@ -56,10 +56,17 @@
 }
 
 + (void)congratulateInView:(UIView *)view {
-    UILabel *congrats = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height)];
+    CGFloat SCREEN_WIDTH = view.frame.size.width;
+    CGFloat SCREEN_HEIGHT = view.frame.size.height;
+    
+    UILabel *congrats = [[UILabel alloc] init];
     congrats.text = @"HOORAY!!";
     congrats.textAlignment = NSTextAlignmentCenter;
-    congrats.font = [UIFont fontWithName:@"Fredoka One" size:50.0f];
+    congrats.font = [UIFont fontWithName:@"Fredoka One" size:100.0f];
+    
+    [Helper reassignFrameToTrueFrame:congrats];
+    
+    congrats.center = CGPointMake(SCREEN_WIDTH / 2.0 - congrats.frame.size.width / 2.0, SCREEN_HEIGHT * .9f);
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)];
