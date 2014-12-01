@@ -43,8 +43,6 @@
     self.circleLayer = [CAShapeLayer layer];
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius) radius:radius startAngle:M_PI endAngle:M_PI * 2 clockwise:YES];
     self.circleLayer.path = path.CGPath;
-    
-    
     self.circleLayer.fillColor = nil;
     self.circleLayer.lineWidth = 15.f;
     self.circleLayer.lineCap = kCALineCapRound;
@@ -76,6 +74,10 @@
     y = 30;
     UIImageView *profile = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
     profile.image = [UIImage imageNamed:@"profile ken"];
+    profile.layer.shadowColor = [UIColor grayColor].CGColor;
+    profile.layer.shadowOpacity = 0.5;
+    profile.layer.shadowRadius = 10.0f;
+    profile.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
 
     [self.view addSubview:titleLabel];
     [self.view addSubview:circle];
@@ -158,6 +160,10 @@
         [view.layer setBorderColor: [[UIColor whiteColor] CGColor]];
         [view.layer setBorderWidth: 15.0];
         view.layer.cornerRadius = radius;
+        view.layer.shadowColor = [UIColor grayColor].CGColor;
+        view.layer.shadowOpacity = 0.5;
+        view.layer.shadowRadius = 10.0f;
+        view.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
         
         if (index == self.carousel.currentItemIndex) {
         
