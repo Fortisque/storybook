@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TileView.h"
+#import "Helper.h"
 
 @interface TileContainerView : UIView
 

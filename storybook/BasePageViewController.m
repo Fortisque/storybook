@@ -95,14 +95,7 @@
                 textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
             }
             
-            CGSize size = [textLabel.text sizeWithAttributes:
-                           @{NSFontAttributeName:
-                                 [textLabel.font fontWithSize:textLabel.font.pointSize]}];
-            
-            CGRect newFrame = textLabel.frame;
-            newFrame.size.height = size.height;
-            newFrame.size.width = size.width;
-            textLabel.frame = newFrame;
+            [Helper reassignFrameToTrueFrame:textLabel];
         
             if (textAlignment != NULL) {
                 textLabel.textAlignment = [textAlignment intValue];

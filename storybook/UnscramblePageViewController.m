@@ -114,14 +114,14 @@ const int TILE_SIZE = 100;
         
         if (_word) {
             tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+            tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 500);
         }
         
         if (_scenes) {
             tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 180, 150)];
-
+            tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 300);
         }
     
-        tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 250);
         //NSLog(@"tileContainer frame: %@", NSStringFromCGPoint(tileContainer.center));
         
         tileContainer.tag = TILE_CONTAINER_TAG;
@@ -176,7 +176,7 @@ const int TILE_SIZE = 100;
         NSDictionary *properties = @{
                                      kFrame:frame,
                                      @"letter":character,
-                                     kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPostion + i*spaceForEachTile, 600)],
+                                     kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPostion + i*spaceForEachTile, 650)],
                                      kTag:[NSNumber numberWithInt:TILE_TAG]
                                      };
         [propertiesArray addObject:properties];

@@ -25,7 +25,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         _properties = properties;
-        self.backgroundColor = [UIColor yellowColor];
+        self.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
+        self.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.layer.shadowOpacity = 0.5;
+        self.layer.shadowRadius = 2;
+        self.layer.shadowOffset = CGSizeMake(5.0f,5.0f);
         
         // initilize all your UIView components
         NSString *letter = [properties objectForKey:@"letter"];
@@ -37,6 +41,8 @@
             _text = letter;
             _letterLabel = [[UILabel alloc]initWithFrame:frame];
             _letterLabel.text = letter;
+            _letterLabel.textColor = [UIColor whiteColor];
+            _letterLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:50.0f];
             _letterLabel.textAlignment = NSTextAlignmentCenter;
             [self addSubview:_letterLabel];
         }

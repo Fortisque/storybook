@@ -25,7 +25,9 @@
         //self.bounds = self.view.bounds;
         //[self addSubview:self.view];
         if (frame.size.height == frame.size.width) {
-            self.backgroundColor = [UIColor grayColor];
+            self.backgroundColor = [Helper colorWithHexString:@"D1D3D4"];
+            self.layer.borderColor = [Helper colorWithHexString:@"00C7FF"].CGColor;
+            self.layer.borderWidth = 10.0f;
 
         } else {
             UIImageView *backgroundimageView = [[UIImageView alloc]initWithFrame:frame];

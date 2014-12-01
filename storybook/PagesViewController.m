@@ -33,7 +33,7 @@
                              };
     NSDictionary *image2 = @{
                              kImageName: @"chipmunk",
-                             kFrame: @[@0.4,@0.4,@0.3,@0.4]
+                             kFrame: @[@0.3,@0.2,@0.3,@0.4]
                              };
     NSDictionary *image3 = @{
                              kImageName: @"character",
@@ -137,7 +137,7 @@
     
     DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[text5] andImageViews:nil];
     
-    self.vcs = [NSArray arrayWithObjects:normalPageVC, drawingPageVC, normalPageVC2, unscrambleWordsVC, unscrambleWordsVC2, nil];
+    self.vcs = [NSArray arrayWithObjects:normalPageVC, unscrambleWordsVC, normalPageVC2, drawingPageVC, unscrambleWordsVC2, nil];
 
     NSArray *viewControllers = [NSArray arrayWithObjects:normalPageVC, nil];
     

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DictionaryKeys.h"
+#import "Helper.h"
 
 @interface TileView : UIView
 

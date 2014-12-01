@@ -132,18 +132,17 @@ CGRect workingFrame;
                    @{NSFontAttributeName:
                          [button.titleLabel.font fontWithSize:button.titleLabel.font.pointSize]}];
     
+    CGFloat buttonWidth = size.width + 20;
+    CGFloat buttonHeight = size.height + 20;
+    
     CGFloat x;
-    
-    CGFloat buttonWidth = size.width + 20.0;
-    CGFloat buttonHeight = size.height + 20.0;
-    
     if (right) {
         x = rect.origin.x - buttonWidth;
     } else {
         x = rect.origin.x;
     }
     button.frame = CGRectMake(x, rect.origin.y, buttonWidth, buttonHeight);
-    
+
     button.layer.shadowColor = [UIColor blackColor].CGColor;
     button.layer.shadowOpacity = 0.5;
     button.layer.shadowRadius = 2;

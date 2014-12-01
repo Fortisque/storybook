@@ -59,10 +59,11 @@
     UILabel *congrats = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height)];
     congrats.text = @"HOORAY!!";
     congrats.textAlignment = NSTextAlignmentCenter;
+    congrats.font = [UIFont fontWithName:@"Fredoka One" size:50.0f];
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)];
-    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(5.0f, 5.0f)];
+    scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0f, 1.0f)];
     scaleUp.springBounciness = 20.0f;
     scaleUp.springSpeed = 20.0f;
     

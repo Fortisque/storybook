@@ -66,5 +66,17 @@
     return image;
 }
 
++ (void)reassignFrameToTrueFrame:(UILabel *)label
+{
+    CGSize size = [label.text sizeWithAttributes:
+                   @{NSFontAttributeName:
+                         [label.font fontWithSize:label.font.pointSize]}];
+    
+    CGRect newFrame = label.frame;
+    newFrame.size.height = size.height;
+    newFrame.size.width = size.width;
+    label.frame = newFrame;
+}
+
 
 @end
