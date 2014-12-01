@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSDictionary *properties;
 
 - (instancetype) initWithProperties:(NSDictionary *)properties;
+- (void) addShadow;
+- (void) removeShadow;
 
 @property BOOL matched;
 @property CGPoint originalPosition;
