@@ -31,8 +31,7 @@
 - (void)loadBookDetailTitle:(NSString *)title
                      Author:(NSString *)author
                   BookCover:(NSString *)imageName
-                Description:(NSString *)description
-                     Bought:(BOOL)bought;
+                Description:(NSString *)description;
 
 @property BOOL bookDetailOpened;
 

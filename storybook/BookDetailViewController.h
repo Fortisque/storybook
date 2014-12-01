@@ -16,6 +16,4 @@
 @property (weak, nonatomic) IBOutlet UITextView *bookDescription;
 @property (weak, nonatomic) IBOutlet UIButton *readButton;
 
-@property BOOL bought;
-
 @end

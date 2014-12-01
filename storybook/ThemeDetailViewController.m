@@ -81,13 +81,11 @@
 - (void)loadBookDetailTitle:(NSString *)title
                      Author:(NSString *)author
                   BookCover:(NSString *)imageName
-                Description:(NSString *)description
-                     Bought:(BOOL)bought {
+                Description:(NSString *)description {
     self.bookDetailViewController.bookTitle.text = title;
     self.bookDetailViewController.bookAuthor.text = author;
     self.bookDetailViewController.bookDescription.text = description;
     self.bookDetailViewController.bookImage.image = [UIImage imageNamed:imageName];
-    self.bookDetailViewController.bought = bought;
 }
 
 @end
