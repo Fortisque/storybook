@@ -13,6 +13,8 @@
 		7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */; };
 		707B20C01A22B35D006E82C4 /* DictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */; };
 		70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */; };
+		8615304A1A2C696900BC2BBD /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861530491A2C696900BC2BBD /* BookDetailViewController.m */; };
+		8615304D1A2C714500BC2BBD /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8615304C1A2C714500BC2BBD /* ThemeViewController.m */; };
 		86ACEC571A2522F1000163F2 /* ThemeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ACEC561A2522F1000163F2 /* ThemeDetailViewController.m */; };
 		86D1FEE61A254526008EB673 /* ThemeStoriesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D1FEE51A254526008EB673 /* ThemeStoriesCollectionViewController.m */; };
 		86D1FEED1A254F56008EB673 /* StoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D1FEEB1A254F56008EB673 /* StoryCollectionViewCell.m */; };
@@ -78,6 +80,10 @@
 		707B20BF1A22B35D006E82C4 /* DictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryKeys.m; sourceTree = "<group>"; };
 		70F708A31A1AC5F4006CEDB3 /* VoicePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePageViewController.h; sourceTree = "<group>"; };
 		70F708A41A1AC5F4006CEDB3 /* VoicePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePageViewController.m; sourceTree = "<group>"; };
+		861530481A2C696900BC2BBD /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		861530491A2C696900BC2BBD /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
+		8615304B1A2C714500BC2BBD /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		8615304C1A2C714500BC2BBD /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
 		86ACEC551A2522F1000163F2 /* ThemeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDetailViewController.h; sourceTree = "<group>"; };
 		86ACEC561A2522F1000163F2 /* ThemeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDetailViewController.m; sourceTree = "<group>"; };
 		86D1FEE41A254526008EB673 /* ThemeStoriesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeStoriesCollectionViewController.h; sourceTree = "<group>"; };
@@ -359,6 +365,10 @@
 				86D1FEE51A254526008EB673 /* ThemeStoriesCollectionViewController.m */,
 				86D1FEEA1A254F56008EB673 /* StoryCollectionViewCell.h */,
 				86D1FEEB1A254F56008EB673 /* StoryCollectionViewCell.m */,
+				861530481A2C696900BC2BBD /* BookDetailViewController.h */,
+				861530491A2C696900BC2BBD /* BookDetailViewController.m */,
+				8615304B1A2C714500BC2BBD /* ThemeViewController.h */,
+				8615304C1A2C714500BC2BBD /* ThemeViewController.m */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -543,6 +553,8 @@
 				86D9C7CF1A1B14A7002C759D /* UnscramblePageViewController.m in Sources */,
 				86D1FEED1A254F56008EB673 /* StoryCollectionViewCell.m in Sources */,
 				70F708A61A1AC5F4006CEDB3 /* VoicePageViewController.m in Sources */,
+				8615304A1A2C696900BC2BBD /* BookDetailViewController.m in Sources */,
+				8615304D1A2C714500BC2BBD /* ThemeViewController.m in Sources */,
 				86D1FEE61A254526008EB673 /* ThemeStoriesCollectionViewController.m in Sources */,
 				992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */,
 				7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */,
