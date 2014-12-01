@@ -66,7 +66,10 @@
     
     [Helper reassignFrameToTrueFrame:congrats];
     
-    congrats.center = CGPointMake(SCREEN_WIDTH / 2.0 - congrats.frame.size.width / 2.0, SCREEN_HEIGHT * .9f);
+    CGFloat x = SCREEN_WIDTH / 2.0 - congrats.frame.size.width / 2.0;
+    CGFloat y = SCREEN_HEIGHT * .8f;
+    
+    congrats.frame = CGRectMake(x, y, congrats.frame.size.width, congrats.frame.size.height);
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)];
