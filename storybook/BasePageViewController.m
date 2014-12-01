@@ -84,6 +84,7 @@
             NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
             UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
             NSNumber *border = [textDict objectForKey:kBorder];
+            NSArray *centerValue = [textDict objectForKey:kCenter];
             
             textLabel.text = [textDict objectForKey:kText];
             
@@ -95,7 +96,15 @@
                 textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
             }
             
-            [Helper reassignFrameToTrueFrame:textLabel];
+            [Helper reassignFrameSizeToMinimumEnclosingSize:textLabel];
+            
+            if (centerValue) {
+                // Center is set after the frame is ready.
+                CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
+                CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
+                textLabel.center = CGPointMake(x, y);
+                NSLog(@"%f, %f", x, y);
+            }
         
             if (textAlignment != NULL) {
                 textLabel.textAlignment = [textAlignment intValue];

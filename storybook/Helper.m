@@ -66,7 +66,7 @@
     return image;
 }
 
-+ (void)reassignFrameToTrueFrame:(UILabel *)label
++ (void)reassignFrameSizeToMinimumEnclosingSize:(UILabel *)label
 {
     CGSize size = [label.text sizeWithAttributes:
                    @{NSFontAttributeName:

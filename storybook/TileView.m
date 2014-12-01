@@ -26,10 +26,9 @@
     if (self) {
         _properties = properties;
         self.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
-        self.layer.shadowColor = [UIColor grayColor].CGColor;
-        self.layer.shadowOpacity = 0.5;
-        self.layer.shadowRadius = 2;
+        
         self.layer.shadowOffset = CGSizeMake(5.0f,5.0f);
+        [self addShadow];
         
         // initilize all your UIView components
         NSString *letter = [properties objectForKey:@"letter"];
@@ -69,6 +68,20 @@
         
     }
     return self;
+}
+
+- (void)addShadow
+{
+    self.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowRadius = 2;
+}
+
+- (void)removeShadow
+{
+    self.layer.shadowRadius = 0;
+    self.layer.shadowOpacity = 0;
+    self.layer.shadowColor = nil;
 }
 
 @end

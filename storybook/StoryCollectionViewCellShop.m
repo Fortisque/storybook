@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ieor190. All rights reserved.
 //
 
-#import "StoryCollectionViewCellOriginal.h"
+#import "StoryCollectionViewCellShop.h"
 
-@implementation StoryCollectionViewCellOriginal
+@implementation StoryCollectionViewCellShop
 
 - (void)awakeFromNib {
     // Initialization code

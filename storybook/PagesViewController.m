@@ -45,7 +45,7 @@
                             @"Creatures that young Tom had not seen before.\r"
                             @"The curious chipmunk just had to know more.",
                             kFontSize: @36.0f,
-                            kFrame:@[@0.2,@0.65,@0,@0],
+                            kCenter:@[@0.55,@0.8],
                             kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
                             kBorder: @20,
                             };
