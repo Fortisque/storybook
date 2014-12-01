@@ -64,7 +64,7 @@
     congrats.textAlignment = NSTextAlignmentCenter;
     congrats.font = [UIFont fontWithName:@"Fredoka One" size:100.0f];
     
-    [Helper reassignFrameToTrueFrame:congrats];
+    [Helper reassignFrameSizeToMinimumEnclosingSize:congrats];
     congrats.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT * .9f);
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];

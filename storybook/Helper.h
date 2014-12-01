@@ -14,6 +14,6 @@
 + (UIColor *)colorWithHexString:(NSString *)hex;
 + (UIColor *)colorWithHexString:(NSString *)hex andAlpha:(float)alpha;
 + (UIImage *)imageWithColor:(UIColor *)color;
-+ (void)reassignFrameToTrueFrame:(UILabel *)label;
++ (void)reassignFrameSizeToMinimumEnclosingSize:(UILabel *)label;
 
 @end
