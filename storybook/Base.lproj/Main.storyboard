@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1722" y="184"/>
+            <point key="canvasLocation" x="-1786" y="1154"/>
         </scene>
         <!--Story Shop Collection View Controller-->
         <scene sceneID="p1b-UX-FgO">
@@ -32,7 +32,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6F-WX-yHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="EDQ-HL-2ko" customClass="StoryShopCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Yay-MX-SzG">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kJy-1j-BY7">
                             <size key="itemSize" width="300" height="300"/>
@@ -49,7 +49,7 @@
                     <navigationItem key="navigationItem" id="xsH-SK-N9r"/>
                 </collectionViewController>
             </objects>
-            <point key="canvasLocation" x="-458" y="-1061"/>
+            <point key="canvasLocation" x="2094" y="2185"/>
         </scene>
         <!--Themes View Controller-->
         <scene sceneID="yiZ-Ga-hVG">
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB3-Fm-fTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-458" y="184"/>
+            <point key="canvasLocation" x="-574" y="1160"/>
         </scene>
         <!--Pages View Controller-->
         <scene sceneID="XY9-xc-voz">
@@ -177,36 +177,6 @@
             </objects>
             <point key="canvasLocation" x="731" y="1154"/>
         </scene>
-        <!--Themes Collection View Controller-->
-        <scene sceneID="0iF-1n-q2H">
-            <objects>
-                <collectionViewController id="OXo-mP-GzL" customClass="ThemesCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sT8-c5-B8b">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="50" minimumInteritemSpacing="50" id="5SR-ta-Ege">
-                            <size key="itemSize" width="300" height="370"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells/>
-                        <connections>
-                            <outlet property="dataSource" destination="OXo-mP-GzL" id="Rvq-mM-ZUh"/>
-                            <outlet property="delegate" destination="OXo-mP-GzL" id="kwj-RP-hwI"/>
-                        </connections>
-                    </collectionView>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <segue destination="d4F-CL-X6W" kind="push" identifier="selected_theme" id="rga-Iu-0Yf"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fjd-xy-jbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-458" y="1154"/>
-        </scene>
         <!--Theme Stories Collection View Controller-->
         <scene sceneID="rRj-xW-0rc">
             <objects>
@@ -258,6 +228,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="EDQ-HL-2ko" kind="push" identifier="shop" id="VML-Db-ytN"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqa-ue-mBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,7 +318,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="l8c-9s-Hd6"/>
-    </inferredMetricsTieBreakers>
 </document>
