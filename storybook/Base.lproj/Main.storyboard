@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Vxx-yR-hg7" kind="relationship" relationship="rootViewController" id="mVs-Lz-gHC"/>
+                        <segue destination="Vxx-yR-hg7" kind="relationship" relationship="rootViewController" id="yV6-RI-Mrs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsa-2B-b6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,6 +29,7 @@
         <!--Story Shop Collection View Controller-->
         <scene sceneID="p1b-UX-FgO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w6F-WX-yHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="EDQ-HL-2ko" customClass="StoryShopCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Yay-MX-SzG">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -39,17 +40,7 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nkk-1X-lMT">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="EDQ-HL-2ko" id="1DC-Nh-pRq"/>
                             <outlet property="delegate" destination="EDQ-HL-2ko" id="ogm-1g-Cxf"/>
@@ -57,7 +48,6 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="xsH-SK-N9r"/>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w6F-WX-yHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-458" y="-1061"/>
         </scene>
@@ -216,25 +206,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjd-xy-jbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-458" y="1154"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="sfA-hC-xDg">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="xM1-mY-6ZE" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ykq-kB-AvQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="z4L-8B-Nsk"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fUa-K8-uDv">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nTR-SV-alO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="411" y="-1053"/>
         </scene>
         <!--Theme Stories Collection View Controller-->
         <scene sceneID="rRj-xW-0rc">

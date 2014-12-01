@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StoryCollectionViewCellOriginal : UICollectionViewCell
+@interface StoryCollectionViewCellShop : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

@@ -36,8 +36,8 @@
 		990BAC291A12D4E40014EDD3 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC281A12D4E40014EDD3 /* Twitter.framework */; };
 		990BAC2B1A12D4E90014EDD3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC2A1A12D4E90014EDD3 /* Social.framework */; };
 		990BAC2D1A12D4EF0014EDD3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */; };
-		990BAC361A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */; };
-		990BAC371A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */; };
+		990BAC361A12ED210014EDD3 /* StoryCollectionViewCellShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BAC341A12ED210014EDD3 /* StoryCollectionViewCellShop.m */; };
+		990BAC371A12ED210014EDD3 /* StoryCollectionViewCellShop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990BAC351A12ED210014EDD3 /* StoryCollectionViewCellShop.xib */; };
 		9929F7011A1C6FBD00DC92B1 /* DrawingPrompterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */; };
 		992FBF151A204B1E00CDFAE3 /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FBF141A204B1E00CDFAE3 /* ThemesViewController.m */; };
 		994B9EBE1A2AC1690053056E /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 994B9EB61A2AC1690053056E /* FredokaOne-Regular.ttf */; };
@@ -112,9 +112,9 @@
 		990BAC281A12D4E40014EDD3 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		990BAC2A1A12D4E90014EDD3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		990BAC2C1A12D4EF0014EDD3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		990BAC331A12ED210014EDD3 /* StoryCollectionViewCellOriginal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryCollectionViewCellOriginal.h; path = storybook/StoryCollectionViewCellOriginal.h; sourceTree = SOURCE_ROOT; };
-		990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryCollectionViewCellOriginal.m; path = storybook/StoryCollectionViewCellOriginal.m; sourceTree = SOURCE_ROOT; };
-		990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCollectionViewCellOriginal.xib; path = storybook/StoryCollectionViewCellOriginal.xib; sourceTree = SOURCE_ROOT; };
+		990BAC331A12ED210014EDD3 /* StoryCollectionViewCellShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryCollectionViewCellShop.h; path = storybook/StoryCollectionViewCellShop.h; sourceTree = SOURCE_ROOT; };
+		990BAC341A12ED210014EDD3 /* StoryCollectionViewCellShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryCollectionViewCellShop.m; path = storybook/StoryCollectionViewCellShop.m; sourceTree = SOURCE_ROOT; };
+		990BAC351A12ED210014EDD3 /* StoryCollectionViewCellShop.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoryCollectionViewCellShop.xib; path = storybook/StoryCollectionViewCellShop.xib; sourceTree = SOURCE_ROOT; };
 		9929F6FE1A1C6FBD00DC92B1 /* DrawingPrompterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingPrompterViewController.h; sourceTree = "<group>"; };
 		9929F6FF1A1C6FBD00DC92B1 /* DrawingPrompterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingPrompterViewController.m; sourceTree = "<group>"; };
 		992FBF131A204B1E00CDFAE3 /* ThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
@@ -330,9 +330,9 @@
 		99A6866E1A279F78007AD671 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				990BAC331A12ED210014EDD3 /* StoryCollectionViewCellOriginal.h */,
-				990BAC341A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m */,
-				990BAC351A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib */,
+				990BAC331A12ED210014EDD3 /* StoryCollectionViewCellShop.h */,
+				990BAC341A12ED210014EDD3 /* StoryCollectionViewCellShop.m */,
+				990BAC351A12ED210014EDD3 /* StoryCollectionViewCellShop.xib */,
 				7069A2CE1A21657900601F7F /* StoryShopCollectionViewController.h */,
 				7069A2CF1A21657900601F7F /* StoryShopCollectionViewController.m */,
 			);
@@ -485,7 +485,7 @@
 				994B9EC21A2AC1690053056E /* Quicksand-Light.otf in Resources */,
 				994B9EC31A2AC1690053056E /* Quicksand-LightItalic.otf in Resources */,
 				994B9EC01A2AC1690053056E /* Quicksand-BoldItalic.otf in Resources */,
-				990BAC371A12ED210014EDD3 /* StoryCollectionViewCellOriginal.xib in Resources */,
+				990BAC371A12ED210014EDD3 /* StoryCollectionViewCellShop.xib in Resources */,
 				994B9EBE1A2AC1690053056E /* FredokaOne-Regular.ttf in Resources */,
 				994B9EC11A2AC1690053056E /* Quicksand-Italic.otf in Resources */,
 			);
@@ -548,7 +548,7 @@
 				7069A2D11A21657900601F7F /* StoryShopCollectionViewController.m in Sources */,
 				70224B941A23D7AB00789247 /* Animations.m in Sources */,
 				86ACEC571A2522F1000163F2 /* ThemeDetailViewController.m in Sources */,
-				990BAC361A12ED210014EDD3 /* StoryCollectionViewCellOriginal.m in Sources */,
+				990BAC361A12ED210014EDD3 /* StoryCollectionViewCellShop.m in Sources */,
 				99B9087B1A1C45C4001B07AB /* DrawingPageViewController.m in Sources */,
 				704FC2E61A26EAC7005EF9F3 /* Helper.m in Sources */,
 				990BABF61A12D3C00014EDD3 /* AppDelegate.m in Sources */,

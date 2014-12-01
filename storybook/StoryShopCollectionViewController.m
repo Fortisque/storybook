@@ -7,7 +7,7 @@
 //
 
 #import "StoryShopCollectionViewController.h"
-#import "StoryCollectionViewCellOriginal.h"
+#import "StoryCollectionViewCellShop.h"
 
 @interface StoryShopCollectionViewController ()
 @property (strong, nonatomic) NSArray* books;
@@ -16,10 +16,12 @@
 
 @implementation StoryShopCollectionViewController
 
-static NSString * const reuseIdentifier = @"StoryCell";
+static NSString * const reuseIdentifier = @"StoryShopCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -27,7 +29,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
     self.navigationItem.title = @"Story Shop";
     
     // Register cell classes
-    UINib *cellNib = [UINib nibWithNibName:@"StoryCollectionViewCell" bundle:nil];
+    UINib *cellNib = [UINib nibWithNibName:@"StoryCollectionViewCellShop" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
@@ -70,7 +72,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    StoryCollectionViewCellOriginal *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    StoryCollectionViewCellShop *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     if (cell == NULL) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StoryCollectionViewCell" owner:self options:nil];
