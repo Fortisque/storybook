@@ -11,5 +11,11 @@
 @interface ThemeViewController : UIViewController
 
 - (IBAction)themeViewTouched:(UITapGestureRecognizer *)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *kid;
+@property (strong, nonatomic) IBOutlet UIImageView *earth;
+@property (strong, nonatomic) IBOutlet UIImageView *saturn;
+@property (strong, nonatomic) IBOutlet UIImageView *alien;
+@property (strong, nonatomic) IBOutlet UIImageView *pluto;
+@property (strong, nonatomic) IBOutlet UIImageView *comet;
 
 @end
