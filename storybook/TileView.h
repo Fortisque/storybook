@@ -25,5 +25,6 @@
 
 @property BOOL matched;
 @property CGPoint originalPosition;
+@property BOOL scaledDown;
 
 @end

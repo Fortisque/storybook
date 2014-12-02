@@ -287,13 +287,7 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
 }
 
 - (void)applyGesureRecognizer {
-    NSArray *arrToSearchForTiles;
-    
-    if (_scrollView) {
-        arrToSearchForTiles = _scrollView.subviews;
-    } else {
-        arrToSearchForTiles = self.view.subviews;
-    }
+    NSArray *arrToSearchForTiles = self.view.subviews;
     
     for (UIView * view in arrToSearchForTiles) {
         if (view.tag == TILE_TAG) {
@@ -306,38 +300,63 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
 }
 
 - (void) prepareToMove:(TileView *)tileView andViewPoint:(CGPoint)point {
-    TileContainerView *container = [_containers firstObject];
     [tileView removeShadow];
+    [self.view bringSubviewToFront:tileView];
     
-    // Scale image to the container, 5 px padding on all sides
-    NSUInteger width = container.frame.size.width - 10;
-    NSUInteger height = container.frame.size.height - 10;
-    
-    if (_scrollView) {
-        // swap views if it's in a scroll view
-        [tileView setCenter:point];
-        [self.view addSubview:tileView];
+    if (_scenes) {
+        // scenes should initially scale up
         
-        // compress more for scroll view so it fits in film image
-        height = container.frame.size.height - 50;
+        // make sure object is at original size before attempting transformation
+        tileView.transform = CGAffineTransformIdentity;
+        
+        POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        
+        scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5, 1.5)];
+        scaleUp.springBounciness = 10.0f;
+        scaleUp.springSpeed = 20.0f;
+        [tileView pop_addAnimation:scaleUp forKey:@"toUp"];
+        tileView.scaledDown = NO;
     }
-    
-    // make sure object is at original size before attempting transformation
-    tileView.transform = CGAffineTransformIdentity;
-    
-    POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
-    
-    scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(width / tileView.frame.size.width, height / tileView.frame.size.height)];
-    scaleDown.springBounciness = 10.0f;
-    scaleDown.springSpeed = 20.0f;
-    [tileView pop_addAnimation:scaleDown forKey:@"toDown"];
     
     //reset tile and container if moved out of container
     for (TileContainerView *containerView in _containers) {
         if (containerView.containedTile == tileView) {
-            (tileView).matched = NO;
+            tileView.matched = NO;
             containerView.containedTile = nil;
             containerView.containedText = @"";
+        }
+    }
+}
+
+- (void)movedView:(TileView *)tileView toPoint:(CGPoint)point {
+    TileContainerView *container = [_containers firstObject];
+    [tileView removeShadow];
+    
+    if (_scenes && point.y < SCREEN_HEIGHT*0.28 && !tileView.scaledDown) {
+        // Scale image to the container when it gets dragged close enough to the film strip, 5 px padding on all sides
+        NSUInteger width = container.frame.size.width - 10;
+        NSUInteger height = container.frame.size.height - 10;
+        
+        // make sure object is at original size before attempting transformation
+        tileView.transform = CGAffineTransformIdentity;
+        
+        POPSpringAnimation *scaleDown = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        
+        scaleDown.toValue = [NSValue valueWithCGSize:CGSizeMake(width / tileView.frame.size.width, height / tileView.frame.size.height)];
+        scaleDown.springBounciness = 10.0f;
+        scaleDown.springSpeed = 20.0f;
+        [tileView pop_addAnimation:scaleDown forKey:@"toDown"];
+        
+        tileView.scaledDown = YES;
+        
+        //reset tile and container if moved out of container
+        for (TileContainerView *containerView in _containers) {
+            if (containerView.containedTile == tileView) {
+                tileView.matched = NO;
+                containerView.containedTile = nil;
+                containerView.containedText = @"";
+                tileView.scaledDown = NO;
+            }
         }
     }
 }
@@ -353,6 +372,8 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
         recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
                                              recognizer.view.center.y + translation.y);
         [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
+        //scale down to film strip size if close to it
+        [self movedView:tv toPoint:[recognizer locationInView:self.view]];
     }
     else if (recognizer.state == UIGestureRecognizerStateEnded) {
         //check if tile is dragged near a container
@@ -377,18 +398,13 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
 
 - (void) resetTileStateGivenTile:(TileView *)tileView andViewPoint:(CGPoint) point {
     [tileView addShadow];
-    if (_scrollView) {
-        // get back into the scroll view
-        [tileView setCenter:[_scrollView convertPoint:point fromCoordinateSpace:self.view]];
-        [_scrollView addSubview:tileView];
-    }
     
     [self animateView:tileView ToPosition:tileView.originalPosition];
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     scaleUp.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
     scaleUp.springBounciness = 20.0f;
     scaleUp.springSpeed = 20.0f;
-    
+    tileView.scaledDown = NO;
     [tileView pop_addAnimation:scaleUp forKey:@"toOriginal"];
 }
 
