@@ -14,7 +14,6 @@
 + (UIColor *)colorWithHexString:(NSString *)hex;
 + (UIColor *)colorWithHexString:(NSString *)hex andAlpha:(float)alpha;
 + (UIImage *)imageWithColor:(UIColor *)color;
-+ (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 + (void)reassignFrameSizeToMinimumEnclosingSize:(UILabel *)label;
 + (void)addButtonWithCenter:(CGPoint)point title:(NSString *)title selector:(SEL)sel withTarget:(UIViewController *)target toView:(UIView *)view;

@@ -382,7 +382,6 @@ const int TILE_SIZE = 100;
     return NO;
 }
 
-
 - (void)animateView:(UIView *)view ToPosition:(CGPoint) position {
     [UIView animateWithDuration:0.5
                           delay:0.0
