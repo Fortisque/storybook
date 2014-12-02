@@ -18,18 +18,33 @@
 @implementation DrawingPrompterViewController
 
 bool firstLoad = TRUE;
+bool hintText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // TODO load any images the user has drawn for this before
     self.imageView = [[UIImageView alloc] init];
     
     [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.imageView.layer setBorderWidth: 2.0];
     
     self.imageView.frame = CGRectMake(300, 200, 400, 400);
+    self.imageView.backgroundColor = [UIColor whiteColor];
+    
+    // TODO load any images the user has drawn for this before instead of hint
+    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:36.0];
+    UIGraphicsBeginImageContext(self.imageView.frame.size);
+    CGRect rect = CGRectMake(100, self.imageView.frame.size.height / 3.0, self.imageView.frame.size.width - 200, self.imageView.frame.size.height);
+    [[UIColor blackColor] set];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    [@"Tap here to start!" drawInRect:CGRectIntegral(rect) withAttributes:@{ NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle}];
+    hintText = true;
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.imageView.image = newImage;
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(promptDrawing)];
     
@@ -45,12 +60,16 @@ bool firstLoad = TRUE;
     if (!firstLoad) {
         return;
     }
-    firstLoad = TRUE;
+    firstLoad = FALSE;
     [super viewDidAppear:animated];
 }
 
 - (void)promptDrawing
 {
+    if(hintText) {
+        hintText = FALSE;
+        self.imageView.image = nil;
+    }
     DrawingPageViewController *dpvc = [[DrawingPageViewController alloc] initWithImage:self.imageView.image];
     
     dpvc.presenter = self;
