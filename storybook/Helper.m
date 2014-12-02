@@ -88,5 +88,38 @@
     label.frame = newFrame;
 }
 
++ (void)addButtonWithCenter:(CGPoint)point title:(NSString *)title selector:(SEL)sel withTarget:(UIViewController *)target toView:(UIView *)view
+{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:target
+               action:sel
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:title forState:UIControlStateNormal];
+    button.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:@"FredokaOne-Regular" size:30]];
+    
+    CGSize size = [button.titleLabel.text sizeWithAttributes:
+                   @{NSFontAttributeName:
+                         [button.titleLabel.font fontWithSize:button.titleLabel.font.pointSize]}];
+    
+    CGRect newFrame = button.frame;
+    newFrame.size.height = size.height;
+    newFrame.size.width = size.width;
+    button.frame = newFrame;
+    
+    // Give a 10 padding on each side.
+    button.frame = CGRectInset(button.frame, -10, -10);
+    
+    button.center = point;
+    
+    button.layer.shadowColor = [UIColor blackColor].CGColor;
+    button.layer.shadowOpacity = 0.5;
+    button.layer.shadowRadius = 2;
+    button.layer.shadowOffset = CGSizeMake(3.0f,3.0f);
+    
+    [view addSubview:button];
+}
 
 @end

@@ -107,48 +107,15 @@ CGRect workingFrame;
         
     }
     
-    [self addButtonWithFrame:CGRectMake(SCREEN_WIDTH - 20, 30.0, 0, 0) specifingRightCorner:YES title:@"DONE" selector:@selector(donePressed:)];
+    [Helper addButtonWithCenter:CGPointMake(SCREEN_WIDTH * .08, SCREEN_HEIGHT * .08) title:@"CLEAR" selector:@selector(clearPressed:) withTarget:self toView:self.view];
     
-    [self addButtonWithFrame:CGRectMake(20, 30.0, 0, 0) specifingRightCorner:NO title:@"CLEAR" selector:@selector(clearPressed:)];
+    [Helper addButtonWithCenter:CGPointMake(SCREEN_WIDTH * .92, SCREEN_HEIGHT * .08) title:@"DONE" selector:@selector(donePressed:) withTarget:self toView:self.view];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
-}
-
-- (void)addButtonWithFrame:(CGRect)rect specifingRightCorner:(BOOL)right title:(NSString *)title selector:(SEL)sel {
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
-                   action:sel
-         forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:title forState:UIControlStateNormal];
-    button.backgroundColor = [Helper colorWithHexString:@"00C7FF"];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:@"FredokaOne-Regular" size:30]];
-    CGSize size = [button.titleLabel.text sizeWithAttributes:
-                   @{NSFontAttributeName:
-                         [button.titleLabel.font fontWithSize:button.titleLabel.font.pointSize]}];
-    
-    CGFloat buttonWidth = size.width + 20;
-    CGFloat buttonHeight = size.height + 20;
-    
-    CGFloat x;
-    if (right) {
-        x = rect.origin.x - buttonWidth;
-    } else {
-        x = rect.origin.x;
-    }
-    button.frame = CGRectMake(x, rect.origin.y, buttonWidth, buttonHeight);
-
-    button.layer.shadowColor = [UIColor blackColor].CGColor;
-    button.layer.shadowOpacity = 0.5;
-    button.layer.shadowRadius = 2;
-    button.layer.shadowOffset = CGSizeMake(3.0f,3.0f);
-    
-    [self.view addSubview:button];
 }
 
 - (void)viewDidLayoutSubviews {
