@@ -30,9 +30,7 @@
             self.layer.borderWidth = 10.0f;
 
         } else {
-            UIImageView *backgroundimageView = [[UIImageView alloc]initWithFrame:frame];
-            backgroundimageView.image = [UIImage imageNamed:@"film"];
-            [self addSubview:backgroundimageView];
+            self.backgroundColor = [Helper colorWithHexString:@"EEEEEE"];
         }
         self.containedTile = nil;
         self.containedText = @"";

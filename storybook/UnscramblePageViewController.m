@@ -29,11 +29,15 @@
 const int TILE_TAG= 1;
 const int TILE_CONTAINER_TAG = 2;
 
-const int SCREEN_WIDTH = 1024;
 const int MAX_SPACING = 80;
 const int PADDING = 50;
 const int CONTAINER_SIZE = 110;
 const int TILE_SIZE = 100;
+
+const int SCENE_CONTAINER_SIZE = 180;
+const int SCENE_PADDING = 25;
+
+CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
 
 - (id)initWithTextLabels:(NSArray *)textLabels andImageViews:(NSArray *) imageViews andWord:(NSString *)word {
     self = [super initWithTextLabels:textLabels andImageViews:imageViews];
@@ -53,6 +57,10 @@ const int TILE_SIZE = 100;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SCREEN_WIDTH = self.view.frame.size.width;
+    SCREEN_HEIGHT = self.view.frame.size.height;
+    
     if (_word) {
         [self addTileContainersWithSize:(int)_word.length];
         //[self addLetterTiles];
@@ -60,28 +68,12 @@ const int TILE_SIZE = 100;
         [self addTilesWithPropertiesArray:propertiesArray toView:self.view];
     }
     if (_scenes) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, self.view.frame.size.height / 2)];
-        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2.3, self.view.frame.size.height / 2);
-        [self.view addSubview:_scrollView];
-        
-        [self addTileContainersWithSize:5];
+        [self addSceneContainersWithSize:(int)[_scenes count]];
         NSArray *propertiesArray = [self createPropertiesArrayForScenes:_scenes];
-        [self addTilesWithPropertiesArray:propertiesArray toView:_scrollView];
+        [self addTilesWithPropertiesArray:propertiesArray toView:self.view];
     }
     [self applyGesureRecognizer];
 }
-
-//- (void) viewDidAppear:(BOOL)animated {
-//    [self addTiles];
-//    [self applyGesureRecognizer];
-//}
-//
-//- (void) viewDidDisappear:(BOOL)animated {
-//    for (UIView * view in self.view.subviews) {
-//        view.gestureRecognizers = nil;
-//        [view removeFromSuperview];
-//    }
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -93,6 +85,7 @@ const int TILE_SIZE = 100;
     
     int maxContainerSpace = CONTAINER_SIZE + MAX_SPACING;
     int spaceContainersCanOccupy = SCREEN_WIDTH - 2 * PADDING;
+    
     int spaceForEachContainer = spaceContainersCanOccupy/size; //container plus padding space
     int startingPostion;
     
@@ -111,19 +104,39 @@ const int TILE_SIZE = 100;
     
     for (int i = 0; i < size; i++) {
         TileContainerView *tileContainer;
-        
-        if (_word) {
-            tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-            tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 500);
-        }
-        
-        if (_scenes) {
-            tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 180, 150)];
-            tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 300);
-        }
+        tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, 500);
+        tileContainer.tag = TILE_CONTAINER_TAG;
+        [_containers addObject:tileContainer];
+        [self.view addSubview:tileContainer];
+    }
+}
+
+- (void)addSceneContainersWithSize:(int)size {
+    _containers = [[NSMutableArray alloc] init];
     
-        //NSLog(@"tileContainer frame: %@", NSStringFromCGPoint(tileContainer.center));
+    int maxContainerSpace = SCENE_CONTAINER_SIZE + MAX_SPACING;
+    int spaceContainersCanOccupy = SCREEN_WIDTH - 2 * SCENE_PADDING;
+    
+    int spaceForEachContainer = spaceContainersCanOccupy/size; //container plus padding space
+    int startingPostion;
+    
+    if (spaceForEachContainer > maxContainerSpace) {
+        spaceForEachContainer = maxContainerSpace;
         
+        int totalContainerSpace = size * SCENE_CONTAINER_SIZE + (size - 1) * MAX_SPACING; //n-1 spacing
+        int padding = (SCREEN_WIDTH - totalContainerSpace)/2; //left and right padding outside containers
+        startingPostion = padding + SCENE_CONTAINER_SIZE/2; //recalculate padding and add container center offset
+        
+    } else {
+        int paddingForEachContainer = (spaceForEachContainer - SCENE_CONTAINER_SIZE)/2; //left or right padding
+        startingPostion = SCENE_PADDING + paddingForEachContainer + SCENE_CONTAINER_SIZE/2; //add half of container size for center offset
+    }
+    
+    for (int i = 0; i < size; i++) {
+        TileContainerView *tileContainer;
+        tileContainer = [[TileContainerView alloc] initWithFrame:CGRectMake(0, 0, 180, 150)];
+        tileContainer.center = CGPointMake(startingPostion + i*spaceForEachContainer, SCREEN_HEIGHT*0.25);
         tileContainer.tag = TILE_CONTAINER_TAG;
         [_containers addObject:tileContainer];
         [self.view addSubview:tileContainer];
@@ -205,29 +218,71 @@ const int TILE_SIZE = 100;
         }
     }
     
-    //always evenly split tiles regardless of spacing
-    int size = 5;
+    NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,240,200)];
+    
     int spaceTilesCanOccupy = SCREEN_WIDTH - 2 * PADDING;
-    int spaceForEachTile = spaceTilesCanOccupy/size; //tile plus padding space
-    int paddingForEachTile = (spaceForEachTile - TILE_SIZE)/2; //left or right padding
-    int startingPostion = PADDING + paddingForEachTile + TILE_SIZE/2; //add half of tile size for center offset
-    
-    NSValue *frame = [NSValue valueWithCGRect:CGRectMake(0,0,400,266)];
+    int spaceForTopRow = spaceTilesCanOccupy/3;
+    int spaceForBottomRow = spaceTilesCanOccupy/2;
+    int startingPositionTop = PADDING + spaceForTopRow/2;
+    int startingPositionBottom = PADDING + spaceForBottomRow/2;
 
-    for (int i = 0; i < [copy count]; i++) {
-        NSDictionary *scene = [copy objectAtIndex:i];
-        NSDictionary *properties = @{
-                                     kFrame:frame,
-                                     kImageName:[scene objectForKey:kImageName],
-                                     @"sentence":[scene objectForKey:@"sentence"],
-                                     kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPostion + 100 + i*(spaceForEachTile + 250), 200)],
-                                     kTag:[NSNumber numberWithInt:TILE_TAG]
-                                     };
-        TileView *tileView = [[TileView alloc] initWithProperties:properties];
-        [_tiles addObject:tileView];
-        [_scrollView addSubview:tileView];
-    }
+    //manually add scenes
+    NSDictionary *scene1 = [copy objectAtIndex:0];
+    NSDictionary *properties1 = @{
+                                 kFrame:frame,
+                                 kImageName:[scene1 objectForKey:kImageName],
+                                 @"sentence":[scene1 objectForKey:@"sentence"],
+                                 kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionTop, SCREEN_HEIGHT*0.56)],
+                                 kTag:[NSNumber numberWithInt:TILE_TAG]
+                                 };
+    TileView *tileView1 = [[TileView alloc] initWithProperties:properties1];
+    [_tiles addObject:tileView1];
     
+    NSDictionary *scene2 = [copy objectAtIndex:1];
+    NSDictionary *properties2 = @{
+                                  kFrame:frame,
+                                  kImageName:[scene2 objectForKey:kImageName],
+                                  @"sentence":[scene2 objectForKey:@"sentence"],
+                                  kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionTop + spaceForTopRow, SCREEN_HEIGHT*0.56)],
+                                  kTag:[NSNumber numberWithInt:TILE_TAG]
+                                  };
+    TileView *tileView2 = [[TileView alloc] initWithProperties:properties2];
+    [_tiles addObject:tileView2];
+    
+    NSDictionary *scene3 = [copy objectAtIndex:2];
+    NSDictionary *properties3 = @{
+                                  kFrame:frame,
+                                  kImageName:[scene3 objectForKey:kImageName],
+                                  @"sentence":[scene3 objectForKey:@"sentence"],
+                                  kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionTop + 2 * spaceForTopRow, SCREEN_HEIGHT*0.56)],
+                                  kTag:[NSNumber numberWithInt:TILE_TAG]
+                                  };
+    TileView *tileView3 = [[TileView alloc] initWithProperties:properties3];
+    [_tiles addObject:tileView3];
+    
+    NSDictionary *scene4 = [copy objectAtIndex:3];
+    NSDictionary *properties4 = @{
+                                  kFrame:frame,
+                                  kImageName:[scene4 objectForKey:kImageName],
+                                  @"sentence":[scene4 objectForKey:@"sentence"],
+                                  kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionBottom, SCREEN_HEIGHT*0.85)],
+                                  kTag:[NSNumber numberWithInt:TILE_TAG]
+                                  };
+    TileView *tileView4 = [[TileView alloc] initWithProperties:properties4];
+    [_tiles addObject:tileView4];
+    
+    NSDictionary *scene5 = [copy objectAtIndex:4];
+    NSDictionary *properties5 = @{
+                                  kFrame:frame,
+                                  kImageName:[scene5 objectForKey:kImageName],
+                                  @"sentence":[scene5 objectForKey:@"sentence"],
+                                  kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionBottom + spaceForBottomRow, SCREEN_HEIGHT*0.85)],
+                                  kTag:[NSNumber numberWithInt:TILE_TAG]
+                                  };
+    TileView *tileView5 = [[TileView alloc] initWithProperties:properties5];
+    [_tiles addObject:tileView5];
+
+    [propertiesArray addObjectsFromArray:@[properties1, properties2, properties3, properties4, properties5]];
     return propertiesArray;
 }
 
