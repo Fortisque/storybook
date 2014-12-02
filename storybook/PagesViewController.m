@@ -33,12 +33,10 @@
                              };
     NSDictionary *image2 = @{
                              kImageName: @"chipmunk",
-                             kFrame: @[@0.3,@0.2,@0.3,@0.4]
+                             kFrame:@[@0,@0,@0.3,@0.4],
+                             kCenter:@[@0.5,@0.36],
                              };
-    NSDictionary *image3 = @{
-                             kImageName: @"character",
-                             kFrame: @[@0.5,@0.4,@0.4,@0.4]
-                             };
+
     NSDictionary *page1text1 = @{
                             kText: @"Down in the meadow where animals flocked.\r"
                             @"Were four flanky mammals, on two legs they walked!\r"
@@ -62,15 +60,15 @@
                             @"And carried strange things on these bags on their backs.\r"
                             @"The animals passed, and continued on through,\r"
                             @"And Tommy the chipmunk consulted his crew.",
-                            kFrame:@[@0.05,@0.3,@1,@0.4],
-                            kFontSize: @25.0f,
+                            kCenter:@[@0.5,@0.1],
+                            kFontSize: @20.0f,
                             };
     NSDictionary *page3text1 = @{
                             kText: @"They rustled through brush as if in a rush,\r"
                             @"Popped out of the woods when Tom signaled shush!\r"
                             @"The beasts were right there, within a tree’s reach,\r"
                             @"They froze with amazement, were left without speech.\r",
-                            kFrame:@[@0.05,@0.3,@1,@0.4],
+                            kCenter:@[@0.5,@0.1],
                             kFontSize: @25.0f,
                             };
     
@@ -79,28 +77,28 @@
                             @"Popped out of the woods when Tom signaled shush!\r"
                             @"The beasts were right there, within a tree’s reach,\r"
                             @"They froze with amazement, were left without speech.\r",
-                            kFrame:@[@0.05,@0.3,@1,@0.4],
+                            kCenter:@[@0.5,@0.1],
                             kFontSize: @25.0f,
                             };
     
     NSDictionary *text4 = @{
                             kText: @"What color is Tom?",
-                            kFrame:@[@0.4,@0.1,@1,@0.1],
-                            kFontSize: @25.0f,
+                            kCenter:@[@0.5,@0.1],
+                            kFontSize: @50.0f,
                             kFontName: @"Fredoka One"
                             };
     
     NSDictionary *text5 = @{
                             kText: @"What do you think the mammals look like?",
-                            kFrame:@[@0.2,@0.1,@0.2,@0.1],
-                            kFontSize: @30.0f,
+                            kCenter:@[@0.5,@0.1],
+                            kFontSize: @40.0f,
                             kFontName: @"Fredoka One"
                             };
     
     NSDictionary *text6 = @{
                             kText: @"summarize the story",
-                            kFrame:@[@0.4,@0.1,@1,@0.1],
-                            kFontSize: @25.0f,
+                            kCenter:@[@0.5,@0.1],
+                            kFontSize: @50.0f,
                             kFontName: @"Fredoka One"
                             };
     

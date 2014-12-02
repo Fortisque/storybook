@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSMutableArray *tiles;
 
 @property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIButton *hint;
 
 @end
 
@@ -57,7 +58,6 @@ const int TILE_SIZE = 100;
         //[self addLetterTiles];
         NSArray *propertiesArray = [self createPropertiesArrayForWord:_word];
         [self addTilesWithPropertiesArray:propertiesArray toView:self.view];
-        
     }
     if (_scenes) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, self.view.frame.size.height / 2)];
@@ -310,7 +310,6 @@ const int TILE_SIZE = 100;
             //animate tile back to original position
             [self resetTileStateGivenTile:tv andViewPoint:[recognizer locationInView:self.view]];
         }
-        
         
         NSMutableArray *result = [self getResult];
         NSLog(@"actual%@", _answer);

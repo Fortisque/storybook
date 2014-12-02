@@ -48,6 +48,7 @@
             
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
             NSArray *frameValue = [imageDict objectForKey:kFrame];
+            NSArray *centerValue = [imageDict objectForKey:kCenter];
             if (frameValue) {
                 CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
                 CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
@@ -59,25 +60,20 @@
                 imageView.frame = CGRectMake(300, 100, 400, 100);
             }
             
+            if (centerValue) {
+                // Center is set after the frame is ready.
+                CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
+                CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
+                imageView.center = CGPointMake(x, y);
+                NSLog(@"%f, %f", x, y);
+            }
+            
             [_imageViews addObject:imageView];
         }
         
         for (int i = 0; i < [textLabels count]; i++) {
             
             NSDictionary *textDict = [textLabels objectAtIndex:i];
-            UIBorderLabel *textLabel;
-            
-            NSArray *frameValue = [textDict objectForKey:kFrame];
-            if (frameValue) {
-                CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
-                CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
-                CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
-                CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
-
-                textLabel = [[UIBorderLabel alloc] initWithFrame:CGRectMake(x, y, width, height)];
-            } else {
-                textLabel = [[UIBorderLabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
-            }
             
             NSString *fontName = [textDict objectForKey:kFontName];
             NSNumber *fontSize = [textDict objectForKey:kFontSize];
@@ -86,6 +82,7 @@
             NSNumber *border = [textDict objectForKey:kBorder];
             NSArray *centerValue = [textDict objectForKey:kCenter];
             
+            UIBorderLabel *textLabel = [[UIBorderLabel alloc] init];
             textLabel.text = [textDict objectForKey:kText];
             
             if (fontName && fontSize) {

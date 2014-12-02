@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "DictionaryKeys.h"
 
+NSString *kBorder = @"border";
 NSString *kCenter = @"center";
 NSString *kFontName = @"fontName";
 NSString *kFontSize = @"fontSize";
 NSString *kFrame = @"frame";
 NSString *kImageName = @"imageName";
+NSString *kImageSize = @"imageSize";
+NSString *kStoryProgress = @"storyProgress";
 NSString *kTag = @"taga";
 NSString *kText = @"text";
 NSString *kTextAlignment = @"textAlignment";
 NSString *kTextBackgroundColor = @"textBackgroundColor";
-NSString *kStoryProgress = @"storyProgress";
-NSString *kBorder = @"border";
+
+
