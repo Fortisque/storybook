@@ -29,11 +29,11 @@
     
     NSDictionary *image1 = @{
                              kImageName: @"first_page",
-                             kFrame: @[@0,@0,@1,@1],
+                             kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
                              };
     NSDictionary *image2 = @{
                              kImageName: @"chipmunk",
-                             kFrame:@[@0,@0,@0.3,@0.4],
+                             kImageSize:[NSValue valueWithCGSize:CGSizeMake(0.3, 0.4)],
                              kCenter:@[@0.5,@0.36],
                              };
 

@@ -47,17 +47,13 @@
             NSDictionary *imageDict = [imageViews objectAtIndex:i];
             
             UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
-            NSArray *frameValue = [imageDict objectForKey:kFrame];
             NSArray *centerValue = [imageDict objectForKey:kCenter];
-            if (frameValue) {
-                CGFloat x = [[frameValue objectAtIndex:0] floatValue] * SCREEN_WIDTH;
-                CGFloat y = [[frameValue objectAtIndex:1] floatValue] * SCREEN_HEIGHT;
-                CGFloat width = [[frameValue objectAtIndex:2] floatValue] * SCREEN_WIDTH;
-                CGFloat height = [[frameValue objectAtIndex:3] floatValue] * SCREEN_HEIGHT;
-                
-                imageView.frame = CGRectMake(x, y, width, height);
+            NSValue *imageSize = [imageDict objectForKey:kImageSize];
+            
+            if (imageSize) {
+                imageView.frame = CGRectMake(0, 0, [imageSize CGSizeValue].width * SCREEN_WIDTH, [imageSize CGSizeValue].height * SCREEN_HEIGHT);
             } else {
-                imageView.frame = CGRectMake(300, 100, 400, 100);
+                imageView.frame = CGRectMake(0, 0, 200, 200);
             }
             
             if (centerValue) {
@@ -72,7 +68,6 @@
         }
         
         for (int i = 0; i < [textLabels count]; i++) {
-            
             NSDictionary *textDict = [textLabels objectAtIndex:i];
             
             NSString *fontName = [textDict objectForKey:kFontName];
