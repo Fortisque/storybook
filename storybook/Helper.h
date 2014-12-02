@@ -17,5 +17,6 @@
 + (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 + (void)reassignFrameSizeToMinimumEnclosingSize:(UILabel *)label;
++ (void)addButtonWithCenter:(CGPoint)point title:(NSString *)title selector:(SEL)sel withTarget:(UIViewController *)target toView:(UIView *)view;
 
 @end
