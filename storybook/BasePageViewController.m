@@ -19,6 +19,7 @@
 @end
 
 @implementation BasePageViewController
+CGRect screenRect;
 
 - (id)init {
     self = [super init];
@@ -35,103 +36,112 @@
 
     if (self != nil)
     {
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat SCREEN_WIDTH = screenRect.size.width;
-        CGFloat SCREEN_HEIGHT = screenRect.size.height;
+        screenRect = [[UIScreen mainScreen] bounds];
         
-        _textLabels = [[NSMutableArray alloc] init];
-        _imageViews = [[NSMutableArray alloc] init];
-        _utterances = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < [imageViews count]; i++) {
-            NSDictionary *imageDict = [imageViews objectAtIndex:i];
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
-            NSArray *centerValue = [imageDict objectForKey:kCenter];
-            NSValue *imageSize = [imageDict objectForKey:kImageSize];
-            
-            if (imageSize) {
-                imageView.frame = CGRectMake(0, 0, [imageSize CGSizeValue].width * SCREEN_WIDTH, [imageSize CGSizeValue].height * SCREEN_HEIGHT);
-            } else {
-                imageView.frame = CGRectMake(0, 0, 200, 200);
-            }
-            
-            if (centerValue) {
-                // Center is set after the frame is ready.
-                CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
-                CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
-                imageView.center = CGPointMake(x, y);
-                NSLog(@"%f, %f", x, y);
-            }
-            
-            [_imageViews addObject:imageView];
-        }
-        
-        for (int i = 0; i < [textLabels count]; i++) {
-            NSDictionary *textDict = [textLabels objectAtIndex:i];
-            
-            NSString *fontName = [textDict objectForKey:kFontName];
-            NSNumber *fontSize = [textDict objectForKey:kFontSize];
-            NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
-            UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
-            NSNumber *border = [textDict objectForKey:kBorder];
-            NSArray *centerValue = [textDict objectForKey:kCenter];
-            
-            UIBorderLabel *textLabel = [[UIBorderLabel alloc] init];
-            textLabel.text = [textDict objectForKey:kText];
-            
-            if (fontName && fontSize) {
-                textLabel.font = [UIFont fontWithName:fontName size:[fontSize floatValue]];
-            } else if (fontName) {
-                textLabel.font = [UIFont fontWithName:fontName size:16.0f];
-            } else if (fontSize) {
-                textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
-            }
-            
-            [Helper reassignFrameSizeToMinimumEnclosingSize:textLabel];
-            
-            if (centerValue) {
-                // Center is set after the frame is ready.
-                CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
-                CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
-                textLabel.center = CGPointMake(x, y);
-                NSLog(@"%f, %f", x, y);
-            }
-        
-            if (textAlignment != NULL) {
-                textLabel.textAlignment = [textAlignment intValue];
-            } else {
-                textLabel.textAlignment = NSTextAlignmentLeft;
-            }
-            
-            if (border) {
-                float borderValue = [border floatValue];
-                textLabel.frame = CGRectInset(textLabel.frame, -borderValue, -borderValue);
-                textLabel.leftInset = borderValue;
-            }
-            
-            if (textBackgroundColor != NULL) {
-                textLabel.backgroundColor = textBackgroundColor;
-            }
-
-            textLabel.numberOfLines = 0;
-            UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
-            tapGestureRecognizer.numberOfTapsRequired = 1;
-            [textLabel addGestureRecognizer:tapGestureRecognizer];
-            textLabel.userInteractionEnabled = YES;
-            [_textLabels addObject:textLabel];
-            
-            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:textLabel.text];
-            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
-            //[utterance setValuesForKeysWithDictionary:utteranceProperties];
-            [_utterances addObject:utterance];
-        }
+        [self createImageViews:imageViews];
+        [self createTextLabels:textLabels];
         
         self.nextSpeechIndex = 0;
-        
     }
     
     return self;
+}
+
+- (void)createImageViews:(NSArray *)imageViews {
+    _imageViews = [[NSMutableArray alloc] init];
+    CGFloat SCREEN_WIDTH = screenRect.size.width;
+    CGFloat SCREEN_HEIGHT = screenRect.size.height;
+    
+    for (int i = 0; i < [imageViews count]; i++) {
+        NSDictionary *imageDict = [imageViews objectAtIndex:i];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
+        NSArray *centerValue = [imageDict objectForKey:kCenter];
+        NSValue *imageSize = [imageDict objectForKey:kImageSize];
+        
+        if (imageSize) {
+            imageView.frame = CGRectMake(0, 0, [imageSize CGSizeValue].width * SCREEN_WIDTH, [imageSize CGSizeValue].height * SCREEN_HEIGHT);
+        } else {
+            imageView.frame = CGRectMake(0, 0, 200, 200);
+        }
+        
+        if (centerValue) {
+            // Center is set after the frame is ready.
+            CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
+            CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
+            imageView.center = CGPointMake(x, y);
+            NSLog(@"%f, %f", x, y);
+        }
+        
+        [_imageViews addObject:imageView];
+    }
+}
+
+- (void)createTextLabels:(NSArray *)textLabels {
+    _textLabels = [[NSMutableArray alloc] init];
+    _utterances = [[NSMutableArray alloc] init];
+    CGFloat SCREEN_WIDTH = screenRect.size.width;
+    CGFloat SCREEN_HEIGHT = screenRect.size.height;
+
+    for (int i = 0; i < [textLabels count]; i++) {
+        NSDictionary *textDict = [textLabels objectAtIndex:i];
+        
+        NSString *fontName = [textDict objectForKey:kFontName];
+        NSNumber *fontSize = [textDict objectForKey:kFontSize];
+        NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
+        UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
+        NSNumber *border = [textDict objectForKey:kBorder];
+        NSArray *centerValue = [textDict objectForKey:kCenter];
+        
+        UIBorderLabel *textLabel = [[UIBorderLabel alloc] init];
+        textLabel.text = [textDict objectForKey:kText];
+        
+        if (fontName && fontSize) {
+            textLabel.font = [UIFont fontWithName:fontName size:[fontSize floatValue]];
+        } else if (fontName) {
+            textLabel.font = [UIFont fontWithName:fontName size:16.0f];
+        } else if (fontSize) {
+            textLabel.font = [UIFont fontWithName:@"Gill Sans" size:[fontSize floatValue]];
+        }
+        
+        [Helper reassignFrameSizeToMinimumEnclosingSize:textLabel];
+        
+        if (centerValue) {
+            // Center is set after the frame is ready.
+            CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
+            CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
+            textLabel.center = CGPointMake(x, y);
+            NSLog(@"%f, %f", x, y);
+        }
+        
+        if (textAlignment != NULL) {
+            textLabel.textAlignment = [textAlignment intValue];
+        } else {
+            textLabel.textAlignment = NSTextAlignmentLeft;
+        }
+        
+        if (border) {
+            float borderValue = [border floatValue];
+            textLabel.frame = CGRectInset(textLabel.frame, -borderValue, -borderValue);
+            textLabel.leftInset = borderValue;
+        }
+        
+        if (textBackgroundColor != NULL) {
+            textLabel.backgroundColor = textBackgroundColor;
+        }
+        
+        textLabel.numberOfLines = 0;
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
+        tapGestureRecognizer.numberOfTapsRequired = 1;
+        [textLabel addGestureRecognizer:tapGestureRecognizer];
+        textLabel.userInteractionEnabled = YES;
+        [_textLabels addObject:textLabel];
+        
+        AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:textLabel.text];
+        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
+        //[utterance setValuesForKeysWithDictionary:utteranceProperties];
+        [_utterances addObject:utterance];
+    }
 }
 
 - (void)viewDidLoad {

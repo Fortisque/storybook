@@ -114,8 +114,8 @@
 
     UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[text4] andImageViews:@[image2] andWord:@"BROWN"];
     
-    NSDictionary *scene1 = @{@"imageName":@"character",
-                             @"sentence":@"first this"};
+    NSDictionary *scene1 = @{@"imageName":@"first_page",
+                             @"sentence":@"Tom sees the mammals"};
     
     NSDictionary *scene2 = @{@"imageName":@"character",
                              @"sentence":@"and this"};
