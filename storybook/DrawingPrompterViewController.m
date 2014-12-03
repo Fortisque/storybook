@@ -24,10 +24,6 @@ bool hintText;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIView *whiteBackground = [[UIView alloc] initWithFrame:CGRectMake(300, 200, 400, 400)];
-    whiteBackground.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:whiteBackground];
-    
     self.imageView = [[UIImageView alloc] init];
     
     [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
@@ -36,10 +32,11 @@ bool hintText;
     self.imageView.frame = CGRectMake(300, 200, 400, 400);
     self.imageView.backgroundColor = [UIColor whiteColor];
     
-    // TODO load any images the user has drawn for this before instead of hint
-    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:36.0];
+    // TODO load any images the user has drawn for this before
+    // Don't hint if drawn b4.
+    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:60.0];
     UIGraphicsBeginImageContext(self.imageView.frame.size);
-    CGRect rect = CGRectMake(100, self.imageView.frame.size.height / 3.0, self.imageView.frame.size.width - 200, self.imageView.frame.size.height);
+    CGRect rect = CGRectMake(50, self.imageView.frame.size.height / 4.0, self.imageView.frame.size.width - 100, self.imageView.frame.size.height);
     [[UIColor blackColor] set];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
