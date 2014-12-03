@@ -24,6 +24,10 @@ bool hintText;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    UIView *whiteBackground = [[UIView alloc] initWithFrame:CGRectMake(300, 200, 400, 400)];
+    whiteBackground.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:whiteBackground];
+    
     self.imageView = [[UIImageView alloc] init];
     
     [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
