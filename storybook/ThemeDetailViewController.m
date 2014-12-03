@@ -44,6 +44,10 @@
     }
 }
 
+- (IBAction)backButtonClicked:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)upArrowClicked:(UIButton *)sender {
     [self.collectionViewController decrementIndex];
     [self.collectionViewController.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.collectionViewController.currentIndex inSection:0] atScrollPosition:(UICollectionViewScrollPositionTop) animated:YES];
@@ -80,6 +84,24 @@
                          self.emptyWhiteView.frame = CGRectMake(width, self.emptyWhiteView.frame.origin.y, self.emptyWhiteView.frame.size.width, self.emptyWhiteView.frame.size.height);
                          self.upArrow.frame = CGRectMake(width, self.upArrow.frame.origin.y, self.upArrow.frame.size.width, self.upArrow.frame.size.height);
                          self.downArrow.frame = CGRectMake(width, self.downArrow.frame.origin.y, self.downArrow.frame.size.width, self.downArrow.frame.size.height);
+                     }
+                     completion:^(BOOL finished) {
+                         [self showButtons];
+                     }];
+}
+
+- (void)showButtons {
+    self.backButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    self.shopButton.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^ {
+                         self.backButton.hidden = NO;
+                         self.shopButton.hidden = NO;
+                         
+                         self.backButton.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                         self.shopButton.transform = CGAffineTransformMakeScale(1.0, 1.0);
                      }
                      completion:^(BOOL finished) {}];
 }

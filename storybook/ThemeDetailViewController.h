@@ -22,6 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *upArrow;
 @property (weak, nonatomic) IBOutlet UIButton *downArrow;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) IBOutlet UIButton *shopButton;
 
 - (IBAction)upArrowClicked:(UIButton *)sender;
 - (IBAction)downArrowClicked:(UIButton *)sender;

@@ -26,12 +26,12 @@
             </objects>
             <point key="canvasLocation" x="-481" y="162"/>
         </scene>
-        <!--Story Shop Collection View Controller-->
+        <!--ShopViewController-->
         <scene sceneID="p1b-UX-FgO">
             <objects>
-                <collectionViewController id="EDQ-HL-2ko" customClass="StoryShopCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController title="ShopViewController" id="EDQ-HL-2ko" customClass="StoryShopCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Yay-MX-SzG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kJy-1j-BY7">
                             <size key="itemSize" width="300" height="300"/>
@@ -46,10 +46,13 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="xsH-SK-N9r"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6F-WX-yHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="2074"/>
+            <point key="canvasLocation" x="1866" y="162"/>
         </scene>
         <!--Themes View Controller-->
         <scene sceneID="yiZ-Ga-hVG">
@@ -85,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB3-Fm-fTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="731" y="168"/>
+            <point key="canvasLocation" x="731" y="162"/>
         </scene>
         <!--Pages View Controller-->
         <scene sceneID="XY9-xc-voz">
@@ -157,6 +160,32 @@
                                     <action selector="downArrowClicked:" destination="d4F-CL-X6W" eventType="touchUpInside" id="5ib-bF-lgc"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfA-cj-FWM">
+                                <rect key="frame" x="20" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="gaQ-9v-4CK"/>
+                                    <constraint firstAttribute="width" constant="75" id="iKf-2N-MM8"/>
+                                </constraints>
+                                <state key="normal" image="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="d4F-CL-X6W" eventType="touchUpInside" id="Lb5-V5-kZp"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wn-UE-ZBZ">
+                                <rect key="frame" x="20" y="673" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="iGa-IR-Omy"/>
+                                    <constraint firstAttribute="height" constant="75" id="ppr-50-DS1"/>
+                                </constraints>
+                                <state key="normal" image="plus">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EDQ-HL-2ko" kind="push" identifier="shop" id="ffr-Jo-o5e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -164,7 +193,10 @@
                             <constraint firstItem="usv-Sh-40m" firstAttribute="width" secondItem="ZCa-zS-v4x" secondAttribute="height" multiplier="1:4" id="3TQ-aE-o8U"/>
                             <constraint firstAttribute="trailing" secondItem="ZCa-zS-v4x" secondAttribute="trailing" id="9MN-u3-CIW"/>
                             <constraint firstItem="6Kg-JB-yMw" firstAttribute="top" secondItem="usv-Sh-40m" secondAttribute="bottom" constant="20" id="AUU-x7-HSX"/>
+                            <constraint firstItem="utv-8d-71P" firstAttribute="top" secondItem="2wn-UE-ZBZ" secondAttribute="bottom" constant="20" id="Dba-cr-BDV"/>
                             <constraint firstItem="wgb-HF-zzm" firstAttribute="top" secondItem="zDy-S3-mfP" secondAttribute="bottom" id="EdV-74-s0C"/>
+                            <constraint firstItem="2wn-UE-ZBZ" firstAttribute="leading" secondItem="zm7-Hk-KmH" secondAttribute="leading" constant="20" id="KmF-EA-sdO"/>
+                            <constraint firstItem="EfA-cj-FWM" firstAttribute="top" secondItem="zDy-S3-mfP" secondAttribute="bottom" constant="20" id="LWc-UM-dJi"/>
                             <constraint firstItem="utv-8d-71P" firstAttribute="top" secondItem="6Kg-JB-yMw" secondAttribute="bottom" constant="10" id="Nnh-i1-mIb"/>
                             <constraint firstAttribute="trailing" secondItem="6Kg-JB-yMw" secondAttribute="trailing" id="PH2-6A-8nt"/>
                             <constraint firstItem="m1K-ff-3Jd" firstAttribute="width" secondItem="usv-Sh-40m" secondAttribute="width" id="QjT-Xg-9xV"/>
@@ -173,6 +205,7 @@
                             <constraint firstItem="usv-Sh-40m" firstAttribute="top" secondItem="m1K-ff-3Jd" secondAttribute="bottom" constant="20" id="XCE-VV-Tsz"/>
                             <constraint firstItem="bJh-ap-gqU" firstAttribute="top" secondItem="zDy-S3-mfP" secondAttribute="bottom" id="ZxG-wc-aZR"/>
                             <constraint firstItem="m1K-ff-3Jd" firstAttribute="top" secondItem="zDy-S3-mfP" secondAttribute="bottom" constant="10" id="Zze-n9-ovD"/>
+                            <constraint firstItem="EfA-cj-FWM" firstAttribute="leading" secondItem="zm7-Hk-KmH" secondAttribute="leading" constant="20" id="bnq-N6-4o3"/>
                             <constraint firstItem="utv-8d-71P" firstAttribute="top" secondItem="bJh-ap-gqU" secondAttribute="bottom" id="c44-Xt-Jij"/>
                             <constraint firstAttribute="trailing" secondItem="usv-Sh-40m" secondAttribute="trailing" id="ePm-yL-IEX"/>
                             <constraint firstItem="utv-8d-71P" firstAttribute="top" secondItem="wgb-HF-zzm" secondAttribute="bottom" id="jel-Rg-cAL"/>
@@ -190,9 +223,11 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="EfA-cj-FWM" id="4xN-yY-ueD"/>
                         <outlet property="bookDetailView" destination="bJh-ap-gqU" id="ayp-op-S9e"/>
                         <outlet property="downArrow" destination="6Kg-JB-yMw" id="G98-TR-hhW"/>
                         <outlet property="emptyWhiteView" destination="wgb-HF-zzm" id="pcB-Zw-cwl"/>
+                        <outlet property="shopButton" destination="2wn-UE-ZBZ" id="qbH-fp-3Wa"/>
                         <outlet property="storiesCollectionView" destination="usv-Sh-40m" id="xQM-Nv-GHK"/>
                         <outlet property="themeView" destination="ZCa-zS-v4x" id="Ckw-6O-c6y"/>
                         <outlet property="upArrow" destination="m1K-ff-3Jd" id="d66-aD-bQx"/>
@@ -301,9 +336,6 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <segue destination="EDQ-HL-2ko" kind="push" identifier="shop" id="VML-Db-ytN"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqa-ue-mBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -488,11 +520,13 @@
         <image name="alien" width="1548" height="1609"/>
         <image name="arrowdown" width="58" height="50"/>
         <image name="arrowup" width="58" height="50"/>
+        <image name="back" width="601" height="601"/>
         <image name="bookblue" width="1444" height="1898"/>
         <image name="character" width="442" height="330"/>
         <image name="comet" width="2384" height="1079"/>
         <image name="earth" width="2709" height="2244"/>
         <image name="kid" width="1842" height="2538"/>
+        <image name="plus" width="601" height="601"/>
         <image name="pluto" width="1427" height="1042"/>
         <image name="saturn" width="2253" height="2253"/>
         <image name="starBackground" width="4267" height="3200"/>
