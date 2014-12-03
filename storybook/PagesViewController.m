@@ -38,7 +38,7 @@
                                  @"Creatures that young Tom had not seen before.\r"
                                  @"The curious chipmunk just had to know more.",
                                  kFontSize: @36.0f,
-                                 kCenter:@[@0.55,@0.8],
+                                 kCenter:@[@0.5,@0.8],
                                  kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
                                  kBorder: @20,
                                  };
@@ -68,10 +68,20 @@
     
     // Page 3 Assets - Story
     NSDictionary *page3background = @{
-                                      kImageName: @"first_page",
+                                      kImageName: @"second_page",
                                       kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
                                       };
     NSDictionary *page3text1 = @{
+                                  kText: @"He slid down the tree right down to the ground.\r"
+                                  @"Coughed up his nine acorns and bursted with sound.\r"
+                                  @"“I saw somethin’ weird, hurry up follow me!”\r"
+                                  @"The curious crew craved something to see.",
+                                  kCenter:@[@0.5,@0.8],
+                                  kFontSize: @36.0f,
+                                  kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
+                                  kBorder: @20,
+                                  };
+    NSDictionary *page6text1 = @{
                                  kText: @"They walked in a line, mostly following tracks,\r"
                                  @"And carried strange things on these bags on their backs.\r"
                                  @"The animals passed, and continued on through,\r"
@@ -108,10 +118,10 @@
     NSDictionary *scene1 = @{@"imageName":@"first_page",
                              @"sentence":@"Tom sees the mammals"};
     
-    NSDictionary *scene2 = @{@"imageName":@"chipmunk",
-                             @"sentence":@"and this"};
+    NSDictionary *scene2 = @{@"imageName":@"second_page",
+                             @"sentence":@"Tom consults with the crew"};
     
-    NSDictionary *scene3 = @{@"imageName":@"first_page",
+    NSDictionary *scene3 = @{@"imageName":@"chipmunk",
                              @"sentence":@"and then this"};
     
     NSDictionary *scene4 = @{@"imageName":@"character",
