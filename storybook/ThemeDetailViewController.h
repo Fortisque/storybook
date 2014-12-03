@@ -18,12 +18,15 @@
 @property (strong, nonatomic) IBOutlet UIView *bookDetailView;
 @property (strong, nonatomic) IBOutlet UIView *storiesCollectionView;
 @property (strong, nonatomic) IBOutlet UIView *themeView;
+@property (strong, nonatomic) IBOutlet UIView *emptyWhiteView;
 
 @property (weak, nonatomic) IBOutlet UIButton *upArrow;
 @property (weak, nonatomic) IBOutlet UIButton *downArrow;
 
 - (IBAction)upArrowClicked:(UIButton *)sender;
 - (IBAction)downArrowClicked:(UIButton *)sender;
+
+- (void)openStoriesCollectionView;
 
 - (void)openBookDetailView;
 - (void)closeBookDetailView;

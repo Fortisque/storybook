@@ -18,6 +18,10 @@
     [super viewDidLoad];
     self.bookDetailOpened = NO;
     self.bookDetailView.hidden = YES;
+    self.storiesCollectionView.hidden = YES;
+    self.emptyWhiteView.hidden = YES;
+    self.upArrow.hidden = YES;
+    self.downArrow.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +56,32 @@
 
 - (IBAction)themeViewTouched:(UITapGestureRecognizer *)sender {
     [self closeBookDetailView];
+}
+
+- (void)openStoriesCollectionView {
+    //preset frame to right off the screen
+    self.storiesCollectionView.frame = CGRectMake(self.view.frame.size.width, self.storiesCollectionView.frame.origin.y, self.storiesCollectionView.frame.size.width, self.storiesCollectionView.frame.size.height);
+    self.emptyWhiteView.frame = CGRectMake(self.view.frame.size.width, self.emptyWhiteView.frame.origin.y, self.emptyWhiteView.frame.size.width, self.emptyWhiteView.frame.size.height);
+    self.upArrow.frame = CGRectMake(self.view.frame.size.width, self.upArrow.frame.origin.y, self.upArrow.frame.size.width, self.upArrow.frame.size.height);
+    self.downArrow.frame = CGRectMake(self.view.frame.size.width, self.downArrow.frame.origin.y, self.downArrow.frame.size.width, self.downArrow.frame.size.height);
+    
+    //slide in from right
+    [UIView animateWithDuration:0.6
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^ {
+                         self.storiesCollectionView.hidden = NO;
+                         self.emptyWhiteView.hidden = NO;
+                         self.upArrow.hidden = NO;
+                         self.downArrow.hidden = NO;
+                         
+                         float width = self.view.frame.size.width - self.storiesCollectionView.frame.size.width;
+                         self.storiesCollectionView.frame = CGRectMake(width, self.storiesCollectionView.frame.origin.y, self.storiesCollectionView.frame.size.width, self.storiesCollectionView.frame.size.height);
+                         self.emptyWhiteView.frame = CGRectMake(width, self.emptyWhiteView.frame.origin.y, self.emptyWhiteView.frame.size.width, self.emptyWhiteView.frame.size.height);
+                         self.upArrow.frame = CGRectMake(width, self.upArrow.frame.origin.y, self.upArrow.frame.size.width, self.upArrow.frame.size.height);
+                         self.downArrow.frame = CGRectMake(width, self.downArrow.frame.origin.y, self.downArrow.frame.size.width, self.downArrow.frame.size.height);
+                     }
+                     completion:^(BOOL finished) {}];
 }
 
 - (void)openBookDetailView {
