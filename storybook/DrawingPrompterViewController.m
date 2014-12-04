@@ -29,7 +29,7 @@ bool hintText;
     [self.imageView.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [self.imageView.layer setBorderWidth: 2.0];
     
-    self.imageView.frame = CGRectMake(300, 200, 400, 400);
+    self.imageView.frame = CGRectMake(530, 9, 400, 200);
     self.imageView.backgroundColor = [UIColor whiteColor];
     
     // TODO load any images the user has drawn for this before
