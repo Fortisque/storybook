@@ -101,20 +101,48 @@
 
     
     NSDictionary *page4text1 = @{
-                                 kText: @"They walked in a line, mostly following tracks,\r"
-                                 @"And carried strange things on these bags on their backs.\r"
-                                 @"The animals passed, and continued on through,\r"
-                                 @"And Tommy the chipmunk consulted his crew.",
-                                 kCenter:@[@0.5,@0.1],
+                                 kText: @"They rustled through brush as if in a rush,\r"
+                                 @"Popped out of the woods when Tom signaled shush!\r"
+                                 @"The beasts were right there, within a tree’s reach,\r"
+                                 @"They froze with amazement, were left without speech.",
+                                 kCenter:@[@0.45,@0.15],
                                  kFontSize: @30.0f,
                                  kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
                                  kBorder: @20,
-
                                  };
     
-    BasePageViewController *normalPageVC2 = [[BasePageViewController alloc] initWithTextLabels:@[page4text1] andImageViews:@[page4background]];
+    NSDictionary *page4text2 = @{
+                                 kText: @"They walked in a line, mostly following tracks,\r"
+                                 @"And carried strange things on these bags on their backs.",
+                                 kCenter:@[@0.55,@0.85],
+                                 kFontSize: @30.0f,
+                                 kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
+                                 kBorder: @20,
+                                 };
     
-    // Page 5 Assets - Unscramble Scenes
+    BasePageViewController *normalPageVC2 = [[BasePageViewController alloc] initWithTextLabels:@[page4text1, page4text2] andImageViews:@[page4background]];
+    
+    // Page 5 Assets - Story
+    NSDictionary *page5background = @{
+                                      kImageName: @"fourth_page",
+                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      };
+    
+    NSDictionary *page5text1 = @{
+                                 kText: @"The animals passed, and continued on through,\r"
+                                 @"And Tommy the chipmunk consulted his crew.\r"
+                                 @"Roxy the Rabbit thought they were smart bears.\r"
+                                 @"Banjo the Badger just gave back blank stares.",
+                                 kCenter:@[@0.6,@0.85],
+                                 kFontSize: @30.0f,
+                                 kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
+                                 kBorder: @20,
+                                 };
+    
+    BasePageViewController *normalPageVC3 = [[BasePageViewController alloc] initWithTextLabels:@[page5text1] andImageViews:@[page5background]];
+
+    
+    // Page 6 Assets - Unscramble Scenes
     NSDictionary *filmstrip = @{
                                 kImageName: @"filmstrip",
                                 kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 0.3)],
@@ -136,8 +164,8 @@
     NSDictionary *scene3 = @{@"imageName":@"third_page",
                              @"sentence":@"Tom sees the beasts close up"};
     
-    NSDictionary *scene4 = @{@"imageName":@"character",
-                             @"sentence":@"after this"};
+    NSDictionary *scene4 = @{@"imageName":@"fourth_page",
+                             @"sentence":@"They think it could be bears"};
     
     NSDictionary *scene5 = @{@"imageName":@"character",
                              @"sentence":@"finally this"};
@@ -148,35 +176,7 @@
                                                                                                   andImageViews:@[paperbackground,filmstrip]
                                                                                                       andScenes:scenes];
     
-    /*NSDictionary *page1text2 = @{
-                            kText: @"He slid down the tree right down to the ground.\r"
-                            @"Coughed up his nine acorns and bursted with sound.\r"
-                            @"“I saw somethin’ weird, hurry up follow me!”\r"
-                            @"The curious crew craved something to see.",
-                            kFrame:@[@0.05,@0.5,@1,@0.4],
-                            kFontSize: @25.0f,
-                            };*/
-    
-    /*NSDictionary *page3text1 = @{
-                            kText: @"They rustled through brush as if in a rush,\r"
-                            @"Popped out of the woods when Tom signaled shush!\r"
-                            @"The beasts were right there, within a tree’s reach,\r"
-                            @"They froze with amazement, were left without speech.\r",
-                            kCenter:@[@0.5,@0.1],
-                            kFontSize: @25.0f,
-                            };
-    
-    NSDictionary *page4text1 = @{
-                            kText: @"They rustled through brush as if in a rush,\r"
-                            @"Popped out of the woods when Tom signaled shush!\r"
-                            @"The beasts were right there, within a tree’s reach,\r"
-                            @"They froze with amazement, were left without speech.\r",
-                            kCenter:@[@0.5,@0.1],
-                            kFontSize: @25.0f,
-                            };
-    */
-    
-    self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, unscrambleWordsVC2, nil];
+    self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, normalPageVC3, unscrambleWordsVC2, nil];
 
     NSArray *viewControllers = [NSArray arrayWithObjects:drawingPageVC, nil];
     
