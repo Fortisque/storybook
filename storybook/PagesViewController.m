@@ -86,11 +86,13 @@
                                 kText: @"What color is Tom?",
                                 kCenter:@[@0.5,@0.1],
                                 kFontSize: @50.0f,
+                                kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.5],
+                                kBorder: @20,
                                 kFontName: @"Fredoka One"
                                 };
     
     UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[page3text]
-                                                                                                  andImageViews:@[paperbackground,chipmunk]
+                                                                                                  andImageViews:@[page2background]
                                                                                                         andWord:@"BROWN"];
     
     // Page 4 Assets - Story

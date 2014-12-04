@@ -21,5 +21,5 @@ NSString *kTag = @"taga";
 NSString *kText = @"text";
 NSString *kTextAlignment = @"textAlignment";
 NSString *kTextBackgroundColor = @"textBackgroundColor";
-
+NSString *kTextColor = @"textColor";
 

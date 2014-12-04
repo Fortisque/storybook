@@ -90,6 +90,7 @@ CGRect screenRect;
         NSNumber *fontSize = [textDict objectForKey:kFontSize];
         NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
         UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
+        UIColor *textColor = [textDict objectForKey:kTextColor];
         NSNumber *border = [textDict objectForKey:kBorder];
         NSArray *centerValue = [textDict objectForKey:kCenter];
         
@@ -118,6 +119,10 @@ CGRect screenRect;
             textLabel.textAlignment = [textAlignment intValue];
         } else {
             textLabel.textAlignment = NSTextAlignmentLeft;
+        }
+        
+        if (textColor != NULL) {
+            textLabel.textColor = textColor;
         }
         
         if (border) {
