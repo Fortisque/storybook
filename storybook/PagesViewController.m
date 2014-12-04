@@ -116,13 +116,13 @@
                             };
     
     NSDictionary *scene1 = @{@"imageName":@"first_page",
-                             @"sentence":@"Tom sees the mammals"};
+                             @"sentence":@"Tom discovers the mammals"};
     
     NSDictionary *scene2 = @{@"imageName":@"second_page",
                              @"sentence":@"Tom consults with the crew"};
     
-    NSDictionary *scene3 = @{@"imageName":@"chipmunk",
-                             @"sentence":@"and then this"};
+    NSDictionary *scene3 = @{@"imageName":@"third_page",
+                             @"sentence":@"Tom sees the beasts close up"};
     
     NSDictionary *scene4 = @{@"imageName":@"character",
                              @"sentence":@"after this"};
