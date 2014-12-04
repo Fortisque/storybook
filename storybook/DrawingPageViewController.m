@@ -18,6 +18,7 @@
 @implementation DrawingPageViewController
 
 CGRect workingFrame;
+CGRect normalizedFrame;
 
 - (id)initWithImage:(UIImage *)image {
     self = [super init];
@@ -39,18 +40,17 @@ CGRect workingFrame;
     CGFloat SCREEN_HEIGHT = self.view.frame.size.height;
     CGFloat SCREEN_WIDTH = self.view.frame.size.width;
 
-    workingFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 110);
+    workingFrame = CGRectMake(0, 110, SCREEN_WIDTH, SCREEN_HEIGHT - 220);
+    
+    // Normalized frame is a copy of working frame with (0, 0) as origin. This is
+    // so draw in rect will work
+    normalizedFrame = workingFrame;
+    normalizedFrame.origin = CGPointZero;
+    
     self.mainImage = [[UIImageView alloc] initWithFrame:workingFrame];
     
     UIGraphicsBeginImageContext(workingFrame.size);
-    [self.initializationImage drawInRect:workingFrame];
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    CGContextFlush(UIGraphicsGetCurrentContext());
+    [self.initializationImage drawInRect:normalizedFrame];
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -106,6 +106,17 @@ CGRect workingFrame;
         [self.view addSubview:circleView];
         
     }
+    
+    UILabel *title = [[UILabel alloc] init];
+    
+    title.font = [UIFont fontWithName:@"Fredoka One" size:30.0];
+    title.text = @"What do you think the mammals looks like?";
+    
+    [Helper reassignFrameSizeToMinimumEnclosingSize:title];
+    
+    title.center = CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * .08);
+    
+    [self.view addSubview:title];
     
     [Helper addButtonWithCenter:CGPointMake(SCREEN_WIDTH * .08, SCREEN_HEIGHT * .08) title:@"CLEAR" selector:@selector(clearPressed:) withTarget:self toView:self.view];
     
@@ -241,7 +252,7 @@ CGRect workingFrame;
     CGPoint currentPoint = [touch locationInView:self.mainImage];
     
     UIGraphicsBeginImageContext(self.mainImage.frame.size);
-    [self.tempDrawImage.image drawInRect:workingFrame];
+    [self.tempDrawImage.image drawInRect:normalizedFrame];
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -261,7 +272,7 @@ CGRect workingFrame;
     
     if(!mouseSwiped) {
         UIGraphicsBeginImageContext(self.mainImage.frame.size);
-        [self.tempDrawImage.image drawInRect:workingFrame];
+        [self.tempDrawImage.image drawInRect:normalizedFrame];
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
         CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
         CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
@@ -274,8 +285,8 @@ CGRect workingFrame;
     }
     
     UIGraphicsBeginImageContext(self.mainImage.frame.size);
-    [self.mainImage.image drawInRect:workingFrame blendMode:kCGBlendModeNormal alpha:1.0];
-    [self.tempDrawImage.image drawInRect:workingFrame blendMode:kCGBlendModeNormal alpha:opacity];
+    [self.mainImage.image drawInRect:normalizedFrame blendMode:kCGBlendModeNormal alpha:1.0];
+    [self.tempDrawImage.image drawInRect:normalizedFrame blendMode:kCGBlendModeNormal alpha:opacity];
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     self.tempDrawImage.image = nil;
     UIGraphicsEndImageContext();

@@ -36,7 +36,7 @@ bool hintText;
     // Don't hint if drawn b4.
     UIFont *font = [UIFont fontWithName:@"Chalkduster" size:60.0];
     UIGraphicsBeginImageContext(self.imageView.frame.size);
-    CGRect rect = CGRectMake(50, self.imageView.frame.size.height / 4.0, self.imageView.frame.size.width - 100, self.imageView.frame.size.height);
+    CGRect rect = CGRectMake(50, 20, self.imageView.frame.size.width - 100, self.imageView.frame.size.height);
     [[UIColor blackColor] set];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;

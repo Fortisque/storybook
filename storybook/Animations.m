@@ -63,6 +63,7 @@
     congrats.text = @"HOORAY!!";
     congrats.textAlignment = NSTextAlignmentCenter;
     congrats.font = [UIFont fontWithName:@"Fredoka One" size:100.0f];
+    congrats.textColor = [UIColor whiteColor];
     
     [Helper reassignFrameSizeToMinimumEnclosingSize:congrats];
     congrats.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT * .9f);
