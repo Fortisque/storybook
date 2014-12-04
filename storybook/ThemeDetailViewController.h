@@ -35,6 +35,7 @@
 
 - (void)loadBookDetailTitle:(NSString *)title
                      Author:(NSString *)author
+                Illustrator:(NSString *)illustrator
                   BookCover:(NSString *)imageName
                 Description:(NSString *)description;
 

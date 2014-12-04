@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bookImage;
 @property (weak, nonatomic) IBOutlet UILabel *bookTitle;
 @property (weak, nonatomic) IBOutlet UILabel *bookAuthor;
+@property (strong, nonatomic) IBOutlet UILabel *bookIllustrator;
 @property (weak, nonatomic) IBOutlet UITextView *bookDescription;
 @property (weak, nonatomic) IBOutlet UIButton *readButton;
 
