@@ -165,7 +165,7 @@
                              @"sentence":@"Tom sees the beasts close up"};
     
     NSDictionary *scene4 = @{@"imageName":@"fourth_page",
-                             @"sentence":@"They think it could be bears"};
+                             @"sentence":@"Tom consults the crew"};
     
     NSDictionary *scene5 = @{@"imageName":@"character",
                              @"sentence":@"finally this"};

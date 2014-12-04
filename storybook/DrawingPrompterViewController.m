@@ -41,7 +41,7 @@ bool hintText;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
-    [@"Tap here to start!" drawInRect:CGRectIntegral(rect) withAttributes:@{ NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle}];
+    [@"Tap here to draw!" drawInRect:CGRectIntegral(rect) withAttributes:@{ NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle}];
     hintText = true;
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
