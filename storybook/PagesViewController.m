@@ -214,7 +214,8 @@
     NSUInteger newIndex = index + 1;
     
     if (newIndex == [_vcs count]) {
-        [[self navigationController] popViewControllerAnimated:NO];
+        // Clashes with summary page draggin.
+        //[[self navigationController] popViewControllerAnimated:NO];
         return nil;
     }
     
