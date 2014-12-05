@@ -96,14 +96,14 @@
 		86D9C7CD1A1B14A7002C759D /* UnscramblePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnscramblePageViewController.m; sourceTree = "<group>"; };
 		86D9C7D41A1B3D4C002C759D /* TileContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileContainerView.h; sourceTree = "<group>"; };
 		86D9C7D51A1B3D4C002C759D /* TileContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileContainerView.m; sourceTree = "<group>"; };
-		990BABED1A12D3C00014EDD3 /* storybook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storybook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		990BABED1A12D3C00014EDD3 /* storybubbles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storybubbles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BABF11A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BABF21A12D3C00014EDD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		990BABF41A12D3C00014EDD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		990BABF51A12D3C00014EDD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		990BABFD1A12D3C00014EDD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		990BAC001A12D3C00014EDD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		990BAC061A12D3C00014EDD3 /* storybookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = storybookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		990BAC061A12D3C00014EDD3 /* storybubblesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = storybubblesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		990BAC0B1A12D3C00014EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990BAC0C1A12D3C00014EDD3 /* storybookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = storybookTests.m; sourceTree = "<group>"; };
 		990BAC161A12D49C0014EDD3 /* BuiltIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BuiltIO.bundle; path = storybook/BuiltIO.bundle; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 		990BABEE1A12D3C00014EDD3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				990BABED1A12D3C00014EDD3 /* storybook.app */,
-				990BAC061A12D3C00014EDD3 /* storybookTests.xctest */,
+				990BABED1A12D3C00014EDD3 /* storybubbles.app */,
+				990BAC061A12D3C00014EDD3 /* storybubblesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -405,9 +405,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		990BABEC1A12D3C00014EDD3 /* storybook */ = {
+		990BABEC1A12D3C00014EDD3 /* storybubbles */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 990BAC101A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybook" */;
+			buildConfigurationList = 990BAC101A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybubbles" */;
 			buildPhases = (
 				703297FAF32FF64EF7DFC5D8 /* Check Pods Manifest.lock */,
 				990BABE91A12D3C00014EDD3 /* Sources */,
@@ -419,14 +419,14 @@
 			);
 			dependencies = (
 			);
-			name = storybook;
+			name = storybubbles;
 			productName = storybook;
-			productReference = 990BABED1A12D3C00014EDD3 /* storybook.app */;
+			productReference = 990BABED1A12D3C00014EDD3 /* storybubbles.app */;
 			productType = "com.apple.product-type.application";
 		};
-		990BAC051A12D3C00014EDD3 /* storybookTests */ = {
+		990BAC051A12D3C00014EDD3 /* storybubblesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 990BAC131A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybookTests" */;
+			buildConfigurationList = 990BAC131A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybubblesTests" */;
 			buildPhases = (
 				990BAC021A12D3C00014EDD3 /* Sources */,
 				990BAC031A12D3C00014EDD3 /* Frameworks */,
@@ -437,9 +437,9 @@
 			dependencies = (
 				990BAC081A12D3C00014EDD3 /* PBXTargetDependency */,
 			);
-			name = storybookTests;
+			name = storybubblesTests;
 			productName = storybookTests;
-			productReference = 990BAC061A12D3C00014EDD3 /* storybookTests.xctest */;
+			productReference = 990BAC061A12D3C00014EDD3 /* storybubblesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -461,7 +461,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 990BABE81A12D3C00014EDD3 /* Build configuration list for PBXProject "storybook" */;
+			buildConfigurationList = 990BABE81A12D3C00014EDD3 /* Build configuration list for PBXProject "storybubbles" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -474,8 +474,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				990BABEC1A12D3C00014EDD3 /* storybook */,
-				990BAC051A12D3C00014EDD3 /* storybookTests */,
+				990BABEC1A12D3C00014EDD3 /* storybubbles */,
+				990BAC051A12D3C00014EDD3 /* storybubblesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -586,7 +586,7 @@
 /* Begin PBXTargetDependency section */
 		990BAC081A12D3C00014EDD3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 990BABEC1A12D3C00014EDD3 /* storybook */;
+			target = 990BABEC1A12D3C00014EDD3 /* storybubbles */;
 			targetProxy = 990BAC071A12D3C00014EDD3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -707,7 +707,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = storybubbles;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -730,7 +730,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = storybubbles;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -749,7 +749,7 @@
 				);
 				INFOPLIST_FILE = storybookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = storybubblesTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/storybook.app/storybook";
 			};
 			name = Debug;
@@ -764,7 +764,7 @@
 				);
 				INFOPLIST_FILE = storybookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = storybubblesTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/storybook.app/storybook";
 			};
 			name = Release;
@@ -772,7 +772,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		990BABE81A12D3C00014EDD3 /* Build configuration list for PBXProject "storybook" */ = {
+		990BABE81A12D3C00014EDD3 /* Build configuration list for PBXProject "storybubbles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				990BAC0E1A12D3C00014EDD3 /* Debug */,
@@ -781,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		990BAC101A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybook" */ = {
+		990BAC101A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybubbles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				990BAC111A12D3C00014EDD3 /* Debug */,
@@ -790,7 +790,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		990BAC131A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybookTests" */ = {
+		990BAC131A12D3C00014EDD3 /* Build configuration list for PBXNativeTarget "storybubblesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				990BAC141A12D3C00014EDD3 /* Debug */,
