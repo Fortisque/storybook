@@ -16,13 +16,13 @@
 @implementation ThemeViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     self.earth.hidden = YES;
     self.kid.hidden = YES;
     self.saturn.hidden = YES;
     self.alien.hidden = YES;
     self.pluto.hidden = YES;
     self.comet.hidden = YES;
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +33,16 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self startEarthAnimations];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.earth.hidden = YES;
+    self.kid.hidden = YES;
+    self.saturn.hidden = YES;
+    self.alien.hidden = YES;
+    self.pluto.hidden = YES;
+    self.comet.hidden = YES;
 }
 
 - (IBAction)themeViewTouched:(UITapGestureRecognizer *)sender {

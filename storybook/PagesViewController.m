@@ -200,6 +200,7 @@
     NSUInteger index = [_vcs indexOfObject:viewController];
     
     if (index == 0) {
+        [[self navigationController] popViewControllerAnimated:YES];
         return nil;
     }
     
@@ -213,6 +214,7 @@
     NSUInteger newIndex = index + 1;
     
     if (newIndex == [_vcs count]) {
+        [[self navigationController] popViewControllerAnimated:NO];
         return nil;
     }
     
