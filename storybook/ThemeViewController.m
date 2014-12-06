@@ -15,6 +15,8 @@
 
 @implementation ThemeViewController
 
+BOOL animating;
+
 - (void)viewDidLoad {
     self.earth.hidden = YES;
     self.kid.hidden = YES;
@@ -33,6 +35,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self startEarthAnimations];
+    animating = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -46,7 +49,37 @@
 }
 
 - (IBAction)themeViewTouched:(UITapGestureRecognizer *)sender {
-    [(ThemeDetailViewController *)self.parentViewController closeBookDetailView];
+    if (animating) {
+        [self bringToFinalPositions];
+        
+        [self onAnimationsEnd];
+        NSLog(@"animations halted");
+    } else {
+        [(ThemeDetailViewController *)self.parentViewController closeBookDetailView];
+    }
+}
+
+- (void)bringToFinalPositions
+{
+    CGFloat SCREEN_WIDTH = self.view.frame.size.width;
+    CGFloat SCREEN_HEIGHT = self.view.frame.size.height;
+    
+    self.earth.hidden = NO;
+    self.earth.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    self.earth.center = self.view.center;
+    
+    self.pluto.hidden = NO;
+    self.saturn.hidden = NO;
+    self.alien.hidden = NO;
+    
+    self.earth.center = CGPointMake(SCREEN_WIDTH*0.5,SCREEN_HEIGHT+50);
+    self.pluto.center = CGPointMake(self.pluto.center.x,SCREEN_HEIGHT*0.22);
+    self.saturn.center = CGPointMake(self.saturn.center.x,SCREEN_HEIGHT*0.5);
+    self.alien.center = CGPointMake(self.alien.center.x,SCREEN_HEIGHT*0.25);
+    
+    self.comet.hidden = NO;
+    self.comet.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    self.comet.center = CGPointMake(SCREEN_WIDTH+200, SCREEN_HEIGHT*0.1);
 }
 
 - (void)startEarthAnimations {
@@ -97,11 +130,16 @@
                          self.alien.center = CGPointMake(self.alien.center.x,SCREEN_HEIGHT*0.25);
                      }
                      completion:^(BOOL finished) {
-                         [self kidPopOutAnimations];
+                         NSLog(@"%hhd", animating);
+                         NSLog(@"%hhd", finished);
+                         if (animating) {
+                             [self kidPopOutAnimations];
+                         }
                      }];
 }
 
 - (void)kidPopOutAnimations {
+    NSLog(@"kid started");
     CGFloat SCREEN_WIDTH = self.view.frame.size.width;
     CGFloat SCREEN_HEIGHT = self.view.frame.size.height;
     
@@ -116,7 +154,9 @@
                          self.kid.center = CGPointMake(SCREEN_WIDTH*0.32,SCREEN_HEIGHT*0.645);
                      }
                      completion:^(BOOL finished) {
-                         [self cometFlyByAnimations];
+                         if (animating) {
+                             [self cometFlyByAnimations];
+                         }
                      }];
 }
 
@@ -137,11 +177,14 @@
                          self.comet.center = CGPointMake(SCREEN_WIDTH+200, SCREEN_HEIGHT*0.1);
                      }
                      completion:^(BOOL finished) {
-                         [self onAnimationsEnd];
+                         if (animating) {
+                             [self onAnimationsEnd];
+                         }
                      }];
 }
 
 - (void)onAnimationsEnd {
+    animating = NO;
     [(ThemeDetailViewController *)self.parentViewController openStoriesCollectionView];
 }
 
