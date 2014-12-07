@@ -49,7 +49,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
     [self.books addObject:book9];
     
     //fake book images for now
-    self.bookImages = @[@"bookpurple", @"bookgreen", @"bookblue", @"bookorange"];
+    self.bookImages = @[@"book_cover_Joey_and_Jet_in_Space", @"book_cover_clifford", @"book_cover_roaring_rockets",  @"chipmunk", @"book_cover_look_into_space", @"book_cover_Alice_in_Wonderland",   @"book_cover_the_moon_book"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +73,13 @@ static NSString * const reuseIdentifier = @"StoryCell";
     
     NSString *bookImageName = self.bookImages[indexPath.row % [self.bookImages count]];
     [cell.bookImage setImage:[UIImage imageNamed:bookImageName]];
+//    [cell.bookImage.layer setBorderColor: [[UIColor blackColor] CGColor]];
+//    [cell.bookImage.layer setBorderWidth: 2.0];
+    cell.bookImage.layer.shadowColor = [UIColor grayColor].CGColor;
+    cell.bookImage.layer.shadowOffset = CGSizeMake(2, 2);
+    cell.bookImage.layer.shadowOpacity = 0.5;
+    cell.bookImage.layer.shadowRadius = 2;
+    cell.bookImage.layer.shadowPath = [[UIBezierPath bezierPathWithRect:cell.bookImage.bounds] CGPath];
     return cell;
 }
 
@@ -92,8 +99,11 @@ static NSString * const reuseIdentifier = @"StoryCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    // get temp book images
+    NSString *bookImageName = self.bookImages[indexPath.row % [self.bookImages count]];
+    
     //pass book information
-    [((ThemeDetailViewController *)self.parentViewController)loadBookDetailTitle:@"Tom the Chipmunk and Nature’s Strangers"Author:@"Author: Elijah Alpern" Illustrator:@"Illustrator: Sasha Zamani" BookCover:@"chipmunk" Description:@"This short story brings you on an adventure through the forest. Follow Tom, a chipmunk as he works with his friends to make sense of his world"];
+    [((ThemeDetailViewController *)self.parentViewController)loadBookDetailTitle:@"Tom the Chipmunk and Nature’s Strangers"Author:@"Author: Elijah Alpern" Illustrator:@"Illustrator: Sasha Zamani" BookCover:bookImageName Description:@"This short story brings you on an adventure through the forest. Follow Tom, a chipmunk as he works with his friends to make sense of his world"];
     
     //Open book detail view
     [((ThemeDetailViewController *)self.parentViewController)openBookDetailView];
@@ -116,14 +126,14 @@ static NSString * const reuseIdentifier = @"StoryCell";
 
 #pragma mark – UICollectionViewDelegateFlowLayout
 
-const int BOOK_PADDING = 50; //left and right padding
-const int BOOK_SPACING = 40; //space between books
+const int BOOK_PADDING = 30; //left and right padding
+const int BOOK_SPACING = 30; //space between books
 
 //setting book cell size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     float width = self.view.frame.size.width;
     float bookWidth = width - (BOOK_PADDING * 2);
-    float bookHeight = bookWidth * 1.3;
+    float bookHeight = bookWidth;
     CGSize bookCellSize = CGSizeMake(bookWidth, bookHeight);
     return bookCellSize;
 }
