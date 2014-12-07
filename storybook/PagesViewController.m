@@ -43,15 +43,6 @@
                                  kBorder: @20,
                                  };
     
-    NSDictionary *page1text2 = @{
-                                kText: @"What do you think the two-legged mammals look like?",
-                                kCenter:@[@0.5,@0.1],
-                                kFontSize: @40.0f,
-                                kFontName: @"Fredoka One"
-                                };
-    
-
-    
     DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[page1text1] andImageViews:@[page1background]];
     
     // Page 2 Assets - Story
@@ -73,15 +64,6 @@
     BasePageViewController *normalPageVC = [[BasePageViewController alloc] initWithTextLabels:@[page2text1] andImageViews:@[page2background]];
     
     // Page 3 Assets - Unscramble Word
-    NSDictionary *chipmunk = @{
-                               kImageName: @"chipmunk",
-                               kImageSize:[NSValue valueWithCGSize:CGSizeMake(0.3, 0.4)],
-                               kCenter:@[@0.5,@0.36],
-                               };
-    NSDictionary *paperbackground = @{
-                                      kImageName: @"paperdraw",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
-                                      };
     NSDictionary *page3text = @{
                                 kText: @"What color is Tom?",
                                 kCenter:@[@0.5,@0.1],
@@ -142,9 +124,37 @@
                                  };
     
     BasePageViewController *normalPageVC3 = [[BasePageViewController alloc] initWithTextLabels:@[page5text1] andImageViews:@[page5background]];
-
     
-    // Page 6 Assets - Unscramble Scenes
+    // Page 6 Assets - Story
+    
+    NSDictionary *page6background = @{
+                                      kImageName: @"fifth_page",
+                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      };
+    
+    NSDictionary *page6text1 = @{
+                                 kText: @"Sam the smart squirrel claimed to know what they were,\r"
+                                 @"He heard an old legend from his old uncle Furr.\r"
+                                 @"So Tom asked Sam what his uncle Furr said\r"
+                                 @"He said they were “earthlings whose nature was dead.”",
+                                 kCenter:@[@0.45,@0.15],
+                                 kFontSize: @30.0f,
+                                 kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
+                                 kBorder: @20,
+                                 };
+    
+    NSDictionary *page6text2 = @{
+                                 kText: @"This was all that he knew, the rest he forgot\r"
+                                 @"So Tom asked about Furr, for more info he sought.",
+                                 kCenter:@[@0.55,@0.85],
+                                 kFontSize: @30.0f,
+                                 kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
+                                 kBorder: @20,
+                                 };
+    
+    BasePageViewController *normalPageVC4 = [[BasePageViewController alloc] initWithTextLabels:@[page6text1, page6text2] andImageViews:@[page6background]];
+    
+    // Page 7 Assets - Unscramble Scenes
     NSDictionary *filmstrip = @{
                                 kImageName: @"filmstrip",
                                 kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 0.3)],
@@ -169,18 +179,23 @@
     NSDictionary *scene4 = @{@"imageName":@"fourth_page",
                              @"sentence":@"Tom consults the crew"};
     
-    NSDictionary *scene5 = @{@"imageName":@"character",
-                             @"sentence":@"finally this"};
+    NSDictionary *scene5 = @{@"imageName":@"fifth_page",
+                             @"sentence":@"Tom listens to Sam the squirrel"};
     
     NSArray *scenes = @[scene1, scene2, scene3, scene4, scene5];
+    
+    NSDictionary *paperbackground = @{
+                                      kImageName: @"paperdraw",
+                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      };
     
     UnscramblePageViewController *unscrambleWordsVC2 = [[UnscramblePageViewController alloc] initWithTextLabels:@[page5text]
                                                                                                   andImageViews:@[paperbackground,filmstrip]
                                                                                                       andScenes:scenes];
     
-    self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, normalPageVC3, unscrambleWordsVC2, nil];
+    self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, normalPageVC3, normalPageVC4, unscrambleWordsVC2, nil];
 
-    NSArray *viewControllers = [NSArray arrayWithObjects:drawingPageVC, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:[self.vcs objectAtIndex:0], nil];
     
     [self setViewControllers:viewControllers
                              direction:UIPageViewControllerNavigationDirectionForward
