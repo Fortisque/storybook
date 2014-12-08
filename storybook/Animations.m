@@ -59,14 +59,19 @@
     CGFloat SCREEN_WIDTH = view.frame.size.width;
     CGFloat SCREEN_HEIGHT = view.frame.size.height;
     
-    UILabel *congrats = [[UILabel alloc] init];
+    /*UILabel *congrats = [[UILabel alloc] init];
     congrats.text = @"HOORAY!!";
     congrats.textAlignment = NSTextAlignmentCenter;
     congrats.font = [UIFont fontWithName:@"Fredoka One" size:100.0f];
     congrats.textColor = [UIColor whiteColor];
     
     [Helper reassignFrameSizeToMinimumEnclosingSize:congrats];
+    congrats.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT * .9f);*/
+    
+    UIImageView *congrats = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"HOORAY"]];
+    congrats.frame = CGRectMake(0, 0, SCREEN_WIDTH/2, 200);
     congrats.center = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT * .9f);
+    
     
     POPSpringAnimation *scaleUp = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleUp.fromValue  = [NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)];
