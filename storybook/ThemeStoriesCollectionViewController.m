@@ -103,7 +103,7 @@ static NSString * const reuseIdentifier = @"StoryCell";
     NSString *bookImageName = self.bookImages[indexPath.row % [self.bookImages count]];
     
     //pass book information
-    [((ThemeDetailViewController *)self.parentViewController)loadBookDetailTitle:@"Tom the Chipmunk and Nature’s Strangers"Author:@"Author: Elijah Alpern" Illustrator:@"Illustrator: Sasha Zamani" BookCover:bookImageName Description:@"This short story brings you on an adventure through the forest. Follow Tom, a chipmunk as he works with his friends to make sense of his world"];
+    [((ThemeDetailViewController *)self.parentViewController)loadBookDetailTitle:@"Tom the Chipmunk and Nature’s Strangers"Author:@"Author: Elijah Alpern" Illustrator:@"Illustrator: Sasha Zamani" BookCover:bookImageName Description:@"This short story brings you on an adventure through the forest. Follow Tom, a chipmunk, as he works with his friends to make sense of new creatures seen in the forest."];
     
     //Open book detail view
     [((ThemeDetailViewController *)self.parentViewController)openBookDetailView];

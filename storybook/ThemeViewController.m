@@ -53,7 +53,6 @@ BOOL animating;
         [self bringToFinalPositions];
         
         [self onAnimationsEnd];
-        NSLog(@"animations halted");
     } else {
         [(ThemeDetailViewController *)self.parentViewController closeBookDetailView];
     }
@@ -67,6 +66,10 @@ BOOL animating;
     self.earth.hidden = NO;
     self.earth.transform = CGAffineTransformMakeScale(1.0, 1.0);
     self.earth.center = self.view.center;
+    
+    self.kid.hidden = NO;
+    self.kid.frame = CGRectMake(0,0,SCREEN_HEIGHT*0.3,SCREEN_HEIGHT*0.3);
+    self.kid.center = CGPointMake(SCREEN_WIDTH*0.32,SCREEN_HEIGHT*0.645);
     
     self.pluto.hidden = NO;
     self.saturn.hidden = NO;
@@ -130,8 +133,6 @@ BOOL animating;
                          self.alien.center = CGPointMake(self.alien.center.x,SCREEN_HEIGHT*0.25);
                      }
                      completion:^(BOOL finished) {
-                         NSLog(@"%hhd", animating);
-                         NSLog(@"%hhd", finished);
                          if (animating) {
                              [self kidPopOutAnimations];
                          }
@@ -139,7 +140,6 @@ BOOL animating;
 }
 
 - (void)kidPopOutAnimations {
-    NSLog(@"kid started");
     CGFloat SCREEN_WIDTH = self.view.frame.size.width;
     CGFloat SCREEN_HEIGHT = self.view.frame.size.height;
     

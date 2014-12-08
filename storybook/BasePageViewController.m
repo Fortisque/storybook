@@ -70,7 +70,6 @@ CGRect screenRect;
             CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
             CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
             imageView.center = CGPointMake(x, y);
-            NSLog(@"%f, %f", x, y);
         }
         
         [_imageViews addObject:imageView];
@@ -112,7 +111,6 @@ CGRect screenRect;
             CGFloat x = [centerValue[0] floatValue] * SCREEN_WIDTH;
             CGFloat y = [centerValue[1] floatValue] * SCREEN_HEIGHT;
             textLabel.center = CGPointMake(x, y);
-            NSLog(@"%f, %f", x, y);
         }
         
         if (textAlignment != NULL) {
