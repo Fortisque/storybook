@@ -75,7 +75,7 @@
     
     UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[page3text]
                                                                                                   andImageViews:@[page2background]
-                                                                                                        andWord:@"BROWN"];
+                                                                                                        andWord:@"ORANGE"];
     
     // Page 4 Assets - Story
     NSDictionary *page4background = @{
