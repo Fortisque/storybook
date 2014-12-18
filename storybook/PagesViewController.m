@@ -12,9 +12,11 @@
 #import "DrawingPageViewController.h"
 #import "UnscramblePageViewController.h"
 #import "DrawingPrompterViewController.h"
+#import <BuiltIO/BuiltIO.h>
 
 @interface PagesViewController ()
 @property (nonatomic, strong) NSArray *vcs;
+@property (nonatomic, strong) NSDictionary *jsonData;
 @end
 
 @implementation PagesViewController
@@ -27,6 +29,32 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
+    BuiltQuery *storyQuery = [BuiltQuery queryWithClassUID:@"story"];
+    [storyQuery whereKey:@"title" equalTo:@"Test"];
+    
+    BuiltQuery *pagesQuery = [BuiltQuery queryWithClassUID:@"page"];
+    [pagesQuery inQuery:storyQuery forKey:@"story"];
+    
+    [pagesQuery exec:^(QueryResult *result, ResponseType type) {
+        // the query has executed successfully.
+        // [result getResult] will contain a list of objects that satisfy the conditions
+        // here's the object we just created
+        BuiltObject *page = [[result getResult] objectAtIndex:0];
+        NSString *stringData = [page objectForKey:@"data"];
+        
+        _jsonData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
+                                                                 options: NSJSONReadingMutableContainers
+                                                                   error: NULL];
+        
+        [self loadPages];
+    } onError:^(NSError *error, ResponseType type) {
+        // query execution failed.
+        // error.userinfo contains more details regarding the same
+        NSLog(@"%@", error.userInfo);
+    }];
+}
+
+- (void)loadPages {
     // Page 1 Assets - Draw
     NSDictionary *page1background = @{
                                       kImageName: @"first_page",
@@ -42,6 +70,8 @@
                                  kTextBackgroundColor: [Helper colorWithHexString:@"FFFFFF" andAlpha:0.8],
                                  kBorder: @20,
                                  };
+    
+    page1text1 = [[_jsonData objectForKey:@"text_labels"] objectAtIndex:0];
     
     DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[page1text1] andImageViews:@[page1background]];
     
@@ -74,15 +104,15 @@
                                 };
     
     UnscramblePageViewController *unscrambleWordsVC = [[UnscramblePageViewController alloc] initWithTextLabels:@[page3text]
-                                                                                                  andImageViews:@[page2background]
-                                                                                                        andWord:@"ORANGE"];
+                                                                                                 andImageViews:@[page2background]
+                                                                                                       andWord:@"ORANGE"];
     
     // Page 4 Assets - Story
     NSDictionary *page4background = @{
                                       kImageName: @"third_page",
                                       kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
                                       };
-
+    
     
     NSDictionary *page4text1 = @{
                                  kText: @"They rustled through brush as if in a rush,\r"
@@ -161,11 +191,11 @@
                                 kCenter:@[@0.5,@0.25],
                                 };
     NSDictionary *page5text = @{
-                            kText: @"Summarize the story",
-                            kCenter:@[@0.5,@0.05],
-                            kFontSize: @50.0f,
-                            kFontName: @"Fredoka One"
-                            };
+                                kText: @"Summarize the story",
+                                kCenter:@[@0.5,@0.05],
+                                kFontSize: @50.0f,
+                                kFontName: @"Fredoka One"
+                                };
     
     NSDictionary *scene1 = @{@"imageName":@"first_page",
                              @"sentence":@"Tom discovers the mammals"};
@@ -194,13 +224,13 @@
                                                                                                       andScenes:scenes];
     
     self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, normalPageVC3, normalPageVC4, unscrambleWordsVC2, nil];
-
+    
     NSArray *viewControllers = [NSArray arrayWithObjects:[self.vcs objectAtIndex:0], nil];
     
     [self setViewControllers:viewControllers
-                             direction:UIPageViewControllerNavigationDirectionForward
-                              animated:NO
-                            completion:nil];
+                   direction:UIPageViewControllerNavigationDirectionForward
+                    animated:NO
+                  completion:nil];
     
     self.dataSource = self;
 }
