@@ -21,6 +21,8 @@ extern NSString *kTag;
 extern NSString *kText;
 extern NSString *kTextAlignment;
 extern NSString *kTextBackgroundColor;
+extern NSString *kTextBackgroundHex;
+extern NSString *kTextBackgroundAlpha;
 extern NSString *kTextColor;
 
 

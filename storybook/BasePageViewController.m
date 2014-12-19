@@ -57,10 +57,10 @@ CGRect screenRect;
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
         NSArray *centerValue = [imageDict objectForKey:kCenter];
-        NSValue *imageSize = [imageDict objectForKey:kImageSize];
+        NSArray *imageSize = [imageDict objectForKey:kImageSize];
         
         if (imageSize) {
-            imageView.frame = CGRectMake(0, 0, [imageSize CGSizeValue].width * SCREEN_WIDTH, [imageSize CGSizeValue].height * SCREEN_HEIGHT);
+            imageView.frame = CGRectMake(0, 0, [imageSize[0] floatValue] * SCREEN_WIDTH, [imageSize[1] floatValue] * SCREEN_HEIGHT);
         } else {
             imageView.frame = CGRectMake(0, 0, 200, 200);
         }
@@ -89,6 +89,8 @@ CGRect screenRect;
         NSNumber *fontSize = [textDict objectForKey:kFontSize];
         NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
         UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
+        NSString *textBackgroundHex = [textDict objectForKey:kTextBackgroundHex];
+        NSNumber *textBackgroundAlpha = [textDict objectForKey:kTextBackgroundAlpha];
         UIColor *textColor = [textDict objectForKey:kTextColor];
         NSNumber *border = [textDict objectForKey:kBorder];
         NSArray *centerValue = [textDict objectForKey:kCenter];
@@ -133,7 +135,15 @@ CGRect screenRect;
             textLabel.backgroundColor = textBackgroundColor;
         }
         
-        textLabel.numberOfLines = 0;
+        if(textBackgroundHex != NULL) {
+            if (textBackgroundAlpha != NULL) {
+                textLabel.backgroundColor = [Helper colorWithHexString:textBackgroundHex andAlpha:[textBackgroundAlpha floatValue]];
+            } else {
+                textLabel.backgroundColor = [Helper colorWithHexString:textBackgroundHex];
+            }
+        }
+        
+        textLabel.numberOfLines = 0; // infinite potential lines
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
         tapGestureRecognizer.numberOfTapsRequired = 1;
         [textLabel addGestureRecognizer:tapGestureRecognizer];

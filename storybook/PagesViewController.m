@@ -16,7 +16,7 @@
 
 @interface PagesViewController ()
 @property (nonatomic, strong) NSArray *vcs;
-@property (nonatomic, strong) NSDictionary *jsonData;
+@property (nonatomic, strong) NSDictionary *jsonFirstPageData;
 @end
 
 @implementation PagesViewController
@@ -42,7 +42,7 @@
         BuiltObject *page = [[result getResult] objectAtIndex:0];
         NSString *stringData = [page objectForKey:@"data"];
         
-        _jsonData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
+        _jsonFirstPageData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
                                                                  options: NSJSONReadingMutableContainers
                                                                    error: NULL];
         
@@ -58,7 +58,7 @@
     // Page 1 Assets - Draw
     NSDictionary *page1background = @{
                                       kImageName: @"first_page",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      kImageSize:@[@1,@1]
                                       };
     NSDictionary *page1text1 = @{
                                  kText: @"Down in the meadow where animals flocked.\r"
@@ -71,14 +71,18 @@
                                  kBorder: @20,
                                  };
     
-    page1text1 = [[_jsonData objectForKey:@"text_labels"] objectAtIndex:0];
+    NSArray *textLabels = [_jsonFirstPageData objectForKey:@"text_labels"];
     
-    DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[page1text1] andImageViews:@[page1background]];
+    NSString *className = [_jsonFirstPageData objectForKey:@"type"];
+    Class class = NSClassFromString(className);
+    BasePageViewController *drawingPageVC = [[class alloc] initWithTextLabels:textLabels andImageViews:@[page1background]];
+    
+    //DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[page1text1] andImageViews:@[page1background]];
     
     // Page 2 Assets - Story
     NSDictionary *page2background = @{
                                       kImageName: @"second_page",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      kImageSize:@[@1,@1],
                                       };
     NSDictionary *page2text1 = @{
                                  kText: @"He slid down the tree right down to the ground.\r"
@@ -110,7 +114,7 @@
     // Page 4 Assets - Story
     NSDictionary *page4background = @{
                                       kImageName: @"third_page",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      kImageSize:@[@1,@1],
                                       };
     
     
@@ -139,7 +143,7 @@
     // Page 5 Assets - Story
     NSDictionary *page5background = @{
                                       kImageName: @"fourth_page",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      kImageSize:@[@1,@1],
                                       };
     
     NSDictionary *page5text1 = @{
@@ -159,7 +163,7 @@
     
     NSDictionary *page6background = @{
                                       kImageName: @"fifth_page",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      kImageSize:@[@1,@1],
                                       };
     
     NSDictionary *page6text1 = @{
@@ -187,7 +191,7 @@
     // Page 7 Assets - Unscramble Scenes
     NSDictionary *filmstrip = @{
                                 kImageName: @"filmstrip",
-                                kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 0.3)],
+                                kImageSize:@[@1,@0.3],
                                 kCenter:@[@0.5,@0.25],
                                 };
     NSDictionary *page5text = @{
@@ -216,7 +220,7 @@
     
     NSDictionary *paperbackground = @{
                                       kImageName: @"paperdraw",
-                                      kImageSize:[NSValue valueWithCGSize:CGSizeMake(1, 1)],
+                                      kImageSize:@[@1,@1],
                                       };
     
     UnscramblePageViewController *unscrambleWordsVC2 = [[UnscramblePageViewController alloc] initWithTextLabels:@[page5text]
