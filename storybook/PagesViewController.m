@@ -15,8 +15,8 @@
 #import <BuiltIO/BuiltIO.h>
 
 @interface PagesViewController ()
-@property (nonatomic, strong) NSArray *vcs;
-@property (nonatomic, strong) NSDictionary *jsonFirstPageData;
+@property (nonatomic, strong) NSMutableArray *vcs;
+@property (nonatomic, strong) NSArray *pages;
 @end
 
 @implementation PagesViewController
@@ -34,27 +34,60 @@
     
     BuiltQuery *pagesQuery = [BuiltQuery queryWithClassUID:@"page"];
     [pagesQuery inQuery:storyQuery forKey:@"story"];
+    [pagesQuery orderByAscending:@"number"];
+    
+    self.vcs = [NSMutableArray array];
     
     [pagesQuery exec:^(QueryResult *result, ResponseType type) {
         // the query has executed successfully.
         // [result getResult] will contain a list of objects that satisfy the conditions
         // here's the object we just created
-        BuiltObject *page = [[result getResult] objectAtIndex:0];
-        NSString *stringData = [page objectForKey:@"data"];
+        _pages = [result getResult];
+        NSString *stringData;
+        NSDictionary *jsonPageData;
+        BasePageViewController *tmpVC;
         
-        _jsonFirstPageData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
-                                                                 options: NSJSONReadingMutableContainers
-                                                                   error: NULL];
+        for (NSDictionary *page in _pages) {
+            stringData = [page objectForKey:@"data"];
+            jsonPageData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
+                                                           options: NSJSONReadingMutableContainers
+                                                             error: NULL];
+            
+            NSArray *textLabels = [jsonPageData objectForKey:@"text_labels"];
+            NSArray *imageLabels = [jsonPageData objectForKey:@"image_labels"];
+            
+            NSString *className = [jsonPageData objectForKey:@"type"];
+            NSString *word = [jsonPageData objectForKey:@"word"];
+            NSArray *scenes = [jsonPageData objectForKey:@"scenes"];
+            Class class = NSClassFromString(className);
+            if (word != NULL){
+                tmpVC = [[class alloc] initWithTextLabels:textLabels andImageViews:imageLabels andWord:word];
+            } else if (scenes != NULL) {
+                tmpVC = [[class alloc] initWithTextLabels:textLabels andImageViews:imageLabels andScenes:scenes];
+            } else {
+                tmpVC = [[class alloc] initWithTextLabels:textLabels andImageViews:imageLabels];
+            }
+            
+            [self.vcs addObject:tmpVC];
+        }
         
-        [self loadPages];
+        NSArray *viewControllers = [NSArray arrayWithObjects:[self.vcs objectAtIndex:0], nil];
+        
+        [self setViewControllers:viewControllers
+                       direction:UIPageViewControllerNavigationDirectionForward
+                        animated:NO
+                      completion:nil];
+        
+        self.dataSource = self;
     } onError:^(NSError *error, ResponseType type) {
         // query execution failed.
         // error.userinfo contains more details regarding the same
         NSLog(@"%@", error.userInfo);
+        [self loadHardCodedPages];
     }];
 }
 
-- (void)loadPages {
+- (void)loadHardCodedPages {
     // Page 1 Assets - Draw
     NSDictionary *page1background = @{
                                       kImageName: @"first_page",
@@ -71,13 +104,7 @@
                                  kBorder: @20,
                                  };
     
-    NSArray *textLabels = [_jsonFirstPageData objectForKey:@"text_labels"];
-    
-    NSString *className = [_jsonFirstPageData objectForKey:@"type"];
-    Class class = NSClassFromString(className);
-    BasePageViewController *drawingPageVC = [[class alloc] initWithTextLabels:textLabels andImageViews:@[page1background]];
-    
-    //DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[page1text1] andImageViews:@[page1background]];
+    DrawingPrompterViewController *drawingPageVC = [[DrawingPrompterViewController alloc] initWithTextLabels:@[page1text1] andImageViews:@[page1background]];
     
     // Page 2 Assets - Story
     NSDictionary *page2background = @{
@@ -227,7 +254,7 @@
                                                                                                   andImageViews:@[paperbackground,filmstrip]
                                                                                                       andScenes:scenes];
     
-    self.vcs = [NSArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, normalPageVC3, normalPageVC4, unscrambleWordsVC2, nil];
+    self.vcs = [NSMutableArray arrayWithObjects:drawingPageVC, normalPageVC, unscrambleWordsVC, normalPageVC2, normalPageVC3, normalPageVC4, unscrambleWordsVC2, nil];
     
     NSArray *viewControllers = [NSArray arrayWithObjects:[self.vcs objectAtIndex:0], nil];
     
