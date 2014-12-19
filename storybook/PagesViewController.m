@@ -32,6 +32,7 @@
     BuiltQuery *storyQuery = [BuiltQuery queryWithClassUID:@"story"];
     [storyQuery whereKey:@"title" equalTo:self.title];
     
+    // Uncomment to print out assets for the story
 //    [storyQuery exec:^(QueryResult *result, ResponseType type) {
 //        NSLog(@"%@", [[[result getResult] objectAtIndex:0] objectForKey:@"assets"]);
 //    } onError:^(NSError *error, ResponseType type) {
@@ -64,9 +65,7 @@
             stringData = [page objectForKey:@"data"];
             jsonPageData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
                                                            options: NSJSONReadingMutableContainers
-                                                             error: NULL];
-            NSLog(@"%@", jsonPageData);
-            
+                                                             error: NULL];            
             
             NSArray *textLabels = [jsonPageData objectForKey:@"text_labels"];
             NSArray *imageLabels = [jsonPageData objectForKey:@"image_labels"];

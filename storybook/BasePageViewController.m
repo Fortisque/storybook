@@ -74,7 +74,6 @@ CGRect screenRect;
                     [imageView setImage:[UIImage imageWithData:data]];
                 });
             });
-
         }
         NSArray *centerValue = [imageDict objectForKey:kCenter];
         NSArray *imageSize = [imageDict objectForKey:kImageSize];
