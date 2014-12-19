@@ -30,7 +30,7 @@
     }
     
     BuiltQuery *storyQuery = [BuiltQuery queryWithClassUID:@"story"];
-    [storyQuery whereKey:@"title" equalTo:@"Test"];
+    [storyQuery whereKey:@"title" equalTo:self.title];
     
     BuiltQuery *pagesQuery = [BuiltQuery queryWithClassUID:@"page"];
     [pagesQuery inQuery:storyQuery forKey:@"story"];
@@ -43,6 +43,11 @@
         // [result getResult] will contain a list of objects that satisfy the conditions
         // here's the object we just created
         _pages = [result getResult];
+        if ([_pages count] == 0) {
+            [[self navigationController] popViewControllerAnimated:YES];
+            NSLog(@"Can't find that book");
+            return;
+        }
         NSString *stringData;
         NSDictionary *jsonPageData;
         BasePageViewController *tmpVC;
@@ -83,7 +88,6 @@
         // query execution failed.
         // error.userinfo contains more details regarding the same
         NSLog(@"%@", error.userInfo);
-        [self loadHardCodedPages];
     }];
 }
 
