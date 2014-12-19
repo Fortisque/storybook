@@ -32,6 +32,14 @@
     BuiltQuery *storyQuery = [BuiltQuery queryWithClassUID:@"story"];
     [storyQuery whereKey:@"title" equalTo:self.title];
     
+//    [storyQuery exec:^(QueryResult *result, ResponseType type) {
+//        NSLog(@"%@", [[[result getResult] objectAtIndex:0] objectForKey:@"assets"]);
+//    } onError:^(NSError *error, ResponseType type) {
+//        // query execution failed.
+//        // error.userinfo contains more details regarding the same
+//        NSLog(@"%@", error.userInfo);
+//    }];
+    
     BuiltQuery *pagesQuery = [BuiltQuery queryWithClassUID:@"page"];
     [pagesQuery inQuery:storyQuery forKey:@"story"];
     [pagesQuery orderByAscending:@"number"];
@@ -57,6 +65,8 @@
             jsonPageData = [NSJSONSerialization JSONObjectWithData: [stringData dataUsingEncoding:NSUTF8StringEncoding]
                                                            options: NSJSONReadingMutableContainers
                                                              error: NULL];
+            NSLog(@"%@", jsonPageData);
+            
             
             NSArray *textLabels = [jsonPageData objectForKey:@"text_labels"];
             NSArray *imageLabels = [jsonPageData objectForKey:@"image_labels"];

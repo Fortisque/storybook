@@ -15,6 +15,7 @@ NSString *kFontName = @"fontName";
 NSString *kFontSize = @"fontSize";
 NSString *kFrame = @"frame";
 NSString *kImageName = @"imageName";
+NSString *kImageURL = @"imageURL";
 NSString *kImageSize = @"imageSize";
 NSString *kStoryProgress = @"storyProgress";
 NSString *kTag = @"taga";

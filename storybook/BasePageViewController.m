@@ -55,7 +55,27 @@ CGRect screenRect;
     for (int i = 0; i < [imageViews count]; i++) {
         NSDictionary *imageDict = [imageViews objectAtIndex:i];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
+        NSString *imageName = [imageDict objectForKey:kImageName];
+        UIImageView *imageView;
+        
+        if (imageName != NULL) {
+            imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
+        } else {
+            imageView = [[UIImageView alloc] init];
+        }
+        
+        NSString *imageURL = [imageDict objectForKey:kImageURL];
+        if (imageURL != NULL) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                
+                //set your image on main thread.
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [imageView setImage:[UIImage imageWithData:data]];
+                });
+            });
+
+        }
         NSArray *centerValue = [imageDict objectForKey:kCenter];
         NSArray *imageSize = [imageDict objectForKey:kImageSize];
         

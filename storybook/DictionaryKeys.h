@@ -15,6 +15,7 @@ extern NSString *kFontName;
 extern NSString *kFontSize;
 extern NSString *kFrame;
 extern NSString *kImageName;
+extern NSString *kImageURL;
 extern NSString *kImageSize;
 extern NSString *kStoryProgress;
 extern NSString *kTag;
