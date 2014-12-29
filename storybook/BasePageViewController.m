@@ -55,12 +55,31 @@ CGRect screenRect;
     for (int i = 0; i < [imageViews count]; i++) {
         NSDictionary *imageDict = [imageViews objectAtIndex:i];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
+        NSString *imageName = [imageDict objectForKey:kImageName];
+        UIImageView *imageView;
+        
+        if (imageName != NULL) {
+            imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[imageDict objectForKey:kImageName]]];
+        } else {
+            imageView = [[UIImageView alloc] init];
+        }
+        
+        NSString *imageURL = [imageDict objectForKey:kImageURL];
+        if (imageURL != NULL) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                
+                //set your image on main thread.
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [imageView setImage:[UIImage imageWithData:data]];
+                });
+            });
+        }
         NSArray *centerValue = [imageDict objectForKey:kCenter];
-        NSValue *imageSize = [imageDict objectForKey:kImageSize];
+        NSArray *imageSize = [imageDict objectForKey:kImageSize];
         
         if (imageSize) {
-            imageView.frame = CGRectMake(0, 0, [imageSize CGSizeValue].width * SCREEN_WIDTH, [imageSize CGSizeValue].height * SCREEN_HEIGHT);
+            imageView.frame = CGRectMake(0, 0, [imageSize[0] floatValue] * SCREEN_WIDTH, [imageSize[1] floatValue] * SCREEN_HEIGHT);
         } else {
             imageView.frame = CGRectMake(0, 0, 200, 200);
         }
@@ -89,6 +108,8 @@ CGRect screenRect;
         NSNumber *fontSize = [textDict objectForKey:kFontSize];
         NSNumber *textAlignment = [textDict objectForKey:kTextAlignment];
         UIColor *textBackgroundColor = [textDict objectForKey:kTextBackgroundColor];
+        NSString *textBackgroundHex = [textDict objectForKey:kTextBackgroundHex];
+        NSNumber *textBackgroundAlpha = [textDict objectForKey:kTextBackgroundAlpha];
         UIColor *textColor = [textDict objectForKey:kTextColor];
         NSNumber *border = [textDict objectForKey:kBorder];
         NSArray *centerValue = [textDict objectForKey:kCenter];
@@ -133,7 +154,15 @@ CGRect screenRect;
             textLabel.backgroundColor = textBackgroundColor;
         }
         
-        textLabel.numberOfLines = 0;
+        if(textBackgroundHex != NULL) {
+            if (textBackgroundAlpha != NULL) {
+                textLabel.backgroundColor = [Helper colorWithHexString:textBackgroundHex andAlpha:[textBackgroundAlpha floatValue]];
+            } else {
+                textLabel.backgroundColor = [Helper colorWithHexString:textBackgroundHex];
+            }
+        }
+        
+        textLabel.numberOfLines = 0; // infinite potential lines
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
         tapGestureRecognizer.numberOfTapsRequired = 1;
         [textLabel addGestureRecognizer:tapGestureRecognizer];

@@ -32,7 +32,7 @@
         
         // initilize all your UIView components
         NSString *letter = [properties objectForKey:@"letter"];
-        NSString *imageName = [properties objectForKey:kImageName];
+        NSString *imageURL = [properties objectForKey:kImageURL];
         NSString *sentence = [properties objectForKey:@"sentence"];
 
         
@@ -46,11 +46,17 @@
             [self addSubview:_letterLabel];
         }
         
-        if (imageName) {
+        if (imageURL) {
             _imageView = [[UIImageView alloc]initWithFrame:frame];
-            _imageView.image = [UIImage imageNamed:imageName];
             [self addSubview:_imageView];
-
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                
+                //set your image on main thread.
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_imageView setImage:[UIImage imageWithData:data]];
+                });
+            });
         }
         
         if (sentence) {

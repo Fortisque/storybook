@@ -230,7 +230,7 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
     NSDictionary *scene1 = [copy objectAtIndex:0];
     NSDictionary *properties1 = @{
                                  kFrame:frame,
-                                 kImageName:[scene1 objectForKey:kImageName],
+                                 kImageURL:[scene1 objectForKey:kImageURL],
                                  @"sentence":[scene1 objectForKey:@"sentence"],
                                  kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionTop, SCREEN_HEIGHT*0.56)],
                                  kTag:[NSNumber numberWithInt:TILE_TAG]
@@ -241,7 +241,7 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
     NSDictionary *scene2 = [copy objectAtIndex:1];
     NSDictionary *properties2 = @{
                                   kFrame:frame,
-                                  kImageName:[scene2 objectForKey:kImageName],
+                                  kImageURL:[scene2 objectForKey:kImageURL],
                                   @"sentence":[scene2 objectForKey:@"sentence"],
                                   kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionTop + spaceForTopRow, SCREEN_HEIGHT*0.56)],
                                   kTag:[NSNumber numberWithInt:TILE_TAG]
@@ -252,7 +252,7 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
     NSDictionary *scene3 = [copy objectAtIndex:2];
     NSDictionary *properties3 = @{
                                   kFrame:frame,
-                                  kImageName:[scene3 objectForKey:kImageName],
+                                  kImageURL:[scene3 objectForKey:kImageURL],
                                   @"sentence":[scene3 objectForKey:@"sentence"],
                                   kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionTop + 2 * spaceForTopRow, SCREEN_HEIGHT*0.56)],
                                   kTag:[NSNumber numberWithInt:TILE_TAG]
@@ -263,7 +263,7 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
     NSDictionary *scene4 = [copy objectAtIndex:3];
     NSDictionary *properties4 = @{
                                   kFrame:frame,
-                                  kImageName:[scene4 objectForKey:kImageName],
+                                  kImageURL:[scene4 objectForKey:kImageURL],
                                   @"sentence":[scene4 objectForKey:@"sentence"],
                                   kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionBottom, SCREEN_HEIGHT*0.85)],
                                   kTag:[NSNumber numberWithInt:TILE_TAG]
@@ -274,7 +274,7 @@ CGFloat SCREEN_WIDTH, SCREEN_HEIGHT;
     NSDictionary *scene5 = [copy objectAtIndex:4];
     NSDictionary *properties5 = @{
                                   kFrame:frame,
-                                  kImageName:[scene5 objectForKey:kImageName],
+                                  kImageURL:[scene5 objectForKey:kImageURL],
                                   @"sentence":[scene5 objectForKey:@"sentence"],
                                   kCenter:[NSValue valueWithCGPoint:CGPointMake(startingPositionBottom + spaceForBottomRow, SCREEN_HEIGHT*0.85)],
                                   kTag:[NSNumber numberWithInt:TILE_TAG]

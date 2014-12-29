@@ -15,12 +15,15 @@ extern NSString *kFontName;
 extern NSString *kFontSize;
 extern NSString *kFrame;
 extern NSString *kImageName;
+extern NSString *kImageURL;
 extern NSString *kImageSize;
 extern NSString *kStoryProgress;
 extern NSString *kTag;
 extern NSString *kText;
 extern NSString *kTextAlignment;
 extern NSString *kTextBackgroundColor;
+extern NSString *kTextBackgroundHex;
+extern NSString *kTextBackgroundAlpha;
 extern NSString *kTextColor;
 
 

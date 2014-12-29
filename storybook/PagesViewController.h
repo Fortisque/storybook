@@ -10,4 +10,6 @@
 
 @interface PagesViewController : UIPageViewController <UIPageViewControllerDataSource>
 
+@property (nonatomic, strong) NSString *title;
+
 @end
