@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="storybubbles">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body>
+    <div ng-controller="ThemeController as tc">
+      <div ng-repeat="theme in tc.themes">
+        <div ng-show="theme.available">
+          <h1> {{theme.name}} </h1>
+          <h2> {{theme.price | currency}} </h2>
+          <p> {{theme.description}} </p>
+          <button ng-show="theme.canPurchase"> Add to Cart </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
